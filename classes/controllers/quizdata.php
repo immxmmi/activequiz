@@ -206,12 +206,8 @@ class quizdata {
                     $this->session->set_status('reviewing');
                     // get the current question results
                     $responses = $this->session->get_question_results();
-<<<<<<< HEAD
-                    echo"<script>console_log('a string');</script>";
-=======
-                    echo"<script>console.log(Test: ".$responses.")</script>";
+            
 
->>>>>>> 3292a74dbb64c69f8f2120544602149997413165
                     $this->jsonlib->set('responses', $responses);
                     $this->jsonlib->set('status', 'success');
                     $this->jsonlib->set('qtype', $this->RTQ->get_questionmanager()->get_questiontype_byqnum($this->session->get_session()->currentqnum));
