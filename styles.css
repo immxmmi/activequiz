@@ -260,6 +260,7 @@
 }
 
 #quizview .hidden{
+    background-color: #00d9ff;
     display: none;
     visibility: hidden;
 }

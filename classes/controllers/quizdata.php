@@ -212,11 +212,6 @@ class quizdata {
                     $this->jsonlib->set('qtype', $this->RTQ->get_questionmanager()->get_questiontype_byqnum($this->session->get_session()->currentqnum));
                     $this->jsonlib->send_response();
 
-                    system.out.println($responses)
-                    echo "<script>console.log('Debug Objects 13.05.2022: " . $responses . "' );</script>";
-
-                    
-
                 } else {
                     $this->jsonlib->send_error('invalidaction');
                 }
