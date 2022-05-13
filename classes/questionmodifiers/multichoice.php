@@ -64,7 +64,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
-
+        
         $dbanswers = array();
 
 
@@ -119,7 +119,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      *
      */
     protected function update_answers_single(&$answers, $qa, $questiondef) {
-
 
         // get the latest step that has an answer
         $lastanswerstep = $qa->get_last_step_with_qt_var('answer');
