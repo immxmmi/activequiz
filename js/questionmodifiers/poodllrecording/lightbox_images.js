@@ -17,6 +17,7 @@ activequiz.questionmodifiers.poodllrecording.lightbox_images = function () {
 
     // get all answer elements (most of which contain the images for the poodll question type
     var answers = document.getElementsByClassName('answer');
+    console.log(answers)
 
     var imgCount = 1;
 
