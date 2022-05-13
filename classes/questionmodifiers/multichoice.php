@@ -60,7 +60,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
     public function modify_questionresults_duringquiz($question, $attempts, $output) {
         global $DB;
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+      //  echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
