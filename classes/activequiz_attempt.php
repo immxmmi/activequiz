@@ -371,7 +371,6 @@ class activequiz_attempt {
      * @return array
      */
     public function get_questions() {
-        echo$this->questionmanager->get_questions()[0];
         return $this->questionmanager->get_questions();
     }
 
@@ -623,10 +622,13 @@ class activequiz_attempt {
     public function summarize_response($slot) {
         global $PAGE;
 
-        $questionattempt = $this->quba->get_question_attempt($slot);
-        $question = $this->quba->get_question($slot);
 
+        $questionattempt = $this->quba->get_question_attempt($slot);
+        echo $questionattempt;
+        $question = $this->quba->get_question($slot);
+        echo $question;
         $rtqQuestion = $this->get_question_by_slot($slot);
+        echo $rtqQuestion;
 
         // use the renderer to display just the question text area, but in read only mode
         // basically how the quiz module does it, but we're being much more specific in the output
