@@ -196,10 +196,10 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      */
     protected function add_chart($output, $xaxis, $answers) {
 
-        echo "<script>console.log('Debug Objects: Test ' );</script>";
         $totalanswers = 0;
         foreach ($answers as $answercount) {
             $totalanswers = $totalanswers + $answercount;
+            echo "<script>console.log('Debug Objects: Test ' );</script>";
         }
 
         // now set up chart vars to be then put into javascript
