@@ -572,6 +572,7 @@ class activequiz_session {
      * @param \mod_activequiz\activequiz_attempt $attempt
      */
     public function set_open_attempt($attempt) {
+        echo $this->openAttempt;
         $this->openAttempt = $attempt;
 
     }
