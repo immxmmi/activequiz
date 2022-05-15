@@ -371,7 +371,7 @@ class activequiz_attempt {
      * @return array
      */
     public function get_questions() {
-        echo"Hello";
+        echo"$this->questionmanager->get_questions() _____________________/n";
         return $this->questionmanager->get_questions();
     }
 
