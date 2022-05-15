@@ -337,8 +337,6 @@ class activequiz_session {
         // next load all active attempts
         $attempts = $this->getall_open_attempts(false);
 
-        echo $attempts;
-
         $totalresponsesummary = '';
         $responded = 0;
         foreach ($attempts as $attempt) {
