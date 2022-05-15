@@ -69,7 +69,6 @@ class activequiz_question {
      * @param object $question
      */
     public function __construct($rtqqid, $notime, $questiontime, $tries, $points, $showhistoryduringquiz, $question) {
-        echo "<script>console.log('Debug Objects: Test ' );</script>";
         $this->id = $rtqqid;
         $this->notime = $notime;
         $this->questiontime = $questiontime;
