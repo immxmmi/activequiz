@@ -62,6 +62,9 @@ class poodllrecording implements \mod_activequiz\questionmodifiers\ibasequestion
      */
     public function modify_questionresults_duringquiz($question, $attempts, $output) {
         global $DB;
+        echo "<script>console.log('Debug Objects: Test ' );</script>";
+
+
 
         // if no attempts just return the output
         if (empty($attempts)) {
