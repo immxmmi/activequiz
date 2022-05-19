@@ -43,13 +43,13 @@ require_once("lib.php");
 
 
 $id = required_param('id', PARAM_INT);   // course
-echo $id;
+if (!$course = $DB->get_record('course', array('id' => $id))) {
+    error("Course ID is incorrect");
+}
 
-//
-//if (!$course = $DB->get_record('course', array('id' => $id))) {
-//    error("Course ID is incorrect");
-//}
-//
+echo "hello";
+
+
 //// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
 //$PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course->id)));
 //require_course_login($course);
