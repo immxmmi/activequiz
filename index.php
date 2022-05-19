@@ -46,19 +46,23 @@ if (!$course = $DB->get_record('course', array('id' => $id))) {
     error("Course ID is incorrect");
 }
 
+// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
 $PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course->id)));
-echo "<script>console.log('hello')</script>";
 require_course_login($course);
 $PAGE->set_pagelayout('incourse');
 
 
-/// Get all required strings
 
+/// Get all required strings
 $stractivequizzes = get_string("modulenameplural", "activequiz");
 $stractivequiz = get_string("modulename", "activequiz");
 
+// Navigation wird hinzugefügt
 $PAGE->navbar->add($stractivequizzes);
+// Titel vom Quiz wird hinzugefügt
 $PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
+$PAGE->set_title("naa");
+
 //$PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
 
