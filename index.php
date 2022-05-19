@@ -42,12 +42,12 @@ require_once("lib.php");
 
 
 
-//$id = required_param('id', PARAM_INT);   // course
+$id = required_param('id', PARAM_INT);   // course
 //if (!$course = $DB->get_record('course', array('id' => $id))) {
 //    error("Course ID is incorrect");
 //}
-$text = "hello";
-echo "<script>console.log('Debug: ".$text."')</script>";
+$debug_code = $id;
+echo "<script>console.log('Debug: ".$debug_code."')</script>";
 
 
 //// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
