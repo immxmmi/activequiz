@@ -74,7 +74,7 @@ $timenow = time();
 $strname = get_string("name");
 $strweek = get_string("week");
 $strtopic = get_string("topic");
-echo "gekkkk";
+echo "gekkkka";
 
 $table = new html_table();
 
