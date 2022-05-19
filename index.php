@@ -46,8 +46,8 @@ require_once("lib.php");
 //if (!$course = $DB->get_record('course', array('id' => $id))) {
 //    error("Course ID is incorrect");
 //}
-
-echo "hello";
+$text = "hello";
+echo $text;
 
 
 //// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
