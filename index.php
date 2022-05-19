@@ -60,7 +60,7 @@ $stractivequiz = get_string("modulename", "activequiz");
 // Navigation wird hinzugefügt
 $PAGE->navbar->add($stractivequizzes);
 // Titel vom Quiz wird hinzugefügt
-$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
+//$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
 $PAGE->set_title("naa");
 
 //$PAGE->set_heading($course->fullname);
