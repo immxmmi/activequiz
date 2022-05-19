@@ -47,7 +47,7 @@ require_once("lib.php");
 //    error("Course ID is incorrect");
 //}
 $text = "hello";
-echo $text;
+echo "Debug: ".$text;
 
 
 //// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
