@@ -47,6 +47,7 @@ if (!$course = $DB->get_record('course', array('id' => $id))) {
 }
 
 $PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course->id)));
+echo "<script>console.log('hello')</script>";
 require_course_login($course);
 $PAGE->set_pagelayout('incourse');
 
@@ -74,7 +75,7 @@ $timenow = time();
 $strname = get_string("name");
 $strweek = get_string("week");
 $strtopic = get_string("topic");
-echo "gekkkka";
+
 
 $table = new html_table();
 
