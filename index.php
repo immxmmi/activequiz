@@ -53,22 +53,29 @@ $PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course
 require_course_login($course);
 $PAGE->set_pagelayout('incourse');
 
-$debug_code = $id;
+
+/// Get all required strings
+$stractivequizzes = get_string("modulenameplural", "activequiz");
+$stractivequiz = get_string("modulename", "activequiz");
+
+// Navigation wird hinzugefügt
+$PAGE->navbar->add($stractivequizzes);
+// Titel vom Quiz wird hinzugefügt
+$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
+//$PAGE->set_heading($course->fullname);
+echo $OUTPUT->header();
+
+
+
+$debug_code = "test";
 echo "<script>console.log('Debug: ".$debug_code."')</script>";
 
 
-///// Get all required strings
-//$stractivequizzes = get_string("modulenameplural", "activequiz");
-//$stractivequiz = get_string("modulename", "activequiz");
-//
-//// Navigation wird hinzugefügt
-//$PAGE->navbar->add($stractivequizzes);
-//// Titel vom Quiz wird hinzugefügt
-//$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
-//
-//
-////$PAGE->set_heading($course->fullname);
-//echo $OUTPUT->header();
+
+
+
+
+
 //
 ///// Get all the appropriate data
 //
