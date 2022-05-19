@@ -60,13 +60,14 @@ $stractivequiz = get_string("modulename", "activequiz");
 // Navigation wird hinzugefügt
 $PAGE->navbar->add($stractivequizzes);
 // Titel vom Quiz wird hinzugefügt
-//$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
-$PAGE->set_title("naa");
+$PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
+
 
 //$PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
 
 /// Get all the appropriate data
+echo    get_all_instances_in_course("activequiz", $course);
 
 if (!$activequizs = get_all_instances_in_course("activequiz", $course)) {
     notice("There are no activequizes", "../../course/view.php?id=$course->id");
