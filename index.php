@@ -60,6 +60,7 @@ $PAGE->navbar->add($stractivequizzes);
 $PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
 //$PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
+echo "hello";
 
 /// Get all the appropriate data
 
