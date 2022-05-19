@@ -43,20 +43,20 @@ require_once("lib.php");
 
 
 $id = required_param('id', PARAM_INT);   // course
-//if (!$course = $DB->get_record('course', array('id' => $id))) {
-//    error("Course ID is incorrect");
-//}
+if (!$course = $DB->get_record('course', array('id' => $id))) {
+    error("Course ID is incorrect");
+}
+
+
+// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
+$PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course->id)));
+require_course_login($course);
+$PAGE->set_pagelayout('incourse');
+
 $debug_code = $id;
 echo "<script>console.log('Debug: ".$debug_code."')</script>";
 
 
-//// Wenn man auf Quiz drückt startet kommt man auf die Start Seite
-//$PAGE->set_url(new moodle_url('/mod/activequiz/index.php', array('id' => $course->id)));
-//require_course_login($course);
-//$PAGE->set_pagelayout('incourse');
-//
-//
-//
 ///// Get all required strings
 //$stractivequizzes = get_string("modulenameplural", "activequiz");
 //$stractivequiz = get_string("modulename", "activequiz");
