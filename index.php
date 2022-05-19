@@ -60,7 +60,6 @@ $PAGE->navbar->add($stractivequizzes);
 $PAGE->set_title(strip_tags($course->shortname . ': ' . $stractivequizzes));
 //$PAGE->set_heading($course->fullname);
 echo $OUTPUT->header();
-echo "hello";
 
 /// Get all the appropriate data
 
@@ -75,6 +74,7 @@ $timenow = time();
 $strname = get_string("name");
 $strweek = get_string("week");
 $strtopic = get_string("topic");
+echo "gekkkk";
 
 $table = new html_table();
 
