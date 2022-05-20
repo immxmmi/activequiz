@@ -11,9 +11,9 @@ echo "<script>console.log('test')</script>";
 echo " <head> <script src='js/chartjs/Chart.min.js'></script></head>";
 
 echo "
+<html>
  <body>
         <div class='container'>
-  
             <canvas id='doughnutChart'></canvas>
         </div>
 <script>
@@ -54,5 +54,6 @@ echo "
                 }
         });
         </script>
-        </bod
+        </body>
+        </html>
         ";
