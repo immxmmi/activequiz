@@ -4,7 +4,7 @@ require_once("../../config.php");
 require_once("classes/activequiz_session.php");
 global $DB;
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
-$session = new \mod_activequiz\activequiz_session();
+$session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 var_dump($session);
 
 
