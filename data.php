@@ -1,7 +1,7 @@
 <?php
 
 require_once("../../config.php");
-require_once("classes/activequiz_attempt.php");
+//require_once("classes/activequiz_attempt.php");
 global $DB;
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 
