@@ -64,7 +64,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
-        var_dump($answers);
         $dbanswers = array();
 
 
