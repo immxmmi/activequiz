@@ -4,6 +4,8 @@ require_once("../../config.php");
 require_once("classes/activequiz_session.php");
 global $DB;
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
+$session = \mod_activequiz\activequiz_question::class;
+var_dump($session);
 
 
 
@@ -12,7 +14,7 @@ $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 //echo "<script>console.log('test')</script>";
 
 
-
+/*
 $label1 = "Red";
 $value1= 2;
 $label2 = "Blue";
@@ -77,3 +79,5 @@ echo "
         </script>
     </body>
 </html> ";
+
+*/
