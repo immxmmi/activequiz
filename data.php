@@ -6,7 +6,12 @@ $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);;
 // SELECT * FROM "public"."mdl_activequiz_attempts";
 echo "<script>console.log('test')</script>";
 
-
+$label1 = "Red";
+$label2 = "Blue";
+$label3 = "Yellow";
+$label4 = "Green";
+$label5 = "Purple";
+$label6 = "Orange";
 
 echo "
 <!DOCTYPE html>
@@ -25,7 +30,7 @@ echo "
       const massPopChart = new Chart(barChart, {
                 type: 'bar',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: ['.$label1.', '.$label2.', '.$label3.', '.$label4.', '.$label5.', '.$label6.'],
                     datasets: [{
                         label: '# of Votes',
                         data: [12, 19, 3, 5, 2, 3],
