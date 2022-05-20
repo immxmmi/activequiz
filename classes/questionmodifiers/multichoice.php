@@ -122,6 +122,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         // get the latest step that has an answer
         $lastanswerstep = $qa->get_last_step_with_qt_var('answer');
 
+        echo $lastanswerstep;
+
         if ($lastanswerstep->has_qt_var('answer')) {
             // may not as if the step doesn't exist get last step will return empty read only step
 
