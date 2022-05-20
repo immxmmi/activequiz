@@ -1,13 +1,11 @@
 <?php
 
 require_once("../../config.php");
-//require_once("classes/activequiz_attempt.php");
+require_once("classes/activequiz_session.php");
 global $DB;
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 
 
-$test = "test";//new activequiz_attempt();
-echo var_dump($test);
 
 
 // SELECT * FROM "public"."mdl_activequiz_attempts";
