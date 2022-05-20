@@ -7,11 +7,17 @@ $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);;
 echo "<script>console.log('test')</script>";
 
 $label1 = "Red";
+$value1= 2;
 $label2 = "Blue";
+$value2= 2;
 $label3 = "Yellow";
+$value3= 2;
 $label4 = "Green";
+$value4= 2;
 $label5 = "Purple";
+$value5= 2;
 $label6 = "Orange";
+$value6= 2;
 
 echo "
 <!DOCTYPE html>
@@ -33,7 +39,7 @@ echo "
                     labels: ['$label1', '$label2', '$label3', '$label4', '$label5', '$label6'],
                     datasets: [{
                         label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [$value1, $value2, $value3, $value4, $value5, $value6],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
