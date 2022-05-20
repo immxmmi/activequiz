@@ -1,10 +1,19 @@
 <?php
 
 require_once("../../config.php");
+require_once("classes/activequiz_attempt.php");
 global $DB;
-$course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);;
+$course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
+
+
+$test = new activequiz_attempt();
+echo var_dump($test);
+
+
 // SELECT * FROM "public"."mdl_activequiz_attempts";
-echo "<script>console.log('test')</script>";
+//echo "<script>console.log('test')</script>";
+
+
 
 $label1 = "Red";
 $value1= 2;
