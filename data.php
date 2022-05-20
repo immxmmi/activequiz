@@ -10,7 +10,13 @@ echo "<script>console.log('test')</script>";
 
 echo " <head> <script src='js/chartjs/Chart.min.js'></script></head>";
 
-echo "<script>
+echo "
+ <body>
+        <div class='container'>
+  
+            <canvas id='doughnutChart'></canvas>
+        </div>
+<script>
             var barChart = document.getElementById('barChart').getContext('2d');
 
             const massPopChart = new Chart(barChart, {
@@ -47,4 +53,6 @@ echo "<script>
                     }
                 }
         });
-        </script>";
+        </script>
+        </bod
+        ";
