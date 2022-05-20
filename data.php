@@ -30,7 +30,7 @@ echo "
       const massPopChart = new Chart(barChart, {
                 type: 'bar',
                 data: {
-                    labels: ['.$label1.', '.$label2.', '.$label3.', '.$label4.', '.$label5.', '.$label6.'],
+                    labels: ['$label1', '$label2', '$label3', '$label4', '$label5', '$label6'],
                     datasets: [{
                         label: '# of Votes',
                         data: [12, 19, 3, 5, 2, 3],
