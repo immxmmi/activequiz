@@ -13,7 +13,7 @@ $sql = "SELECT column_name, collation_name
              WHERE table_schema = DATABASE() AND table_name = ? AND collation_name IS NOT NULL";
 $tablename = "mdl_activequiz";
 $result = $DB->get_recordset_sql($sql, array($tablename));
-var_dump($result);
+//var_dump($result);
 //var_dump($answers);
 //var_dump($dbanswers);
 
