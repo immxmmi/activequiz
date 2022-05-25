@@ -8,10 +8,10 @@ $dbanswers = array();
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 $session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 //var_dump($session);
-$sql = "SELECT column_name, collation_name
-              FROM INFORMATION_SCHEMA.COLUMNS
-             WHERE table_schema = DATABASE() AND table_name = ? AND collation_name IS NOT NULL";
-$tablename = "mdl_activequiz";
+//$sql = "SELECT column_name, collation_name
+//              FROM INFORMATION_SCHEMA.COLUMNS
+//             WHERE table_schema = DATABASE() AND table_name = ? AND collation_name IS NOT NULL";
+//$tablename = "mdl_activequiz";
 //$result = $DB->get_recordset_sql($sql, array($tablename));
 //var_dump($result);
 //var_dump($answers);
