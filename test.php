@@ -10,8 +10,8 @@ $session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 //var_dump($session);
 $sql = "SELECT * FROM 'mdl_activequiz_attempts' ";
 //$tablename = "mdl_activequiz";
-//$result = $DB->get_recordset_sql($sql, array($tablename));
-//var_dump($result);
+$result = $DB->get_recordset_sql($sql);
+var_dump($result);
 //var_dump($answers);
 //var_dump($dbanswers);
 
