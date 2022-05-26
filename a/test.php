@@ -8,9 +8,14 @@ $dbanswers = array();
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 $session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 //var_dump($session);
-$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" where id= :id;';
+//$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" where id= :id;';
+//$params = array('id' => 13);
+//$sql = 'SELECT * FROM "public"."mdl_activequiz_questions" WHERE questionid = :questionid';
+//$params = array('questionid' => 1);
+$sql = 'SELECT * FROM "public"."mdl_activequiz_questions" WHERE activequizid = :activequizid AND questionid = :questionid;';
+$params = array('activequizid'=> 1,'questionid' => 1);
+
 //$tablename = "mdl_activequiz";
-$params = array('id' => 13);
 $views = $DB->get_records_sql($sql, $params);
 var_dump($views);
 //var_dump($answers);
