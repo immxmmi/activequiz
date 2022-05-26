@@ -8,10 +8,11 @@ $dbanswers = array();
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
 $session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 //var_dump($session);
-$sql = "SELECT * FROM 'mdl_activequiz_attempts' ";
+$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" where id= :id;';
 //$tablename = "mdl_activequiz";
-$result = $DB->get_recordset_sql($sql);
-var_dump($result);
+$params = array('id' => 13);
+$views = $DB->get_records_sql($sql, $params);
+var_dump($views);
 //var_dump($answers);
 //var_dump($dbanswers);
 
