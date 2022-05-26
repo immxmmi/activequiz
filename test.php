@@ -6,20 +6,129 @@ global $DB;
 $answers = array();
 $dbanswers = array();
 $course = $DB->get_record('course', array('id'=>1), '*', MUST_EXIST);
-$session = new \mod_activequiz\activequiz_question(1,0,0,0,0.0,2,null);
 //var_dump($session);
 //$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" where id= :id;';
 //$params = array('id' => 13);
-//$sql = 'SELECT * FROM "public"."mdl_activequiz_questions" WHERE questionid = :questionid';
-//$params = array('questionid' => 1);
+//$sql = 'SELECT * FROM "public"."mdl_activequiz_questions" WHERE activequizid = :activequizid';
 $sql = 'SELECT * FROM "public"."mdl_activequiz_questions" WHERE activequizid = :activequizid AND questionid = :questionid;';
-$params = array('activequizid'=> 1,'questionid' => 1);
-
+$params = array('activequizid'=> 13,'questionid' => 11);
 //$tablename = "mdl_activequiz";
-$views = $DB->get_records_sql($sql, $params);
-var_dump($views);
+
+$result = $DB->get_records_sql($sql, $params);
+
+$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+$params = array('sessionid' => 27);
+
+$sessions = $DB->get_records_sql($sql, $params);
+//var_dump($sessions);
+
+
+
+//var_dump($result);
+
+
+
+
 //var_dump($answers);
 //var_dump($dbanswers);
+
+echo "<br />";
+echo "TEST DATA TABLE QUESTIONS:";
+
+
+foreach ($result as $answer)
+{
+echo "<br />";
+echo "ID: ";
+echo $answer->id;
+echo "<br />";
+echo "ActivequizID: ";
+echo $answer->activequizid;
+echo "<br />";
+echo "QuestionID: ";
+echo $answer->questionid;
+echo "<br />";
+echo "NoTime: ";
+echo $answer->notime;
+echo "<br />";
+echo "QuestionTime: ";
+echo $answer->questiontime;
+echo "<br />";
+echo "Tries: ";
+echo $answer->tries;
+echo "<br />";
+echo "Points: ";
+echo $answer->points;
+echo "<br />";
+echo "Showhistoryduringquiz: ";
+echo $answer->showhistoryduringquiz;
+echo "<br />";
+echo "<br />";
+
+}
+
+
+echo "<br />";
+echo "TEST DATA TABLE SESSIONS:";
+
+foreach ($sessions as $session)
+{
+
+echo "<br />";
+echo "ID: ";
+echo $session->id;
+echo "<br />";
+echo "activequizid: ";
+echo $session->activequizid;
+echo "<br />";
+echo "name: ";
+echo $session->name;
+echo "<br />";
+echo "anonymize_responses: ";
+echo $session->anonymize_responses;
+echo "<br />";
+echo "fully_anonymize: ";
+echo $session->fully_anonymize;
+echo "<br />";
+echo "sessionopen: ";
+echo $session->sessionopen;
+echo "<br />";
+echo "status: ";
+echo $session->status;
+echo "<br />";
+echo "currentquestion: ";
+echo $session->currentquestion;
+echo "<br />";
+echo "currentqnum: ";
+echo $session->currentqnum;
+echo "<br />";
+echo "currentquestiontime: ";
+echo $session->currentquestiontime;
+echo "<br />";
+echo "classresult: ";
+echo $session->classresult;
+echo "<br />";
+echo "nextstarttime: ";
+echo $session->nextstarttime;
+echo "<br />";
+echo "created: ";
+echo $session->created;
+echo "<br />";
+echo "<br />";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,7 +139,7 @@ var_dump($views);
 //echo "<script>console.log('test')</script>";
 
 
-/*
+
 $label1 = "Red";
 $value1= 2;
 $label2 = "Blue";
@@ -96,4 +205,3 @@ echo "
     </body>
 </html> ";
 
-*/
