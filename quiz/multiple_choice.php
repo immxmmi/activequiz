@@ -44,7 +44,6 @@ echo "</br>";
 echo "</br>";
 echo $active_attemps[0]->getQuestionengid();
 echo "</br>";
-var_dump($active_attemps);
 //echo $active_attemps[0]->getQuestionid();
 echo "</br>";
 echo $active_attemps[1]->getQuestionengid();
@@ -66,7 +65,6 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 //var_dump($question_attemps);
 
 
-
     $values = array(0,0,0,0,0);
     echo $index = 0;
 foreach($question_attemps as $summary){
@@ -78,6 +76,11 @@ foreach($question_attemps as $summary){
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $responsesummary = $summary->getResponsesummary();
+
+
+    var_dump($responsesummary);
+
+
     $chart->setCurrentID("test".strval($index));
     echo "</br>";
     echo "DATA::::";

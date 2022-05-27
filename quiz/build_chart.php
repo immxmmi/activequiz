@@ -48,6 +48,7 @@ class Chart
 
         $index = 0;
         foreach ($labels as $label) {
+            // compare answers
             if($label !== $responsesummary){
                 $values[$index]++;
             }
