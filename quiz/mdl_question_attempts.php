@@ -65,7 +65,7 @@ class question_attempts
 
 
 
-    private function deleteCharAT($word,$index){
+    public function deleteCharAT($word,$index){
         $arr = str_split($word); // String in Array umwandeln
         unset($arr[$index]); // Zeichen mit Index  loeschen
         return implode('', $arr);

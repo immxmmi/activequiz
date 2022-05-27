@@ -1,5 +1,6 @@
 <?php
 require_once("../../../config.php");
+require_once("mdl_question_attempts.php");
 
 class Chart
 {
@@ -42,14 +43,23 @@ class Chart
         ";
     }
 
-    public function countValue($labels,$values, $responsesummary)
+    public function countValue($labels, $values, $responsesummary)
     {
-        if($responsesummary == null){return $values;}
+        $delete = new question_attempts;
+        if ($responsesummary == null) {
+            return $values;
+        }
+        var_dump($responsesummary);
+        var_dump($labels);
+        $labels[0] = $delete->deleteCharAT($labels[0], 0);
+        $labels[1] = $delete->deleteCharAT($labels[1], 0);
+        $labels[2] = $delete->deleteCharAT($labels[2], 0);
+
 
         $index = 0;
         foreach ($labels as $label) {
             // compare answers
-            if($label !== $responsesummary){
+            if ($label !== $responsesummary) {
                 $values[$index]++;
             }
 
