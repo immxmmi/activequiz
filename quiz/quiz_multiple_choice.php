@@ -72,7 +72,7 @@ foreach($question_attemps as $summary){
     $index++;
 }
 
-    //$chart->endTag();
+    $chart->endTag();
 
 
 
