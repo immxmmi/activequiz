@@ -10,6 +10,13 @@ $sessionID = 29;
 
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
 $params = array('sessionid' => $sessionID);
-$sessions = $DB->get_records_sql($sql, $params);
+$result = $DB->get_records_sql($sql, $params);
+//var_dump($result);
+$sessions = array();
+
+
+foreach ($result as $session){
+    array_push($sessions, new Session($session->id, $session->activequizid, $session->name, $session->anonymize_responses, $session->fully_anonymize, $session->sessionopen, $session->status, $session->currentquestion, $session->currentqnum, $session->classresult, $session->nextstarttime, $session->created));
+}
 
 var_dump($sessions);
