@@ -38,7 +38,7 @@ class question_attempts
             $currentAttempt->minfraction = $attempt->minfraction;
             $currentAttempt->maxfraction = $attempt->maxfraction;
             $currentAttempt->flagged = $attempt->flagged;
-            $currentAttempt->questionsummary = filterAnswers($attempt->questionsummary);
+            $currentAttempt->questionsummary = $this->filterAnswers($attempt->questionsummary);
             $currentAttempt->rightanswer = $attempt->rightanswer;
             $currentAttempt->responsesummary = $attempt->responsesummary;
             $currentAttempt->timemodified = $attempt->timemodified;
@@ -51,9 +51,9 @@ class question_attempts
         return $attempts;
     }
 
-    private function filterAnswers($rowAnswers)
+    private function filterAnswers($questionsummary)
     {
-        $answers = explode(':', $rowAnswers);
+        $answers = explode(':', $questionsummary);
         return explode(';', $answers[1]);
     }
 }
