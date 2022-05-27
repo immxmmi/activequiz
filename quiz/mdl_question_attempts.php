@@ -57,7 +57,7 @@ class question_attempts
         $listOfAnswers= explode(';', $answers[1]);
         $cleanList = array();
         foreach ($listOfAnswers as $item){
-            array_push($cleanList, str_replace(" ","",$item));
+            array_push($cleanList, str_replace("\n","",$item));
         }
         return $cleanList;
     }
