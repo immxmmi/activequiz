@@ -48,7 +48,16 @@ class Chart
 
         $index = 0;
         foreach ($labels as $label) {
-            $values[$index]++;
+            if(index == 0){
+                $values[$index]++;
+            }
+
+            if(index == 2){
+                $values[$index]++;
+                $values[$index]++;
+                $values[$index]++;
+            }
+
             $index++;
         }
         return $values;
@@ -62,10 +71,10 @@ class Chart
         $this->label4 = $label[0];
 
 
-        $this->value1 = 2;
-        $this->value2 = 3;
-        $this->value3 = 4;
-        $this->value4 = 2;
+        $this->value1 = $values[0];
+        $this->value2 = $values[1];
+        $this->value3 = $values[2];
+        $this->value4 = $values[3];
 
         echo "
             <div class='container'>
