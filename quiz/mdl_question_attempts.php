@@ -23,25 +23,26 @@ class question_attempts
     public function getAttemptsByQuestionengID($result){
         $attempts = array();
         $currentAttempt = new question_attempts();
+        var_dump($result);
         foreach ($result as $attempt) {
-             $currentAttempt->id=$attempt->id;
-             $currentAttempt->questionusageid=$attempt->questionusageid;
-             $currentAttempt->slot=$attempt->slot;
-             $currentAttempt->behaviour=$attempt->behaviour;
-             $currentAttempt->questionid=$attempt->questionid;
-             $currentAttempt->variant=$attempt->variant;
-             $currentAttempt->maxmark=$attempt->maxmark;
-             $currentAttempt->minfraction=$attempt->minfraction;
-             $currentAttempt->maxfraction=$attempt->maxfraction;
-             $currentAttempt->flagged=$attempt->flagged;
-             $currentAttempt->questionsummary= filterAnswers($attempt->questionsummary);
-             $currentAttempt->rightanswer=$attempt->rightanswer;
-             $currentAttempt->responsesummary=$attempt->responsesummary;
-             $currentAttempt->timemodified=$attempt->timemodified;
+           // $currentAttempt->id=$attempt->id;
+           // $currentAttempt->questionusageid=$attempt->questionusageid;
+           // $currentAttempt->slot=$attempt->slot;
+           // $currentAttempt->behaviour=$attempt->behaviour;
+           // $currentAttempt->questionid=$attempt->questionid;
+           // $currentAttempt->variant=$attempt->variant;
+           // $currentAttempt->maxmark=$attempt->maxmark;
+           // $currentAttempt->minfraction=$attempt->minfraction;
+           // $currentAttempt->maxfraction=$attempt->maxfraction;
+           // $currentAttempt->flagged=$attempt->flagged;
+           // $currentAttempt->questionsummary= filterAnswers($attempt->questionsummary);
+           // $currentAttempt->rightanswer=$attempt->rightanswer;
+           // $currentAttempt->responsesummary=$attempt->responsesummary;
+           // $currentAttempt->timemodified=$attempt->timemodified;
 
-            if ($currentAttempt != null) {
-                array_push($attempts, $currentAttempt);
-            }
+           //if ($currentAttempt != null) {
+           //    array_push($attempts, $currentAttempt);
+           //}
         }
 // $currentAttempts = null;
 
