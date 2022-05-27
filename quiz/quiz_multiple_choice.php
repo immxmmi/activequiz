@@ -9,7 +9,7 @@ global $DB;
 // SESSION
 $sessionID = 29;
 
-$session = new Session();
+$session = new Session;
 $sessions = $session->getSessionByID($sessionID);
 
 var_dump($sessions);
