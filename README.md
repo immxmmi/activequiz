@@ -20,6 +20,9 @@ student gave.  Students will also be able to view their attempts based on the di
 
 ## Installation:
 
+# docker
+- docker exec -it innolab1-moodle-srs_app_moodle /bin/bash
+
 ### Moodle plugins directory
 
 Click on "Install now" within the plugins directory, and then select your site from the list of "My sites"
