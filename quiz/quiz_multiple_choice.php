@@ -9,8 +9,8 @@ global $DB;
 // SESSION
 $sessionID = 29;
 
-$session = new Session(null,null,null,null,null,null,null,null,null,null,null,null);
-//$sessions = $session->getSessionByID($sessionID);
+$session = new Session();
+$sessions = $session->getSessionByID($sessionID);
 
 //var_dump($sessions);
 

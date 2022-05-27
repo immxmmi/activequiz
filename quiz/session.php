@@ -32,6 +32,11 @@ class Session
      * @param $nextstarttime
      * @param $created
      */
+
+    public function __construct(){
+
+    }
+
     public function __construct($id, $activequizid, $name, $anonymize_responses, $fully_anonymize, $sessionopen, $status, $currentquestion, $currentqnum, $classresult, $nextstarttime, $created)
     {
         $this->id = $id;
