@@ -41,7 +41,7 @@ class question_attempts
             $currentAttempt->flagged = $attempt->flagged;
             $currentAttempt->questionsummary = $this->filterAnswers($attempt->questionsummary);
             $currentAttempt->rightanswer = $attempt->rightanswer;
-            $currentAttempt->responsesummary = $attempt->responsesummary;
+            $currentAttempt->responsesummary = $this->deleteCharAT($attempt->responsesummary,strlen($attempt->responsesummary)-1);
             $currentAttempt->timemodified = $attempt->timemodified;
             if ($currentAttempt != null) {
                 array_push($attempts, $currentAttempt);
