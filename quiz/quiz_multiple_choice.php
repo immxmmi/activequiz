@@ -60,7 +60,7 @@ foreach($question_attemps as $summary){
     echo "</br>";
     echo "</br>";
     echo "</br>";
-    echo "CHART:";
+    echo "CHART:".$index;
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $responsesummary = $summary->getResponsesummary();
