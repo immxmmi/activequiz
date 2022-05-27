@@ -60,19 +60,14 @@ class Chart
         echo "</br>";
         echo "</br>";
 
-        if($labels[0] === $responsesummary){
-            echo "gleojccc0";
-        }
+
+        var_dump($responsesummary);
+        var_dump($labels[0]);
 
 
 
-        if("Aass assasa asdad asd" === strval($responsesummary)){
-            echo "gleojccc1";
-        }
 
-        if("Aass assasa asdad asd" === strval($labels[0])){
-            echo "gleojccc2";
-        }
+
 
 
             foreach ($labels as $label) {
