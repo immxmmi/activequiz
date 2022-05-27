@@ -6,7 +6,7 @@ global $DB;
 
 // TABLE :: mdl_activequiz_sessions
 // SESSION
-$sessionID = 13;
+$sessionID = 29;
 
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
 $params = array('sessionid' => $sessionID);
