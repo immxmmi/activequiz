@@ -1,6 +1,5 @@
 <?php
 require_once("../../../config.php");
-require_once("../classes/activequiz_session.php");
 require_once ("session.php");
 global $DB;
 
@@ -18,17 +17,28 @@ var_dump($sessions);
 
 
 
-/*
-$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+// TABLE :: mdl_activequiz_attempts
+$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
 $params = array('sessionid' => $sessionID);
-$result = $DB->get_records_sql($sql, $params);
-//var_dump($result);
-$sessions = array();
+$questions = $DB->get_records_sql($sql, $params);
 
-foreach ($result as $session){
-    array_push($sessions, new Session($session->id, $session->activequizid, $session->name, $session->anonymize_responses, $session->fully_anonymize, $session->sessionopen, $session->status, $session->currentquestion, $session->currentqnum, $session->classresult, $session->nextstarttime, $session->created));
-}
 
-var_dump($sessions);
+
+
+
+
+
+
+
+
+
+
+
+/*
+echo "TEST QUIZ QUESTIONS:";
+// TABLE :: mdl_question_attempts
+$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE questionid = :question;';
+$params = array('question' => $questionID);
+$questions = $DB->get_records_sql($sql, $params);
 
 */
