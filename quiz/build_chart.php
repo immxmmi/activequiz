@@ -50,10 +50,15 @@ class Chart
 
                 echo "</br>";
                 echo "</br>";
-        echo $responsesummary[1];
+        echo $responsesummary;
                 echo "</br>";
                 echo "</br>";
 
+        echo "</br>";
+        echo "</br>";
+        echo $labels[1];
+        echo "</br>";
+        echo "</br>";
             foreach ($labels as $label) {
                 echo "</br>";
                 echo $responsesummary;
