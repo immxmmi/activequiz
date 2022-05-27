@@ -49,8 +49,11 @@ class Chart
         }
             foreach ($labels as $label) {
                 echo "</br>";
-                echo $responsesummary;
-                echo $label;
+                if (strcmp($responsesummary, $label) == 0) {
+                    echo "sind gleich";
+                }else{
+                    echo "sind nicht gleich";
+                }
             }
         return $values;
     }
