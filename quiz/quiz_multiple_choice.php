@@ -62,9 +62,9 @@ foreach($question_attemps as $summary){
     echo "CHART:";
     echo "</br>";
     $labels = $summary->getQuestionsummary();
+}
     $chart->setCurrentID($id+=1);
     $chart->output("a","b","d","d",2,3,4,5);
-}
 
     //$chart->endTag();
 
