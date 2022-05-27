@@ -12,4 +12,4 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
 $params = array('sessionid' => $sessionID);
 $sessions = $DB->get_records_sql($sql, $params);
 
-var_dump($sessionID);
+var_dump($sessions);
