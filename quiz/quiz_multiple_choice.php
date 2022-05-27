@@ -51,7 +51,7 @@ var_dump($question_attemps);
 
 $chart = new Chart();
 
-    $chart->startTag();
+ //   $chart->startTag();
     $id = 10;
 foreach($question_attemps as $summary){
     echo "</br>";
@@ -62,7 +62,7 @@ foreach($question_attemps as $summary){
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $chart->setCurrentID($id+=1);
-    $chart->output("a","b","d","d",2,3,4,5);
+    //$chart->output("a","b","d","d",2,3,4,5);
 }
 
     //$chart->endTag();
