@@ -6,6 +6,9 @@ require_once ("mdl_question_attempts.php");
 require_once ("build_chart.php");
 global $DB;
 
+$chart = new Chart();
+
+$chart->startTag();
 
 // SESSION
 $sessionID = 33;
@@ -49,9 +52,7 @@ $result = $DB->get_records_sql($sql, $params);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 var_dump($question_attemps);
 
-$chart = new Chart();
 
-    $chart->startTag();
     $id = 10;
 foreach($question_attemps as $summary){
     echo "</br>";
