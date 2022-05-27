@@ -78,9 +78,8 @@ foreach($question_attemps as $summary){
     $responsesummary = $summary->getResponsesummary();
 
     var_dump($responsesummary);
-    $test = $responsesummary;
-    $arr = str_split($test); // String in Array umwandeln
-    unset($arr[0]); // Zeichen mit Index 3 loeschen (entspricht dem 4. Zeichen)
+    $arr = str_split($responsesummary); // String in Array umwandeln
+    unset($arr[strlen($responsesummary)]); // Zeichen mit Index 3 loeschen (entspricht dem 4. Zeichen)
     $test = implode('', $arr); // Array in String umwandeln
     var_dump($test);
 
