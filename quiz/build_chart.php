@@ -29,7 +29,7 @@ class Chart
     }
 
 
-    public function load_chart($label1, $label2, $label3, $label4, $value1, $value2, $value3, $value4)
+    public function output($label1, $label2, $label3, $label4, $value1, $value2, $value3, $value4)
     {
         $this->label1 = $label1;
         $this->label2 = $label2;
@@ -39,11 +39,7 @@ class Chart
         $this->value2 = $value2;
         $this->value3 = $value3;
         $this->value4 = $value4;
-    }
 
-
-    public function output()
-    {
         echo "
     <!DOCTYPE html>
     <hthml>
