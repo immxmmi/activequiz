@@ -66,7 +66,7 @@ class Chart
 
 
 
-        if("Aass assasa asdad asd" === str($responsesummary)){
+        if("Aass assasa asdad asd" === strval($responsesummary)){
             echo "gleojccc1";
         }
 
