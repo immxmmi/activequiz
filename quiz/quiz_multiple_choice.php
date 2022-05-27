@@ -51,7 +51,7 @@ var_dump($question_attemps);
 
 $chart = new Chart();
 
- //   $chart->startTag();
+    $chart->startTag();
     $id = 10;
 foreach($question_attemps as $summary){
     echo "</br>";
