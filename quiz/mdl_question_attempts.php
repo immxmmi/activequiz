@@ -1,7 +1,7 @@
 <?php
 require_once("../../../config.php");
 
-class quiz_attempts
+class question_attempts
 {
     private $id;
     private $questionusageid;
@@ -22,7 +22,7 @@ class quiz_attempts
     public function __construct(){}
     public function getAttemptsByQuestionengID($result){
         $attempts = array();
-        $currentAttempt = new quiz_attempts();
+        $currentAttempt = new question_attempts();
         foreach ($result as $attempt) {
              $currentAttempt->id=$attempt->id;
              $currentAttempt->questionusageid=$attempt->questionusageid;

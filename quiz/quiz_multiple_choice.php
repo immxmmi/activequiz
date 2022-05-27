@@ -30,12 +30,12 @@ $active_attemps = $active_attemp->getAttemptsByID($result);
 
 
 // TABLE :: mdl_question_attempts
-$active_attemp = new activequiz_attempts();
-$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  sessionid = :sessionid;';
-$params = array('sessionid' => $sessions[0]->getId());
+$question_attemp = new question_attempts();
+$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid;';
+$params = array('questionusageid' => $active_attemps[0]->getQuestionengid());
 $result = $DB->get_records_sql($sql, $params);
-$active_attemps = $active_attemp->getAttemptsByID($result);
-//var_dump($active_attemps[0]);
+$question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
+var_dump($question_attemps[0]);
 
 
 

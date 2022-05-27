@@ -51,4 +51,110 @@ class activequiz_attempts
         return $attempts;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionid()
+    {
+        return $this->sessionid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttemptnum()
+    {
+        return $this->attemptnum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionengid()
+    {
+        return $this->questionengid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPreview()
+    {
+        return $this->preview;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponded()
+    {
+        return $this->responded;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRespondedCount()
+    {
+        return $this->responded_count;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getForgroupid()
+    {
+        return $this->forgroupid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimestart()
+    {
+        return $this->timestart;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimefinish()
+    {
+        return $this->timefinish;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimemodified()
+    {
+        return $this->timemodified;
+    }
+
+
+
 }
