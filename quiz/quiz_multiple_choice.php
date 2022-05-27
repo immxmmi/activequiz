@@ -59,8 +59,7 @@ foreach($question_attemps as $summary){
     echo "test";
     echo "</br>";
     $labels = $summary->getQuestionsummary();
-    var_dump($labels);
-    $chart->output($labels[0],$labels[0],$labels[0],$labels[0],2,3,4,5);
+    $output = $chart->output($labels[0],$labels[1],$labels[2],$labels[0],2,3,4,5);
 }
 
 
