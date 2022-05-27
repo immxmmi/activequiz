@@ -56,9 +56,6 @@ class Chart
                 echo $label;
                 echo "</br>";
 
-
-                echo "Aass assasa asdad asd" == "Aass assasa asdad asd";
-
                 if ($responsesummary == $label) {
                     echo "sind gleich";
                 }else{
