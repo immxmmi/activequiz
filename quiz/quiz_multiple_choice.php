@@ -3,6 +3,7 @@ require_once("../../../config.php");
 require_once ("session.php");
 require_once ("mdl_activequiz_attempts.php");
 require_once ("mdl_question_attempts.php");
+require_once ("build_chart.php");
 global $DB;
 
 
@@ -48,6 +49,8 @@ $result = $DB->get_records_sql($sql, $params);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 var_dump($question_attemps);
 
+$chart = new Chart();
+$chart->load_chart("aa","vv","cc","dd",2,3,4,5);
 
 
 
