@@ -19,7 +19,7 @@ $sessions = $session->getSessionByID($result);
 
 // TABLE :: mdl_activequiz_attempts
 $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
-$params = array('sessionid' => $sessionID);
+$params = array('sessionid' => $sessions[0]->getId());
 $result = $DB->get_records_sql($sql, $params);
 var_dump($result);
 
