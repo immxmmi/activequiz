@@ -1,26 +1,50 @@
 <?php
 require_once("../../../config.php");
 
-class Chart{
+class Chart
+{
     private $label1;
     private $label2;
-    private $label3; 
+    private $label3;
     private $label4;
 
     private $value1;
     private $value2;
-    private $value3; 
+    private $value3;
     private $value4;
-}
+
+    /**
+     * @param $label1
+     * @param $label2
+     * @param $label3
+     * @param $label4
+     * @param $value1
+     * @param $value2
+     * @param $value3
+     * @param $value4
+     */
+    public function __construct()
+    {
+
+    }
 
 
-public load_chart(){
+    public function load_chart($label1, $label2, $label3, $label4, $value1, $value2, $value3, $value4)
+    {
+        $this->label1 = $label1;
+        $this->label2 = $label2;
+        $this->label3 = $label3;
+        $this->label4 = $label4;
+        $this->value1 = $value1;
+        $this->value2 = $value2;
+        $this->value3 = $value3;
+        $this->value4 = $value4;
+    }
 
-}
 
-
-public output(){
-    echo "
+    public function output()
+    {
+        echo "
     <!DOCTYPE html>
     <hthml>
         <head>
@@ -37,10 +61,10 @@ public output(){
         const massPopChart = new Chart(barChart, {
                     type: 'bar',
                     data: {
-                        labels: ['$label1', '$label2', '$label3', '$label4'],
+                        labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
                         datasets: [{
                             label: '# of Votes',
-                            data: [$value1, $value2, $value3, $value4],
+                            data: [$this->value1, $this->value2, $this->value3, $this->value4],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -67,5 +91,6 @@ public output(){
             </script>
         </body>
     </html> ";
-}
+    }
 
+}
