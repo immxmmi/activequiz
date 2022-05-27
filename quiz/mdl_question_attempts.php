@@ -25,7 +25,7 @@ class question_attempts
         $currentAttempt = new question_attempts();
         foreach ($result as $attempt) {
             $currentAttempt->id=$attempt->id;
-           // $currentAttempt->questionusageid=$attempt->questionusageid;
+            $currentAttempt->questionusageid=$attempt->questionusageid;
            // $currentAttempt->slot=$attempt->slot;
            // $currentAttempt->behaviour=$attempt->behaviour;
            // $currentAttempt->questionid=$attempt->questionid;
@@ -39,9 +39,9 @@ class question_attempts
            // $currentAttempt->responsesummary=$attempt->responsesummary;
            // $currentAttempt->timemodified=$attempt->timemodified;
 
-           //if ($currentAttempt != null) {
-           //    array_push($attempts, $currentAttempt);
-           //}
+           if ($currentAttempt != null) {
+               array_push($attempts, $currentAttempt);
+           }
         }
 // $currentAttempts = null;
 
