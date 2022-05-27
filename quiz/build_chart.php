@@ -50,13 +50,6 @@ class Chart
 
             foreach ($labels as $label) {
 
-
-                if ($responsesummary == $label) {
-                    echo "sind gleich";
-                }else{
-                    echo "sind nicht gleich";
-                }
-
             }
         return $values;
     }
