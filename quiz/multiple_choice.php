@@ -79,8 +79,11 @@ foreach($question_attemps as $summary){
 
     var_dump($responsesummary);
     $test = $responsesummary;
-    array_shift($test);
+    $arr = str_split($test); // String in Array umwandeln
+    unset($arr[0]); // Zeichen mit Index 3 loeschen (entspricht dem 4. Zeichen)
+    $test = implode('', $arr); // Array in String umwandeln
     var_dump($test);
+
 
 
     $chart->setCurrentID("test".strval($index));
