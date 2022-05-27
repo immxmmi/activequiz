@@ -56,4 +56,117 @@ class question_attempts
         $answers = explode(':', $questionsummary);
         return explode(';', $answers[1]);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionusageid()
+    {
+        return $this->questionusageid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlot()
+    {
+        return $this->slot;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBehaviour()
+    {
+        return $this->behaviour;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionid()
+    {
+        return $this->questionid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxmark()
+    {
+        return $this->maxmark;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMinfraction()
+    {
+        return $this->minfraction;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxfraction()
+    {
+        return $this->maxfraction;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFlagged()
+    {
+        return $this->flagged;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestionsummary()
+    {
+        return $this->questionsummary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRightanswer()
+    {
+        return $this->rightanswer;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponsesummary()
+    {
+        return $this->responsesummary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTimemodified()
+    {
+        return $this->timemodified;
+    }
+
 }

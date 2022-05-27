@@ -52,7 +52,7 @@ var_dump($question_attemps);
 $chart = new Chart();
 
 foreach($question_attemps as $result){
-    $chart->output($result->questionsummary[0],$result->questionsummary[0],$result->questionsummary[0],$result->questionsummary[0],2,3,4,5);
+    $chart->output($result->getQuestionsummary()[0],$result->getQuestionsummary()[0],$result->getQuestionsummary()[0],$result->getQuestionsummary()[0],2,3,4,5);
 }
 
 
