@@ -76,6 +76,7 @@ foreach($question_attemps as $summary){
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $responsesummary = $summary->getResponsesummary();
+    var_dump($responsesummary);
     $chart->setCurrentID("test".strval($index));
     echo "</br>";
     echo "DATA::::";
