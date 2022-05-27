@@ -54,6 +54,7 @@ class Chart
                 echo $responsesummary;
                 echo "</br>";
                 echo $label;
+                echo "</br>";
                 if (strcasecmp($responsesummary, $label) == 0) {
                     echo "sind gleich";
                 }else{
