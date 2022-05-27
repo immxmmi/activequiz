@@ -50,7 +50,11 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 var_dump($question_attemps);
 
 $chart = new Chart();
-$chart->output("aa","vv","cc","dd",2,3,4,5);
+
+foreach($question_attemps as $result){
+    echo $result;
+    $chart->output("aa","vv","cc","dd",2,3,4,5);
+}
 
 
 
