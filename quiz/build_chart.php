@@ -60,9 +60,8 @@ class Chart
         echo "</br>";
         echo "</br>";
 
-        var_dump(substr($labels[0], 0, -1));
         var_dump($responsesummary);
-        var_dump($labels[0]);
+        var_dump(substr_replace($labels[0],'aaaaa',0));
 
 
 
