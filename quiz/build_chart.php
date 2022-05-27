@@ -58,7 +58,7 @@ class Chart
 
                 echo strcmp('wir sind identisch', 'wir sind identisch');
                 echo "</br>";
-                echo strcmp($responsesummary, $label);
+                echo strcasecmp($responsesummary, $label);
                 echo "</br>";
 
                 if (strcasecmp($responsesummary, $label) === 0) {
