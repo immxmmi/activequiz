@@ -44,17 +44,17 @@ class Chart
 
     public function countValue($labels,$values, $responsesummary)
     {
-        if($responsesummary == null){
-            return $values;
+        if($responsesummary == null){return $values;}
+
+        $index = 0;
+        foreach ($labels as $label) {
+            $values[$index]++;
+            $index++;
         }
-
-            foreach ($labels as $label) {
-
-            }
         return $values;
     }
 
-    public function output($label, $value1, $value2, $value3, $value4)
+    public function output($label, $values)
     {
         $this->label1 = $label[0];
         $this->label2 = $label[1];
@@ -62,10 +62,10 @@ class Chart
         $this->label4 = $label[0];
 
 
-        $this->value1 = $value1;
-        $this->value2 = $value2;
-        $this->value3 = $value3;
-        $this->value4 = $value4;
+        $this->value1 = 2;
+        $this->value2 = 3;
+        $this->value3 = 4;
+        $this->value4 = 2;
 
         echo "
             <div class='container'>
