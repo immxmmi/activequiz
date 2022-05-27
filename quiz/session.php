@@ -2,7 +2,6 @@
 require_once("../../../config.php");
 require_once("../classes/activequiz_session.php");
 require_once("session.php");
-global $DB;
 
 class Session
 {
@@ -40,12 +39,8 @@ class Session
     }
 
 
-    public function getSessionByID($sessionID)
+    public function getSessionByID($result)
     {
-        $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-        $params = array('sessionid' => $sessionID);
-        $result = $DB->get_records_sql($sql, $params);
-        //var_dump($result);
         $sessions = array();
         $currentSession = new Session();
         foreach ($result as $session) {

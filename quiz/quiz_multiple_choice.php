@@ -10,8 +10,13 @@ global $DB;
 $sessionID = 29;
 
 $session = new Session();
-$sessions = $session->getSessionByID($sessionID);
+$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+$params = array('sessionid' => $sessionID);
+$result = $DB->get_records_sql($sql, $params);
+$sessions = $session->getSessionByID($result);
 var_dump($sessions);
+
+
 
 /*
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
