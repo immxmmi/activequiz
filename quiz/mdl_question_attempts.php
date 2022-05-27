@@ -25,24 +25,26 @@ class activequiz_attempts
         $attempts = array();
         $currentAttempts = new activequiz_attempts();
         foreach ($result as $attempt) {
+            echo "</br>";
+            echo  $attempt;
            // $currentAttempts->id = $attempt->id;
-            $currentAttempts->sessionid = $attempt->sessionid;
-            $currentAttempts->userid = $attempt->userid;
-            $currentAttempts->attemptnum = $attempt->attemptnum;
-            $currentAttempts->questionengid = $attempt->questionengid;
-            $currentAttempts->status = $attempt->status;
-            $currentAttempts->preview = $attempt->preview;
-            $currentAttempts->responded = $attempt->responded;
-            $currentAttempts->responded_count = $attempt->responded_count;
-            $currentAttempts->forgroupid = $attempt->forgroupid;
-            $currentAttempts->timestart = $attempt->timestart;
-            $currentAttempts->timefinish = $attempt->timefinish;
-            $currentAttempts->timemodified = $attempt->timemodified;
-
-            if ($currentAttempts != null) {
-                array_push($attempts, $currentAttempts);
-            }
-            $currentAttempts = null;
+           // $currentAttempts->sessionid = $attempt->sessionid;
+           // $currentAttempts->userid = $attempt->userid;
+           // $currentAttempts->attemptnum = $attempt->attemptnum;
+           // $currentAttempts->questionengid = $attempt->questionengid;
+           // $currentAttempts->status = $attempt->status;
+           // $currentAttempts->preview = $attempt->preview;
+           // $currentAttempts->responded = $attempt->responded;
+           // $currentAttempts->responded_count = $attempt->responded_count;
+           // $currentAttempts->forgroupid = $attempt->forgroupid;
+           // $currentAttempts->timestart = $attempt->timestart;
+           // $currentAttempts->timefinish = $attempt->timefinish;
+           // $currentAttempts->timemodified = $attempt->timemodified;
+//
+           // if ($currentAttempts != null) {
+           //     array_push($attempts, $currentAttempts);
+           // }
+           // $currentAttempts = null;
         }
         return $attempts;
     }
