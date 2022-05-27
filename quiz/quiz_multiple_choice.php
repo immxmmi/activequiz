@@ -52,7 +52,14 @@ var_dump($question_attemps);
 $chart = new Chart();
 
 foreach($question_attemps as $result){
+    echo "</br>";
+    echo "</br>";
+    echo "</br>";
+    echo "</br>";
+    echo "test";
+    echo "</br>";
     $labels = $result->getQuestionsummary();
+    var_dump($labels);
     $chart->output($labels[0],$labels[0],$labels[0],$labels[0],2,3,4,5);
 }
 
