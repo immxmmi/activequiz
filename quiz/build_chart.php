@@ -13,21 +13,27 @@ class Chart
     private $value3;
     private $value4;
 
-    /**
-     * @param $label1
-     * @param $label2
-     * @param $label3
-     * @param $label4
-     * @param $value1
-     * @param $value2
-     * @param $value3
-     * @param $value4
-     */
+    private currentID;
+
+    
     public function __construct()
     {
 
     }
 
+
+    public function startTag($chartID){
+        echo"
+         <!DOCTYPE html>
+    <hthml>
+        <head>
+            <meta charset='utf-9'>
+            <title></title>
+            <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js'></script>-->
+            <script src='../js/chartjs/Chart.min.js'></script>
+        </head>
+        <body>";
+    }
 
     public function output($label1, $label2, $label3, $label4, $value1, $value2, $value3, $value4)
     {
@@ -41,18 +47,11 @@ class Chart
         $this->value4 = $value4;
 
         echo "
-    <!DOCTYPE html>
-    <hthml>
-        <head>
-            <meta charset='utf-9'>
-            <title></title>
-            <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js'></script>-->
-            <script src='../js/chartjs/Chart.min.js'></script>
-        </head>
-        <body>
             <div class='container'>
-                <canvas id='barChart'></canvas>
+                <canvas id=$this->currentID</canvas>></canvas>
             </div>
+        
+   
             <script>
         const massPopChart = new Chart(barChart, {
                     type: 'bar',
@@ -84,9 +83,13 @@ class Chart
                         }
                     }
             });
-            </script>
-        </body>
-    </html> ";
+            </script>";
+
+    }
+
+        public function endTag($chartID){
+        echo"</body>
+        </html> ";
     }
 
 }
