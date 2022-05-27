@@ -1,8 +1,9 @@
 <?php
 require_once("../../../config.php");
 require_once("../classes/activequiz_session.php");
-require_once ("session.php");
+require_once("session.php");
 global $DB;
+
 class Session
 {
     private $id;
@@ -33,41 +34,40 @@ class Session
      * @param $created
      */
 
-    public function __construct(){
-
-    }
-
-    public function __construct($id, $activequizid, $name, $anonymize_responses, $fully_anonymize, $sessionopen, $status, $currentquestion, $currentqnum, $classresult, $nextstarttime, $created)
+    public function __construct()
     {
-        $this->id = $id;
-        $this->activequizid = $activequizid;
-        $this->name = $name;
-        $this->anonymize_responses = $anonymize_responses;
-        $this->fully_anonymize = $fully_anonymize;
-        $this->sessionopen = $sessionopen;
-        $this->status = $status;
-        $this->currentquestion = $currentquestion;
-        $this->currentqnum = $currentqnum;
-        $this->classresult = $classresult;
-        $this->nextstarttime = $nextstarttime;
-        $this->created = $created;
+
     }
 
 
-
-    public function getSessionByID($sessionID){
+    public function getSessionByID($sessionID)
+    {
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
         $params = array('sessionid' => $sessionID);
         $result = $DB->get_records_sql($sql, $params);
         //var_dump($result);
         $sessions = array();
-
-        foreach ($result as $session){
-            array_push($sessions, new Session($session->id, $session->activequizid, $session->name, $session->anonymize_responses, $session->fully_anonymize, $session->sessionopen, $session->status, $session->currentquestion, $session->currentqnum, $session->classresult, $session->nextstarttime, $session->created));
+        $currentSession = new Session();
+        foreach ($result as $session) {
+            $currentSession->id = $session->id;
+            $currentSession->activequizid = $session->activequizid;
+            $currentSession->name = $session->name;
+            $currentSession->anonymize_responses = $session->anonymize_responses;
+            $currentSession->fully_anonymize = $session->fully_anonymize;
+            $currentSession->sessionopen = $session->sessionopen;
+            $currentSession->status= $session->status;
+            $currentSession->currentquestion= $session->currentquestion;
+            $currentSession->currentqnum= $session->currentqnum;
+            $currentSession->classresult= $session->classresult;
+            $currentSession->nextstarttime= $session->nextstarttime;
+            $currentSession->created= $session->created;
+            if($currentSession != null){
+                array_push($sessions, $currentSession);
+            }
+            $currentSession = null;
         }
         return $sessions;
     }
-
 
 
     /**
@@ -166,11 +166,101 @@ class Session
         return $this->created;
     }
 
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
+    /**
+     * @param mixed $activequizid
+     */
+    public function setActivequizid($activequizid)
+    {
+        $this->activequizid = $activequizid;
+    }
 
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
+    /**
+     * @param mixed $anonymize_responses
+     */
+    public function setAnonymizeResponses($anonymize_responses)
+    {
+        $this->anonymize_responses = $anonymize_responses;
+    }
 
+    /**
+     * @param mixed $fully_anonymize
+     */
+    public function setFullyAnonymize($fully_anonymize)
+    {
+        $this->fully_anonymize = $fully_anonymize;
+    }
 
+    /**
+     * @param mixed $sessionopen
+     */
+    public function setSessionopen($sessionopen)
+    {
+        $this->sessionopen = $sessionopen;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param mixed $currentquestion
+     */
+    public function setCurrentquestion($currentquestion)
+    {
+        $this->currentquestion = $currentquestion;
+    }
+
+    /**
+     * @param mixed $currentqnum
+     */
+    public function setCurrentqnum($currentqnum)
+    {
+        $this->currentqnum = $currentqnum;
+    }
+
+    /**
+     * @param mixed $classresult
+     */
+    public function setClassresult($classresult)
+    {
+        $this->classresult = $classresult;
+    }
+
+    /**
+     * @param mixed $nextstarttime
+     */
+    public function setNextstarttime($nextstarttime)
+    {
+        $this->nextstarttime = $nextstarttime;
+    }
+
+    /**
+     * @param mixed $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
 
 
 }
