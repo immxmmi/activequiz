@@ -47,6 +47,8 @@ class Chart
         if($responsesummary == null){
             return $values;
         }
+
+        $responsesummary = str_replace("\n","",$responsesummary);
             foreach ($labels as $label) {
                 echo "</br>";
                 if (strcmp($responsesummary, $label) == 0) {
