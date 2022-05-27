@@ -33,11 +33,8 @@ class Chart
     public function startTag()
     {
         echo "
-         <!DOCTYPE html>
-    <hthml>
         <head>
             <meta charset='utf-9'>
-            <title></title>
             <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js'></script>-->
             <script src='../js/chartjs/Chart.min.js'></script>
         </head>
