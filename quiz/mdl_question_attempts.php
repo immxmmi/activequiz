@@ -27,12 +27,7 @@ class question_attempts
     {
         $attempts = array();
         $currentAttempt = new question_attempts();
-        echo "</br>";
-        echo "</br>";
-        echo "ATTEMPÖ";
-        echo "</br>";
-        var_dump($result);
-        echo "</br>";
+
         foreach ($result as $attempt) {
             $currentAttempt->id = $attempt->id;
             $currentAttempt->questionusageid = $attempt->questionusageid;
@@ -49,6 +44,9 @@ class question_attempts
             $currentAttempt->responsesummary = $attempt->responsesummary;
             $currentAttempt->timemodified = $attempt->timemodified;
             if ($currentAttempt != null) {
+                echo"<-TESTT";
+                echo $currentAttempt->questionid;
+                echo"TESTT->";
                 array_push($attempts, $currentAttempt);
             }
         }
