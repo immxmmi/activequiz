@@ -27,7 +27,7 @@ $attempts = array();
 $currentAttempt= new activequiz_attempts();
 foreach ($result as $attempt) {
 echo "</br>";
-echo  $attempt;
+var_dump($attempt);
 // $currentAttempts->id = $attempt->id;
 // $currentAttempts->sessionid = $attempt->sessionid;
 // $currentAttempts->userid = $attempt->userid;
