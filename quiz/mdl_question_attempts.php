@@ -54,6 +54,6 @@ class question_attempts
     private function filterAnswers($questionsummary)
     {
         $answers = explode(':', $questionsummary);
-        return explode(';', $answers[0]);
+        return explode(';', $answers[1]);
     }
 }
