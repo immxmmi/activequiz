@@ -52,7 +52,7 @@ var_dump($question_attemps);
 $chart = new Chart();
 
 foreach($question_attemps as $result){
-    echo $result;
+    echo $result->id;
     $chart->output("aa","vv","cc","dd",2,3,4,5);
 }
 
