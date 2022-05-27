@@ -61,12 +61,17 @@ class Chart
         echo "</br>";
 
         if($labels[0] === $responsesummary){
-            echo "gleojccc";
+            echo "gleojccc0";
         }
 
-        if("Aass assasa asdad asd" === "Aass assasa asdad asd"){
-            echo "gleojccc";
+        if("Aass assasa asdad asd" === $responsesummary){
+            echo "gleojccc1";
         }
+
+        if("Aass assasa asdad asd" === $labels[0]){
+            echo "gleojccc2";
+        }
+
 
             foreach ($labels as $label) {
                 echo "</br>";
