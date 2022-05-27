@@ -48,10 +48,10 @@ class Chart
             return $values;
         }
 
-        $responsesummary = str_replace("\n","",$responsesummary);
+
             foreach ($labels as $label) {
                 echo "</br>";
-                if (strcmp($responsesummary, $label) == 0) {
+                if (strcasecmp($responsesummary, $label) == 0) {
                     echo "sind gleich";
                 }else{
                     echo "sind nicht gleich";
