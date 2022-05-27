@@ -26,9 +26,9 @@ public function getAttemptsByID($result)
 $attempts = array();
 $currentAttempt= new activequiz_attempts();
 foreach ($result as $attempt) {
-echo "</br>";
-var_dump($attempt);
-// $currentAttempts->id = $attempt->id;
+    echo "</br>";
+    //var_dump($attempt);
+    $currentAttempt->id = $attempt->id;
 // $currentAttempts->sessionid = $attempt->sessionid;
 // $currentAttempts->userid = $attempt->userid;
 // $currentAttempts->attemptnum = $attempt->attemptnum;
@@ -42,11 +42,12 @@ var_dump($attempt);
 // $currentAttempts->timefinish = $attempt->timefinish;
 // $currentAttempts->timemodified = $attempt->timemodified;
 //
-// if ($currentAttempts != null) {
-//     array_push($attempts, $currentAttempts);
-// }
-// $currentAttempts = null;
+ if ($currentAttempt != null) {
+     array_push($attempts, $currentAttempt);
+ }
 }
+// $currentAttempts = null;
+
 return $attempts;
 }
 
