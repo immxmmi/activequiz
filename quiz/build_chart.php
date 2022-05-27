@@ -60,7 +60,7 @@ class Chart
         echo "</br>";
         echo "</br>";
 
-
+        $labels[0]=substr($labels[0],1,strlen($labels[0]-1));
         var_dump($responsesummary);
         var_dump($labels[0]);
 
