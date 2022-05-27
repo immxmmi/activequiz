@@ -60,6 +60,9 @@ class Chart
         echo "</br>";
         echo "</br>";
 
+        if($labels[0] === $responsesummary){
+            echo "gleojccc";
+        }
 
             foreach ($labels as $label) {
                 echo "</br>";
