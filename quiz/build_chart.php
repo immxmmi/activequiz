@@ -55,7 +55,7 @@ class Chart
 
         echo "
             <div class='container'>
-                <canvas id=$this->currentID</canvas>></canvas>
+                <canvas id=$this->currentID></canvas>></canvas>
             </div>
         
    
