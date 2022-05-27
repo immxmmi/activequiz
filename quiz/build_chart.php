@@ -56,7 +56,7 @@ class Chart
 
         echo "</br>";
         echo "</br>";
-        echo $labels[1];
+        echo $labels[0];
         echo "</br>";
         echo "</br>";
             foreach ($labels as $label) {
