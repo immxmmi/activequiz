@@ -2,6 +2,7 @@
 require_once("../../../config.php");
 require_once ("session.php");
 require_once ("mdl_activequiz_attempts.php");
+require_once ("mdl_question_attempts.php");
 global $DB;
 
 
