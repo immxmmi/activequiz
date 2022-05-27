@@ -51,7 +51,9 @@ class Chart
 
         echo "</br>";
         echo "</br>";
-        echo $labels[0] === $responsesummary;
+        if($labels[0] === $responsesummary){
+            echo "gleich";
+        }
         echo "</br>";
         echo "</br>";
             foreach ($labels as $label) {
