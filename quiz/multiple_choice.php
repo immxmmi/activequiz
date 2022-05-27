@@ -76,15 +76,6 @@ foreach($question_attemps as $summary){
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $responsesummary = $summary->getResponsesummary();
-
-    var_dump($responsesummary);
-    $arr = str_split($responsesummary); // String in Array umwandeln
-    unset($arr[strlen($responsesummary)-1]); // Zeichen mit Index 3 loeschen (entspricht dem 4. Zeichen)
-    $test = implode('', $arr); // Array in String umwandeln
-    var_dump($test);
-
-
-
     $chart->setCurrentID("test".strval($index));
     echo "</br>";
     echo "DATA::::";
