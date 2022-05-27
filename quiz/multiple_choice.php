@@ -41,11 +41,11 @@ echo "</br>";
 echo "</br>";
 echo $active_attemps[0]->getQuestionengid();
 echo "</br>";
-echo $active_attemps[0]->getQuestionid();
+//echo $active_attemps[0]->getQuestionid();
 echo "</br>";
 echo $active_attemps[1]->getQuestionengid();
 echo "</br>";
-echo $active_attemps[1]->getQuestionid();
+//echo $active_attemps[1]->getQuestionid();
 
 
 // TABLE :: mdl_question_attempts
