@@ -52,6 +52,7 @@ class Chart
             foreach ($labels as $label) {
                 echo "</br>";
                 echo $responsesummary;
+                echo "</br>";
                 echo $label;
                 if (strcasecmp($responsesummary, $label) == 0) {
                     echo "sind gleich";
