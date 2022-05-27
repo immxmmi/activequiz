@@ -66,11 +66,11 @@ class Chart
 
 
 
-        if("Aass assasa asdad asd" === strtr($responsesummary)){
+        if("Aass assasa asdad asd" === strval($responsesummary)){
             echo "gleojccc1";
         }
 
-        if("Aass assasa asdad asd" === strtr($labels[0])){
+        if("Aass assasa asdad asd" === strval($labels[0])){
             echo "gleojccc2";
         }
 
