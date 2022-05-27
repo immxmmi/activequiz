@@ -42,12 +42,27 @@ class Chart
         ";
     }
 
-    public function output($label1, $label2, $label3, $label4, $value1, $value2, $value3, $value4)
+    public function countValue($labels,$values, $responsesummary)
     {
-        $this->label1 = $label1;
-        $this->label2 = $label2;
-        $this->label3 = $label3;
-        $this->label4 = $label4;
+        if($responsesummary == null){
+            return $values;
+        }
+            foreach ($labels as $label) {
+                echo "</br>";
+                echo $responsesummary;
+                echo $label;
+            }
+        return $values;
+    }
+
+    public function output($label, $value1, $value2, $value3, $value4)
+    {
+        $this->label1 = $label[0];
+        $this->label2 = $label[1];
+        $this->label3 = $label[2];
+        $this->label4 = $label[0];
+
+
         $this->value1 = $value1;
         $this->value2 = $value2;
         $this->value3 = $value3;

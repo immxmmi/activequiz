@@ -53,7 +53,7 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 var_dump($question_attemps);
 
 
-    $id = 10;
+    $values = array();
 foreach($question_attemps as $summary){
     echo "</br>";
     echo "</br>";
@@ -62,8 +62,12 @@ foreach($question_attemps as $summary){
     echo "CHART:";
     echo "</br>";
     $labels = $summary->getQuestionsummary();
+    $responsesummary = $summary->getResponsesummary();
     $chart->setCurrentID("test");
-    $chart->output($labels[0],$labels[1],$labels[2],$labels[0],2,3,4,5);
+    echo "</br>";
+    echo "DATA::::";
+    $chart->countValue($labels,$values,$responsesummary);
+    $chart->output($labels,2,3,4,5);
 }
 
     //$chart->endTag();
