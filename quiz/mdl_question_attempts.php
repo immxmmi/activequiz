@@ -41,7 +41,6 @@ class question_attempts
             $currentAttempt->flagged = $attempt->flagged;
             $currentAttempt->questionsummary = $this->filterAnswers($attempt->questionsummary);
             $currentAttempt->rightanswer = $attempt->rightanswer;
-            $currentAttempt->rightanswer[0] = '';
             $currentAttempt->responsesummary = $attempt->responsesummary;
             $currentAttempt->timemodified = $attempt->timemodified;
             if ($currentAttempt != null) {

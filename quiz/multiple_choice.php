@@ -77,8 +77,10 @@ foreach($question_attemps as $summary){
     $labels = $summary->getQuestionsummary();
     $responsesummary = $summary->getResponsesummary();
 
-
     var_dump($responsesummary);
+    $test = $responsesummary;
+    array_shift($test);
+    var_dump($test);
 
 
     $chart->setCurrentID("test".strval($index));
