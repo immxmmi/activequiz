@@ -10,9 +10,9 @@ global $DB;
 $sessionID = 29;
 
 $session = new Session;
-$sessions = $session->getSessionByID($sessionID);
+//$sessions = $session->getSessionByID($sessionID);
 
-var_dump($sessions);
+//var_dump($sessions);
 
 /*
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
