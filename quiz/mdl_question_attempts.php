@@ -44,9 +44,6 @@ class question_attempts
             $currentAttempt->responsesummary = $attempt->responsesummary;
             $currentAttempt->timemodified = $attempt->timemodified;
             if ($currentAttempt != null) {
-                echo"<-TESTT";
-                echo $currentAttempt->questionid;
-                echo"TESTT->";
                 array_push($attempts, $currentAttempt);
             }
         }

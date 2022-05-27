@@ -23,7 +23,7 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
 $params = array('sessionid' => $sessionID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
-var_dump($sessions);
+//var_dump($sessions);
 
 // ACTIVE-QUIZ ATTEMPTS
 // TABLE :: mdl_activequiz_attempts
@@ -36,10 +36,8 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $sessions[0]->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
-echo "</br>";
-echo "</br>";
-echo "</br>";
-var_dump($active_attemps);
+
+//var_dump($active_attemps);
 
 
 echo "</br>";
@@ -64,7 +62,8 @@ $params = array('questionusageid' => $active_attemps[0]->getQuestionengid());
 $result = $DB->get_records_sql($sql, $params);
 //var_dump($result);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
-var_dump($question_attemps);
+//var_dump($question_attemps);
+
 
 
     $values = array(0,0,0,0,0);
