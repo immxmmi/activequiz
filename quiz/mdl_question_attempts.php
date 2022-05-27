@@ -23,9 +23,8 @@ class question_attempts
     public function getAttemptsByQuestionengID($result){
         $attempts = array();
         $currentAttempt = new question_attempts();
-        var_dump($result);
         foreach ($result as $attempt) {
-           // $currentAttempt->id=$attempt->id;
+            $currentAttempt->id=$attempt->id;
            // $currentAttempt->questionusageid=$attempt->questionusageid;
            // $currentAttempt->slot=$attempt->slot;
            // $currentAttempt->behaviour=$attempt->behaviour;
