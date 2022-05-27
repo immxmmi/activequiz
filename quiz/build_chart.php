@@ -48,6 +48,11 @@ class Chart
             return $values;
         }
 
+                echo "</br>";
+                echo "</br>";
+        echo $responsesummary[1];
+                echo "</br>";
+                echo "</br>";
 
             foreach ($labels as $label) {
                 echo "</br>";

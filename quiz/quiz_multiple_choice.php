@@ -66,7 +66,7 @@ foreach($question_attemps as $summary){
     $chart->setCurrentID("test");
     echo "</br>";
     echo "DATA::::";
-    $chart->countValue($labels,$values,$responsesummary[1]);
+    $chart->countValue($labels,$values,$responsesummary);
     $chart->output($labels,2,3,4,5);
 }
 
