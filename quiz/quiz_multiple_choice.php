@@ -36,7 +36,11 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $sessions[0]->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
+echo "</br>";
+echo "</br>";
+echo "</br>";
 echo $active_attemps[0]->getQuestionengid();
+echo "</br>";
 echo $active_attemps[1]->getQuestionengid();
 
 
