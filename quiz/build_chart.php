@@ -64,6 +64,10 @@ class Chart
             echo "gleojccc";
         }
 
+        if("Aass assasa asdad asd" === "Aass assasa asdad asd"){
+            echo "gleojccc";
+        }
+
             foreach ($labels as $label) {
                 echo "</br>";
                 echo $responsesummary;
