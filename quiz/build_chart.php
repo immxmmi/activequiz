@@ -39,7 +39,6 @@ class Chart
             <script src='../js/chartjs/Chart.min.js'></script>
         </head>
         <body>
-        <p>test<p>
         ";
     }
 
