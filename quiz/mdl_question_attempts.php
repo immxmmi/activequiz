@@ -56,13 +56,7 @@ class question_attempts
         $answers = explode(':', $questionsummary);
         $listOfAnswers= explode(';', $answers[1]);
         $cleanList = array();
-        echo "</br>";
-        echo "</br>";
-        echo "</br>";
-        echo "TEST";
-        echo "</br>";
         foreach ($listOfAnswers as $item){
-            echo $item;
             array_push($cleanList, str_replace("\n","",$item));
         }
         return $cleanList;

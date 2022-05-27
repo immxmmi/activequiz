@@ -63,7 +63,7 @@ foreach($question_attemps as $summary){
     echo "</br>";
     $labels = $summary->getQuestionsummary();
     $chart->setCurrentID("test");
-    $chart->output($labels[0],"b","d","d",2,3,4,5);
+    $chart->output($labels[0],$labels[1],$labels[2],$labels[0],2,3,4,5);
 }
 
     //$chart->endTag();
