@@ -53,7 +53,7 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 var_dump($question_attemps);
 
 
-    $values = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+    $values = array(0,0,0,0,0);
     echo $index = 0;
 foreach($question_attemps as $summary){
     echo "</br>";
