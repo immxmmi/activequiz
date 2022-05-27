@@ -48,14 +48,19 @@ class Chart
             return $values;
         }
 
+                echo "</br>";
+                echo "</br>";
+        echo $responsesummary;
+                echo "</br>";
+                echo "</br>";
 
         echo "</br>";
         echo "</br>";
-        if($labels[0] === $responsesummary){
-            echo "gleich";
-        }
+        echo $labels[1];
         echo "</br>";
         echo "</br>";
+
+
             foreach ($labels as $label) {
                 echo "</br>";
                 echo $responsesummary;
