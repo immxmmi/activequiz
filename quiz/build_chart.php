@@ -48,7 +48,7 @@ class Chart
 
         $index = 0;
         foreach ($labels as $label) {
-            if($label == $responsesummary){
+            if($label !== $responsesummary){
                 $values[$index]++;
             }
 
