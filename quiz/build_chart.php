@@ -64,7 +64,9 @@ class Chart
             echo "gleojccc0";
         }
 
-        if("Aass assasa asdad asd" === $responsesummary){
+
+
+        if("Aass assasa asdad asd" === str($responsesummary)){
             echo "gleojccc1";
         }
 
