@@ -54,7 +54,12 @@ class question_attempts
     private function filterAnswers($questionsummary)
     {
         $answers = explode(':', $questionsummary);
-        return explode(';', $answers[1]);
+        $listOfAnswers= explode(';', $answers[1]);
+        $cleanList = array();
+        foreach ($listOfAnswers as $item){
+            array_push($cleanList, str_replace(" ","",$item));
+        }
+        return $cleanList;
     }
 
     /**
