@@ -44,6 +44,7 @@ echo "</br>";
 echo "</br>";
 echo $active_attemps[0]->getQuestionengid();
 echo "</br>";
+var_dump($active_attemps);
 //echo $active_attemps[0]->getQuestionid();
 echo "</br>";
 echo $active_attemps[1]->getQuestionengid();
