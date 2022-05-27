@@ -48,39 +48,15 @@ class Chart
             return $values;
         }
 
-                echo "</br>";
-                echo "</br>";
-        echo $responsesummary;
-                echo "</br>";
-                echo "</br>";
-
-        echo "</br>";
-        echo "</br>";
-        echo $labels[0];
-        echo "</br>";
-        echo "</br>";
-
-        var_dump($responsesummary);
-        var_dump(substr_replace($labels[0],'a',0));
-
-
-
-
-
-
-
             foreach ($labels as $label) {
-                echo "</br>";
-                echo $responsesummary;
-                echo "</br>";
-                echo $label;
-                echo "</br>";
+
 
                 if ($responsesummary == $label) {
                     echo "sind gleich";
                 }else{
                     echo "sind nicht gleich";
                 }
+
             }
         return $values;
     }

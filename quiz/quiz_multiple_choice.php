@@ -54,6 +54,7 @@ var_dump($question_attemps);
 
 
     $values = array();
+    echo $index = 0;
 foreach($question_attemps as $summary){
     echo "</br>";
     echo "</br>";
@@ -68,6 +69,7 @@ foreach($question_attemps as $summary){
     echo "DATA::::";
     $chart->countValue($labels,$values,$responsesummary);
     $chart->output($labels,2,3,4,5);
+    $index++;
 }
 
     //$chart->endTag();
