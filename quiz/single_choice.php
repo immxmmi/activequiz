@@ -10,12 +10,6 @@ $chart = new Chart();
 
 $chart->startTag();
 
-$page = $_SERVER['PHP_SELF'];
-$sec = "1";
-header("Refresh: $sec; url=$page");
-
-
-
 // SESSION
 $sessionID = 35;
 
