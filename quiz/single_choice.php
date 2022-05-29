@@ -24,7 +24,7 @@ $sessions = $session->getSessionByID($result);
 //var_dump($sessions);
 echo "</br>";
 echo "</br>";
-var_dump($sessions[0].getId());
+var_dump($sessions);
 //echo "</br>";
 //echo "ActiveQuiz ID:".$sessions[0].getActivequizid();
 //echo "</br>";
