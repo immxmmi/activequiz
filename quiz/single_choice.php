@@ -10,12 +10,17 @@ $chart = new Chart();
 
 $chart->startTag();
 
+$page = $_SERVER['PHP_SELF'];
+$sec = "1";
+header("Refresh: $sec; url=$page");
+
+
+
 // SESSION
 $sessionID = 35;
 
 
 // TABLE :: mdl_activequiz_sessions
-echo "</br>";
 echo "</br>";
 echo "TABLE :: mdl_activequiz_sessions";
 echo "</br>";
@@ -25,6 +30,13 @@ $params = array('sessionid' => $sessionID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
 //var_dump($sessions);
+echo "</br>";
+echo "</br>";
+echo "Session ID:".$sessions[0].getId();
+echo "</br>";
+echo "ActiveQuiz ID:".$sessions[0].getActivequizid();
+echo "</br>";
+echo "Current Question ID:".$sessions[0].getCurrentquestion();
 
 // ACTIVE-QUIZ ATTEMPTS
 // TABLE :: mdl_activequiz_attempts
