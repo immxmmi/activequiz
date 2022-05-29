@@ -101,7 +101,7 @@
 }
 
 .activequizbox {
-    color: #16194e;
+    color: #16294f;
 }
 
 /** end edit questions **/
@@ -241,7 +241,7 @@
 }
 
 .jumptoquestioncloseclose:hover {
-    background: #00d9ff;
+    background: #16294f;
 }
 
 #notrespondedbox {
@@ -260,7 +260,7 @@
 }
 
 #quizview .hidden{
-    background-color: #00d9ff;
+    background-color: #16294f;
     display: none;
     visibility: hidden;
 }
