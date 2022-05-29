@@ -7,12 +7,10 @@ require_once ("build_chart.php");
 global $DB;
 
 $chart = new Chart();
-
 $chart->startTag();
 
 // SESSION
 $sessionID = 35;
-
 
 // TABLE :: mdl_activequiz_sessions
 echo "</br>";
@@ -27,10 +25,10 @@ $sessions = $session->getSessionByID($result);
 echo "</br>";
 echo "</br>";
 echo "Session ID:".$sessions[0].getId();
-echo "</br>";
-echo "ActiveQuiz ID:".$sessions[0].getActivequizid();
-echo "</br>";
-echo "Current Question ID:".$sessions[0].getCurrentquestion();
+//echo "</br>";
+//echo "ActiveQuiz ID:".$sessions[0].getActivequizid();
+//echo "</br>";
+//echo "Current Question ID:".$sessions[0].getCurrentquestion();
 
 // ACTIVE-QUIZ ATTEMPTS
 // TABLE :: mdl_activequiz_attempts
