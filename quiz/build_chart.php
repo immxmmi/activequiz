@@ -81,6 +81,10 @@ class Chart
         $this->value3 = $values[2];
         $this->value4 = $values[3];
 
+
+
+
+
         echo "
             <div class='container'>
                 <canvas id=$this->currentID></canvas>
@@ -91,7 +95,8 @@ class Chart
             const massPopChart = new Chart($this->currentID, {
                         type: 'bar',
                         data: {
-                            labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
+                            //labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
+                            labels: ['$label'],
                             datasets: [{
                                 label: '# of Votes',
                                 data: [$this->value1, $this->value2, $this->value3, $this->value4],
@@ -122,10 +127,5 @@ class Chart
 
     }
 
-    public function endTag($chartID)
-    {
-        echo "</body>
-        </html> ";
-    }
 
 }
