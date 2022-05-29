@@ -95,8 +95,7 @@ class Chart
             const massPopChart = new Chart($this->currentID, {
                         type: 'bar',
                         data: {
-                            //labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
-                            labels: ['$label'],
+                            labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
                             datasets: [{
                                 label: '# of Votes',
                                 data: [$this->value1, $this->value2, $this->value3, $this->value4],
