@@ -89,7 +89,7 @@ switch (0) {
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 
-echo $data;
+echo json_encode($data, JSON_PRETTY_PRINT);
 
 
 
