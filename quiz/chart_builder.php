@@ -4,6 +4,16 @@ require_once("mdl_question_attempts.php");
 
 class Chart
 {
+    private $response_code = 200;
+    private $status = 'success';
+    private $msg = 'Chartdata successfully fetched';
+    private $data = array();
+    private $options = array();
+    private $chartType;
+
+
+
+
     private $label1;
     private $label2;
     private $label3;
@@ -18,9 +28,7 @@ class Chart
 
 
     public function __construct()
-    {
-
-    }
+    {}
 
     /**
      * @param mixed $currentID
@@ -33,7 +41,6 @@ class Chart
 
     public function startTag()
     {
-
         echo '<head>
             <meta charset="utf-9">
             <title>CHART</title>
@@ -138,55 +145,118 @@ class Chart
     }
 
 
-    public function buildNewBar($labels, $values)
+    public function buildNewBar($chartType, $labels, $values)
     {
+        $this->chartType = $chartType;
+        switch ($chartType) {
+            case "bar":
+                $this->data = array(
+                    'labels' => $labels,
+                    'datasets' => array(
+                        array(
+                            'label' => '# of Votes',
+                            'data' => $values,
+                            'backgroundColor' => array(
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ),
+                            'borderColor' => array(
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ),
+                            'borderWidth' => 1
+                        )
+                    )
+                );
+                $this->options = array(
+                    'scales' => array(
+                        'y' => array(
+                            'beginAtZero' => true
+                        )
+                    )
+                );
+                break;
+            case 'pie':
+                $this->data = array(
+                    'labels' => $labels,
+                    'datasets' => array(
+                        array(
+                            'label' => 'Point',
+                            'backgroundColor' => array(
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                            ),
+                            'data' => $values,
+                        )
+                    )
+                );
+                $this->options = array(
+                    'animation' => array(
+                        'animateScale' => true
+                    )
+                );
+                break;
+            case 'doughnut':
+                $this->data = array(
+                    'labels' => $labels,
+                    'datasets' => array(
+                        array(
+                            'label' => 'Point',
+                            'backgroundColor' => array(
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                            ),
+                            'data' => $values,
+                        )
+                    )
+                );
+                $this->options = array(
+                    'animation' => array(
+                        'animateScale' => true
+                    )
+                );
+                break;
+            default:
+                $this->response_code = 404;
+                $this->status = 'error';
+                $this->msg = "TEST ERROR";
+                break;
+        }
+        $this->createJSON();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return $data = array(
-            'labels' => $labels,
-            'datasets' => array(
-                array(
-                    'label' => '# of Votes',
-                    'data' => $values,
-                    'backgroundColor' => array(
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ),
-                    'borderColor' => array(
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ),
-                    'borderWidth' => 1
-                )
-            )
-        );
-        $options = array(
-            'scales' => array(
-                'y' => array(
-                    'beginAtZero' => true
-                )
-            )
-        );
     }
+
+    public function createJSON(){
+        http_response_code($this->response_code);
+        header('Content-Type: application/json');
+        $response = array(
+            'meta' => array(
+                'status' => $this->status,
+                'msg' => $this->msg
+            ),
+            'data' => array(
+                'charttype' => $this->chartType,
+                'chartdata' => $this->data,
+                'chartoptions' => $this->options
+            )
+        );
+        echo json_encode($response, JSON_PRETTY_PRINT);
+        exit;
+    }
+
+
 }

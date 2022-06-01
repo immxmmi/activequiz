@@ -82,7 +82,7 @@ switch ($questionType) {
         echo "no Type";
 }
 
-$data = $chart->buildNewBar($single->getLabels(),$single->getValues());
+$data = $chart->buildNewBar("bar",$single->getLabels(),$single->getValues());
 
 /*
 switch ($chartType){
