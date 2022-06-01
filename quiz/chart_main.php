@@ -70,7 +70,7 @@ switch ($questionType) {
         $single->setData($question_attemps);
         echo "</br>";
         echo "</br>";
-        var_dump($single->getLabels());
+        //var_dump($single->getLabels());
         echo "</br>";
         echo "</br>";
         echo "</br>";
