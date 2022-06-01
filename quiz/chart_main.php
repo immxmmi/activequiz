@@ -4,6 +4,7 @@ require_once("session.php");
 require_once("mdl_activequiz_attempts.php");
 require_once("mdl_question_attempts.php");
 require_once("chart_builder.php");
+require_once("single_choice.php");
 global $DB;
 global $chart_values;
 global $chart_label;
