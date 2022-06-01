@@ -54,8 +54,6 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 ####################################################
 
 
-
-
 $chartType = 0;
 $questionType = "singel";
 
@@ -67,12 +65,21 @@ $responsesummary = $summary->getResponsesummary();
 
 $single = new Single_Choice();
 
-switch ($questionType){
-    case "singel": $single->setData($question_attemps);break;
-    default: echo "no Type";
+switch ($questionType) {
+    case "singel":
+        $single->setData($question_attemps);
+        echo "</br>";
+        echo "</br>";
+        var_dump($single->getLabels());
+        echo "</br>";
+        echo "</br>";
+        echo "</br>";
+        break;
+    default:
+        echo "no Type";
 }
 
-var_dump($chart->buildNewBar($array = ["a","b"],$a = [2,3]));
+$data = $chart->buildNewBar($array = ["a", "b"], $a = [2, 3]);
 
 /*
 switch ($chartType){

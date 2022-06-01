@@ -8,17 +8,36 @@ global $DB;
 
 class Single_Choice{
 
-    function setData($question_attemps)
-    {
+    private $labels;
+    private $values = array(0, 0, 0, 0, 0);
+
+    function setData($question_attemps){
         $chart = new Chart();
-        $values = array(0, 0, 0, 0, 0);
         foreach ($question_attemps as $summary) {
-            $labels = $summary->getQuestionsummary();
+            $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
-            $values = $chart->countValue($labels, $values, $responsesummary);
-            //$chart->buildBarChart($labels, $values);
+            $this->values = $chart->countValue($this->labels, $this->values, $responsesummary);
+            break;
         }
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getValues()
+    {
+        return $this->values;
+    }
+
+
 
 }
 
