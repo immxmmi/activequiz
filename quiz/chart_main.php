@@ -104,10 +104,13 @@ echo "<head><script>
 var ourChart = null;
 var showChart = null;
 var ourData = ".json_encode($data).";
-console.log(ourData.data);
 		jQuery(document).ready(function () {
 				ourChart = jQuery('#ourChart');
-                showChart = new Chart(ourChart,ourData);
+                showChart = new Chart(ourChart,{
+                    type: ourData.data.charttype,
+					data: ourData.data.chartdata,
+					options: ourData.data.chartoptions
+                });
 			});
 </script></head>";
 
