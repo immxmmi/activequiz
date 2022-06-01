@@ -11,7 +11,7 @@ global $chart_values;
 global $chart_label;
 
 // SESSION
-$sessionID = 39;
+$sessionID = 41;
 
 
 // CHART BUILDER
@@ -51,7 +51,7 @@ $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = 
 $params = array('questionusageid' => $active_attemps[0]->getQuestionengid());
 $result = $DB->get_records_sql($sql, $params);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
-var_dump($question_attemps);
+//var_dump($question_attemps);
 ####################################################
 
 
@@ -65,6 +65,12 @@ $trueFalse = new TrueFalse_Choice();
 switch ($questionType) {
     case "singel":
         $single->setData($question_attemps);
+        echo "</br> VALUES";
+        echo "</br>";
+        var_dump($single->getValues());
+        echo "</br> LABELS";
+        echo "</br>";
+        var_dump($single->getLabels());
         break;
     case "true/false":
         $trueFalse->setData($question_attemps);
@@ -90,7 +96,7 @@ switch (0) {
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 
 echo "</br>";
-echo json_encode($data, JSON_PRETTY_PRINT);
+//echo json_encode($data, JSON_PRETTY_PRINT);
 
 
 
