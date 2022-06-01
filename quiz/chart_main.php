@@ -40,7 +40,7 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $sessions[0]->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
-var_dump($active_attemps);
+//var_dump($active_attemps);
 #######################################################
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
@@ -96,7 +96,7 @@ switch (0) {
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 
 echo "</br>";
-//echo json_encode($data, JSON_PRETTY_PRINT);
+echo json_encode($data, JSON_PRETTY_PRINT);
 
 
 
