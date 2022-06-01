@@ -99,4 +99,16 @@ echo "</br>";
 echo json_encode($data, JSON_PRETTY_PRINT);
 
 
+echo "<head><script>
+var ourChart = null;
+		jQuery(document).ready(function () {
+				apiChart = jQuery('#ourChart');
+			});
+</script></head>";
+
+echo '<body><div class="container">
+            <canvas id="ourChart"></canvas> 
+        </div></body>';
+
+
 

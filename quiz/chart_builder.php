@@ -24,8 +24,8 @@ class Chart
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
             <style type="text / css">.chartwrapper {width: 500px;}</style>
             <script src="../js/chartjs/Chart.min.js"></script>
-        </head>
-        <body>';
+            <script src="../../../lib/jquery/jquery-3.5.1.min.js"></script>
+        </head>';
     }
     public function countValue($labels, $values, $responsesummary)
     {
