@@ -16,7 +16,7 @@ class Single_Choice{
             $labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
             $values = $chart->countValue($labels, $values, $responsesummary);
-            $chart->buildBarChart($labels, $values);
+            //$chart->buildBarChart($labels, $values);
         }
     }
 

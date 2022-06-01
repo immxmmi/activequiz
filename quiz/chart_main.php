@@ -72,6 +72,7 @@ switch ($questionType){
     default: echo "no Type";
 }
 
+var_dump($chart->buildNewBar(null,null));
 
 /*
 switch ($chartType){
