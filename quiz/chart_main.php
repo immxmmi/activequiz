@@ -51,7 +51,7 @@ $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = 
 $params = array('questionusageid' => $active_attemps[0]->getQuestionengid());
 $result = $DB->get_records_sql($sql, $params);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
-//var_dump($question_attemps);
+var_dump($question_attemps);
 ####################################################
 
 
