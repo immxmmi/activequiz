@@ -68,7 +68,14 @@ class Chart
         return $values;
     }
 
-    public function output($label, $values)
+
+    public function buildPieChart(){
+
+    }
+    public function buildDoughnutChart(){
+
+    }
+    public function buildBarChart($label, $values)
     {
         $this->label1 = $label[0];
         $this->label2 = $label[1];
