@@ -50,41 +50,58 @@ class Chart
                     jQuery("#charttype").bind(change, changeChartTypeHandler);
                 });
             var changeChartTypeHandler = function () {
-    var charttype = jQuery("#charttype").val();
-    if (charttype !== "none") {
-        var url = "./../dataapi.php";
-        var params = {
-            type: charttype
-                        };
-                        jQuery.get(url, params, redrawChart).fail(function (data) {
-                            destroyChart();
-                            alert(data.responseJSON.meta.msg);
-                        });
-                    }
-};
+            var charttype = jQuery("#charttype").val();
+            if (charttype !== "none") {
+                var url = "./../dataapi.php";
+                var params = {
+                    type: charttype
+                                };
+                                jQuery.get(url, params, redrawChart).fail(function (data) {
+                                    destroyChart();
+                                    alert(data.responseJSON.meta.msg);
+                                });
+                            }
+            };
 
-                var destroyChart = function () {
-    if (skillChart !== null) {
-        skillChart.destroy();
-    }
-};
-                var redrawChart = function (data) {
-    if (data.meta.status === "error") {
-        alert(data.meta.msg);
-        return;
-    }
+            var destroyChart = function () {
+                if (skillChart !== null) {
+                    skillChart.destroy();
+                }
+            };
+            var redrawChart = function (data) {
+                if (data.meta.status === "error") {
+                    alert(data.meta.msg);
+                    return;
+            }
 
-    destroyChart();
-    skillChart = new Chart(apiChart, {
-        type: data.data.charttype,
-                        data: data.data.chartdata,
-                        options: data.data.chartoptions
-                    });
-                };
-            </script>
+            destroyChart();
+                skillChart = new Chart(apiChart, {
+                    type: data.data.charttype,
+                                    data: data.data.chartdata,
+                                    options: data.data.chartoptions
+                                });
+                            };
+                    </script>
            
         </head>
         <body>';
+
+        echo '<div>
+			<form action="javascript:void(0);">
+				<select id="charttype" name="type">
+					<option value="none">--- choose a chart ---</option>
+					<option value="pie">Pie-Chart</option>
+					<option value="bar">Bar-Chart</option>
+					<option value="doughnut">Doughnut-Chart</option>
+					<option value="unknown">Unknown-Chart</option>
+				</select>
+			</form>
+		</div>
+        <div class="container">
+			<div class="chartwrapper">
+				<canvas id="apiChart"></canvas>
+			</div>
+        </div>';
     }
 
 
