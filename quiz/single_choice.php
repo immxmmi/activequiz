@@ -9,7 +9,7 @@ global $DB;
 class Single_Choice{
 
     private $labels;
-    private $values = array(0, 0, 0, 0, 0);
+    private $values;
 
     function setData($question_attemps){
         $chart = new Chart();
