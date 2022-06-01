@@ -69,9 +69,12 @@ switch ($questionType) {
     case "singel":
         $single->setData($question_attemps);
         echo "</br>";
+        echo"LABELS:";
         echo "</br>";
-        //var_dump($single->getLabels());
+        var_dump($single->getLabels());
         echo "</br>";
+        echo"VALUES:";
+        var_dump($single->getValues());
         echo "</br>";
         echo "</br>";
         break;
@@ -79,7 +82,7 @@ switch ($questionType) {
         echo "no Type";
 }
 
-$data = $chart->buildNewBar($array = ["a", "b"], $a = [2, 3]);
+$data = $chart->buildNewBar($single->getLabels(),$single->getValues());
 
 /*
 switch ($chartType){
