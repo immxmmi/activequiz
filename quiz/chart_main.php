@@ -64,6 +64,7 @@ $trueFalse = new TrueFalse_Choice();
 
 switch ($questionType) {
     case "singel":
+        echo "TEST";
         $single->setData($question_attemps);
         echo "</br> VALUES";
         echo "</br>";
