@@ -49,8 +49,8 @@ class Chart
         if ($responsesummary == null) {
             return $values;
         }
-        var_dump($responsesummary);
-        var_dump($labels);
+        //var_dump($responsesummary);
+        //var_dump($labels);
         $labels[0] = $delete->deleteCharAT($labels[0], 0);
         $labels[1] = $delete->deleteCharAT($labels[1], 0);
         $labels[2] = $delete->deleteCharAT($labels[2], 0);
