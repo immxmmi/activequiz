@@ -101,8 +101,10 @@ echo json_encode($data, JSON_PRETTY_PRINT);
 
 echo "<head><script>
 var ourChart = null;
+var showChart = null;
 		jQuery(document).ready(function () {
-				apiChart = jQuery('#ourChart');
+				ourChart = jQuery('#ourChart');
+                showChart = new Chart(ourChart,{".$data."});
 			});
 </script></head>";
 
