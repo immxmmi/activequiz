@@ -39,50 +39,7 @@ class Chart
             <title>CHART</title>
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
             <style type="text / css">.chartwrapper {width: 500px;}</style>
-            <script src="../../../lib/jquery/jquery-3.5.1.min.js"></script>
             <script src="../js/chartjs/Chart.min.js"></script>
-            <script>
-                var apiChart = null;
-                var skillChart = null;
-
-                jQuery(document).ready(function () {
-                    apiChart = jQuery("#apiChart");
-                    jQuery("#charttype").bind(change, changeChartTypeHandler);
-                });
-            var changeChartTypeHandler = function () {
-            var charttype = jQuery("#charttype").val();
-            if (charttype !== "none") {
-                var url = "./../dataapi.php";
-                var params = {
-                    type: charttype
-                                };
-                                jQuery.get(url, params, redrawChart).fail(function (data) {
-                                    destroyChart();
-                                    alert(data.responseJSON.meta.msg);
-                                });
-                            }
-            };
-
-            var destroyChart = function () {
-                if (skillChart !== null) {
-                    skillChart.destroy();
-                }
-            };
-            var redrawChart = function (data) {
-                if (data.meta.status === "error") {
-                    alert(data.meta.msg);
-                    return;
-            }
-
-            destroyChart();
-                skillChart = new Chart(apiChart, {
-                    type: data.data.charttype,
-                                    data: data.data.chartdata,
-                                    options: data.data.chartoptions
-                                });
-                            };
-                    </script>
-           
         </head>
         <body>';
     }
@@ -183,23 +140,6 @@ class Chart
 
     public function buildNewBar($labels, $values)
     {
-
-        echo '<div>
-			<form action="javascript:void(0);">
-				<select id="charttype" name="type">
-					<option value="none">--- choose a chart ---</option>
-					<option value="pie">Pie-Chart</option>
-					<option value="bar">Bar-Chart</option>
-					<option value="doughnut">Doughnut-Chart</option>
-					<option value="unknown">Unknown-Chart</option>
-				</select>
-			</form>
-		</div>
-        <div class="container">
-			<div class="chartwrapper">
-				<canvas id="apiChart"></canvas>
-			</div>
-        </div>';
 
 
 
