@@ -104,7 +104,7 @@ var ourChart = null;
 var showChart = null;
 		jQuery(document).ready(function () {
 				ourChart = jQuery('#ourChart');
-                showChart = new Chart(ourChart,".$data.");
+                showChart = new Chart(ourChart,".json_encode($data).");
 			});
 </script></head>";
 
