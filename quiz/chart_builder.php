@@ -137,11 +137,11 @@ class Chart
 
     public function buildNewBar($labels,$values){
         return $data = array(
-            'labels' => array('Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'),
+            'labels' => $labels,
             'datasets' => array(
                 array(
                     'label' => '# of Votes',
-                    'data' => array(12, 19, 3, 5, 2, 3),
+                    'data' => $values,
                     'backgroundColor' => array(
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

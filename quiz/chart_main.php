@@ -72,7 +72,7 @@ switch ($questionType){
     default: echo "no Type";
 }
 
-var_dump($chart->buildNewBar(null,null));
+var_dump($chart->buildNewBar($array = ["a","b"],$a = [2,3]));
 
 /*
 switch ($chartType){
