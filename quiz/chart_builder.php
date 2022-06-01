@@ -33,15 +33,60 @@ class Chart
 
     public function startTag()
     {
-        echo "
-        <head>
-            <meta charset='utf-9'>
-            <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js'></script>-->
-            <script src='../js/chartjs/Chart.min.js'></script>
-        </head>
-        <body>
-        ";
+
+        echo '<head>
+            <meta charset="utf-9">
+            <title>CHART</title>
+            <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
+            <style type="text / css">.chartwrapper {width: 500px;}</style>
+            <script src=" <?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
+            <script src=' . $CFG->wwwroot . '/mod/activequiz/js/chartjs/Chart.min.js"></script>
+            <script>
+                var apiChart = null;
+                var skillChart = null;
+
+                jQuery(document).ready(function () {
+                    apiChart = jQuery("#apiChart");
+                    jQuery("#charttype").bind(change, changeChartTypeHandler);
+                });
+            var changeChartTypeHandler = function () {
+    var charttype = jQuery("#charttype").val();
+    if (charttype !== "none") {
+        var url = "./../dataapi.php";
+        var params = {
+            type: charttype
+                        };
+                        jQuery.get(url, params, redrawChart).fail(function (data) {
+                            destroyChart();
+                            alert(data.responseJSON.meta.msg);
+                        });
+                    }
+};
+
+                var destroyChart = function () {
+    if (skillChart !== null) {
+        skillChart.destroy();
     }
+};
+                var redrawChart = function (data) {
+    if (data.meta.status === "error") {
+        alert(data.meta.msg);
+        return;
+    }
+
+    destroyChart();
+    skillChart = new Chart(apiChart, {
+        type: data.data.charttype,
+                        data: data.data.chartdata,
+                        options: data.data.chartoptions
+                    });
+                };
+            </script>
+           
+        </head>
+        <body>';
+    }
+
 
     public function countValue($labels, $values, $responsesummary)
     {
@@ -49,8 +94,8 @@ class Chart
         if ($responsesummary == null) {
             return $values;
         }
-        //var_dump($responsesummary);
-        //var_dump($labels);
+//var_dump($responsesummary);
+//var_dump($labels);
         $labels[0] = $delete->deleteCharAT($labels[0], 0);
         $labels[1] = $delete->deleteCharAT($labels[1], 0);
         $labels[2] = $delete->deleteCharAT($labels[2], 0);
@@ -58,7 +103,7 @@ class Chart
 
         $index = 0;
         foreach ($labels as $label) {
-            // compare answers
+// compare answers
             if ($label !== $responsesummary) {
                 $values[$index]++;
             }
@@ -69,12 +114,16 @@ class Chart
     }
 
 
-    public function buildPieChart(){
+    public function buildPieChart()
+    {
 
     }
-    public function buildDoughnutChart(){
+
+    public function buildDoughnutChart()
+    {
 
     }
+
     public function buildBarChart($label, $values)
     {
         $this->label1 = $label[0];
@@ -89,53 +138,51 @@ class Chart
         $this->value4 = $values[3];
 
 
-
-
-
         echo "
-            <div class='container'>
-                <canvas id=$this->currentID></canvas>
-            </div>
-        
-   
-            <script>
-            const massPopChart = new Chart($this->currentID, {
-                        type: 'bar',
-                        data: {
-                            labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [$this->value1, $this->value2, $this->value3, $this->value4],
-                                backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)',
-                                    'rgba(54, 162, 235, 0.2)',
-                                    'rgba(255, 206, 86, 0.2)',
-                                    'rgba(75, 192, 192, 0.2)'
-                                ],
-                                borderColor: [
-                                    'rgba(255, 99, 132, 1)',
-                                    'rgba(54, 162, 235, 1)',
-                                    'rgba(255, 206, 86, 1)',
-                                    'rgba(75, 192, 192, 1)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                });
-            </script>";
+<div class='container'>
+    <canvas id=$this->currentID></canvas>
+</div>
+
+
+<script>
+    const massPopChart = new Chart($this->currentID, {
+        type: 'bar',
+        data: {
+            labels: ['$this->label1', '$this->label2', '$this->label3', '$this->label4'],
+            datasets: [{
+                label: '# of Votes',
+                data: [$this->value1, $this->value2, $this->value3, $this->value4],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+";
 
     }
 
 
-
-    public function buildNewBar($labels,$values){
+    public function buildNewBar($labels, $values)
+    {
         return $data = array(
             'labels' => $labels,
             'datasets' => array(

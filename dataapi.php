@@ -9,6 +9,13 @@ $msg = 'Chartdata successfully fetched';
 $data = array();
 $options = array();
 
+
+
+
+
+
+
+
 switch ($type)
 {
 	case 'pie':
@@ -102,6 +109,28 @@ switch ($type)
 		}
 		break;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 http_response_code($response_code);
 header('Content-Type: application/json');

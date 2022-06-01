@@ -6,13 +6,11 @@ require_once("../../config.php");
     <head>
         <meta charset="utf-8">
         <title>DataAPI Test</title>
-		<style type="text/css">
-			.chartwrapper {
-				width: 640px;
-			}
-		</style>
+		<style type="text/css">.chartwrapper {width: 640px;}</style>
 		<script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
         <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chartjs/Chart.min.js"></script>
+
+
 		<script>
 			var apiChart = null;
 			var skillChart = null;
@@ -57,6 +55,15 @@ require_once("../../config.php");
 			};
         </script>
     </head>
+
+
+
+
+
+
+
+
+
     <body>
 		<div>
 			<form action="javascript:void(0);">
