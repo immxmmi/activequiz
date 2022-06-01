@@ -8,6 +8,7 @@ class Single_Choice{
     private $values = array(0, 0, 0, 0, 0);
 
     function setData($question_attemps){
+        var_dump($question_attemps);
         $chart = new Chart();
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
