@@ -13,7 +13,8 @@ class Chart
 
 
     public function __construct()
-    {}
+    {
+    }
 
 
     public function startTag()
@@ -21,26 +22,32 @@ class Chart
         echo '<head>
             <meta charset="utf-9">
             <title>CHART</title>
+            	<style type="text/css">
+			.chartwrapper {
+				width: 640px;
+			}
+		</style>
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
             <style type="text / css">.chartwrapper {width: 500px;}</style>
             <script src="../js/chartjs/Chart.min.js"></script>
             <script src="../../../lib/jquery/jquery-3.5.1.min.js"></script>
         </head>';
     }
+
     public function countValue($labels, $values, $responsesummary)
     {
         $delete = new question_attempts;
         if ($responsesummary == null) {
             return $values;
         }
-        echo"</br>";
-        echo"ANSWER";
-        echo"</br>";
-var_dump($responsesummary);
-        echo"</br>";
-        echo"LABELS";
-        echo"</br>";
-var_dump($labels);
+        echo "</br>";
+        echo "ANSWER";
+        echo "</br>";
+        var_dump($responsesummary);
+        echo "</br>";
+        echo "LABELS";
+        echo "</br>";
+        var_dump($labels);
         $labels[0] = $delete->deleteCharAT($labels[0], 0);
         $labels[1] = $delete->deleteCharAT($labels[1], 0);
         $labels[2] = $delete->deleteCharAT($labels[2], 0);
@@ -153,7 +160,9 @@ var_dump($labels);
         return $this->createJSON();
 
     }
-    private function createJSON(){
+
+    private function createJSON()
+    {
         http_response_code($this->response_code);
         //header('Content-Type: application/json');
         $response = array(
