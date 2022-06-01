@@ -103,7 +103,7 @@ echo json_encode($data, JSON_PRETTY_PRINT);
 echo "<head><script>
 var ourChart = null;
 var showChart = null;
-var ourData = ".json_encode($data->data).";
+var ourData = ".json_encode($data.data).";
 		jQuery(document).ready(function () {
 				ourChart = jQuery('#ourChart');
                 showChart = new Chart(ourChart,ourData);
