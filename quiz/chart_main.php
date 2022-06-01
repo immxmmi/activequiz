@@ -11,7 +11,7 @@ global $chart_values;
 global $chart_label;
 
 // SESSION
-$sessionID = 41;
+$sessionID = 39;
 
 
 // CHART BUILDER
