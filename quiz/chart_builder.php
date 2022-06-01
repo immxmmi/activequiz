@@ -39,8 +39,8 @@ class Chart
             <title>CHART</title>
             <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
             <style type="text / css">.chartwrapper {width: 500px;}</style>
-            <script src=" <?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-            <script src=' . $CFG->wwwroot . '/mod/activequiz/js/chartjs/Chart.min.js"></script>
+            <script src='.$CFG->wwwroot.'/lib/jquery/jquery-3.5.1.min.js"></script>
+            <script src='.$CFG->wwwroot.'/mod/activequiz/js/chartjs/Chart.min.js"></script>
             <script>
                 var apiChart = null;
                 var skillChart = null;
