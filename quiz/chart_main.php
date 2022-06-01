@@ -78,7 +78,7 @@ switch ($questionType) {
         echo "no Type";
 }
 
-switch (0) {
+switch (2) {
     case 0:
         $chartType = "bar";
         break;
