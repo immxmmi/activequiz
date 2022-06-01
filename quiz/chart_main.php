@@ -95,6 +95,7 @@ switch (0) {
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 
+var_dump($data);
 
 echo "</br>";
 echo json_encode($data, JSON_PRETTY_PRINT);
