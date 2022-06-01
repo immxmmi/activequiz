@@ -95,6 +95,7 @@ switch (0) {
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 
+
 echo "</br>";
 echo json_encode($data, JSON_PRETTY_PRINT);
 
@@ -102,7 +103,7 @@ echo json_encode($data, JSON_PRETTY_PRINT);
 echo "<head><script>
 var ourChart = null;
 var showChart = null;
-var ourData = ".$data.data.chartType."
+var ourData = ".$data->data->chartType."
 		jQuery(document).ready(function () {
 				ourChart = jQuery('#ourChart');
                 showChart = new Chart(ourChart,ourData);
