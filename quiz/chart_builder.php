@@ -41,14 +41,14 @@ class Chart
 
     public function startTag()
     {
-       // echo '<head>
-       //     <meta charset="utf-9">
-       //     <title>CHART</title>
-       //     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
-       //     <style type="text / css">.chartwrapper {width: 500px;}</style>
-       //     <script src="../js/chartjs/Chart.min.js"></script>
-       // </head>
-       // <body>';
+        echo '<head>
+            <meta charset="utf-9">
+            <title>CHART</title>
+            <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
+            <style type="text / css">.chartwrapper {width: 500px;}</style>
+            <script src="../js/chartjs/Chart.min.js"></script>
+        </head>
+        <body>';
     }
 
 
@@ -242,7 +242,7 @@ class Chart
 
     public function createJSON(){
         http_response_code($this->response_code);
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
         $response = array(
             'meta' => array(
                 'status' => $this->status,
