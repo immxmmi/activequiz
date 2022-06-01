@@ -13,7 +13,6 @@ class Single_Choice{
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
             $this->values = $chart->countValue($this->labels, $this->values, $responsesummary);
-            break;
         }
     }
 
