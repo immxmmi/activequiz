@@ -5,6 +5,7 @@ require_once("mdl_activequiz_attempts.php");
 require_once("mdl_question_attempts.php");
 require_once("chart_builder.php");
 require_once("single_choice.php");
+require_once("trueFalse_choice.php");
 global $DB;
 global $chart_values;
 global $chart_label;
@@ -54,42 +55,41 @@ $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 ####################################################
 
 
-$chartType = 0;
+$chartType = "";
 $questionType = "singel";
 
-/*
-$labels = $summary->getQuestionsummary();
-//var_dump($labels);
-$responsesummary = $summary->getResponsesummary();
-*/
 
 $single = new Single_Choice();
+$trueFalse = new TrueFalse_Choice();
 
 switch ($questionType) {
     case "singel":
         $single->setData($question_attemps);
-        echo "</br>";
-        echo"LABELS:";
-        echo "</br>";
-        var_dump($single->getLabels());
-        echo "</br>";
-        echo"VALUES:";
-        var_dump($single->getValues());
-        echo "</br>";
-        echo "</br>";
         break;
+    case "true/false":
+        $trueFalse->setData($question_attemps);
     default:
         echo "no Type";
 }
 
-$data = $chart->buildNewBar("bar",$single->getLabels(),$single->getValues());
-
-/*
-switch ($chartType){
-    case 0: $chart->buildBarChart($chart_label,$chart_values);break;
-    case 1: $chart->buildDoughnutChart();break;
-    case 2: $chart->buildPieChart();break;
-    default: $chart->buildBarChart();break;
+switch (0) {
+    case 0:
+        $chartType = "bar";
+        break;
+    case 1:
+        $chartType = "doughnut";
+        break;
+    case 2:
+        $chartType = "pie";
+        break;
+    default:
+        $chartType = "bar";
+        break;
 }
 
-*/
+$data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+
+echo $data;
+
+
+

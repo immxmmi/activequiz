@@ -2,7 +2,7 @@
 require_once("../../../config.php");
 global $DB;
 
-class Single_Choice{
+class TrueFalse_Choice{
 
     private $labels;
     private $values = array(0, 0, 0, 0, 0);
@@ -27,7 +27,3 @@ class Single_Choice{
     }
 
 }
-
-
-
-

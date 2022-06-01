@@ -12,17 +12,8 @@ class Chart
     private $chartType;
 
 
-
     public function __construct()
     {}
-
-    /**
-     * @param mixed $currentID
-     */
-    public function setCurrentID($currentID)
-    {
-        $this->currentID = $currentID;
-    }
 
 
     public function startTag()
@@ -36,8 +27,6 @@ class Chart
         </head>
         <body>';
     }
-
-
     public function countValue($labels, $values, $responsesummary)
     {
         $delete = new question_attempts;
@@ -64,10 +53,7 @@ class Chart
     }
 
 
-
-
-
-    public function buildNewBar($chartType, $labels, $values)
+    public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
         switch ($chartType) {
@@ -158,11 +144,10 @@ class Chart
                 $this->msg = "TEST ERROR";
                 break;
         }
-        $this->createJSON();
+        return $this->createJSON();
 
     }
-
-    public function createJSON(){
+    private function createJSON(){
         http_response_code($this->response_code);
         //header('Content-Type: application/json');
         $response = array(
@@ -176,8 +161,7 @@ class Chart
                 'chartoptions' => $this->options
             )
         );
-        echo json_encode($response, JSON_PRETTY_PRINT);
-        exit;
+        return $response;
     }
 
 
