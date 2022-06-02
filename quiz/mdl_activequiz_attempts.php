@@ -27,8 +27,8 @@ class activequiz_attempts
     public function getAttemptsByID($result)
     {
         $attempts = array();
-        $currentAttempt = new activequiz_attempts();
         foreach ($result as $attempt) {
+        $currentAttempt = new activequiz_attempts();
             echo "</br>";
             echo "</br>";
             echo "TEST";
