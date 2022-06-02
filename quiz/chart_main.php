@@ -68,6 +68,9 @@ echo"</br>";
 echo"PREVIEW: ".$current_attemp->getPreview();
 echo"</br>";
 echo"</br>";
+echo "QID:";
+echo"</br>";
+var_dump($active_attemps);
 echo"</br>";
 //var_dump($active_attemps);
 #######################################################
