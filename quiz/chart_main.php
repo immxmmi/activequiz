@@ -30,15 +30,15 @@ $session = new Session();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid AND activequizid = :activequizid';
 $params = array('sessionid' => $sessionID, 'activequizid' => $activequizID);
 $result = $DB->get_records_sql($sql, $params);
-$sessions = $session->getSessionByID($result);
-$current_session = $sessions[0];
+$current_session = $session->getSessionByID($result);
+
 echo"</br>";
 echo"</br>";
 echo "SESSION ID: ".$current_session->getId();
 echo"</br>";
 echo"</br>";
 
-var_dump($sessions);
+var_dump($current_session);
 
 echo"</br>";
 echo"</br>";

@@ -59,7 +59,7 @@ class Session
             }
             $currentSession = null;
         }
-        return $sessions;
+        return $sessions[0];
     }
 
 
