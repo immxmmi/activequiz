@@ -55,6 +55,9 @@ class activequiz_attempts
             $currentAttempt->qubalayout = $attempt->qubalayout;
 
            // if ($currentAttempt != null) {
+            echo "</br>";
+            var_dump($currentAttempt);
+            echo "</br>";
                 array_push($attempts, $currentAttempt);
            // }
         }
