@@ -48,7 +48,7 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
-var_dump($active_attemps);
+var_dump($result);
 $current_attemp = $active_attemps[0];
 
 
