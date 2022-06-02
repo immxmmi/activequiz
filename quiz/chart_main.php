@@ -46,6 +46,8 @@ $active_attemps = $active_attemp->getAttemptsByID($result);
 $current_attemp = $active_attemps[0];
 
 echo"</br>";
+echo"</br>";
+echo"</br>";
 echo"QUBALAYOUT: ".$current_attemp->getQubalayout();
 echo"</br>";
 echo"ATTEMPTNUM: ".$current_attemp->getAttemptnum();
