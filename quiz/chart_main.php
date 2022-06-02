@@ -15,8 +15,6 @@ $sessionID = 46;
 // Activequiz ID
 $activequizID = 18;
 
-
-
 // CHART BUILDER
 $chart = new Chart();
 // CHART HEAD
@@ -50,7 +48,11 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
+var_dump($active_attemps);
 $current_attemp = $active_attemps[0];
+
+
+
 
 echo"</br>";
 echo"</br>";
