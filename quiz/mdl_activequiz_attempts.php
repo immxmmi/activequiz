@@ -34,8 +34,7 @@ class activequiz_attempts
             echo "TEST";
             echo "</br>";
             echo "</br>";
-            echo "</br>";
-            echo "</br>";
+
             echo "</br>";
             var_dump($attempt);
             echo "</br>";
@@ -60,6 +59,11 @@ class activequiz_attempts
             }
         }
 // $currentAttempts = null;
+
+        var_dump($attempts);
+
+        echo "</br>";
+        echo "</br>";
 
         return $attempts;
     }
