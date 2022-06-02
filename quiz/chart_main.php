@@ -11,7 +11,7 @@ global $chart_values;
 global $chart_label;
 
 // SESSION ID
-$sessionID = 39;
+$sessionID = 43;
 // SESSION ID
 $activequiID = 15;
 
@@ -45,6 +45,17 @@ $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
 //var_dump($active_attemps);
 #######################################################
+
+
+
+
+
+
+
+
+
+
+
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 echo "QUESTION ATTEMPTS</br>";
