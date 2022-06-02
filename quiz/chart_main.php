@@ -75,13 +75,14 @@ echo"</br>";
 
 
 
-$list_of_question_attemps = array();
-foreach ($all_questionengids as $questionengids) {
+# # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
+$list_of_question_attemps = array(); // LIST ATTEMPS
+$current_slot = $current_session->getCurrentquestion(); // SLOT
+$current_slot = 1; // SLOT
+echo "QUESTION ATTEMPTS</br>";
+echo "TABLE :: mdl_question_attempts</br>";
 
-    # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-        $current_slot = $current_session->getCurrentquestion(); // SLOT
-        echo "QUESTION ATTEMPTS</br>";
-        echo "TABLE :: mdl_question_attempts</br>";
+foreach ($all_questionengids as $questionengids) {
         $question_attemp = new question_attempts();
         $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
         $params = array('questionusageid' => $questionengids, 'slot' => $current_slot);
