@@ -17,6 +17,7 @@ class activequiz_attempts
     private $timestart;
     private $timefinish;
     private $timemodified;
+    private $qubalayout;
 
 
     public function __construct()
@@ -41,6 +42,7 @@ class activequiz_attempts
             $currentAttempt->timestart = $attempt->timestart;
             $currentAttempt->timefinish = $attempt->timefinish;
             $currentAttempt->timemodified = $attempt->timemodified;
+            $currentAttempt->qubalayout = $attempt->qubalayout;
 
             if ($currentAttempt != null) {
                 array_push($attempts, $currentAttempt);
@@ -153,6 +155,14 @@ class activequiz_attempts
     public function getTimemodified()
     {
         return $this->timemodified;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQubalayout()
+    {
+        return $this->qubalayout;
     }
 
 

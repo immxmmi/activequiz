@@ -11,9 +11,9 @@ global $chart_values;
 global $chart_label;
 
 // SESSION ID
-$sessionID = 43;
-// SESSION ID
-$activequiID = 18;
+$sessionID = 44;
+// Activequiz ID
+$activequizID = 18;
 
 
 
@@ -28,7 +28,7 @@ echo "SESSION DATA:</br>";
 echo "TABLE :: mdl_activequiz_sessions</br>";
 $session = new Session();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid AND activequizid = :activequizid';
-$params = array('sessionid' => $sessionID, 'activequizid' => $activequiID);
+$params = array('sessionid' => $sessionID, 'activequizid' => $activequizID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
 //var_dump($sessions);
@@ -43,16 +43,19 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $sessions[0]->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
+echo"</br>";
+echo"QUBALAYOUT: ".$active_attemps->getQubalayout();
+echo"</br>";
+echo"ATTEMPTNUM: ".$active_attemps->getAttemptnum();
+echo"</br>";
+echo"questionengid: ".$active_attemps->getQuestionengid();
+echo"</br>";
+echo"PREVIEW: ".$active_attemps->getPreview();
+echo"</br>";
+echo"</br>";
+echo"</br>";
 //var_dump($active_attemps);
 #######################################################
-
-
-
-
-
-
-
-
 
 
 
