@@ -10,8 +10,11 @@ global $DB;
 global $chart_values;
 global $chart_label;
 
-// SESSION
+// SESSION ID
 $sessionID = 39;
+// SESSION ID
+$activequiID = 15;
+
 
 
 // CHART BUILDER
@@ -24,8 +27,8 @@ $chart->startTag();
 echo "SESSION DATA:</br>";
 echo "TABLE :: mdl_activequiz_sessions</br>";
 $session = new Session();
-$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-$params = array('sessionid' => $sessionID);
+$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid AND activequizid = :activequizid';
+$params = array('sessionid' => $sessionID, 'activequizid' => $activequiID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
 //var_dump($sessions);
