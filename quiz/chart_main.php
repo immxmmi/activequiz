@@ -90,11 +90,17 @@ foreach ($all_questionengids as $questionengids) {
     //var_dump($question_attemps);
     ####################################################
     array_push($list_of_question_attemps, $question_attemps);
-
 }
-
-
-
+echo"</br>";
+echo"</br>";
+echo"</br>";
+echo"</br>";
+echo"</br>";
+var_dump($list_of_question_attemps);
+echo"</br>";
+echo"</br>";
+echo"</br>";
+echo"</br>";
 
 $chartType = "";
 $questionType = "singel";
