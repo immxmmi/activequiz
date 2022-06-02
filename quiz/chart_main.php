@@ -31,7 +31,18 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid A
 $params = array('sessionid' => $sessionID, 'activequizid' => $activequizID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
+$current_session = $sessions[0];
 //var_dump($sessions);
+
+echo"</br>";
+echo"</br>";
+echo"</br>";
+echo"Current Question: ".$current_session->getCurrentquestion();
+echo"</br>";
+echo"Current Qnum: ".$current_session->getCurrentqnum();
+echo"</br>";
+echo"</br>";
+echo"</br>";
 ##########################################
 
 
@@ -40,7 +51,7 @@ echo "ACTIVE-QUIZ ATTEMPTS</br>";
 echo "TABLE :: mdl_activequiz_attempts</br>";
 $active_attemp = new activequiz_attempts();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
-$params = array('sessionid' => $sessions[0]->getId());
+$params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
 $current_attemp = $active_attemps[0];
@@ -65,7 +76,7 @@ echo"</br>";
 
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$current_slot = $current_attemp->getAttemptnum(); // SLOT
+$current_slot = $current_session->getCurrentquestion(); // SLOT
 echo "QUESTION ATTEMPTS</br>";
 echo "TABLE :: mdl_question_attempts</br>";
 $question_attemp = new question_attempts();
