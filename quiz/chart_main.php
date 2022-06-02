@@ -38,15 +38,11 @@ echo "SESSION ID: ".$current_session->getId();
 echo"</br>";
 echo"</br>";
 
-var_dump($current_session);
 
 echo"</br>";
 echo"</br>";
 echo"</br>";
 echo"Current Question: ".$current_session->getCurrentquestion();
-echo"</br>";
-echo"Current Qnum: ".$current_session->getCurrentqnum();
-echo"</br>";
 echo"</br>";
 echo"</br>";
 ##########################################
