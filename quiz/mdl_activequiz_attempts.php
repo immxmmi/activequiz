@@ -53,6 +53,17 @@ class activequiz_attempts
         return $attempts;
     }
 
+    public function filterQID($attemps)
+    {
+        $qid = array();
+        foreach ($attemps as $attempt) {
+            if ($attempt->questionengid != null) {
+                array_push($qid, $attempt->questionengid);
+            }
+        }
+        return $qid;
+    }
+
     /**
      * @return mixed
      */

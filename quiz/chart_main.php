@@ -70,7 +70,7 @@ echo"</br>";
 echo"</br>";
 echo "QID:";
 echo"</br>";
-var_dump($active_attemps);
+var_dump($active_attemp->filterQID($active_attemps));
 echo"</br>";
 //var_dump($active_attemps);
 #######################################################
