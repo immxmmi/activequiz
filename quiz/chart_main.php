@@ -36,12 +36,6 @@ echo"</br>";
 echo"</br>";
 echo "SESSION ID: ".$current_session->getId();
 echo"</br>";
-echo"</br>";
-
-
-echo"</br>";
-echo"</br>";
-echo"</br>";
 echo"Current Question: ".$current_session->getCurrentquestion();
 echo"</br>";
 echo"</br>";
