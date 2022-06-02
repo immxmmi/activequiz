@@ -32,7 +32,13 @@ $params = array('sessionid' => $sessionID, 'activequizid' => $activequizID);
 $result = $DB->get_records_sql($sql, $params);
 $sessions = $session->getSessionByID($result);
 $current_session = $sessions[0];
-//var_dump($sessions);
+echo"</br>";
+echo"</br>";
+echo "SESSION ID: ".$current_session->getId();
+echo"</br>";
+echo"</br>";
+
+var_dump($sessions);
 
 echo"</br>";
 echo"</br>";
