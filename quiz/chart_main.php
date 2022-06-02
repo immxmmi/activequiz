@@ -78,7 +78,7 @@ echo"</br>";
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 $list_of_question_attemps = array(); // LIST ATTEMPS
 $current_slot = $current_session->getCurrentquestion(); // SLOT
-$current_slot = 1; // SLOT
+$current_slot = 2; // SLOT
 echo "QUESTION ATTEMPTS</br>";
 echo "TABLE :: mdl_question_attempts</br>";
 
