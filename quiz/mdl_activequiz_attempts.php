@@ -58,6 +58,11 @@ class activequiz_attempts
             echo "</br>";
             var_dump($currentAttempt);
             echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
+            echo "</br>";
                 array_push($attempts, $currentAttempt);
            // }
         }
