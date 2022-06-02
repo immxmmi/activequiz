@@ -54,9 +54,9 @@ class activequiz_attempts
             $currentAttempt->timemodified = $attempt->timemodified;
             $currentAttempt->qubalayout = $attempt->qubalayout;
 
-            if ($currentAttempt != null) {
+           // if ($currentAttempt != null) {
                 array_push($attempts, $currentAttempt);
-            }
+           // }
         }
 // $currentAttempts = null;
 
