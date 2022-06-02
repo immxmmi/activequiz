@@ -29,16 +29,6 @@ class activequiz_attempts
         $attempts = array();
         foreach ($result as $attempt) {
         $currentAttempt = new activequiz_attempts();
-            echo "</br>";
-            echo "</br>";
-            echo "TEST";
-            echo "</br>";
-            echo "</br>";
-
-            echo "</br>";
-            var_dump($attempt);
-            echo "</br>";
-            echo "</br>";
             $currentAttempt->id = $attempt->id;
             $currentAttempt->sessionid = $attempt->sessionid;
             $currentAttempt->userid = $attempt->userid;
@@ -54,17 +44,9 @@ class activequiz_attempts
             $currentAttempt->timemodified = $attempt->timemodified;
             $currentAttempt->qubalayout = $attempt->qubalayout;
 
-           // if ($currentAttempt != null) {
-            echo "</br>";
-            var_dump($currentAttempt);
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
-            echo "</br>";
+            if ($currentAttempt != null) {
                 array_push($attempts, $currentAttempt);
-           // }
+            }
         }
 // $currentAttempts = null;
 
