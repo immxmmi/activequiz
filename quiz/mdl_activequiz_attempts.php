@@ -28,7 +28,7 @@ class activequiz_attempts
     {
         $attempts = array();
         foreach ($result as $attempt) {
-        $currentAttempt = new activequiz_attempts();
+            $currentAttempt = new activequiz_attempts();
             $currentAttempt->id = $attempt->id;
             $currentAttempt->sessionid = $attempt->sessionid;
             $currentAttempt->userid = $attempt->userid;
@@ -48,12 +48,6 @@ class activequiz_attempts
                 array_push($attempts, $currentAttempt);
             }
         }
-// $currentAttempts = null;
-
-        var_dump($attempts);
-
-        echo "</br>";
-        echo "</br>";
 
         return $attempts;
     }
