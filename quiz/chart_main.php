@@ -65,15 +65,18 @@ echo"</br>";
 
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
+$current_slot = $current_attemp->getAttemptnum(); // SLOT
 echo "QUESTION ATTEMPTS</br>";
 echo "TABLE :: mdl_question_attempts</br>";
 $question_attemp = new question_attempts();
-$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid;';
-$params = array('questionusageid' => $current_attemp->getQuestionengid());
+$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+$params = array('questionusageid' => $current_attemp->getQuestionengid(),'slot' => $current_slot);
 $result = $DB->get_records_sql($sql, $params);
 $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
 //var_dump($question_attemps);
 ####################################################
+
+
 
 
 $chartType = "";
