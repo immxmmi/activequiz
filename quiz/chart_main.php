@@ -67,25 +67,31 @@ echo"</br>";
 echo"</br>";
 echo "QID:";
 echo"</br>";
-var_dump($active_attemp->filterQID($active_attemps));
+$all_questionengids = filterQID($active_attemps);
+var_dump($all_questionengids);
 echo"</br>";
 //var_dump($active_attemps);
 #######################################################
 
 
 
+$list_of_question_attemps = array();
+foreach ($all_questionengids as $questionengids) {
 
-# # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$current_slot = $current_session->getCurrentquestion(); // SLOT
-echo "QUESTION ATTEMPTS</br>";
-echo "TABLE :: mdl_question_attempts</br>";
-$question_attemp = new question_attempts();
-$sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
-$params = array('questionusageid' => $current_attemp->getQuestionengid(),'slot' => $current_slot);
-$result = $DB->get_records_sql($sql, $params);
-$question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
-//var_dump($question_attemps);
-####################################################
+    # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
+        $current_slot = $current_session->getCurrentquestion(); // SLOT
+        echo "QUESTION ATTEMPTS</br>";
+        echo "TABLE :: mdl_question_attempts</br>";
+        $question_attemp = new question_attempts();
+        $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+        $params = array('questionusageid' => $questionengids, 'slot' => $current_slot);
+        $result = $DB->get_records_sql($sql, $params);
+        $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
+    //var_dump($question_attemps);
+    ####################################################
+    array_push($list_of_question_attemps, $question_attemps);
+
+}
 
 
 
@@ -99,7 +105,7 @@ $trueFalse = new TrueFalse_Choice();
 
 switch ($questionType) {
     case "singel":
-        $single->setData($question_attemps);
+        $single->setData($list_of_question_attemps[0]);
         echo "</br> VALUES";
         echo "</br>";
         var_dump($single->getValues());
@@ -108,7 +114,7 @@ switch ($questionType) {
         var_dump($single->getLabels());
         break;
     case "true/false":
-        $trueFalse->setData($question_attemps);
+        $trueFalse->setData($list_of_question_attemps[0]);
     default:
         echo "no Type";
 }
