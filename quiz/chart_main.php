@@ -67,7 +67,7 @@ echo"</br>";
 echo"</br>";
 echo "QID:";
 echo"</br>";
-$all_questionengids = filterQID($active_attemps);
+$all_questionengids = $active_attemp->filterQID($active_attemps);
 var_dump($all_questionengids);
 echo"</br>";
 //var_dump($active_attemps);
