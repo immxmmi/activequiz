@@ -99,7 +99,7 @@ echo"</br>";
 echo"</br>";
 echo"</br>";
 echo "<pre>";
-var_dump($list_of_question_attemps);
+print_r($list_of_question_attemps);
 echo"</pre>";
 echo"</br>";
 echo"</br>";
