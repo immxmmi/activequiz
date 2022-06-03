@@ -24,9 +24,11 @@ require_once("../../config.php");
 			
 			var changeChartTypeHandler = function() {
 				var charttype = jQuery('#charttype').val();
-				if( charttype !== 'none' ) {
+                var sessionid = jQuery('#sessionid').val();
+				if( charttype !== 'none' && sessionid !== '0') {
 					var url = './quiz/activequizapi.php';
 					var params = {
+                        sessionid: sessionid
 						type: charttype
 					};
 					jQuery.get(url, params, redrawChart).fail(function(data) {
@@ -69,6 +71,19 @@ require_once("../../config.php");
 				</select>
 			</form>
 		</div>
+
+        <div>
+            <form action="javascript:void(0);">
+                <select id="sessionid" name="type">
+                    <option value="0">--- choose a chart ---</option>
+                    <option value="47">47</option>
+                    <option value="44">44</option>
+                    <option value="23">23</option>
+                    <option value="34">34</option>
+                </select>
+            </form>
+        </div>
+
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>

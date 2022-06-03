@@ -10,9 +10,9 @@ global $DB;
 global $chart_values;
 global $chart_label;
 $type  = optional_param('type', false, PARAM_TEXT);
-
 // SESSION ID
-$sessionID = 46;
+$sessionID = optional_param('sessionid', false, PARAM_TEXT);
+
 // Activequiz ID
 $activequizID = 18;
 
