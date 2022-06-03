@@ -25,6 +25,8 @@ require_once("../../../config.php");
 			var changeChartTypeHandler = function() {
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
+
+                console.log(sessionid);
 				if( charttype !== 'none' && sessionid !== '0') {
 					var url = './api.php';
 					var params = {
