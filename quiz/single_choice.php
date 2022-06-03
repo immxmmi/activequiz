@@ -19,19 +19,17 @@ class single_choice
            $current_data = array($question_one->getQuestionsummary()[$i]=>0);
            $this->data = array_merge($this->data, $current_data);
        }
-       echo "<pre>";
-       print_r($answers);
-       echo "</pre>";
-/*
+
+
                 foreach ($answers as $summary) {
                     $responsesummary = $summary[0]->getResponsesummary();
                     $this->data = $this->addValue($this->data, $responsesummary);
                 }
-/*
+
         echo "<pre>";
         print_r($this->data);
         echo "</pre>";
-*/
+
 
         $this->labels = array_keys($this->data);
         $this->values = array_values($this->data);
