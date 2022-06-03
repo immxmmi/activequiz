@@ -40,9 +40,7 @@ $question = $answers[0];
 echo "<pre>";
 print_r($question);
 echo "</pre>";
-echo "<pre>";
-print_r($question->getId());
-echo "</pre>";
+
 
     $questionType = "singel";
     $single = new single_choice();
