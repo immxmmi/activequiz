@@ -371,6 +371,7 @@ class activequiz_attempt {
      * @return array
      */
     public function get_questions() {
+
         return $this->questionmanager->get_questions();
     }
 
@@ -429,7 +430,7 @@ class activequiz_attempt {
         $this->attempt->timemodified = time();
         if (isset($this->attempt->id)) { // update the record
             try {
-                $DB->update_record('activequiz_attempt', $this->attempt);
+                $DB->update_record('activequiz_attempts', $this->attempt);
             } catch(\Exception $e) {
                 error_log($e->getMessage());
 
@@ -438,7 +439,7 @@ class activequiz_attempt {
         } else {
             // insert new record
             try {
-                $newid = $DB->insert_record('activequiz_attempt', $this->attempt);
+                $newid = $DB->insert_record('activequiz_attempts', $this->attempt);
                 $this->attempt->id = $newid;
             } catch(\Exception $e) {
                 return false; // return false on failure
@@ -622,9 +623,9 @@ class activequiz_attempt {
     public function summarize_response($slot) {
         global $PAGE;
 
-
         $questionattempt = $this->quba->get_question_attempt($slot);
         $question = $this->quba->get_question($slot);
+
         $rtqQuestion = $this->get_question_by_slot($slot);
 
         // use the renderer to display just the question text area, but in read only mode
@@ -695,7 +696,7 @@ class activequiz_attempt {
             'relateduserid' => $this->attempt->userid
         );
         $event = \mod_activequiz\event\attempt_ended::create($params);
-        $event->add_record_snapshot('activequiz_attempt', $this->attempt);
+        $event->add_record_snapshot('activequiz_attempts', $this->attempt);
         $event->trigger();
 
         return true;

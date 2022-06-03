@@ -153,7 +153,7 @@ class restore_activequiz_activity_structure_step extends restore_questions_activ
         $oldid = $data->id;
         $data->questionengid = $newusageid;
 
-        $newitemid = $DB->insert_record('activequiz_attempt', $data);
+        $newitemid = $DB->insert_record('activequiz_attempts', $data);
 
         $this->set_mapping('activequiz_attempt', $oldid, $newitemid, false);
     }

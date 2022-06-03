@@ -97,11 +97,7 @@
 }
 
 .activequizbox .row .span6{
-    padding: 10px;
-}
-
-.activequizbox {
-    color: #16294f;
+    padding: 5px;
 }
 
 /** end edit questions **/
@@ -241,7 +237,7 @@
 }
 
 .jumptoquestioncloseclose:hover {
-    background: #16294f;
+    background: #00d9ff;
 }
 
 #notrespondedbox {
@@ -260,7 +256,6 @@
 }
 
 #quizview .hidden{
-    background-color: #16294f;
     display: none;
     visibility: hidden;
 }

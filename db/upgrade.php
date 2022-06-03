@@ -128,7 +128,7 @@ function xmldb_activequiz_upgrade($oldversion) {
     }
 
     if ($oldversion < 2016013100) {
-        $table = new xmldb_table('activequiz_attempt');
+        $table = new xmldb_table('activequiz_attempts');
         $field = new xmldb_field('questionengid', XMLDB_TYPE_INTEGER, '10', XMLDB_UNSIGNED, XMLDB_NOTNULL, null, null, 'attemptnum');
         if ($dbman->field_exists($table, $field)) {
             $dbman->change_field_type($table, $field);
@@ -167,7 +167,7 @@ function xmldb_activequiz_upgrade($oldversion) {
         }
 
         // Define field responded_count to be added to activequiz_attempts.
-        $table = new xmldb_table('activequiz_attempt');
+        $table = new xmldb_table('activequiz_attempts');
         $field = new xmldb_field('responded_count', XMLDB_TYPE_INTEGER, '11', null, null, null, '0', 'responded');
 
         // Conditionally launch add field responded_count.

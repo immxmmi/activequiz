@@ -64,13 +64,13 @@ class overallgradesview extends \flexible_table implements \renderable {
             $columns = array(
                 'fullname'     => get_string('name'),
                 'group'        => get_string('groupmembership', 'activequiz'),
-                'gradenoun'        => get_string('gradenoun'),
+                'grade'        => get_string('grade'),
                 'timemodified' => get_string('timemodified', 'activequiz'),
             );
         } else {
             $columns = array(
                 'fullname'     => get_string('name'),
-                'gradenoun'        => get_string('gradenoun'),
+                'grade'        => get_string('grade'),
                 'timemodified' => get_string('timemodified', 'activequiz'),
             );
         }
@@ -82,7 +82,7 @@ class overallgradesview extends \flexible_table implements \renderable {
         $this->collapsible(true);
 
         $this->column_class('fullname', 'bold');
-        $this->column_class('gradenoun', 'bold');
+        $this->column_class('grade', 'bold');
 
         $this->set_attribute('cellspacing', '0');
         $this->set_attribute('cellpadding', '2');

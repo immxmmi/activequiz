@@ -57,13 +57,14 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      * @param string                              $output The current output from getting the results
      * @return string Return the updated output to be passed to the client
      */
-
     public function modify_questionresults_duringquiz($question, $attempts, $output) {
         global $DB;
-      //  echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+
+
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
+
         $dbanswers = array();
 
 
@@ -118,6 +119,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      *
      */
     protected function update_answers_single(&$answers, $qa, $questiondef) {
+
 
         // get the latest step that has an answer
         $lastanswerstep = $qa->get_last_step_with_qt_var('answer');
@@ -194,6 +196,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      * @return string
      */
     protected function add_chart($output, $xaxis, $answers) {
+
 
         $totalanswers = 0;
         foreach ($answers as $answercount) {

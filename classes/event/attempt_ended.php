@@ -41,7 +41,7 @@ class attempt_ended extends \core\event\base {
      * Init method.
      */
     protected function init() {
-        $this->data['objecttable'] = 'activequiz_attempt';
+        $this->data['objecttable'] = 'activequiz_attempts';
         $this->data['crud'] = 'u';
         $this->data['edulevel'] = self::LEVEL_PARTICIPATING;
     }

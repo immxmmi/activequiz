@@ -63,9 +63,6 @@ class poodllrecording implements \mod_activequiz\questionmodifiers\ibasequestion
     public function modify_questionresults_duringquiz($question, $attempts, $output) {
         global $DB;
 
-
-
-
         // if no attempts just return the output
         if (empty($attempts)) {
             return $output;

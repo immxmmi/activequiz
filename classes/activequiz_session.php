@@ -170,7 +170,7 @@ class activequiz_session {
 
         // delete all attempt qubaids, then all realtime quiz attempts, and then finally itself
         \question_engine::delete_questions_usage_by_activities(new \mod_activequiz\utils\qubaids_for_rtq($sessionid));
-        $DB->delete_records('activequiz_attempt', array('sessionid' => $sessionid));
+        $DB->delete_records('activequiz_attempts', array('sessionid' => $sessionid));
         $DB->delete_records('activequiz_groupattendance', array('sessionid' => $sessionid));
         $DB->delete_records('activequiz_sessions', array('id' => $sessionid));
 
@@ -492,7 +492,7 @@ class activequiz_session {
                 );
                 $event = \mod_activequiz\event\attempt_started::create($params);
                 $event->add_record_snapshot('activequiz', $this->rtq->getRTQ());
-                $event->add_record_snapshot('activequiz_attempt', $attempt->get_attempt());
+                $event->add_record_snapshot('activequiz_attempts', $attempt->get_attempt());
                 $event->trigger();
             }
 
@@ -694,7 +694,7 @@ class activequiz_session {
             return null;
         }
 
-        $dbattempt = $DB->get_record('activequiz_attempt', array('id' => $attemptid));
+        $dbattempt = $DB->get_record('activequiz_attempts', array('id' => $attemptid));
 
         return new \mod_activequiz\activequiz_attempt($this->rtq->get_questionmanager(), $dbattempt, $this->rtq->getContext());
     }

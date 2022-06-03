@@ -206,7 +206,6 @@ class quizdata {
                     $this->session->set_status('reviewing');
                     // get the current question results
                     $responses = $this->session->get_question_results();
-            
 
                     $this->jsonlib->set('responses', $responses);
                     $this->jsonlib->set('status', 'success');

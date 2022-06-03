@@ -167,20 +167,18 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         require_once($CFG->libdir . '/gradelib.php');
     }
 
-    $activequiz = json_decode(json_encode($activequiz), true);
-
     if (array_key_exists('cmidnumber', $activequiz)) { // May not be always present.
-        $params = array('itemname' => $activequiz["name"], 'idnumber' => $activequiz["cmidnumber"]);
+        $params = array('itemname' => $activequiz->name, 'idnumber' => $activequiz->cmidnumber);
     } else {
-        $params = array('itemname' => $activequiz["name"]);
+        $params = array('itemname' => $activequiz->name);
     }
 
-    if ($activequiz["graded"] == 0) {
+    if ($activequiz->graded == 0) {
         $params['gradetype'] = GRADE_TYPE_NONE;
 
-    } else if ($activequiz["graded"] == 1) {
+    } else if ($activequiz->graded == 1) {
         $params['gradetype'] = GRADE_TYPE_VALUE;
-        $params['grademax'] = $activequiz["scale"];
+        $params['grademax'] = $activequiz->scale;
         $params['grademin'] = 0;
 
     }
@@ -190,7 +188,7 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         $grades = null;
     }
 
-    return grade_update('mod/activequiz', $activequiz["course"], 'mod', 'activequiz', $activequiz["id"], 0, $grades, $params);
+    return grade_update('mod/activequiz', $activequiz->course, 'mod', 'activequiz', $activequiz->id, 0, $grades, $params);
 }
 
 

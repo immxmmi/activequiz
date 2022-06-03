@@ -104,7 +104,7 @@ class backup_activequiz_activity_structure_step extends backup_questions_activit
         if ($userinfo) {
             $grade->set_source_table('activequiz_grades', array('activequizid' => backup::VAR_PARENTID));
             $session->set_source_table('activequiz_sessions', array('activequizid' => backup::VAR_PARENTID));
-            $attempt->set_source_table('activequiz_attempt', array('sessionid' => backup::VAR_PARENTID));
+            $attempt->set_source_table('activequiz_attempts', array('sessionid' => backup::VAR_PARENTID));
             $groupattendance->set_source_table('activequiz_groupattendance', array('attemptid' => backup::VAR_PARENTID));
         }
 

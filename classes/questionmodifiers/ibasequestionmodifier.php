@@ -55,7 +55,6 @@ interface ibasequestionmodifier {
      * @param string                              $output The current output from getting the results
      * @return string Return the updated output to be passed to the client
      */
-
     public function modify_questionresults_duringquiz($question, $attempts, $output);
 
 

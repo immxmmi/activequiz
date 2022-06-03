@@ -20,9 +20,6 @@ student gave.  Students will also be able to view their attempts based on the di
 
 ## Installation:
 
-# docker
-- docker exec -it innolab1-moodle-srs_app_moodle /bin/bash
-
 ### Moodle plugins directory
 
 Click on "Install now" within the plugins directory, and then select your site from the list of "My sites"
@@ -61,4 +58,4 @@ The original plugin was written by Davo Smith, to which the University of Wiscon
 (funded by an educational innovation grant given to the Medical school) re-wrote the plugin to
 use the question engine integration as well as a bunch of other new features.
 
-This plugin is maintained by John Hoopes separately from the University.# immxmmi-INNO-Moodle
+This plugin is maintained by John Hoopes separately from the University.
