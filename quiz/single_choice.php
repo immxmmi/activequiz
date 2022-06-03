@@ -51,7 +51,8 @@ class single_choice
 
 
                 echo "<pre>";
-                print_r( array_key_exists($responsesummary));
+                echo array_key_exists(array_key_exists(' '.$responsesummary));
+                //print_r( array_key_exists($responsesummary));
                 echo "</pre>";
 
                 $index++;
