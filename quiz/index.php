@@ -71,6 +71,7 @@ require_once("../../../config.php");
 				</select>
 
                 <select id="sessionid" name="type">
+                    <option value="0">0</option>
                     <option value="46">46</option>
                 </select>
             </form>
