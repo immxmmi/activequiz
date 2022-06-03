@@ -37,7 +37,7 @@ class Session
         $session = $DB->get_records_sql($sql, $params);
         //$this->get_session_by_id($result);
         echo "<pre>";
-        print_r($sessionid);
+        print_r($session);
         echo "</pre>";
 /*
         $this->id = $session->id;
