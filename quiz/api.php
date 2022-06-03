@@ -33,6 +33,7 @@ echo "<pre>";
 print_r($question_attemp->getListOfQuestionAttempsId());
 echo "</pre>";
 
+$question_id_list = $question_attemp->getListOfQuestionAttempsId();
 
 
     $questionType = "singel";
@@ -41,11 +42,11 @@ echo "</pre>";
     $data = null;
     switch ($questionType) {
         case "singel":
-            $single->load_quiz_data($question_attemp->getListOfQuestionAttempsId()[0]);
+            $single->load_quiz_data($question_id_list[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
         case "true/false":
-            $trueFalse->setData($question_attemp->getListOfQuestionAttempsId()[0]);
+            $trueFalse->setData($question_id_list[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         default:
             $chart->setInfo("no Question Type Found!");
