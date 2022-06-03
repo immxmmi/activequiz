@@ -1,6 +1,6 @@
 <?php
 require_once("../../../config.php");
-require_once("session.php");
+require_once("mdl_activequiz_sessions.php");
 require_once("mdl_activequiz_attempts.php");
 require_once("mdl_question_attempts.php");
 require_once("chart_builder.php");
@@ -9,13 +9,14 @@ require_once("trueFalse_choice.php");
 global $DB;
 
 // Parameter
-$chartType  = optional_param('type', false, PARAM_TEXT); //
+$charttype  = optional_param('type', false, PARAM_TEXT); //
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $chart = new Chart();
 
 # # # # # # # # -SESSION- # # # # # # # #
 $session = new Session($sessionid);
 ##########################################
+
 
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $active_attemp = new activequiz_attempts();
@@ -70,7 +71,7 @@ switch ($questionType) {
 
 
 
-$data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+$data = $chart->buildNewChart($charttype, $single->getLabels(), $single->getValues());
 
 
 http_response_code($chart->getResponseCode());
