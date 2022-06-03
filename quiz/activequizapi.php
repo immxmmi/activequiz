@@ -9,11 +9,9 @@ require_once("trueFalse_choice.php");
 global $DB;
 
 // Parameter
-$type  = optional_param('type', false, PARAM_TEXT); //
+$chartType  = optional_param('type', false, PARAM_TEXT); //
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $chart = new Chart();
-
-
 
 # # # # # # # # -SESSION- # # # # # # # #
 $session = new Session();
@@ -23,15 +21,12 @@ $result = $DB->get_records_sql($sql, $params);
 $current_session = $session->getSessionByID($result);
 ##########################################
 
-
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $active_attemp = new activequiz_attempts();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
 $params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
-$chart->setInfo($active_attemps);
-$current_attemp = $active_attemps[0];
 $all_questionengids = $active_attemp->filterQID($active_attemps);
 #######################################################
 
@@ -51,7 +46,10 @@ foreach ($all_questionengids as $questionengids) {
     array_push($list_of_question_attemps, $question_attemps);
 }
 
-$chartType = "";
+
+
+
+
 $questionType = "singel";
 
 
@@ -69,26 +67,6 @@ switch ($questionType) {
 }
 
 
-
-
-
-
-
-
-switch ($type) {
-    case "bar":
-        $chartType = "bar";
-        break;
-    case "doughnut":
-        $chartType = "doughnut";
-        break;
-    case "pie":
-        $chartType = "pie";
-        break;
-    default:
-        $chartType = "";
-        break;
-}
 
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
