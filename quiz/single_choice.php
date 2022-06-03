@@ -48,10 +48,10 @@ class single_choice
 
             $index = 0;
             foreach ($data as $label) {
-              $label[' '.$responsesummary][0] =2;
+
 
                 echo "<pre>";
-                print_r($data);
+                print_r( $label[' '.$responsesummary][0]);
                 echo "</pre>";
 
                 $index++;
