@@ -23,11 +23,11 @@ class single_choice
                     $responsesummary = $summary[0]->getResponsesummary();
                     $this->data = $this->addValue($this->data, $responsesummary);
                 }
-
+/*
         echo "<pre>";
         print_r($this->data);
         echo "</pre>";
-
+*/
 
         $this->labels = array_keys($this->data);
         $this->values = array_values($this->data);
