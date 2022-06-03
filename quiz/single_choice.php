@@ -13,19 +13,15 @@ class single_choice
         //var_dump($question_attemps);
         $chart = new chart_builder();
         // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
-        echo "<pre>";
-        print_r($question_attemps);
-        echo "</pre>";
-        echo "<pre>";
-        print_r($question_attemps[0]);
-        echo "</pre>";
 
-       $a = array(
-           $question_attemps[0]->getQuestionsummary()[0] => 2,
-           $question_attemps[0]->getQuestionsummary()[1] => 1,
-       );
+
+       $data = array();
+       for($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary());$i++){
+           array_push($data, $question_attemps[0]->getQuestionsummary()[$i]);
+       }
+
         echo "<pre>";
-        print_r($a);
+        print_r($data);
         echo "</pre>";
 
         foreach ($question_attemps as $summary) {
