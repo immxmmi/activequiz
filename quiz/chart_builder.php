@@ -10,6 +10,7 @@ class Chart
     private $data = array();
     private $options = array();
     private $chartType;
+    private $info;
 
 
     public function __construct()
@@ -157,7 +158,8 @@ class Chart
         $response = array(
             'meta' => array(
                 'status' => $this->status,
-                'msg' => $this->msg
+                'msg' => $this->msg,
+                'info' => $this->info
             ),
             'data' => array(
                 'charttype' => $this->chartType,
@@ -263,6 +265,23 @@ class Chart
     {
         return $this->chartType;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
+    /**
+     * @param mixed $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
+
 
 
 
