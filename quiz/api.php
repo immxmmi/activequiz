@@ -71,7 +71,7 @@ switch ($questionType) {
 
 
 
-$data = $chart->buildNewChart($charttype, $single->getLabels(), $single->getValues());
+$data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
 
 
 http_response_code($chart->getResponseCode());

@@ -146,7 +146,7 @@ switch (1) {
         break;
 }
 
-$data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+$data = $chart->build_new_chart($chartType, $single->getLabels(), $single->getValues());
 
 
 echo "</br>";

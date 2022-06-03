@@ -12,7 +12,7 @@ class TrueFalse_Choice{
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
-            $this->values = $chart->countValue($this->labels, $this->values, $responsesummary);
+            $this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
             break;
         }
     }

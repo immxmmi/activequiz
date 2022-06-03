@@ -12,29 +12,12 @@ class chart_builder
     private $chartType;
     private $info = '-';
 
-
     public function __construct()
     {
     }
 
-    public function startTag()
-    {
-        echo '<head>
-            <meta charset="utf-9">
-            <title>CHART</title>
-            	<style type="text/css">
-			.chartwrapper {
-				width: 640px;
-			}
-		</style>
-            <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>-->
-            <style type="text / css">.chartwrapper {width: 500px;}</style>
-            <script src="../js/chartjs/Chart.min.js"></script>
-            <script src="../../../lib/jquery/jquery-3.5.1.min.js"></script>
-        </head>';
-    }
-
-    public function countValue($labels, $values, $responsesummary)
+    // COUNT VALUE AND RETURN VALUE ARRAY
+    public function count_value($labels, $values, $responsesummary)
     {
         $delete = new question_attempts;
         if ($responsesummary == null) {
@@ -57,7 +40,8 @@ class chart_builder
         return $values;
     }
 
-    public function buildNewChart($chartType, $labels, $values)
+    //CREATE NEW CHART RETURN JSON
+    public function build_new_chart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
 
@@ -124,15 +108,38 @@ class chart_builder
                 $this->msg = "TEST ERROR";
                 break;
         }
-        return $this->createJSON();
+        return $this->convert_chart_to_json();
 
     }
 
-    private function random_color_generator(){
-        return 'rgba('.rand(0,150).' , '.rand(0,255).' , '.rand(0,255).' , '.rand(2, 10) / 10 .')';
+    // CREATE JSON CODE
+    private function convert_chart_to_json()
+    {
+        http_response_code($this->response_code);
+        //header('Content-Type: application/json');
+        $response = array(
+            'meta' => array(
+                'status' => $this->status,
+                'msg' => $this->msg,
+                'info' => $this->info
+            ),
+            'data' => array(
+                'charttype' => $this->chartType,
+                'chartdata' => $this->data,
+                'chartoptions' => $this->options
+            )
+        );
+        return $response;
     }
 
-    private function random_background_color_array($size){
+    // CHART COLOR GENERATOR
+    private function random_color_generator()
+    {
+        return 'rgba(' . rand(0, 150) . ' , ' . rand(0, 255) . ' , ' . rand(0, 255) . ' , ' . rand(2, 10) / 10 . ')';
+    }
+
+    private function random_background_color_array($size)
+    {
         $background_array = array();
 
         for ($i = 1; $i <= $size; $i++) {
@@ -141,65 +148,30 @@ class chart_builder
         return $background_array;
     }
 
+    /**
+     * @return int
+     */
+    public function getResponseCode()
+    {
+        return $this->response_code;
+    }
+
+    /**
+     * @param string $msg
+     */
+    public function setMsg($msg)
+    {
+        $this->msg = $msg;
+    }
+
+    /**
+     * @param string $info
+     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
 
 
-
-private
-function createJSON()
-{
-    http_response_code($this->response_code);
-    //header('Content-Type: application/json');
-    $response = array(
-        'meta' => array(
-            'status' => $this->status,
-            'msg' => $this->msg,
-            'info' => $this->info
-        ),
-        'data' => array(
-            'charttype' => $this->chartType,
-            'chartdata' => $this->data,
-            'chartoptions' => $this->options
-        )
-    );
-    return $response;
-}
-
-/**
- * @param int $response_code
- */
-public
-function setResponseCode($response_code)
-{
-    $this->response_code = $response_code;
-}
-
-
-/**
- * @param string $msg
- */
-public
-function setMsg($msg)
-{
-    $this->msg = $msg;
-}
-
-/**
- * @return int
- */
-public
-function getResponseCode()
-{
-    return $this->response_code;
-}
-
-
-/**
- * @param mixed $info
- */
-public
-function setInfo($info)
-{
-    $this->info = $info;
-}
 
 }
