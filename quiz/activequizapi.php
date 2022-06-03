@@ -9,6 +9,7 @@ require_once("trueFalse_choice.php");
 global $DB;
 global $chart_values;
 global $chart_label;
+$type  = optional_param('type', false, PARAM_TEXT);
 
 // SESSION ID
 $sessionID = 46;
@@ -81,14 +82,15 @@ header('Content-Type: application/json');
 
 
 
-switch (1) {
-    case 0:
+
+switch ($type) {
+    case "bar":
         $chartType = "bar";
         break;
-    case 1:
+    case "doughnut":
         $chartType = "doughnut";
         break;
-    case 2:
+    case "pie":
         $chartType = "pie";
         break;
     default:
