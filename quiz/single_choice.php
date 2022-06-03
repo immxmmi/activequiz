@@ -14,7 +14,8 @@ class single_choice
 
 
         echo "<pre>";
-        print_r($answers[0]->getQuestionsummary());
+        //print_r($answers[0]->getQuestionsummary());
+        //print_r($answers[0]->getQuestionsummary());
         echo "</pre>";
 
 
