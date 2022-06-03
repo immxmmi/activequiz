@@ -21,10 +21,8 @@ class single_choice
             $data = array_merge($data, $current_data);
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
-
-
-        $data = $this->addValue($data, $question_attemps[0]->getResponsesummary());
         $this->labels = array_keys($data);
+
         echo "<pre>";
         print_r($this->labels);
         echo "</pre>";
