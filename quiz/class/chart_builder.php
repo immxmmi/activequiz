@@ -17,6 +17,7 @@ class chart_builder
     }
 
     // COUNT VALUE AND RETURN VALUE ARRAY
+    /*
     public function count_value($labels, $values, $responsesummary)
     {
         $delete = new question_attempts;
@@ -39,6 +40,32 @@ class chart_builder
         }
         return $values;
     }
+
+    */
+
+
+    public function count_value($labels, $values, $responsesummary)
+    {
+        if ($responsesummary == null) {return $values;}
+
+        $index = 0;
+        foreach ($labels as $label) {
+
+            if ($label === $responsesummary) {
+                $values[$index]++;
+            }
+
+            $index++;
+        }
+
+
+
+
+
+        return $values;
+    }
+
+
 
     //CREATE NEW CHART RETURN JSON
     public function build_new_chart($chartType, $labels, $values)

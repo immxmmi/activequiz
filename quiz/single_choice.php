@@ -4,12 +4,13 @@ global $DB;
 
 class single_choice{
 
-    private $labels;
-    private $values = array(0, 0, 0, 0, 0);
+    private $labels = array();
+    private $values = array();
 
     function setData($question_attemps){
         //var_dump($question_attemps);
         $chart = new chart_builder();
+        $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
