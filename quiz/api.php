@@ -26,9 +26,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 $list_of_question_attemps = array(); // LIST ATTEMPS
 $current_slot = $session->getCurrentquestion(); // SLOT
-if($current_slot === null){
-    $current_slot = 1; // SLOT
-}
+$current_slot = 2; // SLOT
 foreach ($allquestionengids as $questionengids) {
     $question_attemp = new question_attempts();
     $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
