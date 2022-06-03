@@ -23,40 +23,25 @@ class single_choice
         }
 
 
-        $data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
-
-
-        /*
+        $data = $this->addValue($data, $question_attemps[0]->getResponsesummary());
+        $this->labels = array_keys($data);
+        echo "<pre>";
+        print_r($this->labels);
+        echo "</pre>";
                 foreach ($question_attemps as $summary) {
-                    $this->labels = $summary->getQuestionsummary();
                     $responsesummary = $summary->getResponsesummary();
-                    $this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
+                    $this->addValue($data, $responsesummary);
+                    //$this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
                 }
-        */
     }
 
 
-    private function countValue($data, $responsesummary)
+    private function addValue($data, $responsesummary)
     {
-
         if ($responsesummary == null) {
             return $data;
         }
-
-
-        echo "<pre>";
-        print_r($data[' '.$responsesummary]);
-        echo "</pre>";
-
-
         $data[' '.$responsesummary]++;
-
-
-        echo "<pre>";
-        print_r($data[' '.$responsesummary]);
-        echo "</pre>";
-
-
     }
 
 
