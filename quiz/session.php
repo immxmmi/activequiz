@@ -31,11 +31,11 @@ class Session
      * @param $created
      */
 
-    public function __construct()
+    public function __construct($sessionid)
     {
         global $DB;
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-        $params = array('sessionid' => 46);
+        $params = array('sessionid' => $sessionid);
         $result = $DB->get_records_sql($sql, $params);
         //$this->get_session_by_id($result);
     }
