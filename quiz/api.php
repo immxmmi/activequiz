@@ -24,21 +24,15 @@ global $DB;
 
 
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-    $list_of_question_attemps = array(); // LIST ATTEMPS
     $slot = $session->getCurrentquestion(); // SLOT
     $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
+    $question_attemp = new question_attempts($allquestionengids,$slot);
+    #####################################################
 
+echo "<pre>";
+print_r($question_attemp->getListOfQuestionAttempsId());
+echo "</pre>";
 
-    foreach ($allquestionengids as $questionengids) {
-        $question_attemp = new question_attempts();
-        $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
-        $params = array('questionusageid' => $questionengids, 'slot' => $slot);
-        $result = $DB->get_records_sql($sql, $params);
-        $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
-        //var_dump($question_attemps);
-        ####################################################
-        array_push($list_of_question_attemps, $question_attemps);
-    }
 
 
     $questionType = "singel";
@@ -47,11 +41,11 @@ global $DB;
     $data = null;
     switch ($questionType) {
         case "singel":
-            $single->load_quiz_data($list_of_question_attemps);
+            $single->load_quiz_data($question_attemp->getListOfQuestionAttempsId()[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
         case "true/false":
-            $trueFalse->setData($list_of_question_attemps[0]);
+            $trueFalse->setData($question_attemp->getListOfQuestionAttempsId()[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         default:
             $chart->setInfo("no Question Type Found!");

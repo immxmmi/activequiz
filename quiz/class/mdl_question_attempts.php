@@ -1,5 +1,6 @@
 <?php
 require_once("../../../config.php");
+global $DB;
 
 class question_attempts
 {
@@ -17,13 +18,22 @@ class question_attempts
     private $rightanswer;
     private $responsesummary;
     private $timemodified;
+    private $list_of_question_attemps_id = array(); // LIST ATTEMPS
 
-
-    public function  __construct()
+    public function  __construct($allquestionengids,$slot)
     {
+        global $DB;
+        foreach ($allquestionengids as $questionengids) {
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+            $params = array('questionusageid' => $questionengids, 'slot' => $slot);
+            $result = $DB->get_records_sql($sql, $params);
+            $question_attemps = $this->get_attempts_by_questionengid($result);
+            array_push($this->list_of_question_attemps_id, $question_attemps);
+        }
+
     }
 
-    public function getAttemptsByQuestionengID($result)
+    private function get_attempts_by_questionengid($result)
     {
         $attempts = array();
         $currentAttempt = new question_attempts();
@@ -47,7 +57,6 @@ class question_attempts
                 array_push($attempts, $currentAttempt);
             }
         }
-// $currentAttempts = null;
 
         return $attempts;
     }
@@ -65,235 +74,20 @@ class question_attempts
 
 
 
-    public function deleteCharAT($word,$index){
+    private function deleteCharAT($word,$index){
         $arr = str_split($word); // String in Array umwandeln
         unset($arr[$index]); // Zeichen mit Index  loeschen
         return implode('', $arr);
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getId()
+    public function getListOfQuestionAttempsId()
     {
-        return $this->id;
+        return $this->list_of_question_attemps_id;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestionusageid()
-    {
-        return $this->questionusageid;
-    }
-
-    /**
-     * @param mixed $questionusageid
-     */
-    public function setQuestionusageid($questionusageid)
-    {
-        $this->questionusageid = $questionusageid;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSlot()
-    {
-        return $this->slot;
-    }
-
-    /**
-     * @param mixed $slot
-     */
-    public function setSlot($slot)
-    {
-        $this->slot = $slot;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBehaviour()
-    {
-        return $this->behaviour;
-    }
-
-    /**
-     * @param mixed $behaviour
-     */
-    public function setBehaviour($behaviour)
-    {
-        $this->behaviour = $behaviour;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestionid()
-    {
-        return $this->questionid;
-    }
-
-    /**
-     * @param mixed $questionid
-     */
-    public function setQuestionid($questionid)
-    {
-        $this->questionid = $questionid;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVariant()
-    {
-        return $this->variant;
-    }
-
-    /**
-     * @param mixed $variant
-     */
-    public function setVariant($variant)
-    {
-        $this->variant = $variant;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaxmark()
-    {
-        return $this->maxmark;
-    }
-
-    /**
-     * @param mixed $maxmark
-     */
-    public function setMaxmark($maxmark)
-    {
-        $this->maxmark = $maxmark;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMinfraction()
-    {
-        return $this->minfraction;
-    }
-
-    /**
-     * @param mixed $minfraction
-     */
-    public function setMinfraction($minfraction)
-    {
-        $this->minfraction = $minfraction;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMaxfraction()
-    {
-        return $this->maxfraction;
-    }
-
-    /**
-     * @param mixed $maxfraction
-     */
-    public function setMaxfraction($maxfraction)
-    {
-        $this->maxfraction = $maxfraction;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFlagged()
-    {
-        return $this->flagged;
-    }
-
-    /**
-     * @param mixed $flagged
-     */
-    public function setFlagged($flagged)
-    {
-        $this->flagged = $flagged;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestionsummary()
-    {
-        return $this->questionsummary;
-    }
-
-    /**
-     * @param mixed $questionsummary
-     */
-    public function setQuestionsummary($questionsummary)
-    {
-        $this->questionsummary = $questionsummary;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRightanswer()
-    {
-        return $this->rightanswer;
-    }
-
-    /**
-     * @param mixed $rightanswer
-     */
-    public function setRightanswer($rightanswer)
-    {
-        $this->rightanswer = $rightanswer;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getResponsesummary()
-    {
-        return $this->responsesummary;
-    }
-
-    /**
-     * @param mixed $responsesummary
-     */
-    public function setResponsesummary($responsesummary)
-    {
-        $this->responsesummary = $responsesummary;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTimemodified()
-    {
-        return $this->timemodified;
-    }
-
-    /**
-     * @param mixed $timemodified
-     */
-    public function setTimemodified($timemodified)
-    {
-        $this->timemodified = $timemodified;
-    }
 
 
 }
