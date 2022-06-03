@@ -71,14 +71,20 @@ class question_attempts
         return implode('', $arr);
     }
 
-
-
     /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     /**
@@ -90,11 +96,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $questionusageid
+     */
+    public function setQuestionusageid($questionusageid)
+    {
+        $this->questionusageid = $questionusageid;
+    }
+
+    /**
      * @return mixed
      */
     public function getSlot()
     {
         return $this->slot;
+    }
+
+    /**
+     * @param mixed $slot
+     */
+    public function setSlot($slot)
+    {
+        $this->slot = $slot;
     }
 
     /**
@@ -106,11 +128,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $behaviour
+     */
+    public function setBehaviour($behaviour)
+    {
+        $this->behaviour = $behaviour;
+    }
+
+    /**
      * @return mixed
      */
     public function getQuestionid()
     {
         return $this->questionid;
+    }
+
+    /**
+     * @param mixed $questionid
+     */
+    public function setQuestionid($questionid)
+    {
+        $this->questionid = $questionid;
     }
 
     /**
@@ -122,11 +160,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $variant
+     */
+    public function setVariant($variant)
+    {
+        $this->variant = $variant;
+    }
+
+    /**
      * @return mixed
      */
     public function getMaxmark()
     {
         return $this->maxmark;
+    }
+
+    /**
+     * @param mixed $maxmark
+     */
+    public function setMaxmark($maxmark)
+    {
+        $this->maxmark = $maxmark;
     }
 
     /**
@@ -138,11 +192,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $minfraction
+     */
+    public function setMinfraction($minfraction)
+    {
+        $this->minfraction = $minfraction;
+    }
+
+    /**
      * @return mixed
      */
     public function getMaxfraction()
     {
         return $this->maxfraction;
+    }
+
+    /**
+     * @param mixed $maxfraction
+     */
+    public function setMaxfraction($maxfraction)
+    {
+        $this->maxfraction = $maxfraction;
     }
 
     /**
@@ -154,11 +224,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $flagged
+     */
+    public function setFlagged($flagged)
+    {
+        $this->flagged = $flagged;
+    }
+
+    /**
      * @return mixed
      */
     public function getQuestionsummary()
     {
         return $this->questionsummary;
+    }
+
+    /**
+     * @param mixed $questionsummary
+     */
+    public function setQuestionsummary($questionsummary)
+    {
+        $this->questionsummary = $questionsummary;
     }
 
     /**
@@ -170,11 +256,27 @@ class question_attempts
     }
 
     /**
+     * @param mixed $rightanswer
+     */
+    public function setRightanswer($rightanswer)
+    {
+        $this->rightanswer = $rightanswer;
+    }
+
+    /**
      * @return mixed
      */
     public function getResponsesummary()
     {
         return $this->responsesummary;
+    }
+
+    /**
+     * @param mixed $responsesummary
+     */
+    public function setResponsesummary($responsesummary)
+    {
+        $this->responsesummary = $responsesummary;
     }
 
     /**
@@ -184,5 +286,14 @@ class question_attempts
     {
         return $this->timemodified;
     }
+
+    /**
+     * @param mixed $timemodified
+     */
+    public function setTimemodified($timemodified)
+    {
+        $this->timemodified = $timemodified;
+    }
+
 
 }

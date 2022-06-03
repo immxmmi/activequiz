@@ -9,7 +9,7 @@ class Single_Choice{
 
     function setData($question_attemps){
         //var_dump($question_attemps);
-        $chart = new Chart();
+        $chart = new chart_builder();
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();

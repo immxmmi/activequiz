@@ -1,8 +1,8 @@
 <?php
 require_once("../../../config.php");
-require_once("class/mdl_question_attempts.php");
+require_once("./mdl_question_attempts.php");
 
-class Chart
+class chart_builder
 {
     private $response_code = 200;
     private $status = 'success';
@@ -59,6 +59,9 @@ class Chart
     public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
+        $color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
+
+
         switch ($chartType) {
             case "bar":
                 $this->data = array(
@@ -68,7 +71,7 @@ class Chart
                             'label' => '# of Votes',
                             'data' => $values,
                             'backgroundColor' => array(
-                                'rgba(255, 99, 132, 0.2)',
+                                $color,
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',
@@ -178,13 +181,6 @@ class Chart
         $this->response_code = $response_code;
     }
 
-    /**
-     * @param string $status
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-    }
 
     /**
      * @param string $msg
@@ -195,30 +191,6 @@ class Chart
     }
 
     /**
-     * @param array $data
-     */
-    public function setData($data)
-    {
-        $this->data = $data;
-    }
-
-    /**
-     * @param array $options
-     */
-    public function setOptions($options)
-    {
-        $this->options = $options;
-    }
-
-    /**
-     * @param mixed $chartType
-     */
-    public function setChartType($chartType)
-    {
-        $this->chartType = $chartType;
-    }
-
-    /**
      * @return int
      */
     public function getResponseCode()
@@ -226,53 +198,6 @@ class Chart
         return $this->response_code;
     }
 
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMsg()
-    {
-        return $this->msg;
-    }
-
-    /**
-     * @return array
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * @return array
-     */
-    public function getOptions()
-    {
-        return $this->options;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getChartType()
-    {
-        return $this->chartType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getInfo()
-    {
-        return $this->info;
-    }
 
     /**
      * @param mixed $info
@@ -281,8 +206,5 @@ class Chart
     {
         $this->info = $info;
     }
-
-
-
 
 }

@@ -11,10 +11,10 @@ global $DB;
 // Parameter
 $charttype  = optional_param('type', false, PARAM_TEXT); //
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-$chart = new Chart();
+$chart = new chart_builder();
 
 # # # # # # # # -SESSION- # # # # # # # #
-$session = new Session($sessionid);
+$session = new activequiz_session($sessionid);
 ##########################################
 
 

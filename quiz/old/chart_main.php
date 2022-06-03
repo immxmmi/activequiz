@@ -3,7 +3,7 @@ require_once("../../../config.php");
 require_once("class/mdl_activequiz_sessions.php");
 require_once("class/mdl_activequiz_attempts.php");
 require_once("class/mdl_question_attempts.php");
-require_once("chart_builder.php");
+require_once("class/chart_builder.php");
 require_once("single_choice.php");
 require_once("trueFalse_choice.php");
 global $DB;
@@ -16,7 +16,7 @@ $sessionID = 46;
 $activequizID = 18;
 
 // CHART BUILDER
-$chart = new Chart();
+$chart = new chart_builder();
 // CHART HEAD
 $chart->startTag();
 
@@ -24,7 +24,7 @@ $chart->startTag();
 # # # # # # # # -SESSION- # # # # # # # #
 echo "SESSION DATA:</br>";
 echo "TABLE :: mdl_activequiz_sessions</br>";
-$session = new Session();
+$session = new activequiz_session();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid AND activequizid = :activequizid';
 $params = array('sessionid' => $sessionID, 'activequizid' => $activequizID);
 $result = $DB->get_records_sql($sql, $params);

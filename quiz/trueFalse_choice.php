@@ -8,7 +8,7 @@ class TrueFalse_Choice{
     private $values = array(0, 0, 0, 0, 0);
 
     function setData($question_attemps){
-        $chart = new Chart();
+        $chart = new chart_builder();
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
