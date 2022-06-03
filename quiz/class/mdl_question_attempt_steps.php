@@ -18,19 +18,24 @@ class attempt_steps
     {
         global $DB;
 
-
-
-
         echo"<pre>";
         print_r($questionattemptids);
         echo"</pre>";
 
 
+        foreach ($questionattemptids as $questionattemptid) {
+            $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
+            $params = array('questionattemptid' => $questionattemptid);
+            $result = $DB->get_records_sql($sql, $params);
+
+            echo"<pre>";
+            print_r($result);
+            echo"</pre>";
+        }
+
+
       /*  if ($questionattemptids !== null) {
-            foreach ($questionattemptids as $questionattemptid) {
-                $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
-                $params = array('questionattemptid' => $questionattemptid);
-                $result = $DB->get_records_sql($sql, $params);
+
 
                 echo"<pre>";
                 print_r($result);
