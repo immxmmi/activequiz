@@ -1,5 +1,6 @@
 <?php
 require_once("../../../config.php");
+require_once("./session.php");
 ?>
 <!doctype html>
 <hthml>
@@ -85,5 +86,12 @@ require_once("../../../config.php");
 				<canvas id="apiChart"></canvas>
 			</div>
         </div>
+
+        <?php
+        $session = new Session(46);
+        ?>
+
+
+
     </body>
 </hthml>

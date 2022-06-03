@@ -36,7 +36,10 @@ class Session
         $params = array('sessionid' => $sessionid);
         $session = $DB->get_records_sql($sql, $params);
         //$this->get_session_by_id($result);
-
+        echo "<pre>";
+        print_r($sessionid);
+        echo "</pre>";
+/*
         $this->id = $session->id;
         $this->activequizid = $session->activequizid;
         $this->name = $session->name;
@@ -49,6 +52,7 @@ class Session
         $this->classresult = $session->classresult;
         $this->nextstarttime = $session->nextstarttime;
         $this->created = $session->created;
+*/
     }
 
     /**
