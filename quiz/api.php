@@ -25,12 +25,15 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 $list_of_question_attemps = array(); // LIST ATTEMPS
-$current_slot = $session->getCurrentquestion(); // SLOT
-$current_slot = 2; // SLOT
+$slot = $session->getCurrentquestion(); // SLOT
+$slot = 2; // SLOT
+
+
+
 foreach ($allquestionengids as $questionengids) {
     $question_attemp = new question_attempts();
     $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
-    $params = array('questionusageid' => $questionengids, 'slot' => $current_slot);
+    $params = array('questionusageid' => $questionengids, 'slot' => $slot);
     $result = $DB->get_records_sql($sql, $params);
     $question_attemps = $question_attemp->getAttemptsByQuestionengID($result);
     //var_dump($question_attemps);
@@ -64,9 +67,12 @@ switch ($questionType) {
 }
 
 
-
-
 $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
+
+
+
+
+
 
 http_response_code($chart->getResponseCode());
 header('Content-Type: application/json');
