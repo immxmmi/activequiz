@@ -43,11 +43,9 @@ class single_choice
             return $data;
         }
 
+
         echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-        echo "<pre>";
-        print_r($data[' '.$responsesummary]);
+        print_r($data[$responsesummary]);
         echo "</pre>";
 
 
