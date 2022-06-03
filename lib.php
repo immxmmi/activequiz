@@ -37,7 +37,7 @@ function activequiz_add_instance($activequiz) {
     global $DB;
 
     $activequiz->timemodified = time();
-    $activequiz['timecreated'] = time();
+    $activequiz->timecreated = time();
     if (empty($activequiz['graded'])) {
         $activequiz['graded'] = 0;
         $activequiz['scale'] = 0;
