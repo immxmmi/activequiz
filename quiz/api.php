@@ -31,9 +31,13 @@ global $DB;
 
     $answers = $question_attemp->getListOfAnswers();
 
-    var_dump($answers);
+echo "<pre>";
+print_r($answers);
+echo "</pre>";
 
-
+echo "<pre>";
+print_r($answers[0]);
+echo "</pre>";
 
     $questionType = "singel";
     $single = new single_choice();
