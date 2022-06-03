@@ -14,12 +14,7 @@ $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $chart = new Chart();
 
 # # # # # # # # -SESSION- # # # # # # # #
-$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-$params = array('sessionid' => $sessionid);
-$result = $DB->get_records_sql($sql, $params);
-$session_test = new Session($sessionid);
-$session = $session_test->getSessionByID($result);
-//$session = new Session();
+$session = new Session($sessionid);
 ##########################################
 
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #

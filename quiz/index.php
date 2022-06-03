@@ -87,12 +87,5 @@ require_once("./session.php");
 			</div>
         </div>
 
-        <?php
-        $session = new Session(46);
-        print_r($session);
-        ?>
-
-
-
     </body>
 </hthml>

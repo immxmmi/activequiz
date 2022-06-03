@@ -68,61 +68,6 @@ class Session
 
 
 
-
-
-    private function get_session_by_id($result){
-        $sessions = array();
-        $currentSession = new Session(46);
-        foreach ($result as $session) {
-            $currentSession->id = $session->id;
-            $currentSession->activequizid = $session->activequizid;
-            $currentSession->name = $session->name;
-            $currentSession->anonymize_responses = $session->anonymize_responses;
-            $currentSession->fully_anonymize = $session->fully_anonymize;
-            $currentSession->sessionopen = $session->sessionopen;
-            $currentSession->status= $session->status;
-            $currentSession->currentquestion= $session->currentquestion;
-            $currentSession->currentqnum= $session->currentqnum;
-            $currentSession->classresult= $session->classresult;
-            $currentSession->nextstarttime= $session->nextstarttime;
-            $currentSession->created= $session->created;
-            if($currentSession != null){
-                array_push($sessions, $currentSession);
-            }
-            $currentSession = null;
-        }
-        return $sessions[0];
-    }
-
-
-
-
-    public function getSessionByID($result)
-    {
-        $sessions = array();
-        $currentSession = new Session(46);
-        foreach ($result as $session) {
-            $currentSession->id = $session->id;
-            $currentSession->activequizid = $session->activequizid;
-            $currentSession->name = $session->name;
-            $currentSession->anonymize_responses = $session->anonymize_responses;
-            $currentSession->fully_anonymize = $session->fully_anonymize;
-            $currentSession->sessionopen = $session->sessionopen;
-            $currentSession->status= $session->status;
-            $currentSession->currentquestion= $session->currentquestion;
-            $currentSession->currentqnum= $session->currentqnum;
-            $currentSession->classresult= $session->classresult;
-            $currentSession->nextstarttime= $session->nextstarttime;
-            $currentSession->created= $session->created;
-            if($currentSession != null){
-                array_push($sessions, $currentSession);
-            }
-            $currentSession = null;
-        }
-       return $sessions[0];
-    }
-
-
     /**
      * @return mixed
      */
