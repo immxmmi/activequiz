@@ -20,9 +20,9 @@ class attempt_steps
 
         var_dump($questionattemptids);
 
-        foreach ($questionattemptids as $questionattemptid) {
+       // foreach ($questionattemptids as $questionattemptid) {
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
-            $params = array('questionattemptid' => $questionattemptid);
+            $params = array('questionattemptid' => $questionattemptids);
             $result = $DB->get_records_sql($sql, $params);
 
             echo"<pre>";
