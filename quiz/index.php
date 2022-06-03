@@ -69,8 +69,8 @@ require_once("../../../config.php");
 					<option value="doughnut">Doughnut-Chart</option>
 					<option value="unknown">Unknown-Chart</option>
 				</select>
-
-                <input type="text" id="sessionid" value="46">
+                <label for="session">Session ID:</label>
+                <input type="number" id="sessionid" name="session" value="46">
             </form>
         </div>
 
