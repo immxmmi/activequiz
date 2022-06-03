@@ -89,6 +89,7 @@ require_once("./session.php");
 
         <?php
         $session = new Session(46);
+        var_dump($session);
         ?>
 
 
