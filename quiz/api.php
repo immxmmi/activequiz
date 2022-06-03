@@ -38,7 +38,7 @@ echo"</pre>";
 
 foreach ($answers as $answer){
     echo"<pre>";
-    print_r($answer);
+    print_r($answer[0]->getid());
     echo"</pre>";
 }
 
