@@ -38,7 +38,7 @@ class Session
 
         $this->id = $session[$sessionid]->id;
         $this->activequizid = $session[$sessionid]->activequizid;
-        $this->name = $session->name;
+        $this->name = $session[$sessionid]->name;
         $this->anonymize_responses = $session[$sessionid]->anonymize_responses;
         $this->fully_anonymize = $session[$sessionid]->fully_anonymize;
         $this->sessionopen = $session[$sessionid]->sessionopen;
