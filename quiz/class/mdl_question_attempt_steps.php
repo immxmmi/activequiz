@@ -29,10 +29,6 @@ class attempt_steps
         $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
         $params = array('questionattemptid' => $questionattemptid);
         $result = $DB->get_records_sql($sql, $params);
-        echo"<pre>";
-        print_r($result);
-        echo"</pre>";
-        /*
         $this->id = $result->id;
         $this->questionattemptid = $result->questionattemptid;
         $this->sequencenumber = $result->sequencenumber;
@@ -40,7 +36,6 @@ class attempt_steps
         $this->fraction = $result->fraction;
         $this->timecreated = $result->timecreated;
         $this->userid = $result->userid;
-        */
     }
 
 

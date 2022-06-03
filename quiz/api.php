@@ -33,7 +33,7 @@
     $answers = $question_attemp->getListOfAnswers();
     $stepList = array();
 foreach ($answers as $answer){
-    new attempt_steps($answer[0]->getid());
+    array_push($stepList,new attempt_steps($answer[0]->getid()));
 }
 
     $questionType = "singel";
