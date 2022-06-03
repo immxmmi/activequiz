@@ -70,10 +70,7 @@ require_once("../../../config.php");
 					<option value="unknown">Unknown-Chart</option>
 				</select>
 
-                <select id="sessionid" name="type">
-                    <option value="0">0</option>
-                    <option value="46">46</option>
-                </select>
+                <input type="text" id="sessionid" value="46">
             </form>
         </div>
 
