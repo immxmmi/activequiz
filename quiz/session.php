@@ -42,20 +42,27 @@ class Session
 
 
     private function get_session_by_id($result){
+        $sessions = array();
+        $currentSession = new Session();
         foreach ($result as $session) {
-            $this->id = $session->id;
-            $this->activequizid = $session->activequizid;
-            $this->name = $session->name;
-            $this->anonymize_responses = $session->anonymize_responses;
-            $this->fully_anonymize = $session->fully_anonymize;
-            $this->sessionopen = $session->sessionopen;
-            $this->status= $session->status;
-            $this->currentquestion= $session->currentquestion;
-            $this->currentqnum= $session->currentqnum;
-            $this->classresult= $session->classresult;
-            $this->nextstarttime= $session->nextstarttime;
-            $this->created= $session->created;
+            $currentSession->id = $session->id;
+            $currentSession->activequizid = $session->activequizid;
+            $currentSession->name = $session->name;
+            $currentSession->anonymize_responses = $session->anonymize_responses;
+            $currentSession->fully_anonymize = $session->fully_anonymize;
+            $currentSession->sessionopen = $session->sessionopen;
+            $currentSession->status= $session->status;
+            $currentSession->currentquestion= $session->currentquestion;
+            $currentSession->currentqnum= $session->currentqnum;
+            $currentSession->classresult= $session->classresult;
+            $currentSession->nextstarttime= $session->nextstarttime;
+            $currentSession->created= $session->created;
+            if($currentSession != null){
+                array_push($sessions, $currentSession);
+            }
+            $currentSession = null;
         }
+        return $sessions[0];
     }
 
 
