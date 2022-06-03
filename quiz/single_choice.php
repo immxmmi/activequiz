@@ -17,7 +17,8 @@ class single_choice
 
         $data = array();
         for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
-            array_push($data, $question_attemps[0]->getQuestionsummary()[$i],0);
+            $current_data = array($question_attemps[0]->getQuestionsummary()[$i]=>0);
+            $data = array_merge($data, $current_data);
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
 
