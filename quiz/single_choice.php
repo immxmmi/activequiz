@@ -14,6 +14,10 @@ class single_choice{
         echo "<pre>";
         print_r($question_attemps[0]);
         echo "</pre>";
+        echo "<pre>";
+        print_r($question_attemps[1]);
+        echo "</pre>";
+
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
