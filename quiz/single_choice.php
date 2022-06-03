@@ -15,9 +15,9 @@ class single_choice
         // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
 
 
-        $data = array(array());
+        $data = array();
         for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
-            array_push($data[0], $question_attemps[0]->getQuestionsummary()[$i]);
+            array_push($data, $question_attemps[0]->getQuestionsummary()[$i]);
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
 
