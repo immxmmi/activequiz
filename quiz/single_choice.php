@@ -24,12 +24,44 @@ class single_choice
         print_r($data);
         echo "</pre>";
 
+        $data = this->countValue($data,$question_attemps[0]->getResponsesummary());
+
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+/*
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
             $this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
         }
+*/
     }
+
+
+
+
+    private function countValue($data,$responsesummary){
+
+            if ($responsesummary == null) {return $data;}
+
+            $index = 0;
+            foreach ($data as $label) {
+                echo "</br>".$index;
+                echo "<pre>";
+                print_r($label);
+                echo "</pre>";
+                $index++;
+            }
+
+    }
+
+
+
+
+
+
 
     public function getLabels()
     {
