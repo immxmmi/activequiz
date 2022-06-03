@@ -9,8 +9,13 @@ class single_choice
     private $values = array();
     private $data = array();
 
-    public function load_quiz_data($question_attemps)
+    public function load_quiz_data($answers)
     {
+
+        echo "<pre>";
+        print_r($answers);
+        echo "</pre>";
+
 /*
         for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
             $current_data = array($question_attemps[0]->getQuestionsummary()[$i]=>0);
