@@ -12,6 +12,9 @@ class single_choice{
         $chart = new chart_builder();
        // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
         echo "<pre>";
+        print_r($question_attemps);
+        echo "</pre>";
+        echo "<pre>";
         print_r($question_attemps[0]);
         echo "</pre>";
         echo "<pre>";
