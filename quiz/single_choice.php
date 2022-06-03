@@ -44,7 +44,7 @@ class single_choice
         }
 
         echo "<pre>";
-        print_r($data[$responsesummary]);
+        print_r($data[' '.$responsesummary]);
         echo "</pre>";
 
 
