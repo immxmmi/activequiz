@@ -40,7 +40,6 @@ class single_choice
         if ($responsesummary == null) {
             return $data;
         }
-        print_r($responsesummary);
         $data[' '.$responsesummary]++;
         return $data;
     }
