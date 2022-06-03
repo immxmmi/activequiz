@@ -15,56 +15,53 @@ class single_choice
         // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
 
 
-       $data = array();
-       for($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary());$i++){
-           array_push($data,array($question_attemps[0]->getQuestionsummary()[$i]=>0));
-       }
-
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
-        $data = $this->countValue($data,$question_attemps[0]->getResponsesummary());
-
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-
-/*
-        foreach ($question_attemps as $summary) {
-            $this->labels = $summary->getQuestionsummary();
-            $responsesummary = $summary->getResponsesummary();
-            $this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
+        $data = array();
+        for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
+            array_push($data, array($question_attemps[0]->getQuestionsummary()[$i] => 0));
         }
-*/
+
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+        $data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
+
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
+        /*
+                foreach ($question_attemps as $summary) {
+                    $this->labels = $summary->getQuestionsummary();
+                    $responsesummary = $summary->getResponsesummary();
+                    $this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
+                }
+        */
     }
 
 
+    private function countValue($data, $responsesummary)
+    {
+
+        if ($responsesummary == null) {
+            return $data;
+        }
+
+        $index = 0;
 
 
-    private function countValue($data,$responsesummary){
+        echo "<pre>";
+        $keys = array_keys($data);
+        print_r($keys);
+        //print_r( array_key_exists($responsesummary));
+        echo "</pre>";
 
-            if ($responsesummary == null) {return $data;}
 
-            $index = 0;
-            foreach ($data as $label) {
-
-
-                echo "<pre>";
-
-                //print_r( array_key_exists($responsesummary));
-                echo "</pre>";
-
-                $index++;
-
-            }
+        foreach ($data as $label) {
+            $index++;
+        }
 
     }
-
-
-
-
-
 
 
     public function getLabels()
