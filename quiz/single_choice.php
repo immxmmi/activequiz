@@ -11,7 +11,9 @@ class single_choice{
         //var_dump($question_attemps);
         $chart = new chart_builder();
        // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
-
+        echo "<pre>";
+        print_r($question_attemps[0]);
+        echo "</pre>";
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
