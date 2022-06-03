@@ -60,33 +60,18 @@ class chart_builder
     public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
-        $color = $this->random_color_generator();
-
 
         switch ($chartType) {
             case "bar":
+                $color = $this->random_background_color_array(sizeof($labels));
                 $this->data = array(
                     'labels' => $labels,
                     'datasets' => array(
                         array(
                             'label' => '# of Votes',
                             'data' => $values,
-                            'backgroundColor' => array(
-                                'rgba(255, 99, 132, 0.2)',
-                                $color,
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ),
-                            'borderColor' => array(
-                                'rgba(255, 99, 132, 1)',
-                                $color,
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ),
+                            'backgroundColor' => $color,
+                            'borderColor' => $color,
                             'borderWidth' => 1
                         )
                     )
@@ -105,13 +90,7 @@ class chart_builder
                     'datasets' => array(
                         array(
                             'label' => 'Point',
-                            'backgroundColor' => array(
-                                'rgba(255, 99, 132, 0.2)',
-                                $color,
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                            ),
+                            'backgroundColor' => $this->random_background_color_array(sizeof($labels)),
                             'data' => $values,
                         )
                     )
@@ -128,13 +107,7 @@ class chart_builder
                     'datasets' => array(
                         array(
                             'label' => 'Point',
-                            'backgroundColor' => array(
-                                'rgba(255, 99, 132, 0.2)',
-                                $color,
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                            ),
+                            'backgroundColor' => $this->random_background_color_array(sizeof($labels)),
                             'data' => $values,
                         )
                     )
@@ -158,6 +131,18 @@ class chart_builder
     private function random_color_generator(){
         return 'rgba('.rand(100,255).' , '.rand(0,180).' , '.rand(0,100).' , '.rand(0, 10) / 10 .')';
     }
+
+    private function random_background_color_array($size){
+        $background_array = array();
+
+        for ($i = 1; $i <= $size; $i++) {
+            array_push($background_array, $this->random_color_generator());
+        }
+
+    }
+
+
+
 
 private
 function createJSON()
