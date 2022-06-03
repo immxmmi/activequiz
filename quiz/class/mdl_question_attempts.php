@@ -18,7 +18,7 @@ class question_attempts
     private $rightanswer;
     private $responsesummary;
     private $timemodified;
-    private $list_of_question_attemps_id = array(); // LIST ATTEMPS
+    private $list_of_answers = array(); // LIST ATTEMPS
 
     public function __construct($allquestionengids, $slot)
     {
@@ -30,7 +30,7 @@ class question_attempts
                 $params = array('questionusageid' => $questionengids, 'slot' => $slot);
                 $result = $DB->get_records_sql($sql, $params);
                 $question_attemps = $this->get_attempts_by_questionengid($result);
-                array_push($this->list_of_question_attemps_id, $question_attemps);
+                array_push($this->list_of_answers, $question_attemps);
             }
         }
 
@@ -86,9 +86,9 @@ class question_attempts
     /**
      * @return array
      */
-    public function getListOfQuestionAttempsId()
+    public function getListOfAnswers()
     {
-        return $this->list_of_question_attemps_id;
+        return $this->list_of_answers;
     }
 
 

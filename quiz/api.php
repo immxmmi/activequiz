@@ -29,12 +29,12 @@ global $DB;
     $question_attemp = new question_attempts($allquestionengids,$slot);
     #####################################################
 
+
+
+$answers = $question_attemp->getListOfAnswers();
 echo "<pre>";
-print_r($question_attemp->getListOfQuestionAttempsId());
+print_r($answers);
 echo "</pre>";
-
-$question_id_list = $question_attemp->getListOfQuestionAttempsId();
-
 
     $questionType = "singel";
     $single = new single_choice();
@@ -42,11 +42,11 @@ $question_id_list = $question_attemp->getListOfQuestionAttempsId();
     $data = null;
     switch ($questionType) {
         case "singeld":
-            $single->load_quiz_data($question_id_list[0]);
+            $single->load_quiz_data($answers[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
         case "true/false":
-            $trueFalse->setData($question_id_list[0]);
+            $trueFalse->setData($answers[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         default:
             $chart->setInfo("no Question Type Found!");
