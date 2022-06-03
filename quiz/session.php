@@ -43,7 +43,7 @@ class Session
 
     private function get_session_by_id($result){
         $sessions = array();
-        $currentSession = new Session();
+        $currentSession = new Session(46);
         foreach ($result as $session) {
             $currentSession->id = $session->id;
             $currentSession->activequizid = $session->activequizid;
