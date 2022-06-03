@@ -7,6 +7,7 @@ class single_choice
 
     private $labels = array();
     private $values = array();
+    private $data = array();
 
     function setData($question_attemps)
     {
@@ -15,26 +16,25 @@ class single_choice
         // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
 
 
-        $data = array();
         for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
             $current_data = array($question_attemps[0]->getQuestionsummary()[$i]=>0);
-            $data = array_merge($data, $current_data);
+            $this->data = array_merge($this->data, $current_data);
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
-        $this->labels = array_keys($data);
+        $this->labels = array_keys($this->data);
 
         echo "<pre>";
-        print_r($data);
+        print_r($this->data);
         echo "</pre>";
 
 
                 foreach ($question_attemps as $summary) {
                     $responsesummary = $summary->getResponsesummary();
-                    $this->addValue($data, $responsesummary);
+                    $this->data = $this->addValue($this->data, $responsesummary);
                     //$this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
                 }
         echo "<pre>";
-        print_r($data);
+        print_r($this->data);
         echo "</pre>";
 
     }
@@ -46,6 +46,7 @@ class single_choice
             return $data;
         }
         $data[' '.$responsesummary]++;
+        return $data;
     }
 
 
