@@ -46,7 +46,7 @@ global $DB;
     $trueFalse = new true_false_choice();
     $data = null;
     switch ($questionType) {
-        case "singels":
+        case "singel":
             $single->load_quiz_data($list_of_question_attemps[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
