@@ -10,8 +10,8 @@ class single_choice{
     function setData($question_attemps){
         //var_dump($question_attemps);
         $chart = new chart_builder();
-        $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
-        print_r($this->values);
+       // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
+        print_r($question_attemps);
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
             $responsesummary = $summary->getResponsesummary();
