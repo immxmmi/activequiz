@@ -94,17 +94,17 @@ class question_attempts
     /**
      * @return mixed
      */
-    public function getQuestionsummary()
+    public function getId()
     {
-        return $this->questionsummary;
+        return $this->id;
     }
 
     /**
      * @return mixed
      */
-    public function getResponsesummary()
+    public function getQuestionsummary()
     {
-        return $this->responsesummary;
+        return $this->questionsummary;
     }
 
     /**
@@ -116,11 +116,11 @@ class question_attempts
     }
 
     /**
-     * @param mixed $rightanswer
+     * @return mixed
      */
-    public function setRightanswer($rightanswer)
+    public function getResponsesummary()
     {
-        $this->rightanswer = $rightanswer;
+        return $this->responsesummary;
     }
 
 

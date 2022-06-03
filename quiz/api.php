@@ -35,8 +35,13 @@ echo "<pre>";
 print_r($answers);
 echo "</pre>";
 
+$question = $answers[0];
+
 echo "<pre>";
-print_r($answers[0]);
+print_r($question);
+echo "</pre>";
+echo "<pre>";
+print_r($question->getId());
 echo "</pre>";
 
     $questionType = "singel";
