@@ -2,24 +2,27 @@
 require_once("../../../config.php");
 global $DB;
 
-class single_choice{
+class single_choice
+{
 
     private $labels = array();
     private $values = array();
 
-    function setData($question_attemps){
+    function setData($question_attemps)
+    {
         //var_dump($question_attemps);
         $chart = new chart_builder();
-       // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
+        // $this->values = array_pad(array(), $question_attemps[0]->getQuestionsummary(), 0);
         echo "<pre>";
         print_r($question_attemps);
         echo "</pre>";
         echo "<pre>";
-        print_r($question_attemps[0]);
+        print_r($question_attemps[0]->getQuestionsummary()[0]);
         echo "</pre>";
-        echo "<pre>";
-        print_r($question_attemps[1]);
-        echo "</pre>";
+
+      // $a = array(
+      //     $question_attemps[0]->getQuestionsummary()[0] =>
+      // );
 
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
@@ -32,6 +35,7 @@ class single_choice{
     {
         return $this->labels;
     }
+
     public function getValues()
     {
         return $this->values;
