@@ -26,7 +26,7 @@ require_once("../../config.php");
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
                 console.log(sessionid);
-				if( charttype !== 'none' ) {
+				if( charttype !== 'none' || sessionid !== 0) {
 					var url = './quiz/activequizapi.php';
 					var params = {
 						type: charttype
@@ -76,10 +76,10 @@ require_once("../../config.php");
             <form action="javascript:void(0);">
                 <select id="sessionid" name="type">
                     <option value="0">--- choose a ID ---</option>
-                    <option value="47">47</option>
-                    <option value="44">44</option>
-                    <option value="23">23</option>
-                    <option value="34">34</option>
+                    <option value="46">46</option>
+                    <option value="46">46</option>
+                    <option value="26">26</option>
+                    <option value="36">36</option>
                 </select>
             </form>
         </div>
