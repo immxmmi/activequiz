@@ -24,13 +24,19 @@ class single_choice
         $this->labels = array_keys($data);
 
         echo "<pre>";
-        print_r($this->labels);
+        print_r($data);
         echo "</pre>";
+
+
                 foreach ($question_attemps as $summary) {
                     $responsesummary = $summary->getResponsesummary();
                     $this->addValue($data, $responsesummary);
                     //$this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
                 }
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
     }
 
 
