@@ -25,10 +25,12 @@ require_once("../../../config.php");
 			var changeChartTypeHandler = function() {
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
+                var slot = jQuery('#slot').val();
 				if( charttype !== 'none' && sessionid !== '0') {
 					var url = './api.php';
 					var params = {
                         sessionid: sessionid,
+                        slot: slot,
 						type: charttype
 					};
 					jQuery.get(url, params, redrawChart).fail(function(data) {

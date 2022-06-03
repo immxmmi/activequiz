@@ -26,7 +26,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 $list_of_question_attemps = array(); // LIST ATTEMPS
 $slot = $session->getCurrentquestion(); // SLOT
-$slot = 2; // SLOT
+$slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 
 
 
