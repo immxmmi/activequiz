@@ -23,8 +23,13 @@ class attempt_steps
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
                 $params = array('questionattemptid' => $questionattemptid);
                 $result = $DB->get_records_sql($sql, $params);
-                $current_step = $this->get_steps_by_questionengid($result);
-                array_push($step_list, $current_step);
+
+                echo"<pre>";
+                print_r($result);
+                echo"</pre>";
+
+              //  $current_step = $this->get_steps_by_questionengid($result);
+              //  array_push($step_list, $current_step);
             }
         }
     }

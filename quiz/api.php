@@ -32,9 +32,12 @@
 
     $answers = $question_attemp->getListOfAnswers();
     $stepList = array();
-foreach ($answers as $answer){
-    array_push($stepList,new attempt_steps($answer[0]->getid(),$stepList));
-}
+//foreach ($answers as $answer){
+//    array_push($stepList,new attempt_steps($answer[0]->getid(),$stepList));
+//}
+
+new attempt_steps($answer[0]->getid(),$stepList)
+
 
     $questionType = "singel";
     $single = new single_choice();
