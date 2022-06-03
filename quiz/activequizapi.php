@@ -79,10 +79,6 @@ header('Content-Type: application/json');
 
 
 
-
-
-
-
 switch ($type) {
     case "bar":
         $chartType = "bar";
@@ -94,12 +90,9 @@ switch ($type) {
         $chartType = "pie";
         break;
     default:
-        $chartType = "bar";
+        $chartType = "";
         break;
 }
-
-
-
 
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
