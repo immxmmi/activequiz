@@ -116,11 +116,12 @@ switch ($questionType) {
     case "singel":
         $single->setData($list_of_question_attemps[0]);
         echo "</br> VALUES";
-        echo "</br>";
-        var_dump($single->getValues());
+        print_r($single->getValues());
         echo "</br> LABELS";
         echo "</br>";
-        var_dump($single->getLabels());
+        echo "<pre>";
+        print_r($single->getLabels());
+        echo "</pre>";
         break;
     case "true/false":
         $trueFalse->setData($list_of_question_attemps[0]);
