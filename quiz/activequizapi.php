@@ -11,7 +11,8 @@ global $chart_values;
 global $chart_label;
 $type  = optional_param('type', false, PARAM_TEXT);
 // SESSION ID
-$sessionID = optional_param('sessionid', false, PARAM_TEXT);
+//$sessionID = optional_param('sessionid', false, PARAM_TEXT);
+$sessionID = 46;
 
 // Activequiz ID
 $activequizID = 18;
