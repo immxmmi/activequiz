@@ -59,9 +59,7 @@ class chart_builder
     public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
-        //$color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
-
-        $color =  'rgba('.rand(0,255).' , '.rand(0,255).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
+        $color =  'rgba('.rand(0,255).' , '.rand(0,254).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
 
 
 
