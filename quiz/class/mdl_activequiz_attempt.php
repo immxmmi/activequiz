@@ -25,22 +25,24 @@ class activequiz_attempt
     private $all_questionengids = array();
 
 
-
     public function __construct($sessionid)
     {
-        global $DB;
-        $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
-        $params = array('sessionid' => $sessionid);
-        $result = $DB->get_records_sql($sql, $params);
-        $this->active_attemps = $this->get_attempts_by_id($result);
-        $this->all_questionengids = $this->filter_questionengids($this->active_attemps);
+        if ($sessionid !== null) {
+            global $DB;
+            $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
+            $params = array('sessionid' => $sessionid);
+            $result = $DB->get_records_sql($sql, $params);
+            $this->sessionid = $sessionid;
+            $this->active_attemps = $this->get_attempts_by_id($result);
+            $this->all_questionengids = $this->filter_questionengids($this->active_attemps);
+        }
     }
 
     private function get_attempts_by_id($result)
     {
         $attempts = array();
         foreach ($result as $attempt) {
-            $currentAttempt = new activequiz_attempt();
+            $currentAttempt = new $this;
             $currentAttempt->id = $attempt->id;
             $currentAttempt->sessionid = $attempt->sessionid;
             $currentAttempt->userid = $attempt->userid;
@@ -63,6 +65,7 @@ class activequiz_attempt
 
         return $attempts;
     }
+
     private function filter_questionengids($attemps)
     {
         $qid = array();
