@@ -86,6 +86,8 @@ switch (1) {
 }
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+http_response_code($response_code);
+header('Content-Type: application/json');
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
 
