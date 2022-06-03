@@ -14,7 +14,7 @@ class question_attempts
     private $minfraction;
     private $maxfraction;
     private $flagged;
-    private $questionsummary;
+    public $questionsummary;
     private $rightanswer;
     private $responsesummary;
     private $timemodified;
