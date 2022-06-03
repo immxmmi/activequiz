@@ -42,7 +42,7 @@ class activequiz_attempt
     {
         $attempts = array();
         foreach ($result as $attempt) {
-            $currentAttempt = new $this;
+            $currentAttempt = new activequiz_attempt(null);
             $currentAttempt->id = $attempt->id;
             $currentAttempt->sessionid = $attempt->sessionid;
             $currentAttempt->userid = $attempt->userid;
