@@ -23,7 +23,7 @@ class single_choice
         }
 
 
-        //$data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
+        $data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
 
 
         /*
