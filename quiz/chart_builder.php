@@ -15,8 +15,6 @@ class Chart
     public function __construct()
     {
     }
-
-
     public function startTag()
     {
         echo '<head>
@@ -56,7 +54,6 @@ class Chart
         }
         return $values;
     }
-
 
     public function buildNewChart($chartType, $labels, $values)
     {
@@ -170,6 +167,103 @@ class Chart
         );
         return $response;
     }
+
+    /**
+     * @param int $response_code
+     */
+    public function setResponseCode($response_code)
+    {
+        $this->response_code = $response_code;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @param string $msg
+     */
+    public function setMsg($msg)
+    {
+        $this->msg = $msg;
+    }
+
+    /**
+     * @param array $data
+     */
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    /**
+     * @param array $options
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+    }
+
+    /**
+     * @param mixed $chartType
+     */
+    public function setChartType($chartType)
+    {
+        $this->chartType = $chartType;
+    }
+
+    /**
+     * @return int
+     */
+    public function getResponseCode()
+    {
+        return $this->response_code;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMsg()
+    {
+        return $this->msg;
+    }
+
+    /**
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChartType()
+    {
+        return $this->chartType;
+    }
+
 
 
 }

@@ -9,14 +9,9 @@ require_once("trueFalse_choice.php");
 global $DB;
 
 // Parameter
-/**
- *
- */
 $type  = optional_param('type', false, PARAM_TEXT); //
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $chart = new Chart();
-
-
 
 
 
@@ -35,6 +30,7 @@ $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :ses
 $params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
+$chart->
 $current_attemp = $active_attemps[0];
 $all_questionengids = $active_attemp->filterQID($active_attemps);
 #######################################################
@@ -74,8 +70,7 @@ switch ($questionType) {
 
 
 
-http_response_code(200);
-header('Content-Type: application/json');
+
 
 
 
@@ -97,6 +92,10 @@ switch ($type) {
 
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+http_response_code($chart->getResponseCode());
+header('Content-Type: application/json');
+
+
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
 
