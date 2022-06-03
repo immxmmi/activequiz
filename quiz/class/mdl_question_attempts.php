@@ -20,15 +20,18 @@ class question_attempts
     private $timemodified;
     private $list_of_question_attemps_id = array(); // LIST ATTEMPS
 
-    public function  __construct($allquestionengids,$slot)
+    public function __construct($allquestionengids, $slot)
     {
         global $DB;
-        foreach ($allquestionengids as $questionengids) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
-            $params = array('questionusageid' => $questionengids, 'slot' => $slot);
-            $result = $DB->get_records_sql($sql, $params);
-            $question_attemps = $this->get_attempts_by_questionengid($result);
-            array_push($this->list_of_question_attemps_id, $question_attemps);
+        if ($allquestionengids !== null && $slot !== null) {
+
+            foreach ($allquestionengids as $questionengids) {
+                $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+                $params = array('questionusageid' => $questionengids, 'slot' => $slot);
+                $result = $DB->get_records_sql($sql, $params);
+                $question_attemps = $this->get_attempts_by_questionengid($result);
+                array_push($this->list_of_question_attemps_id, $question_attemps);
+            }
         }
 
     }
@@ -36,7 +39,7 @@ class question_attempts
     private function get_attempts_by_questionengid($result)
     {
         $attempts = array();
-        $currentAttempt = new question_attempts();
+        $currentAttempt = new question_attempts(null,null);
 
         foreach ($result as $attempt) {
             $currentAttempt->id = $attempt->id;
@@ -51,7 +54,7 @@ class question_attempts
             $currentAttempt->flagged = $attempt->flagged;
             $currentAttempt->questionsummary = $this->filterAnswers($attempt->questionsummary);
             $currentAttempt->rightanswer = $attempt->rightanswer;
-            $currentAttempt->responsesummary = $this->deleteCharAT($attempt->responsesummary,strlen($attempt->responsesummary)-1);
+            $currentAttempt->responsesummary = $this->deleteCharAT($attempt->responsesummary, strlen($attempt->responsesummary) - 1);
             $currentAttempt->timemodified = $attempt->timemodified;
             if ($currentAttempt != null) {
                 array_push($attempts, $currentAttempt);
@@ -64,17 +67,17 @@ class question_attempts
     private function filterAnswers($questionsummary)
     {
         $answers = explode(':', $questionsummary);
-        $listOfAnswers= explode(';', $answers[1]);
+        $listOfAnswers = explode(';', $answers[1]);
         $cleanList = array();
-        foreach ($listOfAnswers as $item){
-            array_push($cleanList, str_replace("\n","",$item));
+        foreach ($listOfAnswers as $item) {
+            array_push($cleanList, str_replace("\n", "", $item));
         }
         return $cleanList;
     }
 
 
-
-    private function deleteCharAT($word,$index){
+    private function deleteCharAT($word, $index)
+    {
         $arr = str_split($word); // String in Array umwandeln
         unset($arr[$index]); // Zeichen mit Index  loeschen
         return implode('', $arr);
@@ -87,7 +90,6 @@ class question_attempts
     {
         return $this->list_of_question_attemps_id;
     }
-
 
 
 }
