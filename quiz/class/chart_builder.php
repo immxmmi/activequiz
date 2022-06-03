@@ -138,7 +138,7 @@ class chart_builder
         for ($i = 1; $i <= $size; $i++) {
             array_push($background_array, $this->random_color_generator());
         }
-
+        return $background_array;
     }
 
 
