@@ -35,7 +35,7 @@ echo "<pre>";
 print_r($answers);
 echo "</pre>";
 
-$question = $answers[0][0];
+$question = $answers[0][0]->getId();
 
 echo "<pre>";
 print_r($question);
