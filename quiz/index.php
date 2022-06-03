@@ -65,7 +65,7 @@ require_once("../../../config.php");
 		<div>
 			<form action="javascript:void(0);">
                 <label for="session">Session ID:</label>
-                <input type="number" id="sessionid" name="session" value="1">
+                <input type="number" id="sessionid" name="session" value="5">
                 <label for="slot">Question Slot:</label>
                 <input type="number" id="slot" name="slot" value="1">
                 <label for="type">Chart Type:</label>
