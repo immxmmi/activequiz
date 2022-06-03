@@ -12,17 +12,21 @@ class single_choice
     public function load_quiz_data($answers)
     {
 
-        echo "<pre>";
-        print_r($answers);
-        echo "</pre>";
 
-/*
-        for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
-            $current_data = array($question_attemps[0]->getQuestionsummary()[$i]=>0);
+
+
+        for ($i = 0; $i < sizeof($answers[0]->getQuestionsummary()); $i++) {
+            $current_data = array($answers[0]->getQuestionsummary()[$i]=>0);
             $this->data = array_merge($this->data, $current_data);
         }
 
-                foreach ($question_attemps as $summary) {
+
+        echo "<pre>";
+        print_r($this->data);
+        echo "</pre>";
+
+        /*
+                foreach ($answers as $summary) {
                     $responsesummary = $summary->getResponsesummary();
                     $this->data = $this->addValue($this->data, $responsesummary);
                 }
