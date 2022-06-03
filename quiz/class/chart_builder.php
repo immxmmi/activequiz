@@ -16,6 +16,7 @@ class chart_builder
     public function __construct()
     {
     }
+
     public function startTag()
     {
         echo '<head>
@@ -59,9 +60,7 @@ class chart_builder
     public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
-        $color =  'rgba('.rand(0,255).' , '.rand(0,254).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
-
-
+        $color = $this->random_color_generator();
 
 
         switch ($chartType) {
@@ -156,57 +155,66 @@ class chart_builder
 
     }
 
-    private function createJSON()
-    {
-        http_response_code($this->response_code);
-        //header('Content-Type: application/json');
-        $response = array(
-            'meta' => array(
-                'status' => $this->status,
-                'msg' => $this->msg,
-                'info' => $this->info
-            ),
-            'data' => array(
-                'charttype' => $this->chartType,
-                'chartdata' => $this->data,
-                'chartoptions' => $this->options
-            )
-        );
-        return $response;
+    private function random_color_generator(){
+        return 'rgba('.rand(0,255).' , '.rand(0,254).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
     }
 
-    /**
-     * @param int $response_code
-     */
-    public function setResponseCode($response_code)
-    {
-        $this->response_code = $response_code;
-    }
+private
+function createJSON()
+{
+    http_response_code($this->response_code);
+    //header('Content-Type: application/json');
+    $response = array(
+        'meta' => array(
+            'status' => $this->status,
+            'msg' => $this->msg,
+            'info' => $this->info
+        ),
+        'data' => array(
+            'charttype' => $this->chartType,
+            'chartdata' => $this->data,
+            'chartoptions' => $this->options
+        )
+    );
+    return $response;
+}
+
+/**
+ * @param int $response_code
+ */
+public
+function setResponseCode($response_code)
+{
+    $this->response_code = $response_code;
+}
 
 
-    /**
-     * @param string $msg
-     */
-    public function setMsg($msg)
-    {
-        $this->msg = $msg;
-    }
+/**
+ * @param string $msg
+ */
+public
+function setMsg($msg)
+{
+    $this->msg = $msg;
+}
 
-    /**
-     * @return int
-     */
-    public function getResponseCode()
-    {
-        return $this->response_code;
-    }
+/**
+ * @return int
+ */
+public
+function getResponseCode()
+{
+    return $this->response_code;
+}
 
 
-    /**
-     * @param mixed $info
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-    }
+/**
+ * @param mixed $info
+ */
+public
+function setInfo($info)
+{
+    $this->info = $info;
+}
 
 }
