@@ -1,6 +1,6 @@
 <?php
 require_once("../../../config.php");
-
+global $DB;
 class Session
 {
     private $id;
@@ -31,9 +31,12 @@ class Session
      * @param $created
      */
 
-    public function __construct()
+    public function __construct($sessionid)
     {
-
+        $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+        $params = array('sessionid' => $sessionid);
+        $result = $DB->get_records_sql($sql, $params);
+        $this->getSessionByID($result);
     }
 
 
@@ -59,7 +62,18 @@ class Session
             }
             $currentSession = null;
         }
-        return $sessions[0];
+        $this->id = $sessions[0]->id;
+        $this->activequizid = $sessions[0]->activequizid;
+        $this->name = $sessions[0]->name;
+        $this->anonymize_responses = $sessions[0]->anonymize_responses;
+        $this->fully_anonymize = $sessions[0]->fully_anonymize;
+        $this->sessionopen = $sessions[0]->sessionopen;
+        $this->status= $sessions[0]->status;
+        $this->currentquestion= $sessions[0]->currentquestion;
+        $this->currentqnum= $sessions[0]->currentqnum;
+        $this->classresult= $sessions[0]->classresult;
+        $this->nextstarttime= $sessions[0]->nextstarttime;
+        $this->created= $sessions[0]->created;
     }
 
 

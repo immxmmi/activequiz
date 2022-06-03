@@ -14,11 +14,8 @@ $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $chart = new Chart();
 
 # # # # # # # # -SESSION- # # # # # # # #
-$session = new Session();
-$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-$params = array('sessionid' => $sessionid);
-$result = $DB->get_records_sql($sql, $params);
-$current_session = $session->getSessionByID($result);
+$session = new Session($sessionid);
+
 ##########################################
 
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
@@ -50,12 +47,17 @@ foreach ($all_questionengids as $questionengids) {
 
 
 
+
+
+
+
+
+
+
+
 $questionType = "singel";
-
-
 $single = new Single_Choice();
 $trueFalse = new TrueFalse_Choice();
-
 switch ($questionType) {
     case "singel":
         $single->setData($list_of_question_attemps[0]);
@@ -70,6 +72,8 @@ switch ($questionType) {
 
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
+
+
 http_response_code($chart->getResponseCode());
 header('Content-Type: application/json');
 
