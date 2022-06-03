@@ -8,19 +8,25 @@ require_once("single_choice.php");
 require_once("trueFalse_choice.php");
 global $DB;
 
-$type  = optional_param('type', false, PARAM_TEXT);
-// SESSION ID
+// Parameter
+/**
+ *
+ */
+$type  = optional_param('type', false, PARAM_TEXT); //
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-
-
-// CHART BUILDER
 $chart = new Chart();
+$params = array();
+$result = null;
+$sql = "";
+
 
 # # # # # # # # -SESSION- # # # # # # # #
 $session = new Session();
-$sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
-$params = array('sessionid' => $sessionid);
-$result = $DB->get_records_sql($sql, $params);
+
+$this->sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+$this->params = array('sessionid' => $sessionid);
+$this->result = $DB->get_records_sql($sql, $params);
+
 $current_session = $session->getSessionByID($result);
 ##########################################
 
@@ -28,7 +34,7 @@ $current_session = $session->getSessionByID($result);
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $active_attemp = new activequiz_attempts();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
-$params = array('sessionid' => $current_session->getId());
+$this->params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
 $active_attemps = $active_attemp->getAttemptsByID($result);
 $current_attemp = $active_attemps[0];
