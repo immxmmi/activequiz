@@ -36,7 +36,7 @@ class Session
         global $DB;
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
         $params = array('sessionid' => 46);
-        $result = $DB->get_records_sql($sql, $params);
+        $result = $DB->get_record_sql($sql, $params);
     }
 
 
