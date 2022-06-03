@@ -41,7 +41,7 @@ $question_id_list = $question_attemp->getListOfQuestionAttempsId();
     $trueFalse = new true_false_choice();
     $data = null;
     switch ($questionType) {
-        case "singel":
+        case "singeld":
             $single->load_quiz_data($question_id_list[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
