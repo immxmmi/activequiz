@@ -54,8 +54,8 @@ global $DB;
             $trueFalse->setData($list_of_question_attemps[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         default:
-            $data = $chart->build_new_chart(null, null,null);
             $chart->setInfo("no Question Type Found!");
+            $data = $chart->build_new_chart(null, null,null);
     }
 
 
