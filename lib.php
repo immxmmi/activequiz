@@ -175,7 +175,7 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         $params = array('itemname' => $activequiz['name']);
     }
 
-    if ($activequiz->['graded'] == 0) {
+    if ($activequiz->graded == 0) {
         $params['gradetype'] = GRADE_TYPE_NONE;
 
     } else if ($activequiz->graded == 1) {
