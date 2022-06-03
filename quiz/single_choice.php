@@ -27,9 +27,6 @@ class single_choice
 
         //$data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
 
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
 
         /*
                 foreach ($question_attemps as $summary) {
