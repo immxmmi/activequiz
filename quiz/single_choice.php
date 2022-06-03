@@ -17,12 +17,16 @@ class single_choice
         print_r($question_attemps);
         echo "</pre>";
         echo "<pre>";
-        print_r($question_attemps[0]->getQuestionsummary()[0]);
+        print_r($question_attemps[0]);
         echo "</pre>";
 
-      // $a = array(
-      //     $question_attemps[0]->getQuestionsummary()[0] =>
-      // );
+       $a = array(
+           $question_attemps[0]->getQuestionsummary()[0] => 2,
+           $question_attemps[0]->getQuestionsummary()[1] => 1,
+       );
+        echo "<pre>";
+        print_r($a);
+        echo "</pre>";
 
         foreach ($question_attemps as $summary) {
             $this->labels = $summary->getQuestionsummary();
