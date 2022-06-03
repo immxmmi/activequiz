@@ -17,7 +17,8 @@ $chart = new Chart();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
 $params = array('sessionid' => $sessionid);
 $result = $DB->get_records_sql($sql, $params);
-$session = new Session($result);
+$session_test = new Session();
+$session = $session_test->getSessionByID($result);
 ##########################################
 
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
