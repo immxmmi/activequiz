@@ -129,7 +129,7 @@ class chart_builder
     }
 
     private function random_color_generator(){
-        return 'rgba('.rand(0,150).' , '.rand(0,255).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
+        return 'rgba('.rand(0,150).' , '.rand(0,255).' , '.rand(0,255).' , '.rand(2, 10) / 10 .')';
     }
 
     private function random_background_color_array($size){
