@@ -61,7 +61,7 @@ class chart_builder
         $this->chartType = $chartType;
         //$color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
 
-        $color =  'rgba('.rand(0,255).','.rand(0,255).','.rand(0,255).','.rand(0.0,1);
+        $color =  'rgba('.rand(0,255).','.rand(0,255).','.rand(0,255).','.rand(0.0,1).')';
 
 
         switch ($chartType) {
