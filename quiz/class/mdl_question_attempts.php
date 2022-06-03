@@ -91,5 +91,38 @@ class question_attempts
         return $this->list_of_answers;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getQuestionsummary()
+    {
+        return $this->questionsummary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResponsesummary()
+    {
+        return $this->responsesummary;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRightanswer()
+    {
+        return $this->rightanswer;
+    }
+
+    /**
+     * @param mixed $rightanswer
+     */
+    public function setRightanswer($rightanswer)
+    {
+        $this->rightanswer = $rightanswer;
+    }
+
+
 
 }
