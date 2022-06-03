@@ -3,6 +3,7 @@
     require_once("class/mdl_activequiz_sessions.php");
     require_once("class/mdl_activequiz_attempt.php");
     require_once("class/mdl_question_attempts.php");
+    require_once("class/mdl_question_attempt_steps.php");
     require_once("class/chart_builder.php");
     require_once("quiztype/single_choice.php");
     require_once("quiztype/truefalsechoice.php");
@@ -35,6 +36,9 @@ echo"<pre>";
 print_r($answers);
 echo"</pre>";
 
+foreach ($answers as $answer){
+    var_dump($answer);
+}
 
     $questionType = "singel";
     $single = new single_choice();

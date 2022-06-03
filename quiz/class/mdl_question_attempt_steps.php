@@ -32,15 +32,14 @@ class attempt_steps
         echo"<pre>";
         print_r($result);
         echo"</pre>";
-
         /*
-        $this->id = $id;
-        $this->questionattemptid = $questionattemptid;
-        $this->sequencenumber = $sequencenumber;
-        $this->state = $state;
-        $this->fraction = $fraction;
-        $this->timecreated = $timecreated;
-        $this->userid = $userid;
+        $this->id = $result->id;
+        $this->questionattemptid = $result->questionattemptid;
+        $this->sequencenumber = $result->sequencenumber;
+        $this->state = $result->state;
+        $this->fraction = $result->fraction;
+        $this->timecreated = $result->timecreated;
+        $this->userid = $result->userid;
         */
     }
 
