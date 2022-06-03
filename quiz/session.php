@@ -37,7 +37,28 @@ class Session
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
         $params = array('sessionid' => 46);
         $result = $DB->get_record_sql($sql, $params);
+        this->get_session_by_id($result);
     }
+
+
+    private function get_session_by_id($result){
+        foreach ($result as $session) {
+            $this->id = $session->id;
+            $this->activequizid = $session->activequizid;
+            $this->name = $session->name;
+            $this->anonymize_responses = $session->anonymize_responses;
+            $this->fully_anonymize = $session->fully_anonymize;
+            $this->sessionopen = $session->sessionopen;
+            $this->status= $session->status;
+            $this->currentquestion= $session->currentquestion;
+            $this->currentqnum= $session->currentqnum;
+            $this->classresult= $session->classresult;
+            $this->nextstarttime= $session->nextstarttime;
+            $this->created= $session->created;
+        }
+    }
+
+
 
 
     public function getSessionByID($result)
