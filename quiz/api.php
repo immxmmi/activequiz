@@ -31,6 +31,10 @@
 
     $answers = $question_attemp->getListOfAnswers();
 
+echo"<pre>";
+print_r($answers);
+echo"</pre>";
+
 
     $questionType = "singel";
     $single = new single_choice();
