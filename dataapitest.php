@@ -26,7 +26,7 @@ require_once("../../config.php");
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
                 console.log(sessionid);
-				if( charttype !== 'none' || sessionid !== 0) {
+				if( charttype !== 'none' && sessionid !== 0) {
 					var url = './quiz/activequizapi.php';
 					var params = {
 						type: charttype
