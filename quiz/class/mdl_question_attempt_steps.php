@@ -17,8 +17,8 @@ class attempt_steps
     public function __construct($questionattemptids,$step_list)
     {
         global $DB;
-        if ($questionattemptids !== null) {
-            $this->step_list = $step_list;
+       // if ($questionattemptids !== null) {
+         //   $this->step_list = $step_list;
             foreach ($questionattemptids as $questionattemptid) {
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
                 $params = array('questionattemptid' => $questionattemptid);
@@ -29,7 +29,7 @@ class attempt_steps
               //  $current_step = $this->get_steps_by_questionengid($result);
               //  array_push($step_list, $current_step);
             }
-        }
+       // }
     }
 
 
