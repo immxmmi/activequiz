@@ -39,8 +39,9 @@ class Session
         echo "<pre>";
         print_r($session);
         echo "</pre>";
+
+        $this->id = $session[0]->id;
 /*
-        $this->id = $session->id;
         $this->activequizid = $session->activequizid;
         $this->name = $session->name;
         $this->anonymize_responses = $session->anonymize_responses;
