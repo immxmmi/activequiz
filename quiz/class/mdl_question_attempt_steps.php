@@ -14,11 +14,10 @@ class attempt_steps
     private $step_list;
 
 
-    public function __construct($questionattemptids,$step_list)
+    public function __construct($questionattemptids)
     {
         global $DB;
         if ($questionattemptids !== null) {
-            $this->step_list = $step_list;
             foreach ($questionattemptids as $questionattemptid) {
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
                 $params = array('questionattemptid' => $questionattemptid);
