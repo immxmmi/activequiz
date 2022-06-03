@@ -1,5 +1,5 @@
 <?php
-require_once("../../config.php");
+require_once("../../../config.php");
 
 $type = optional_param('type', false, PARAM_TEXT);
 
