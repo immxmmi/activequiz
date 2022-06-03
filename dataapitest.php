@@ -25,7 +25,7 @@ require_once("../../config.php");
 			var changeChartTypeHandler = function() {
 				var charttype = jQuery('#charttype').val();
 				if( charttype !== 'none' ) {
-					var url = './dataapi.php';
+					var url = './quiz/activequizapi.php';
 					var params = {
 						type: charttype
 					};
