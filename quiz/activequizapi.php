@@ -70,6 +70,18 @@ switch ($questionType) {
         echo "no Type";
 }
 
+
+
+
+http_response_code($this->response_code);
+header('Content-Type: application/json');
+
+
+
+
+
+
+
 switch (1) {
     case 0:
         $chartType = "bar";
@@ -84,6 +96,10 @@ switch (1) {
         $chartType = "bar";
         break;
 }
+
+
+
+
 
 $data = $chart->buildNewChart($chartType, $single->getLabels(), $single->getValues());
 echo json_encode($data, JSON_PRETTY_PRINT);
