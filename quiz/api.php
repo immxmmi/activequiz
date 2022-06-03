@@ -41,7 +41,7 @@ global $DB;
     }
 
 
-    $questionType = "singels";
+    $questionType = "singel";
     $single = new single_choice();
     $trueFalse = new true_false_choice();
     $data = null;
@@ -55,7 +55,7 @@ global $DB;
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         default:
             $data = $chart->build_new_chart(null, null,null);
-            echo "no Type";
+            $chart->setMsg("no Question Type Found!");
     }
 
 
