@@ -32,17 +32,15 @@ global $DB;
 
 
 $answers = $question_attemp->getListOfAnswers();
-echo "<pre>";
-print_r($answers);
-echo "</pre>";
+
 
     $questionType = "singel";
     $single = new single_choice();
     $trueFalse = new true_false_choice();
     $data = null;
     switch ($questionType) {
-        case "singeld":
-            $single->load_quiz_data($answers[0]);
+        case "singel":
+            $single->load_quiz_data($answers);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
         case "true/false":

@@ -11,7 +11,7 @@ class single_choice
 
     public function load_quiz_data($question_attemps)
     {
-
+/*
         for ($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary()); $i++) {
             $current_data = array($question_attemps[0]->getQuestionsummary()[$i]=>0);
             $this->data = array_merge($this->data, $current_data);
@@ -30,7 +30,7 @@ class single_choice
 
         $this->labels = array_keys($this->data);
         $this->values = array_values($this->data);
-
+*/
         return $this->data;
     }
 
