@@ -190,7 +190,7 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         $grades = null;
     }
 
-    return grade_update('mod/activequiz', $activequiz['course'], 'mod', 'activequiz', $activequiz->id, 0, $grades, $params);
+    return grade_update('mod/activequiz', $activequiz['course'], 'mod', 'activequiz', $activequiz['id'], 0, $grades, $params);
 }
 
 
