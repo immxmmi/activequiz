@@ -50,6 +50,9 @@ class single_choice
             foreach ($data as $label) {
               $label[" ".$responsesummary]++;
 
+                echo "<pre>";
+                print_r($data);
+                echo "</pre>";
 
                 $index++;
 
