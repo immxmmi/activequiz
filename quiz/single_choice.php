@@ -48,7 +48,7 @@ class single_choice
 
             $index = 0;
             foreach ($data as $label) {
-              $label[" ".$responsesummary] =+1;
+              $label[" ".$responsesummary] =2;
 
                 echo "<pre>";
                 print_r($data);
