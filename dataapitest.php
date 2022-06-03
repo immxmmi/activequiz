@@ -75,7 +75,7 @@ require_once("../../config.php");
         <div>
             <form action="javascript:void(0);">
                 <select id="sessionid" name="type">
-                    <option value="46">46</option>
+                    <option value="2">2</option>
                 </select>
             </form>
         </div>
