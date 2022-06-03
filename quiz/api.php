@@ -29,9 +29,10 @@ global $DB;
     $question_attemp = new question_attempts($allquestionengids,$slot);
     #####################################################
 
+    $answers = $question_attemp->getListOfAnswers();
 
+    var_dump($answers);
 
-$answers = $question_attemp->getListOfAnswers();
 
 
     $questionType = "singel";
