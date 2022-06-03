@@ -116,7 +116,9 @@ switch ($questionType) {
     case "singel":
         $single->setData($list_of_question_attemps[0]);
         echo "</br> VALUES";
+        echo "<pre>";
         print_r($single->getValues());
+        echo "</pre>";
         echo "</br> LABELS";
         echo "</br>";
         echo "<pre>";
