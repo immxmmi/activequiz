@@ -25,7 +25,8 @@
 
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
     $slot = $session->getCurrentquestion(); // SLOT
-    $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
+    $slot = 1;// SLOT
+   // $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
     $question_attemp = new question_attempts($allquestionengids, $slot);
     #####################################################
 
