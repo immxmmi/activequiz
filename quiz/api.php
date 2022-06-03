@@ -37,7 +37,9 @@ print_r($answers);
 echo"</pre>";
 
 foreach ($answers as $answer){
-    var_dump($answer);
+    echo"<pre>";
+    print_r($answer);
+    echo"</pre>";
 }
 
     $questionType = "singel";
