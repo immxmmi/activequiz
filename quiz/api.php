@@ -41,7 +41,7 @@ global $DB;
     }
 
 
-    $questionType = "singel";
+    $questionType = "singels";
     $single = new single_choice();
     $trueFalse = new true_false_choice();
     $data = null;
