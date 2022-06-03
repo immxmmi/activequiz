@@ -22,9 +22,6 @@ class single_choice
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
 
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
 
         //$data = $this->countValue($data, $question_attemps[0]->getResponsesummary());
 
@@ -46,19 +43,10 @@ class single_choice
             return $data;
         }
 
-        $index = 0;
-
-
         echo "<pre>";
-        $keys = array_keys($data);
-        print_r($keys);
-        //print_r( array_key_exists($responsesummary));
+        print_r($data[$responsesummary]);
         echo "</pre>";
 
-
-        foreach ($data as $label) {
-            $index++;
-        }
 
     }
 
