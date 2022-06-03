@@ -1,6 +1,6 @@
 <?php
 require_once("../../../config.php");
-require_once("mdl_question_attempts.php");
+require_once("./mdl_question_attempts.php");
 
 class chart_builder
 {
@@ -59,7 +59,7 @@ class chart_builder
     public function buildNewChart($chartType, $labels, $values)
     {
         $this->chartType = $chartType;
-        $color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
+        //$color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
 
 
         switch ($chartType) {
@@ -71,7 +71,7 @@ class chart_builder
                             'label' => '# of Votes',
                             'data' => $values,
                             'backgroundColor' => array(
-                                $color,
+                                'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',
