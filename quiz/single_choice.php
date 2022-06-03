@@ -17,7 +17,7 @@ class single_choice
 
        $data = array();
        for($i = 0; $i < sizeof($question_attemps[0]->getQuestionsummary());$i++){
-           array_push($data, $question_attemps[0]->getQuestionsummary()[$i],0);
+           array_push($data,array($question_attemps[0]->getQuestionsummary()[$i]=>0));
        }
 
         echo "<pre>";
