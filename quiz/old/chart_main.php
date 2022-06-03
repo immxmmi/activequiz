@@ -43,7 +43,7 @@ echo"</br>";
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 echo "ACTIVE-QUIZ ATTEMPTS</br>";
 echo "TABLE :: mdl_activequiz_attempts</br>";
-$active_attemp = new activequiz_attempts();
+$active_attemp = new activequiz_attempt();
 $sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
 $params = array('sessionid' => $current_session->getId());
 $result = $DB->get_records_sql($sql, $params);
@@ -109,8 +109,8 @@ $chartType = "";
 $questionType = "singel";
 
 
-$single = new Single_Choice();
-$trueFalse = new TrueFalse_Choice();
+$single = new single_choice();
+$trueFalse = new true_false_choice();
 
 switch ($questionType) {
     case "singel":

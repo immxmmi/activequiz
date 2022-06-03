@@ -429,7 +429,7 @@ class activequiz_attempt {
         $this->attempt->timemodified = time();
         if (isset($this->attempt->id)) { // update the record
             try {
-                $DB->update_record('activequiz_attempts', $this->attempt);
+                $DB->update_record('activequiz_attempt', $this->attempt);
             } catch(\Exception $e) {
                 error_log($e->getMessage());
 
@@ -438,7 +438,7 @@ class activequiz_attempt {
         } else {
             // insert new record
             try {
-                $newid = $DB->insert_record('activequiz_attempts', $this->attempt);
+                $newid = $DB->insert_record('activequiz_attempt', $this->attempt);
                 $this->attempt->id = $newid;
             } catch(\Exception $e) {
                 return false; // return false on failure
@@ -695,7 +695,7 @@ class activequiz_attempt {
             'relateduserid' => $this->attempt->userid
         );
         $event = \mod_activequiz\event\attempt_ended::create($params);
-        $event->add_record_snapshot('activequiz_attempts', $this->attempt);
+        $event->add_record_snapshot('activequiz_attempt', $this->attempt);
         $event->trigger();
 
         return true;

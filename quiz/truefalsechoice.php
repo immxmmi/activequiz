@@ -2,7 +2,7 @@
 require_once("../../../config.php");
 global $DB;
 
-class TrueFalse_Choice{
+class true_false_choice{
 
     private $labels;
     private $values = array(0, 0, 0, 0, 0);

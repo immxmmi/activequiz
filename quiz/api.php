@@ -1,11 +1,11 @@
 <?php
 require_once("../../../config.php");
 require_once("class/mdl_activequiz_sessions.php");
-require_once("class/mdl_activequiz_attempts.php");
+require_once("class/mdl_activequiz_attempt.php");
 require_once("class/mdl_question_attempts.php");
 require_once("class/chart_builder.php");
 require_once("single_choice.php");
-require_once("trueFalse_choice.php");
+require_once("truefalsechoice.php");
 global $DB;
 
 // Parameter
@@ -17,22 +17,19 @@ $chart = new chart_builder();
 $session = new activequiz_session($sessionid);
 ##########################################
 
-
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
-$active_attemp = new activequiz_attempts();
-$sql = 'SELECT * FROM "public"."mdl_activequiz_attempts" WHERE  sessionid = :sessionid;';
-$params = array('sessionid' => $session->getId());
-$result = $DB->get_records_sql($sql, $params);
-$active_attemps = $active_attemp->getAttemptsByID($result);
-$all_questionengids = $active_attemp->filterQID($active_attemps);
+$activequiz_attempt = new activequiz_attempt($sessionid);
+$allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 $list_of_question_attemps = array(); // LIST ATTEMPS
 $current_slot = $session->getCurrentquestion(); // SLOT
-$current_slot = 2; // SLOT
-foreach ($all_questionengids as $questionengids) {
+if($current_slot === null){
+    $current_slot = 1; // SLOT
+}
+foreach ($allquestionengids as $questionengids) {
     $question_attemp = new question_attempts();
     $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
     $params = array('questionusageid' => $questionengids, 'slot' => $current_slot);
@@ -56,8 +53,8 @@ foreach ($all_questionengids as $questionengids) {
 
 
 $questionType = "singel";
-$single = new Single_Choice();
-$trueFalse = new TrueFalse_Choice();
+$single = new single_choice();
+$trueFalse = new true_false_choice();
 switch ($questionType) {
     case "singel":
         $single->setData($list_of_question_attemps[0]);
@@ -73,10 +70,8 @@ switch ($questionType) {
 
 $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
 
-
 http_response_code($chart->getResponseCode());
 header('Content-Type: application/json');
-
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;

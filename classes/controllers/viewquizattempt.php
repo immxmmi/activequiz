@@ -171,7 +171,7 @@ class viewquizattempt {
                     }
 
                     $event = \mod_activequiz\event\attempt_viewed::create($params);
-                    $event->add_record_snapshot('activequiz_attempts', $attempt->get_attempt());
+                    $event->add_record_snapshot('activequiz_attempt', $attempt->get_attempt());
                     $event->trigger();
 
                     $this->RTQ->get_renderer()->render_attempt($attempt, $session);

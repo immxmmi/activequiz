@@ -2,7 +2,7 @@
 require_once("../../../config.php");
 global $DB;
 
-class Single_Choice{
+class single_choice{
 
     private $labels;
     private $values = array(0, 0, 0, 0, 0);
