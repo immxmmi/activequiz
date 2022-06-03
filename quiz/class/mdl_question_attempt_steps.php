@@ -14,15 +14,15 @@ class attempt_steps
     private $step_list;
 
 
-    public function __construct($questionattemptids)
+    public function __construct($answers)
     {
         global $DB;
 
-        var_dump($questionattemptids);
+        var_dump($answers);
 
-       // foreach ($questionattemptids as $questionattemptid) {
+        foreach ($answers as $questionattemptid) {
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
-            $params = array('questionattemptid' => $questionattemptids);
+            $params = array('questionattemptid' => $questionattemptid[0]->getid());
             $result = $DB->get_records_sql($sql, $params);
 
             echo"<pre>";
