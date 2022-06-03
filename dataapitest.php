@@ -37,8 +37,6 @@ require_once("../../config.php");
 						alert(data.responseJSON.meta.msg);
 					});
 				}
-
-                }
 			};
 
 			var destroyChart = function() {
