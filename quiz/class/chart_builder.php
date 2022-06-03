@@ -64,6 +64,8 @@ class chart_builder
         $color =  'rgba('.rand(0,255).' , '.rand(0,255).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
 
 
+
+
         switch ($chartType) {
             case "bar":
                 $this->data = array(
@@ -82,7 +84,7 @@ class chart_builder
                             ),
                             'borderColor' => array(
                                 'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
+                                $color,
                                 'rgba(255, 206, 86, 1)',
                                 'rgba(75, 192, 192, 1)',
                                 'rgba(153, 102, 255, 1)',
