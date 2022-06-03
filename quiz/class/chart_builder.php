@@ -135,6 +135,7 @@ class chart_builder
     // CHART COLOR GENERATOR
     private function random_color_generator()
     {
+        sleep(1);
         return 'rgba(' . rand(0, 150) . ' , ' . rand(0, 255) . ' , ' . rand(0, 255) . ' , ' . rand(2, 10) / 10 . ')';
     }
 
