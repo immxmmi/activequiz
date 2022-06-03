@@ -18,10 +18,7 @@ class attempt_steps
     {
         global $DB;
 
-        echo"<pre>";
-        print_r($questionattemptids);
-        echo"</pre>";
-
+        var_dump($questionattemptids);
 
         foreach ($questionattemptids as $questionattemptid) {
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
