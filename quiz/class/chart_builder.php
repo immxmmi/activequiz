@@ -61,6 +61,8 @@ class chart_builder
         $this->chartType = $chartType;
         //$color =  dec2hex(rand(0,255)).dec2hex(rand(0,255)).dec2hex( rand(0,255));
 
+        $color =  'rgba('.rand(0,255).','.rand(0,255).','.rand(0,255).','.rand(0.0,1);
+
 
         switch ($chartType) {
             case "bar":
@@ -71,7 +73,7 @@ class chart_builder
                             'label' => '# of Votes',
                             'data' => $values,
                             'backgroundColor' => array(
-                                'rgba(255, 99, 132, 0.2)',
+                                $color,
                                 'rgba(54, 162, 235, 0.2)',
                                 'rgba(255, 206, 86, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',
