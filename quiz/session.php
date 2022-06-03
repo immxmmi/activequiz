@@ -35,25 +35,19 @@ class Session
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
         $params = array('sessionid' => $sessionid);
         $session = $DB->get_records_sql($sql, $params);
-        //$this->get_session_by_id($result);
-        echo "<pre>";
-        print_r($session);
-        echo "</pre>";
 
         $this->id = $session[$sessionid]->id;
-/*
-        $this->activequizid = $session->activequizid;
+        $this->activequizid = $session[$sessionid]->activequizid;
         $this->name = $session->name;
-        $this->anonymize_responses = $session->anonymize_responses;
-        $this->fully_anonymize = $session->fully_anonymize;
-        $this->sessionopen = $session->sessionopen;
-        $this->status = $session->status;
-        $this->currentquestion = $session->currentquestion;
-        $this->currentqnum = $session->currentqnum;
-        $this->classresult = $session->classresult;
-        $this->nextstarttime = $session->nextstarttime;
-        $this->created = $session->created;
-*/
+        $this->anonymize_responses = $session[$sessionid]->anonymize_responses;
+        $this->fully_anonymize = $session[$sessionid]->fully_anonymize;
+        $this->sessionopen = $session[$sessionid]->sessionopen;
+        $this->status = $session[$sessionid]->status;
+        $this->currentquestion = $session[$sessionid]->currentquestion;
+        $this->currentqnum = $session[$sessionid]->currentqnum;
+        $this->classresult = $session[$sessionid]->classresult;
+        $this->nextstarttime = $session[$sessionid]->nextstarttime;
+        $this->created = $session[$sessionid]->created;
     }
 
     /**
