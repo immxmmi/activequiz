@@ -167,10 +167,12 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         require_once($CFG->libdir . '/gradelib.php');
     }
 
+    $activequiz = json_decode(json_encode($activequiz), true);
+
     if (array_key_exists('cmidnumber', $activequiz)) { // May not be always present.
-        $params = array('itemname' => $activequiz->name, 'idnumber' => $activequiz->cmidnumber);
+        $params = array('itemname' => $activequiz[“name”], 'idnumber' => $activequiz->cmidnumber);
     } else {
-        $params = array('itemname' => $activequiz->name);
+        $params = array('itemname' => $activequiz[“name”]);
     }
 
     if ($activequiz->graded == 0) {
