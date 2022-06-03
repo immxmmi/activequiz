@@ -46,11 +46,11 @@ function activequiz_add_instance($activequiz) {
     // add all review options to the db object in the review options field.
     $activequiz->reviewoptions = activequiz_process_review_options($activequiz);
 
-    $activequiz['id'] = $DB->insert_record('activequiz', $activequiz);
+    $activequiz->id = $DB->insert_record('activequiz', $activequiz);
 
     activequiz_after_add_or_update($activequiz);
 
-    return $activequiz['id'];
+    return $activequiz->id;
 }
 
 /**
@@ -65,7 +65,7 @@ function activequiz_update_instance($activequiz) {
     global $DB, $PAGE;
 
     $activequiz->timemodified = time();
-    $activequiz['id'] = $activequiz->instance;
+    $activequiz->id = $activequiz->instance;
     if (empty($activequiz->graded)) {
         $activequiz->graded = 0;
         $activequiz->scale = 0;
@@ -78,9 +78,9 @@ function activequiz_update_instance($activequiz) {
     activequiz_after_add_or_update($activequiz);
 
     // after updating grade item we need to re-grade the sessions
-    $activequiz = $DB->get_record('activequiz', array('id' => $activequiz['id']));  // need the actual db record
+    $activequiz = $DB->get_record('activequiz', array('id' => $activequiz->id));  // need the actual db record
     $course = $DB->get_record('course', array('id' => $activequiz['course']), '*', MUST_EXIST);
-    $cm = get_coursemodule_from_instance('activequiz', $activequiz['id'], $course->id, false, MUST_EXIST);
+    $cm = get_coursemodule_from_instance('activequiz', $activequiz->id, $course->id, false, MUST_EXIST);
     $rtq = new \mod_activequiz\activequiz($cm, $course, $activequiz, array('pageurl' => $PAGE->url));
     $rtq->get_grader()->save_all_grades();
 
@@ -125,16 +125,16 @@ function activequiz_delete_instance($id) {
         $activequiz = $DB->get_record('activequiz', array('id' => $id), '*', MUST_EXIST);
 
         // go through each session and then delete them (also deletes all attempts for them)
-        $sessions = $DB->get_records('activequiz_sessions', array('activequizid' => $activequiz['id']));
+        $sessions = $DB->get_records('activequiz_sessions', array('activequizid' => $activequiz->id));
         foreach ($sessions as $session) {
             \mod_activequiz\activequiz_session::delete($session->id);
         }
 
         // delete all questions for this quiz
-        $DB->delete_records('activequiz_questions', array('activequizid' => $activequiz['id']));
+        $DB->delete_records('activequiz_questions', array('activequizid' => $activequiz->id));
 
         // finally delete the activequiz object
-        $DB->delete_records('activequiz', array('id' => $activequiz['id']));
+        $DB->delete_records('activequiz', array('id' => $activequiz->id));
     } catch(Exception $e) {
         return false;
     }
@@ -190,7 +190,7 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
         $grades = null;
     }
 
-    return grade_update('mod/activequiz', $activequiz['course'], 'mod', 'activequiz', $activequiz['id'], 0, $grades, $params);
+    return grade_update('mod/activequiz', $activequiz['course'], 'mod', 'activequiz', $activequiz->id, 0, $grades, $params);
 }
 
 
