@@ -31,15 +31,9 @@
     #####################################################
 
     $answers = $question_attemp->getListOfAnswers();
-
-echo"<pre>";
-print_r($answers);
-echo"</pre>";
-
+    $stepList = array();
 foreach ($answers as $answer){
-    echo"<pre>";
-    print_r($answer[0]->getid());
-    echo"</pre>";
+    $answer[0]->getid();
 }
 
     $questionType = "singel";
