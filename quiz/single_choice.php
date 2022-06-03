@@ -11,18 +11,13 @@ class single_choice
 
     public function load_quiz_data($answers)
     {
+        $question_one = $answers[0][0];
 
 
-        echo "<pre>";
-      ///  print_r($answers[0]->questionsummary);
-        //print_r($answers[0]->getQuestionsummary());
-        echo "</pre>";
-
-
-      // for ($i = 0; $i < sizeof($answers[0]->getQuestionsummary()); $i++) {
-      //     $current_data = array($answers[0]->getQuestionsummary()[$i]=>0);
-      //     $this->data = array_merge($this->data, $current_data);
-      // }
+       for ($i = 0; $i < sizeof($question_one->getQuestionsummary()); $i++) {
+           $current_data = array($question_one->getQuestionsummary()[$i]=>0);
+           $this->data = array_merge($this->data, $current_data);
+       }
 
 
         echo "<pre>";
