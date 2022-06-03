@@ -11,32 +11,56 @@ class attempt_steps
     private $fraction;
     private $timecreated;
     private $userid;
-
-    /**
-     * @param $id
-     * @param $questionattemptid
-     * @param $sequencenumber
-     * @param $state
-     * @param $fraction
-     * @param $timecreated
-     * @param $userid
-     */
+    private $step_list;
 
 
-    public function __construct($questionattemptid)
+    public function __construct($questionattemptids,$step_list)
     {
         global $DB;
-        $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
-        $params = array('questionattemptid' => $questionattemptid);
-        $result = $DB->get_records_sql($sql, $params);
-        $this->id = $result->id;
-        $this->questionattemptid = $result->questionattemptid;
-        $this->sequencenumber = $result->sequencenumber;
-        $this->state = $result->state;
-        $this->fraction = $result->fraction;
-        $this->timecreated = $result->timecreated;
-        $this->userid = $result->userid;
+        if ($questionattemptids !== null) {
+            $this->step_list = $step_list;
+            foreach ($questionattemptids as $questionattemptid) {
+                $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
+                $params = array('questionattemptid' => $questionattemptid);
+                $result = $DB->get_records_sql($sql, $params);
+                $current_step = $this->get_steps_by_questionengid($result);
+                array_push($step_list, $current_step);
+            }
+        }
     }
+
+
+
+
+
+
+    private function get_steps_by_questionengid($result)
+    {
+        $steps = array();
+        $current_step= new attempt_steps(null,null);
+
+        foreach ($result as $step) {
+            $current_step->id = $step->id;
+            $current_step->questionattemptid = $step->questionattemptid;
+            $current_step->sequencenumber = $step->sequencenumber;
+            $current_step->state = $step->state;
+            $current_step->fraction = $step->fraction;
+            $current_step->timecreated = $step->timecreated;
+            $current_step->userid = $step->userid;
+            $current_step->step_list = $step->step_list;
+
+            if ($current_step != null) {
+                array_push($steps, $current_step);
+            }
+        }
+
+        return $steps;
+    }
+
+
+
+
+
 
 
 }
