@@ -40,7 +40,7 @@ class Session
         print_r($session);
         echo "</pre>";
 
-        $this->id = $session['46'];
+        $this->id = $session['46']->id;
 /*
         $this->activequizid = $session->activequizid;
         $this->name = $session->name;
