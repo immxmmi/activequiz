@@ -13,12 +13,15 @@ class single_choice
     {
 
 
+        echo "<pre>";
+        print_r(sizeof($answers[0]->getQuestionsummary()));
+        echo "</pre>";
 
 
-        for ($i = 0; $i < sizeof($answers[0]->getQuestionsummary()); $i++) {
-            $current_data = array($answers[0]->getQuestionsummary()[$i]=>0);
-            $this->data = array_merge($this->data, $current_data);
-        }
+      // for ($i = 0; $i < sizeof($answers[0]->getQuestionsummary()); $i++) {
+      //     $current_data = array($answers[0]->getQuestionsummary()[$i]=>0);
+      //     $this->data = array_merge($this->data, $current_data);
+      // }
 
 
         echo "<pre>";
