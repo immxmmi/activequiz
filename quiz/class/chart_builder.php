@@ -156,7 +156,7 @@ class chart_builder
     }
 
     private function random_color_generator(){
-        return 'rgba('.rand(0,255).' , '.rand(0,254).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
+        return 'rgba('.rand(200,255).' , '.rand(0,254).' , '.rand(0,255).' , '.rand(0, 10) / 10 .')';
     }
 
 private
