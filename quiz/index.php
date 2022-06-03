@@ -1,6 +1,6 @@
 <?php
 require_once("../../../config.php");
-require_once("./mdl_activequiz_sessions.php");
+require_once("./class/mdl_activequiz_sessions.php");
 ?>
 <!doctype html>
 <hthml>

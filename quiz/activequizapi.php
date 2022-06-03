@@ -1,8 +1,8 @@
 <?php
 require_once("../../../config.php");
-require_once("mdl_activequiz_sessions.php");
-require_once("mdl_activequiz_attempts.php");
-require_once("mdl_question_attempts.php");
+require_once("class/mdl_activequiz_sessions.php");
+require_once("class/mdl_activequiz_attempts.php");
+require_once("class/mdl_question_attempts.php");
 require_once("chart_builder.php");
 require_once("single_choice.php");
 require_once("trueFalse_choice.php");
