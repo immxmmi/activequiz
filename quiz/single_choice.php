@@ -51,7 +51,7 @@ class single_choice
 
 
                 echo "<pre>";
-                print_r( $label[' '.$responsesummary]);
+                print_r( array_key_exists($responsesummary));
                 echo "</pre>";
 
                 $index++;
