@@ -26,6 +26,7 @@ require_once("../../config.php");
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
                 console.log(sessionid);
+                if( sessionid !== '0'){
 				if( charttype !== 'none') {
 					var url = './quiz/activequizapi.php';
 					var params = {
@@ -37,8 +38,10 @@ require_once("../../config.php");
 						alert(data.responseJSON.meta.msg);
 					});
 				}
+
+                }
 			};
-			
+
 			var destroyChart = function() {
 				if( skillChart !== null ) {
 					skillChart.destroy();
@@ -76,7 +79,7 @@ require_once("../../config.php");
         <div>
             <form action="javascript:void(0);">
                 <select id="sessionid" name="type">
-                    <option value="46">--- choose a ID ---</option>
+                    <option value="0">--- choose a ID ---</option>
                     <option value="46">46</option>
                     <option value="46">46</option>
                     <option value="26">26</option>
