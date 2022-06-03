@@ -10,7 +10,7 @@ class Chart
     private $data = array();
     private $options = array();
     private $chartType;
-    private $info;
+    private $info = '-';
 
 
     public function __construct()
