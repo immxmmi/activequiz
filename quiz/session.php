@@ -30,15 +30,45 @@ class Session
      * @param $nextstarttime
      * @param $created
      */
-
-    public function __construct($sessionid)
-    {
+    public function __construct($sessionid){
         global $DB;
         $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
         $params = array('sessionid' => $sessionid);
-        $result = $DB->get_records_sql($sql, $params);
+        $session = $DB->get_records_sql($sql, $params);
         //$this->get_session_by_id($result);
+
+        $this->id = $session->id;
+        $this->activequizid = $session->activequizid;
+        $this->name = $session->name;
+        $this->anonymize_responses = $session->anonymize_responses;
+        $this->fully_anonymize = $session->fully_anonymize;
+        $this->sessionopen = $session->sessionopen;
+        $this->status = $session->status;
+        $this->currentquestion = $session->currentquestion;
+        $this->currentqnum = $session->currentqnum;
+        $this->classresult = $session->classresult;
+        $this->nextstarttime = $session->nextstarttime;
+        $this->created = $session->created;
     }
+
+    /**
+     * @param $id
+     * @param $activequizid
+     * @param $name
+     * @param $anonymize_responses
+     * @param $fully_anonymize
+     * @param $sessionopen
+     * @param $status
+     * @param $currentquestion
+     * @param $currentqnum
+     * @param $classresult
+     * @param $nextstarttime
+     * @param $created
+     */
+
+
+
+
 
 
     private function get_session_by_id($result){
