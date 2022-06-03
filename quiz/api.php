@@ -35,7 +35,7 @@ echo "<pre>";
 print_r($answers);
 echo "</pre>";
 
-$question = $answers[0];
+$question = $answers[0][0];
 
 echo "<pre>";
 print_r($question);
