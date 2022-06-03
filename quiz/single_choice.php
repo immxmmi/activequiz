@@ -26,9 +26,6 @@ class single_choice
                     $this->data = $this->addValue($this->data, $responsesummary);
                 }
 
-        echo "<pre>";
-        print_r($this->data);
-        echo "</pre>";
 
 
         $this->labels = array_keys($this->data);
