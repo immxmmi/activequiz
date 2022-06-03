@@ -21,22 +21,27 @@ class single_choice
             $this->data = array_merge($this->data, $current_data);
            // array_push($data[$question_attemps[0]->getQuestionsummary()[$i]],0);
         }
-        $this->labels = array_keys($this->data);
-
-        echo "<pre>";
-        print_r($this->data);
-        echo "</pre>";
-
 
                 foreach ($question_attemps as $summary) {
                     $responsesummary = $summary->getResponsesummary();
                     $this->data = $this->addValue($this->data, $responsesummary);
                     //$this->values = $chart->count_value($this->labels, $this->values, $responsesummary);
                 }
+
         echo "<pre>";
         print_r($this->data);
         echo "</pre>";
 
+
+        $this->labels = array_keys($this->data);
+        $this->values = array_values($this->data);
+        echo "<pre>";
+        print_r($this->labels);
+        echo "</pre>";
+        echo "<pre>";
+        print_r($this->values);
+        echo "</pre>";
+        return $this->data;
     }
 
 
