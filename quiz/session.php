@@ -33,6 +33,9 @@ class Session
 
     public function __construct()
     {
+        $sql = 'SELECT * FROM "public"."mdl_activequiz_sessions" WHERE id = :sessionid';
+        $params = array('sessionid' => $sessionid);
+        $result = $DB->get_records_sql($sql, $params);
     }
 
 
