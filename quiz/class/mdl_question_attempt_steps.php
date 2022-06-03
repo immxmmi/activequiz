@@ -17,6 +17,15 @@ class attempt_steps
     public function __construct($questionattemptids)
     {
         global $DB;
+
+
+
+
+        echo"<pre>";
+        print_r($questionattemptids);
+        echo"</pre>";
+
+
       /*  if ($questionattemptids !== null) {
             foreach ($questionattemptids as $questionattemptid) {
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
