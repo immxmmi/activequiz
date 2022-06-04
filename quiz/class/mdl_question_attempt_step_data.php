@@ -11,6 +11,7 @@ class attempt_step_data
     private $name;
     private $value;
     private $answer_list = array();
+    private $answer;
 
     private $step_data_list = array();
 
@@ -40,6 +41,7 @@ class attempt_step_data
         $currentStep->name = $name;
         $currentStep->value = $value;
         $currentStep->answer_list = $answer_list;
+        $currentStep->answer = $answer_list[$currentStep->value];
         return $currentStep;
     }
 
