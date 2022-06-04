@@ -19,8 +19,8 @@ class attempt_steps
         global $DB;
 
         foreach ($answers as $questionattemptid) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid';
-            $params = array('questionattemptid' => $questionattemptid[0]->getid());
+            $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
+            $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
             $result = $DB->get_records_sql($sql, $params);
 
             echo"<pre>";
