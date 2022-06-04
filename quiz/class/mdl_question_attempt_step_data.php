@@ -9,6 +9,7 @@ class attempt_step_data
     private $id;
     private $attemptstepid;
     private $name;
+    private $value;
 
     private $step_data_list = array();
 
@@ -28,12 +29,15 @@ class attempt_step_data
                 }
             }
         }
-
-        echo "<pre>";
-        echo print_r($this->step_data_list);
-        echo "</pre>";
     }
 
+    public function build_step_data($id, $attemptstepid, $name, $value)
+    {
+        $this->id = $id;
+        $this->attemptstepid = $attemptstepid;
+        $this->name = $name;
+        $this->value = $value;
+    }
 
 
 }
