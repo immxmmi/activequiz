@@ -39,5 +39,46 @@ class attempt_step_data
         $this->value = $value;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttemptstepid()
+    {
+        return $this->attemptstepid;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStepDataList()
+    {
+        return $this->step_data_list;
+    }
+
+
 
 }
