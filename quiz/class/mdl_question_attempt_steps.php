@@ -13,7 +13,7 @@ class attempt_steps
     private $userid;
     private $step_list;
     private $attemptstepids = array();
-
+    private $answer_list = array();
 
     public function __construct($answers)
     {
@@ -23,10 +23,53 @@ class attempt_steps
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
             $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
             $result = $DB->get_records_sql($sql, $params);
+
+            echo"<pre>";
+            print_r($questionattemptid);
+            echo"</pre>";
+
+            echo"<pre>";
+            print_r($questionattemptid->getQuestionsummary());
+            echo"</pre>";
+
+           //$currentstep = builder(
+           //    $id,
+           //    $questionattemptid,
+           //    $sequencenumber,
+           //    $state,
+           //    $fraction,
+           //    $timecreated,
+           //    $userid,
+           //    $step_list,
+           //    $answer_list);
             array_push($this->attemptstepids,$result);
         }
+        $this->id = null;
+        $this->questionattemptid = null;
+        $this->sequencenumber = null;
+        $this->state = null;
+        $this->fraction = null;
+        $this->timecreated = null;
+        $this->userid = null;
+        $this->step_list = null;
+        $this->answer_list = null;
 
     }
+
+
+    private function builder($id, $questionattemptid, $sequencenumber, $state, $fraction, $timecreated, $userid, $step_list, array $answer_list)
+    {
+        $this->id = $id;
+        $this->questionattemptid = $questionattemptid;
+        $this->sequencenumber = $sequencenumber;
+        $this->state = $state;
+        $this->fraction = $fraction;
+        $this->timecreated = $timecreated;
+        $this->userid = $userid;
+        $this->step_list = $step_list;
+        $this->answer_list = $answer_list;
+    }
+
 
     /**
      * @return array
