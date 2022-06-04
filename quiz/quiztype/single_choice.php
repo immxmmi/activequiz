@@ -29,13 +29,8 @@ class single_choice
 
 
         foreach ($steps_data as $summary) {
- echo "<pre>";
-        print_r($summary);
-        echo "</pre>";
             $responsesummary = $summary->getAnswer();
-/*
             $this->data = $this->addValue($this->data, $responsesummary);
-*/
         }
 
         $this->labels = array_keys($this->data);
