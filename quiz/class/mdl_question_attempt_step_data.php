@@ -29,10 +29,10 @@ class attempt_step_data
                  echo "</pre>";
 
                 foreach ($step_data as $data) {
-                   // $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->getAnswerList());
-                   // echo "<pre>";
-                   // print_r($step->$cur);
-                   // echo "</pre>";
+                    //$cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->getAnswerList());
+                    echo "<pre>";
+                    print_r($data);
+                    echo "</pre>";
                     array_push($this->step_data_list, $data);
                 }
             }
