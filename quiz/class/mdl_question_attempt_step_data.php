@@ -21,7 +21,7 @@ class attempt_step_data
 
             foreach ($steps_attempts as $step) {
                      echo "<pre>";
-                       print_r($step);
+                       print_r($step->id);
                        echo "</pre>";
 
 
