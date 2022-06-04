@@ -32,8 +32,8 @@ class single_choice
  echo "<pre>";
         print_r($summary);
         echo "</pre>";
+            $responsesummary = $summary->getAnswer();
 /*
-            $responsesummary = $summary[0]->getAnswer();
             $this->data = $this->addValue($this->data, $responsesummary);
 */
         }
