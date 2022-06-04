@@ -19,11 +19,11 @@ class attempt_step_data
         global $DB;
         if ($steps_attempts !== null) {
 
-            foreach ($steps_attempts as $steps) {
+            foreach ($steps_attempts as $step) {
                      echo "<pre>";
-                       print_r($steps);
+                       print_r($step);
                        echo "</pre>";
-                foreach ($steps as $step) {
+
 
 
 
@@ -33,7 +33,7 @@ class attempt_step_data
                     $step_data = $DB->get_records_sql($sql, $params);
                     foreach ($step_data as $data) {
                         array_push($this->step_data_list, $data);
-                    }
+
                 }
             }
         }
