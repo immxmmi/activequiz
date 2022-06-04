@@ -1,6 +1,6 @@
 <?php
 require_once("../../../config.php");
-require_once("../class/mdl_question_attempt_step_data.php");
+require_once("class/mdl_question_attempt_step_data.php");
 global $DB;
 
 class single_choice
