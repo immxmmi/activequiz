@@ -38,7 +38,6 @@ class attempt_steps
               $answer->fraction,
               $answer->timecreated,
               $answer->userid,
-              $answer->step_list,
             $questionattemptid[0]->getQuestionsummary());
             }
 
@@ -58,7 +57,7 @@ class attempt_steps
     }
 
 
-    private function builder($id, $questionattemptid, $sequencenumber, $state, $fraction, $timecreated, $userid, $step_list, array $answer_list)
+    private function builder($id, $questionattemptid, $sequencenumber, $state, $fraction, $timecreated, $userid, array $answer_list)
     {
         $this->id = $id;
         $this->questionattemptid = $questionattemptid;
