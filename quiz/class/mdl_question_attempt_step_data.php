@@ -20,12 +20,11 @@ class attempt_step_data
         if ($steps_attempts !== null) {
 
             foreach ($steps_attempts as $steps) {
-                echo "<pre>";
-                print_r($steps);
-                echo "</pre>";
                 foreach ($steps as $step) {
 
-
+                     echo "<pre>";
+                       print_r($step);
+                       echo "</pre>";
 
 
 

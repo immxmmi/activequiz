@@ -36,9 +36,9 @@ class attempt_steps
                         $answer->timecreated,
                         $answer->userid,
                         $questionattemptid[0]->getQuestionsummary());
+                    array_push($this->attemptstepids, $currentstep);
                 }
 
-                array_push($this->attemptstepids, $result);
             }
         }
 
