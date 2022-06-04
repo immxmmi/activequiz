@@ -41,6 +41,9 @@ class attempt_steps
             $questionattemptid[0]->getQuestionsummary());
             }
 
+            echo "<pre>";
+            print_r($currentstep);
+            echo "</pre>";
 
             array_push($this->attemptstepids,$result);
         }
