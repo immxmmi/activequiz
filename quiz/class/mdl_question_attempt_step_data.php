@@ -14,17 +14,19 @@ class attempt_step_data
         global $DB;
 
         foreach ($steps as $step) {
-          /*  $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
+            foreach ($step as $class) {
+                /*
+            $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
             $params = array('attemptstepid' => array_shift($step)->getId());
             $result = $DB->get_records_sql($sql, $params);
 */
-
-            echo"<pre>";
-            print_r($step);
-            echo"</pre>";
-           // array_push($this->attemptstepids,$result);
+                //      array_push($this->attemptstepids,$result);
+                //   }
+                echo "<pre>";
+                print_r($step);
+                echo "</pre>";
+            }
         }
-
     }
 
 }
