@@ -27,7 +27,7 @@ class attempt_steps
 
             foreach ($result as $answer) {
                 echo "<pre>";
-                print_r($answer);
+                print_r($answer->id);
                 echo "</pre>";
             }
           // $currentstep = builder(
