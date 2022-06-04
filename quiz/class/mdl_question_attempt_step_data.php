@@ -24,23 +24,27 @@ class attempt_step_data
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
                 $params = array('attemptstepid' => $step->getId());
                 $step_data = $DB->get_records_sql($sql, $params);
-                echo "<pre>";
-                print_r($step);
-                echo "</pre>";
-                foreach ($step_data as $data) {
-                    array_push($this->step_data_list, $data);
 
+                foreach ($step_data as $data) {
+                    $cur = $this->build($step_data->id,$step_data->attemptstepid,$step_data->name,$step_data->value,$step->answer_list);
+                    echo "<pre>";
+                    print_r($cur);
+                    echo "</pre>";
+                    array_push($this->step_data_list, $data);
                 }
             }
         }
     }
 
-    public function build_step_data($id, $attemptstepid, $name, $value)
+    private function build($id, $attemptstepid, $name, $value, array $answer_list)
     {
-        $this->id = $id;
-        $this->attemptstepid = $attemptstepid;
-        $this->name = $name;
-        $this->value = $value;
+        $currentStep = new attempt_step_data(null);
+        $currentStep->id = $id;
+        $currentStep->attemptstepid = $attemptstepid;
+        $currentStep->name = $name;
+        $currentStep->value = $value;
+        $currentStep->answer_list = $answer_list;
+        return $currentStep;
     }
 
     /**
