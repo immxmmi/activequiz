@@ -33,24 +33,24 @@
     $answers = $question_attemp->getListOfAnswers();
    // $stepList = array();
 
-echo"<pre>";
-print_r($answers);
-echo"</pre>";
+//echo"<pre>";
+//print_r($answers);
+//echo"</pre>";
 
     $steps = new attempt_steps($answers);
     $steps = $steps->getAttemptstepids();
 
-echo"<pre>";
-print_r($steps);
-echo"</pre>";
+//echo"<pre>";
+//print_r($steps);
+//echo"</pre>";
 
     $steps_data = new attempt_step_data($steps);
     $steps_data = $steps_data->getStepDataList();
 
 
-    echo"<pre>";
-    print_r($steps_data);
-    echo"</pre>";
+//   echo"<pre>";
+//   print_r($steps_data);
+//   echo"</pre>";
 
 
 
