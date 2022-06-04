@@ -24,22 +24,27 @@ class attempt_steps
             $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
             $result = $DB->get_records_sql($sql, $params);
 
-
             foreach ($result as $answer) {
+
+
+           $currentstep = builder(
+               $answer->id,
+               $answer->questionattemptid,
+               $answer->sequencenumber,
+               $answer->state,
+               $answer->fraction,
+               $answer->timecreated,
+               $answer->userid,
+               $answer->step_list,
+             $questionattemptid[0]->getQuestionsummary());
+
                 echo "<pre>";
-                print_r($answer);
+                print_r($currentstep);
                 echo "</pre>";
+
             }
-          // $currentstep = builder(
-          //     $id,
-          //     $questionattemptid,
-          //     $sequencenumber,
-          //     $state,
-          //     $fraction,
-          //     $timecreated,
-          //     $userid,
-          //     $step_list,
-          //     $questionattemptid[0]->getQuestionsummary());
+
+
             array_push($this->attemptstepids,$result);
         }
         $this->id = null;
