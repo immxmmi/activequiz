@@ -36,8 +36,11 @@
 
     $steps = new attempt_steps($answers);
     $steps = $steps->getAttemptstepids();
-
     $steps_data = new attempt_step_data($steps);
+
+    echo"<pre>";
+    print_r($steps_data);
+    echo"</pre>";
 
 
 
