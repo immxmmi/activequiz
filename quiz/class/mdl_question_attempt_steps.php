@@ -29,7 +29,7 @@ class attempt_steps
             echo"</pre>";
 
             echo"<pre>";
-            //print_r($questionattemptid->getQuestionsummary());
+            print_r($questionattemptid[0]->getQuestionsummary());
             echo"</pre>";
 
            //$currentstep = builder(
