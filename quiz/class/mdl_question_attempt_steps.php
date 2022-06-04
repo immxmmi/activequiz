@@ -18,59 +18,53 @@ class attempt_steps
     public function __construct($answers)
     {
         global $DB;
+        if ($answers !== null) {
 
-        foreach ($answers as $questionattemptid) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
-            $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
-            $result = $DB->get_records_sql($sql, $params);
+            foreach ($answers as $questionattemptid) {
+                $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
+                $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
+                $result = $DB->get_records_sql($sql, $params);
 
-            foreach ($result as $answer) {
-            //   echo "<pre>";
-            //   print_r($answer);
-            //   echo "</pre>";
+                foreach ($result as $answer) {
+                    //   echo "<pre>";
+                    //   print_r($answer);
+                    //   echo "</pre>";
 
 
-           $currentstep = $this->builder(
-              $answer->id,
-              $answer->questionattemptid,
-              $answer->sequencenumber,
-              $answer->state,
-              $answer->fraction,
-              $answer->timecreated,
-              $answer->userid,
-            $questionattemptid[0]->getQuestionsummary());
+                    $currentstep = $this->builder(
+                        $answer->id,
+                        $answer->questionattemptid,
+                        $answer->sequencenumber,
+                        $answer->state,
+                        $answer->fraction,
+                        $answer->timecreated,
+                        $answer->userid,
+                        $questionattemptid[0]->getQuestionsummary());
+                }
+
+                echo "<pre>";
+                print_r($currentstep);
+                echo "</pre>";
+
+                array_push($this->attemptstepids, $result);
             }
-
-            echo "<pre>";
-            print_r(2);
-            echo "</pre>";
-
-            array_push($this->attemptstepids,$result);
         }
-        $this->id = null;
-        $this->questionattemptid = null;
-        $this->sequencenumber = null;
-        $this->state = null;
-        $this->fraction = null;
-        $this->timecreated = null;
-        $this->userid = null;
-        $this->step_list = null;
-        $this->answer_list = null;
 
     }
 
 
     private function builder($id, $questionattemptid, $sequencenumber, $state, $fraction, $timecreated, $userid, array $answer_list)
     {
-        $this->id = $id;
-        $this->questionattemptid = $questionattemptid;
-        $this->sequencenumber = $sequencenumber;
-        $this->state = $state;
-        $this->fraction = $fraction;
-        $this->timecreated = $timecreated;
-        $this->userid = $userid;
-
-        $this->answer_list = $answer_list;
+        $current_step = new attempt_steps(null);
+        $current_step->id = $id;
+        $current_step->questionattemptid = $questionattemptid;
+        $current_step->sequencenumber = $sequencenumber;
+        $current_step->state = $state;
+        $current_step->fraction = $fraction;
+        $current_step->timecreated = $timecreated;
+        $current_step->userid = $userid;
+        $current_step->answer_list = $answer_list;
+        return $current_step;
     }
 
 
@@ -89,8 +83,6 @@ class attempt_steps
     {
         return $this->id;
     }
-
-
 
 
 }
