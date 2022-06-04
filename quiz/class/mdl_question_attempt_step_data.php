@@ -1,5 +1,6 @@
 <?php
 require_once("../../../config.php");
+require_once("mdl_question_attempt_steps.php");
 global $DB;
 class attempt_step_data
 {
