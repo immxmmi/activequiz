@@ -29,19 +29,17 @@ class attempt_steps
             //   print_r($answer);
             //   echo "</pre>";
 
-                echo $answer->id;
 
-           //currentstep = builder(
-           //   $answer->id,
-           //   $answer->questionattemptid,
-           //   $answer->sequencenumber,
-           //   $answer->state,
-           //   $answer->fraction,
-           //   $answer->timecreated,
-           //   $answer->userid,
-           //   $answer->step_list,
-           // $questionattemptid[0]->getQuestionsummary());
-
+           $currentstep = $this->builder(
+              $answer->id,
+              $answer->questionattemptid,
+              $answer->sequencenumber,
+              $answer->state,
+              $answer->fraction,
+              $answer->timecreated,
+              $answer->userid,
+              $answer->step_list,
+            $questionattemptid[0]->getQuestionsummary());
             }
 
 
