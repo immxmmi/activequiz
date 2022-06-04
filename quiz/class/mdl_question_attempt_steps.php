@@ -66,7 +66,7 @@ class attempt_steps
         $this->fraction = $fraction;
         $this->timecreated = $timecreated;
         $this->userid = $userid;
-        $this->step_list = $step_list;
+
         $this->answer_list = $answer_list;
     }
 
