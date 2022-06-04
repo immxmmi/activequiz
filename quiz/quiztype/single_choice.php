@@ -50,7 +50,7 @@ class single_choice
         if ($responsesummary == null) {
             return $data;
         }
-        $data[' '.$responsesummary]++;
+        $data[$responsesummary]++;
         return $data;
     }
 
