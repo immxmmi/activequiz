@@ -48,9 +48,9 @@
     $steps_data = $steps_data->getStepDataList();
 
 
-//   echo"<pre>";
-//   print_r($steps_data);
-//   echo"</pre>";
+  echo"<pre>";
+  print_r($steps_data);
+  echo"</pre>";
 
 
 
