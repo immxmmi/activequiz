@@ -22,15 +22,15 @@ class attempt_step_data
             foreach ($steps_attempts as $step) {
 
 
-                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
-                 $params = array('attemptstepid' => $step->getId());
-                 $step_data = $DB->get_records_sql($sql, $params);
-                 foreach ($step_data as $data) {
-               //echo "<pre>";
-               //print_r($data);
-               //echo "</pre>";
-                     array_push($this->step_data_list, $data);
-                 }
+                $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
+                $params = array('attemptstepid' => $step->getId());
+                $step_data = $DB->get_records_sql($sql, $params);
+                foreach ($step_data as $data) {
+                    array_push($this->step_data_list, $data);
+                    echo "<pre>";
+                    print_r($data);
+                    echo "</pre>";
+                }
             }
         }
     }
@@ -82,7 +82,6 @@ class attempt_step_data
     {
         return $this->step_data_list;
     }
-
 
 
 }
