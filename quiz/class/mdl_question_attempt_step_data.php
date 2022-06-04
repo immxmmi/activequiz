@@ -25,13 +25,13 @@ class attempt_step_data
                 $params = array('attemptstepid' => $step->getId());
                 $step_data = $DB->get_records_sql($sql, $params);
                 echo "<pre>";
-                print_r($step->answer_list);
+                print_r($step->getAnswerList());
                 echo "</pre>";
                 foreach ($step_data as $data) {
                    // $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->answer_list);
-                    echo "<pre>";
-                    print_r($step->answer_list);
-                    echo "</pre>";
+                   // echo "<pre>";
+                   // print_r($step->answer_list);
+                   // echo "</pre>";
                     array_push($this->step_data_list, $data);
                 }
             }
@@ -88,6 +88,15 @@ class attempt_step_data
     {
         return $this->step_data_list;
     }
+
+    /**
+     * @return array
+     */
+    public function getAnswerList()
+    {
+        return $this->answer_list;
+    }
+
 
 
 }
