@@ -14,7 +14,7 @@ class attempt_step_data
 
         foreach ($steps as $step) {
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
-            $params = array('attemptstepid' => $step->getid());
+            $params = array('attemptstepid' => $step);
             $result = $DB->get_records_sql($sql, $params);
 
             echo"<pre>";
