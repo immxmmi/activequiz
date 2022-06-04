@@ -13,7 +13,7 @@ class attempt_step_data
     {
         global $DB;
 
-        foreach (steps as $step) {
+        foreach (array_keys($steps) as $step) {
           /*  $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
             $params = array('attemptstepid' => array_shift($step)->getId());
             $result = $DB->get_records_sql($sql, $params);
