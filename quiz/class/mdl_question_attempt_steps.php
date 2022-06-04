@@ -24,8 +24,10 @@ class attempt_steps
             $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
             $result = $DB->get_records_sql($sql, $params);
 
+
+            foreach ($result as $answer) {
             echo"<pre>";
-            print_r($result);
+            print_r($answer);
             echo"</pre>";
 
           // $currentstep = builder(
