@@ -39,10 +39,6 @@
     $steps_data = $steps_data->getStepDataList();
 
 
-  echo"<pre>";
-  print_r($steps_data);
-  echo"</pre>";
-
 
 
     $questionType = "singel";
@@ -52,7 +48,7 @@
 
     switch ($questionType) {
         case "singel":
-            $single->load_quiz_data($answers);
+            $single->load_quiz_data($answers,$steps_data);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
             break;
         case "true/false":

@@ -93,6 +93,14 @@ class attempt_step_data
         return $this->answer_list;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
 
 
 }
