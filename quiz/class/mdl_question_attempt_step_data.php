@@ -26,10 +26,10 @@ class attempt_step_data
                  $params = array('attemptstepid' => $step->getId());
                  $step_data = $DB->get_records_sql($sql, $params);
                  foreach ($step_data as $data) {
-                echo "<pre>";
-                print_r($data);
-                echo "</pre>";
-                //     array_push($this->step_data_list, $data);
+               //echo "<pre>";
+               //print_r($data);
+               //echo "</pre>";
+                     array_push($this->step_data_list, $data);
                  }
             }
         }
