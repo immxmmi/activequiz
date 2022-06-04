@@ -28,7 +28,7 @@ class attempt_step_data
                 foreach ($step_data as $data) {
                     //$cur = $this->build($step_data->id,$step_data->attemptstepid,$step_data->name,$step_data->value,$step->answer_list);
                     echo "<pre>";
-                    print_r($step_data->getId());
+                    print_r($data->id);
                     echo "</pre>";
                     array_push($this->step_data_list, $data);
                 }
