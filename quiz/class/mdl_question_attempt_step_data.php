@@ -24,17 +24,13 @@ class attempt_step_data
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
                 $params = array('attemptstepid' => $step->getId());
                 $step_data = $DB->get_records_sql($sql, $params);
-                echo "<pre>";
-                print_r($step->getId());
-                echo "</pre>";
-
 
 
                 foreach ($step_data as $data) {
-                   // $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->answer_list);
-                   // echo "<pre>";
-                   // print_r($step->answer_list);
-                   // echo "</pre>";
+                    $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->getAnswerList());
+                    echo "<pre>";
+                    print_r($step->$cur);
+                    echo "</pre>";
                     array_push($this->step_data_list, $data);
                 }
             }
