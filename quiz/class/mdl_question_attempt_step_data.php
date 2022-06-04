@@ -21,7 +21,7 @@ class attempt_step_data
                 //      array_push($this->attemptstepids,$result);
                 //   }
                 echo "<pre>";
-                print_r($result);
+                print_r($class);
                 echo "</pre>";
             }
         }
