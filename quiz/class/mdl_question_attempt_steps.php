@@ -12,6 +12,7 @@ class attempt_steps
     private $timecreated;
     private $userid;
     private $step_list;
+    private $attemptstepids = array();
 
 
     public function __construct($answers)
@@ -22,57 +23,26 @@ class attempt_steps
             $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
             $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
             $result = $DB->get_records_sql($sql, $params);
-
-            echo"<pre>";
-            print_r($result);
-            echo"</pre>";
+            array_push($this->attemptstepids,$result);
         }
 
-
-      /*  if ($questionattemptids !== null) {
-
-
-                echo"<pre>";
-                print_r($result);
-                echo"</pre>";
-
-              //  $current_step = $this->get_steps_by_questionengid($result);
-              //  array_push($step_list, $current_step);
-            }
-        }
-      */
     }
 
-
-
-
-
-
-    private function get_steps_by_questionengid($result)
+    /**
+     * @return array
+     */
+    public function getAttemptstepids()
     {
-        $steps = array();
-        $current_step= new attempt_steps(null,null);
-
-        foreach ($result as $step) {
-            $current_step->id = $step->id;
-            $current_step->questionattemptid = $step->questionattemptid;
-            $current_step->sequencenumber = $step->sequencenumber;
-            $current_step->state = $step->state;
-            $current_step->fraction = $step->fraction;
-            $current_step->timecreated = $step->timecreated;
-            $current_step->userid = $step->userid;
-            $current_step->step_list = $step->step_list;
-
-            if ($current_step != null) {
-                array_push($steps, $current_step);
-            }
-        }
-
-        return $steps;
+        return $this->attemptstepids;
     }
 
-
-
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
 

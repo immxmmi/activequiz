@@ -33,9 +33,10 @@
     $answers = $question_attemp->getListOfAnswers();
    // $stepList = array();
 
-    new attempt_steps($answers);
-    //    array_push($stepList,new attempt_steps($answer[0]->getid(),$stepList));
+    $steps = new attempt_steps($answers);
+    $steps = $steps->getAttemptstepids();
 
+    $steps_data = new attempt_step_data($steps);
 
 
 
