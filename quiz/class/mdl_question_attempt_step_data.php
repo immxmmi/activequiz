@@ -10,6 +10,7 @@ class attempt_step_data
     private $attemptstepid;
     private $name;
     private $value;
+    private $answer_list = array();
 
     private $step_data_list = array();
 

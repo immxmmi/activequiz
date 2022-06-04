@@ -26,10 +26,6 @@ class attempt_steps
                 $result = $DB->get_records_sql($sql, $params);
 
                 foreach ($result as $answer) {
-                    //   echo "<pre>";
-                    //   print_r($answer);
-                    //   echo "</pre>";
-
 
                     $currentstep = $this->builder(
                         $answer->id,
@@ -41,10 +37,6 @@ class attempt_steps
                         $answer->userid,
                         $questionattemptid[0]->getQuestionsummary());
                 }
-
-                echo "<pre>";
-                print_r($currentstep);
-                echo "</pre>";
 
                 array_push($this->attemptstepids, $result);
             }
