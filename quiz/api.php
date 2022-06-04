@@ -24,7 +24,6 @@
     $allquestionengids = $activequiz_attempt->getAllQuestionengids();
     #######################################################
 
-
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
     $slot = $session->getCurrentquestion(); // SLOT
     $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
@@ -33,6 +32,10 @@
 
     $answers = $question_attemp->getListOfAnswers();
    // $stepList = array();
+
+echo"<pre>";
+print_r($answers);
+echo"</pre>";
 
     $steps = new attempt_steps($answers);
     $steps = $steps->getAttemptstepids();
