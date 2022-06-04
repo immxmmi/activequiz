@@ -26,9 +26,9 @@ class attempt_step_data
                 $step_data = $DB->get_records_sql($sql, $params);
 
                 foreach ($step_data as $data) {
-                    $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->answer_list);
+                   // $cur = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->answer_list);
                     echo "<pre>";
-                    print_r($cur);
+                    print_r($step->answer_list);
                     echo "</pre>";
                     array_push($this->step_data_list, $data);
                 }
