@@ -42,7 +42,7 @@ class attempt_steps
             }
 
             echo "<pre>";
-            print_r($currentstep);
+            print_r(2);
             echo "</pre>";
 
             array_push($this->attemptstepids,$result);
