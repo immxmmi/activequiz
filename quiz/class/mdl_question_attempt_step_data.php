@@ -20,7 +20,7 @@ class attempt_step_data
 */
 
             echo"<pre>";
-            print_r($step->getId());
+            print_r($step);
             echo"</pre>";
            // array_push($this->attemptstepids,$result);
         }
