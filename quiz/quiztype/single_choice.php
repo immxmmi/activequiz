@@ -26,16 +26,17 @@ class single_choice
                 }
 */
 
-        echo "<pre>";
-        print_r($steps_data);
-        echo "</pre>";
 
-/*
+
         foreach ($steps_data as $summary) {
+ echo "<pre>";
+        print_r($summary);
+        echo "</pre>";
+/*
             $responsesummary = $summary[0]->getAnswer();
             $this->data = $this->addValue($this->data, $responsesummary);
-        }
 */
+        }
 
         $this->labels = array_keys($this->data);
         $this->values = array_values($this->data);
