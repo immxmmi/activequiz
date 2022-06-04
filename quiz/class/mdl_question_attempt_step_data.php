@@ -23,6 +23,8 @@ class attempt_step_data
                 echo "<pre>";
                 print_r($class);
                 echo "</pre>";
+
+                echo $class['id'];
             }
         }
     }
