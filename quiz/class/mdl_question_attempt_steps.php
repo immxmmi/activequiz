@@ -26,10 +26,10 @@ class attempt_steps
 
 
             foreach ($result as $answer) {
-            echo"<pre>";
-            print_r($answer);
-            echo"</pre>";
-
+                echo "<pre>";
+                print_r($answer);
+                echo "</pre>";
+            }
           // $currentstep = builder(
           //     $id,
           //     $questionattemptid,
