@@ -36,12 +36,6 @@ class single_choice
         $this->labels = array_keys($this->data);
         $this->values = array_values($this->data);
 
-
-        echo "<pre>";
-        print_r($this->data);
-        echo "</pre>";
-
-
         return $this->data;
     }
 
