@@ -104,9 +104,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $xaxis[ $dbanswer->id ] = \question_utils::to_plain_text($dbanswer->answer, $dbanswer->answerformat);
         }
 
-        //$newoutput = $this->add_chart($output, $xaxis, $answers);
-
-
         $newoutput = $this->add_chart($output, $xaxis, $answers);
 
         return $newoutput;
