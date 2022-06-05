@@ -404,15 +404,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
         $output .= '	<div>
 			<form action="javascript:void(0);">
-                <label for="session">Session ID:</label>
                 <input type="hidden" id="sessionid" value="'.$sessionID.'">
-
-
-
-
-                <label for="slot">Question Slot:</label>
-                <input type="number" id="slot" name="slot" value="1">
-
 
                 <label for="type">Chart Type:</label>
 
