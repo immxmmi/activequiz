@@ -191,12 +191,12 @@ class activequiz_attempt {
      * @return string the HTML fragment for the question
      */
     public function render_question($slotid, $review = false, $reviewoptions = '',$sessionId) {
-        $displayoptions = $this->get_display_options($review, $reviewoptions);
+        $displayoptions; //= $this->get_display_options($review, $reviewoptions);
 
         $questionnum = $this->get_question_number();
         $this->add_question_number();
 
-        return $this->quba->render_question($slotid, $displayoptions, $questionnum);
+        return $this->quba->render_question($slotid, $displayoptions, $questionnum, $sessionId);
     }
 
     /**

@@ -359,7 +359,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
 
 
         $output .= $attempt->render_question($slot, '',$sessionId);
-       /*
+
 
 
         $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
@@ -394,7 +394,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::div($savebtncont . $trytext . $timertext . $timercount, 'save_row');
 
 
-*/
+
         // Finish the form.
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
