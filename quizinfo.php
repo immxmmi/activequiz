@@ -31,10 +31,9 @@ require_sesskey();
 
 // if they've passed the sesskey information grab the session info
 $sessionid = required_param('sessionid', PARAM_INT);
-echo "<script>console.log('test')</script>";
 // get JSONlib to return json response
 $jsonlib = new \mod_activequiz\utils\jsonlib();
-
+/*
 // First determine if we get a session.
 if (!$session = $DB->get_record('activequiz_sessions', array('id' => $sessionid))) {
     $jsonlib->send_error('invalid session');
@@ -87,6 +86,6 @@ if ($session->sessionopen == 0) {
 }
 
 
-
+*/
 
 
