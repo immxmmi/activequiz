@@ -356,11 +356,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
                   'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
                   'id'      => 'q' . $qnum, 'class' => 'activequiz_question',
                   'name'    => 'q' . $qnum));
-/*
 
 
         $output .= $attempt->render_question($slot);
 
+/*
         $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
                                                          'value' => $slot));
 
