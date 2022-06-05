@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function () {
     apiChart = jQuery('#apiChart');
     jQuery('#charttype').bind('change', changeChartTypeHandler);
