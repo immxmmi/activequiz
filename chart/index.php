@@ -5,7 +5,7 @@ require_once("../../../config.php");
 <hthml>
     <head>
         <meta charset="utf-8">
-        <title>Chart</title>
+        <title>Chart 1.0</title>
 		<style type="text/css">
 			.chartwrapper {
 				width: 640px;
