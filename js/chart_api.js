@@ -1,11 +1,11 @@
-/*
 {
     var apiChart = null;
-  // var skillChart = null;
+    var skillChart = null;
 
     jQuery(document).ready(function () {
+        skillChart = null;
         apiChart = jQuery('#apiChart');
-      //  jQuery('#charttype').bind('change', changeChartTypeHandler);
+        jQuery('#charttype').bind('change', changeChartTypeHandler);
     });
 
     var changeChartTypeHandler = function() {
@@ -45,8 +45,4 @@
             options: data.data.chartoptions
         });
     };
-
 }
-*/
-
-console.log("Hello world");
