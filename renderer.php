@@ -328,11 +328,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         foreach ($attempt->getSlots() as $slot) {
             // render question form.
             //$output .= $this->render_question_form($slot, $attempt);
-            $output .= html_writer::div('', '', array('id' => 'chartDiv'));
-            $output .= html_writer::form('', '', array('action' => 'javascript:void(0);'));
-          //  $output .= html_writer::label('Session ID:', '', array('for' => 'session'));
-          //  $output .= html_writer::end_label();
-            $output .= html_writer::end_form();
+           // $output .= html_writer::div('', '', array('id' => 'chartDiv'));
+           // $output .= html_writer::form('', '', array('action' => 'javascript:void(0);'));
+            $output .= html_writer::label('Session ID:', '', array('for' => 'session'));
+            $output .= html_writer::end_label();
+          //  $output .= html_writer::end_form();
             $output .= html_writer::end_div();
         }
 
