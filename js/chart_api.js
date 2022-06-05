@@ -18,17 +18,18 @@ var changeChartTypeHandler = function() {
             type: charttype
         };
         jQuery.get(url, params, redrawChart).fail(function(data) {
-            destroyChart();
+           // destroyChart();
             alert(data.responseJSON.meta.msg);
         });
     }
 };
-
+/*
 var destroyChart = function() {
     if( skillChart !== null ) {
         skillChart.destroy();
     }
 };
+*/
 
 var redrawChart = function(data) {
     if( data.meta.status === 'error' ) {
@@ -36,7 +37,7 @@ var redrawChart = function(data) {
         return;
     }
 
-    destroyChart();
+   // destroyChart();
     skillChart = new Chart(apiChart, {
         type: data.data.charttype,
         data: data.data.chartdata,
