@@ -295,6 +295,24 @@ class mod_activequiz_renderer extends plugin_renderer_base {
 
         $output = '';
 
+        ############################################################################################
+        # --> DOC
+        ############################################################################################
+        $sessionID = $session->getSessionid(); // ID
+        $output .= html_writer::start_tag('head', array());
+        $output .= html_writer::start_tag('script','	var apiChart = null;
+			var skillChart = null;', array());
+        $output .=html_writer::end_tag('script');
+        $output .=html_writer::end_tag('head');
+
+
+        ############################################################################################
+        # --> DOC
+        ############################################################################################
+
+
+
+
         $output .= html_writer::start_div('', array('id'=>'quizview'));
 
         if ($this->rtq->is_instructor()) {
@@ -324,20 +342,27 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         // have a quiz information box to show statistics, feedback and more.
         $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
 
-         //   $session->getSessionid(); // ID
+        ############################################################################################
+        # --> DOC
+        ############################################################################################
+
+
+
+
+
         foreach ($attempt->getSlots() as $slot) {
             // render question form.
             //$output .= $this->render_question_form($slot, $attempt);
             $output .= html_writer::div('', '', array('id' => 'chartDiv'));
            $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
-            $output .= html_writer::label('Session ID:'.$session->getSessionid(), '', array('for' => 'session'));
-            html_writer::end_tag('label');
+            $output .= html_writer::label('Session ID:'.$sessionID, '', array('for' => 'session'));
+            $output .=html_writer::end_tag('label');
 
 
 
 
-            html_writer::end_tag('form');
+            $output .=html_writer::end_tag('form');
           //  $output .= html_writer::end_form();
             $output .= html_writer::end_div();
         }
@@ -346,6 +371,13 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         echo $output;
 
     }
+
+
+    ############################################################################################
+    # --> DOC
+    ############################################################################################
+
+
 
     /**
      * Render a specific question in its own form so it can be submitted
