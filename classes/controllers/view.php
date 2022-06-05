@@ -136,7 +136,7 @@ class view {
                     // redirect them to the default page with a quick message first
 
                     $redirurl = clone($this->pageurl);
-                  //  $redirurl->remove_params('action');
+                    $redirurl->remove_params('action');
 
                     redirect($redirurl, get_string('nosession', 'activequiz'), 5);
                 } else {
