@@ -313,6 +313,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
         $sessionID = $session->getSessionid(); // ID
 
+        /*
         $output .= html_writer::start_tag('head', array());
         $output .= html_writer::start_tag('script', array());
         $output .= "jQuery(document).ready(function () {
@@ -358,7 +359,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 			};";
         $output .= html_writer::end_tag('script');
         $output .= html_writer::end_tag('head');
-
+*/
 
 
 
