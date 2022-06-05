@@ -402,7 +402,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
 
 
-        $output .= '<head> <script src="js/chart_api.js"></script> </head>';
         $output .= '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="'.$sessionID.'">
