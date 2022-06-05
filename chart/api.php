@@ -6,8 +6,8 @@
     require_once("class/mdl_question_attempt_steps.php");
     require_once("class/mdl_question_attempt_step_data.php");
     require_once("class/chart_builder.php");
-    require_once("quiztype/single_choice.php");
-    require_once("quiztype/truefalsechoice.php");
+    require_once("class/single_choice.php");
+    require_once("class/truefalsechoice.php");
     global $DB;
 
     // Parameter
