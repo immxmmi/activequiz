@@ -347,7 +347,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      */
     public function render_question_form($slot, $attempt, $sessionId) {
         $output = '';
-        $qnum = $attempt->get_question_number();
+       /* $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
 
@@ -358,7 +358,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
                   'name'    => 'q' . $qnum));
 
 
-        //$output .= $attempt->render_question($slot, $sessionId);
+        $output .= $attempt->render_question($slot, '',$sessionId);
 
 
         $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
@@ -397,7 +397,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
 
-
+*/
         return $output;
     }
 
