@@ -206,7 +206,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
-
+/*
         $chartoutput = '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="11">
@@ -235,7 +235,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         </div>
 ';
 
-
+*/
 
 
 
