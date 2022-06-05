@@ -18,7 +18,7 @@ require_once("../../../config.php");
 
 
 
-        <script src="../js/chart_api.js"></script>
+        <script src="../js/chart_api1.js"></script>
 
     </head>
 
