@@ -358,9 +358,9 @@ class mod_activequiz_renderer extends plugin_renderer_base {
                   'name'    => 'q' . $qnum));
 
 
-        $output .= $attempt->render_question($slot);
+        //$output .= $attempt->render_question($slot, $sessionId);
 
-/*
+
         $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
                                                          'value' => $slot));
 
@@ -397,7 +397,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
 
-*/
+
         return $output;
     }
 

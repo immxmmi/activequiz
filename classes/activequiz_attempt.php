@@ -190,7 +190,7 @@ class activequiz_attempt {
      * @param string|\stdClass $reviewoptions Can be string for overall actions like "edit" or an object of review options
      * @return string the HTML fragment for the question
      */
-    public function render_question($slotid, $review = false, $reviewoptions = '') {
+    public function render_question($slotid, $review = false, $reviewoptions = '',$sessionId) {
         $displayoptions = $this->get_display_options($review, $reviewoptions);
 
         $questionnum = $this->get_question_number();
