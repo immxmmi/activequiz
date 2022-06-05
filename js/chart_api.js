@@ -1,5 +1,7 @@
-let apiChart = null;
-let skillChart = null;
+{
+
+var apiChart = null;
+var skillChart = null;
 
 jQuery(document).ready(function () {
     apiChart = jQuery('#apiChart');
@@ -43,3 +45,4 @@ var redrawChart = function(data) {
         options: data.data.chartoptions
     });
 };
+}
