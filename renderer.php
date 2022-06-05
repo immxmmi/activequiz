@@ -437,8 +437,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
             $output .= html_writer::end_div();
 
 
-        $output .= html_writer::div('', 'container', array(''));
-        $output .= html_writer::div('', 'chartwrapper', array(''));
+        $output .= html_writer::div('', 'container', null);
+        $output .= html_writer::div('', 'chartwrapper', null);
         $output .= html_writer::start_tag('canvas', array('id' => 'apiChart'));
         $output .= html_writer::end_tag('canvas');
         $output .= html_writer::end_div();
