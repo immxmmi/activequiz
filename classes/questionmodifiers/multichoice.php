@@ -301,6 +301,10 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         $chartoutput .= \html_writer::end_tag('script');
         return $chartoutput . $output;
 **/
+
+
+
+
         return $output;
     }
 
