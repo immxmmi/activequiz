@@ -26,7 +26,8 @@ require_once($CFG->libdir . '/questionlib.php');
  * @copyright   2014 University of Wisconsin - madison
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class mod_activequiz_renderer extends plugin_renderer_base {
+class mod_activequiz_renderer extends plugin_renderer_base
+{
 
     /** @var array $pagevars Includes other page information needed for rendering functions */
     protected $pagevars;
@@ -49,10 +50,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * Initialize the renderer with some variables
      *
      * @param \mod_activequiz\activequiz $RTQ
-     * @param moodle_url                 $pageurl Always require the page url
-     * @param array                      $pagevars (optional)
+     * @param moodle_url $pageurl Always require the page url
+     * @param array $pagevars (optional)
      */
-    public function init($RTQ, $pageurl, $pagevars = array()) {
+    public function init($RTQ, $pageurl, $pagevars = array())
+    {
         $this->pagevars = $pagevars;
         $this->pageurl = $pageurl;
         $this->rtq = $RTQ;
@@ -67,7 +69,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * @param string $type
      * @param string $message
      */
-    public function setMessage($type, $message) {
+    public function setMessage($type, $message)
+    {
         $this->pageMessage = array($type, $message);
     }
 
@@ -76,7 +79,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @param string $tab the current tab to show as active
      */
-    public function base_header($tab = 'view') {
+    public function base_header($tab = 'view')
+    {
         echo $this->output->header();
         echo activequiz_view_tabs($this->rtq, $tab);
         $this->showMessage(); // shows a message if there is one
@@ -86,7 +90,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * Base footer function to do basic footer rendering
      *
      */
-    public function base_footer() {
+    public function base_footer()
+    {
         echo $this->output->footer();
     }
 
@@ -94,7 +99,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * shows a message if there is one
      *
      */
-    protected function showMessage() {
+    protected function showMessage()
+    {
 
         if (empty($this->pageMessage)) {
             return; // return if there is no message
@@ -125,7 +131,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @param string $message
      */
-    public function render_popup_error($message) {
+    public function render_popup_error($message)
+    {
 
         $this->setMessage('error', $message);
         echo $this->output->header();
@@ -142,7 +149,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @param bool $renderingquiz
      */
-    public function view_header($renderingquiz = false) {
+    public function view_header($renderingquiz = false)
+    {
 
         // if we're rendering the quiz check if any of the question modifiers need jquery
         if ($renderingquiz) {
@@ -158,10 +166,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
     /**
      * Displays the home view for the instructor
      *
-     * @param \moodleform    $sessionform
+     * @param \moodleform $sessionform
      * @param bool|\stdclass $sessionstarted is a standard class when there is a session
      */
-    public function view_inst_home($sessionform, $sessionstarted) {
+    public function view_inst_home($sessionform, $sessionstarted)
+    {
 
 
         if ($sessionstarted) {
@@ -186,9 +195,10 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * Displays the view home.
      *
      * @param \mod_activequiz\forms\view\student_start_form $studentstartform
-     * @param \mod_activequiz\activequiz_session            $session The activequiz session object to call methods on
+     * @param \mod_activequiz\activequiz_session $session The activequiz session object to call methods on
      */
-    public function view_student_home($studentstartform, $session) {
+    public function view_student_home($studentstartform, $session)
+    {
         global $USER;
 
         echo html_writer::start_div('activequizbox');
@@ -267,7 +277,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * Shows a message to students in a group with an open attempt already started
      *
      */
-    public function group_session_started() {
+    public function group_session_started()
+    {
         echo html_writer::tag('p', get_string('attemptstartedalready', 'mod_activequiz'));
     }
 
@@ -276,7 +287,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @param \mod_activequiz\forms\view\groupselectmembers $selectmembersform
      */
-    public function group_member_select($selectmembersform) {
+    public function group_member_select($selectmembersform)
+    {
 
         $selectmembersform->display();
 
@@ -289,7 +301,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * @param \mod_activequiz\activequiz_session $session
      */
     public function render_quiz(\mod_activequiz\activequiz_attempt $attempt,
-                                \mod_activequiz\activequiz_session $session) {
+                                \mod_activequiz\activequiz_session $session)
+    {
 
         $this->init_quiz_js($attempt, $session);
 
@@ -309,12 +322,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
 			var changeChartTypeHandler = function() {
 				var charttype = jQuery('#charttype').val();
                 var sessionid = jQuery('#sessionid').val();
-                var slot = jQuery('#slot').val();
+            
 				if( charttype !== 'none' && sessionid !== '0') {
-					var url = './chart_api.php';
+					var url = './chart/chart_api.php';
 					var params = {
                         sessionid: sessionid,
-                        slot: slot,
 						type: charttype
 					};
 					jQuery.get(url, params, redrawChart).fail(function(data) {
@@ -343,8 +355,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
 					options: data.data.chartoptions
 				});
 			};";
-        $output .=html_writer::end_tag('script');
-        $output .=html_writer::end_tag('head');
+        $output .= html_writer::end_tag('script');
+        $output .= html_writer::end_tag('head');
 
 
         ############################################################################################
@@ -352,9 +364,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         ############################################################################################
 
 
-
-
-        $output .= html_writer::start_div('', array('id'=>'quizview'));
+        $output .= html_writer::start_div('', array('id' => 'quizview'));
 
         if ($this->rtq->is_instructor()) {
             $output .= html_writer::div($this->render_controls(), 'activequizbox hidden', array('id' => 'controlbox'));
@@ -376,7 +386,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         if ($this->rtq->is_instructor()) {
             $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'notrespondedbox'));
         }
-        if($session->get_session()->fully_anonymize && $this->rtq->is_instructor() == 0) {
+        if ($session->get_session()->fully_anonymize && $this->rtq->is_instructor() == 0) {
             $output .= html_writer::div(get_string('isanonymous', 'mod_activequiz'), 'activequizbox isanonymous');
         }
 
@@ -387,25 +397,50 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         # --> DOC
         ############################################################################################
 
+            $output .= html_writer::div('', '', array('id' => 'chartDiv'));
+            $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
+            $output .= html_writer::label('Session ID:' . $sessionID, '', array('id' =>'sessionid','value' => $sessionID));
+            $output .= html_writer::end_tag('label');
+
+
+
+            $output .= html_writer::label('Chart Type:', '', array('for' =>'type'));
+            $output .= html_writer::end_tag('label');
+
+            $output .= html_writer::start_tag('select', array('id' => 'charttype', 'name' => 'type'));
+
+            $output .= html_writer::start_tag('option', array('value' => 'none'));
+            $output .= "--- choose a chart ---";
+            $output .= html_writer::end_tag('option');
+
+            $output .= html_writer::start_tag('option', array('value' => 'pie'));
+            $output .= "Pie-Chart";
+            $output .= html_writer::end_tag('option');
+
+            $output .= html_writer::start_tag('option', array('value' => 'bar'));
+            $output .= "Bar-Chart";
+            $output .= html_writer::end_tag('option');
+
+            $output .= html_writer::start_tag('option', array('value' => 'doughnut'));
+            $output .= "Doughnut-Chart";
+            $output .= html_writer::end_tag('option');
+
+            $output .= html_writer::start_tag('option', array('value' => 'unknown'));
+            $output .= "Unknown-Chart";
+            $output .= html_writer::end_tag('option');
+
+            $output .= html_writer::end_tag('select');
+
+            $output .= html_writer::end_tag('form');
+            $output .= html_writer::end_div();
 
 
 
         foreach ($attempt->getSlots() as $slot) {
             // render question form.
             //$output .= $this->render_question_form($slot, $attempt);
-            $output .= html_writer::div('', '', array('id' => 'chartDiv'));
-           $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
-            $output .= html_writer::label('Session ID:'.$sessionID, '', array('for' => 'session'));
-            $output .=html_writer::end_tag('label');
-
-
-
-
-            $output .=html_writer::end_tag('form');
-          //  $output .= html_writer::end_form();
-            $output .= html_writer::end_div();
         }
 
         $output .= html_writer::end_div();
@@ -419,41 +454,40 @@ class mod_activequiz_renderer extends plugin_renderer_base {
     ############################################################################################
 
 
-
     /**
      * Render a specific question in its own form so it can be submitted
      * independently of the rest of the questions
      *
-     * @param int                                $slot the id of the question we're rendering
+     * @param int $slot the id of the question we're rendering
      * @param \mod_activequiz\activequiz_attempt $attempt
      * @param session id $sessionId
      *
      * @return string HTML fragment of the question
      */
-    public function render_question_form($slot, $attempt) {
+    public function render_question_form($slot, $attempt)
+    {
         $output = '';
-       $qnum = $attempt->get_question_number();
+        $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
 
         $output .= html_writer::start_tag('form',
-            array('action'  => '', 'method' => 'post',
-                  'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
-                  'id'      => 'q' . $qnum, 'class' => 'activequiz_question',
-                  'name'    => 'q' . $qnum));
+            array('action' => '', 'method' => 'post',
+                'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
+                'id' => 'q' . $qnum, 'class' => 'activequiz_question',
+                'name' => 'q' . $qnum));
 
 
-        $output .= $attempt->render_question($slot, '',$sessionId);
+        $output .= $attempt->render_question($slot, '', $sessionId);
 
 
-
-        $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
-                                                         'value' => $slot));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'slots',
+            'value' => $slot));
 
 
         $savebtn = html_writer::tag('button', 'Save', array(
-                'class'   => 'btn',
-                'id'      => 'q' . $qnum . '_save',
+                'class' => 'btn',
+                'id' => 'q' . $qnum . '_save',
                 'onclick' => 'activequiz.save_question(\'q' . $qnum . '\'); return false;'
             )
         );
@@ -479,7 +513,6 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::div($savebtncont . $trytext . $timertext . $timercount, 'save_row');
 
 
-
         // Finish the form.
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
@@ -492,84 +525,85 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @return string HTML fragment
      */
-    public function render_controls() {
+    public function render_controls()
+    {
 
         $output = '';
         $inqcontrol = '';
 
         $output .= html_writer::tag('button', get_string('startquiz', 'activequiz'), array(
-                'class'   => 'btn',
-                'id'      => 'startquiz',
+                'class' => 'btn',
+                'id' => 'startquiz',
                 'onclick' => 'activequiz.start_quiz();'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('repollquestion', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'repollquestion',
-                'onclick'  => 'activequiz.repoll_question();',
+                'class' => 'btn',
+                'id' => 'repollquestion',
+                'onclick' => 'activequiz.repoll_question();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('nextquestion', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'nextquestion',
-                'onclick'  => 'activequiz.next_question();',
+                'class' => 'btn',
+                'id' => 'nextquestion',
+                'onclick' => 'activequiz.next_question();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('endquestion', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'endquestion',
-                'onclick'  => 'activequiz.end_question();',
+                'class' => 'btn',
+                'id' => 'endquestion',
+                'onclick' => 'activequiz.end_question();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('hidestudentresponses', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'toggleresponses',
-                'onclick'  => 'activequiz.toggle_responses();',
+                'class' => 'btn',
+                'id' => 'toggleresponses',
+                'onclick' => 'activequiz.toggle_responses();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('hidenotresponded', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'togglenotresponded',
-                'onclick'  => 'activequiz.toggle_notresponded();',
+                'class' => 'btn',
+                'id' => 'togglenotresponded',
+                'onclick' => 'activequiz.toggle_notresponded();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('jumptoquestion', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'jumptoquestion',
-                'onclick'  => 'activequiz.jumpto_question();',
+                'class' => 'btn',
+                'id' => 'jumptoquestion',
+                'onclick' => 'activequiz.jumpto_question();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('closesession', 'activequiz'), array(
-                'class'    => 'btn',
-                'id'       => 'closesession',
-                'onclick'  => 'activequiz.close_session();',
+                'class' => 'btn',
+                'id' => 'closesession',
+                'onclick' => 'activequiz.close_session();',
                 'disabled' => 'true'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('reload_results', 'activequiz'), array(
-                'class'   => 'btn',
-                'id'      => 'reloadresults',
+                'class' => 'btn',
+                'id' => 'reloadresults',
                 'onclick' => 'activequiz.reload_results();'
             )
         );
 
         $inqcontrol .= html_writer::tag('button', get_string('show_correct_answer', 'activequiz'), array(
-                'class'   => 'btn',
-                'id'      => 'showcorrectanswer',
+                'class' => 'btn',
+                'id' => 'showcorrectanswer',
                 'onclick' => 'activequiz.show_correct_answer();'
             )
         );
@@ -585,7 +619,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * @param \mod_activequiz\activequiz_attempt $attempt
      * @return string HTML fragment for the modal box
      */
-    public function render_jumpto_modal($attempt) {
+    public function render_jumpto_modal($attempt)
+    {
 
         $output = html_writer::start_div('modalDialog', array('id' => 'jumptoquestion-dialog'));
 
@@ -622,7 +657,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * @param \mod_activequiz\activequiz_session $session
      * @throws moodle_exception throws exception when invalid question on the attempt is found
      */
-    public function init_quiz_js($attempt, $session) {
+    public function init_quiz_js($attempt, $session)
+    {
         global $USER, $CFG;
 
 
@@ -677,7 +713,7 @@ EOD;
                     'invalid slot when building questions array on quiz renderer');
             }
 
-            $questions[ $question->slot ] = $question;
+            $questions[$question->slot] = $question;
         }
         $jsinfo->questions = $questions;
 
@@ -777,26 +813,27 @@ EOD;
      *
      * @return string HTML fragment for the response
      */
-    public function render_response($attempt, $responsecount, $anonymous = true) {
+    public function render_response($attempt, $responsecount, $anonymous = true)
+    {
         global $DB;
 
 
         $response = html_writer::start_div('response');
 
         // check if group mode, if so, give the group name the attempt is for
-        if($anonymous){
-            if($this->rtq->group_mode()){
+        if ($anonymous) {
+            if ($this->rtq->group_mode()) {
                 $name = get_string('group') . ' ' . $responsecount;
-            }else{
+            } else {
                 $name = get_string('user') . ' ' . $responsecount;
             }
-        }else{
+        } else {
             if ($this->rtq->group_mode()) {
                 $name = $this->rtq->get_groupmanager()->get_group_name($attempt->forgroupid);
             } else {
-                if($user = $DB->get_record('user', array('id' => $attempt->userid))) {
+                if ($user = $DB->get_record('user', array('id' => $attempt->userid))) {
                     $name = fullname($user);
-                }else {
+                } else {
                     $name = get_string('anonymoususer', 'mod_activequiz');
                 }
 
@@ -815,12 +852,13 @@ EOD;
      * Function to provide a display of how many open attempts have responded
      *
      * @param array $notresponded Array of the people who haven't responded
-     * @param int   $total
-     * @param int   $anonymous (0 or 1)
+     * @param int $total
+     * @param int $anonymous (0 or 1)
      *
      * @return string HTML fragment for the amount responded
      */
-    public function respondedbox($notresponded, $total, $anonymous) {
+    public function respondedbox($notresponded, $total, $anonymous)
+    {
 
         $output = '';
 
@@ -832,7 +870,7 @@ EOD;
         $output .= html_writer::end_div();
 
         // output the list of students, but only if we're not in anonymous mode
-        if(!$anonymous){
+        if (!$anonymous) {
             $output .= html_writer::start_div();
             $output .= html_writer::alist($notresponded, array('id' => 'notrespondedlist'));
             $output .= html_writer::end_div();
@@ -849,7 +887,8 @@ EOD;
      *
      * @param bool $isinstructor
      */
-    public function no_questions($isinstructor) {
+    public function no_questions($isinstructor)
+    {
 
         echo $this->output->box_start('generalbox boxaligncenter activequizbox');
 
@@ -872,7 +911,8 @@ EOD;
      * Basic footer for the view page
      *
      */
-    public function view_footer() {
+    public function view_footer()
+    {
         $this->base_footer();
     }
 
@@ -889,7 +929,8 @@ EOD;
      * @param \mod_activequiz\activequiz_attempt $attempt
      * @param \mod_activequiz\activequiz_session $session
      */
-    public function render_attempt($attempt, $session) {
+    public function render_attempt($attempt, $session)
+    {
 
         //$this->base_header('reviewattempt');
         echo $this->output->header();
@@ -912,12 +953,13 @@ EOD;
      *
      * This is the "edit" version that are for instructors/users who have the control capability
      *
-     * @param int                                $slot
+     * @param int $slot
      * @param \mod_activequiz\activequiz_attempt $attempt
      *
      * @return string HTML fragment
      */
-    public function render_edit_review_question($slot, $attempt) {
+    public function render_edit_review_question($slot, $attempt)
+    {
 
         $qnum = $attempt->get_question_number();
         $output = '';
@@ -928,25 +970,25 @@ EOD;
         $action = clone($this->pageurl);
 
         $output .= html_writer::start_tag('form',
-            array('action'  => '', 'method' => 'post',
-                  'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
-                  'id'      => 'q' . $qnum, 'class' => 'activequiz_question',
-                  'name'    => 'q' . $qnum));
+            array('action' => '', 'method' => 'post',
+                'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
+                'id' => 'q' . $qnum, 'class' => 'activequiz_question',
+                'name' => 'q' . $qnum));
 
 
         $output .= $attempt->render_question($slot, true, 'edit');
 
-        $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slots',
-                                                         'value' => $slot));
-        $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'slot',
-                                                         'value' => $slot));
-        $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'action',
-                                                         'value' => 'savecomment'));
-        $output .= html_writer::empty_tag('input', array('type'  => 'hidden', 'name' => 'sesskey',
-                                                         'value' => sesskey()));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'slots',
+            'value' => $slot));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'slot',
+            'value' => $slot));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'action',
+            'value' => 'savecomment'));
+        $output .= html_writer::empty_tag('input', array('type' => 'hidden', 'name' => 'sesskey',
+            'value' => sesskey()));
 
-        $savebtn = html_writer::empty_tag('input', array('type'  => 'submit', 'name' => 'submit',
-                                                         'value' => get_string('savequestion', 'activequiz'), 'class' => 'form-submit'));
+        $savebtn = html_writer::empty_tag('input', array('type' => 'submit', 'name' => 'submit',
+            'value' => get_string('savequestion', 'activequiz'), 'class' => 'form-submit'));
 
 
         $mark = $attempt->get_slot_mark($slot);
@@ -969,12 +1011,13 @@ EOD;
      *
      * Reviewing will be based upon the after review options specified in module settings
      *
-     * @param int                                $slot
+     * @param int $slot
      * @param \mod_activequiz\activequiz_attempt $attempt
      *
      * @return string HTML fragment for the question
      */
-    public function render_review_question($slot, $attempt) {
+    public function render_review_question($slot, $attempt)
+    {
 
         $qnum = $attempt->get_question_number();
         $output = '';
