@@ -1,4 +1,5 @@
 
+
     var apiChart = null;
     var skillChart = null;
 
