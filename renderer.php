@@ -347,9 +347,10 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      */
     public function render_question_form($slot, $attempt, $sessionId) {
         $output = '';
-       /* $qnum = $attempt->get_question_number();
+       $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
+       /*
 
         $output .= html_writer::start_tag('form',
             array('action'  => '', 'method' => 'post',
@@ -393,11 +394,11 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::div($savebtncont . $trytext . $timertext . $timercount, 'save_row');
 
 
+*/
         // Finish the form.
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
 
-*/
         return $output;
     }
 
