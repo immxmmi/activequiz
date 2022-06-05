@@ -1,9 +1,9 @@
-{
+
     var apiChart = null;
-    var skillChart = null;
+   var skillChart = null;
 
     jQuery(document).ready(function () {
-        skillChart = null;
+      //  skillChart = null;
         apiChart = jQuery('#apiChart');
         jQuery('#charttype').bind('change', changeChartTypeHandler);
     });
@@ -45,4 +45,3 @@
             options: data.data.chartoptions
         });
     };
-}
