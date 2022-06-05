@@ -401,6 +401,45 @@ class mod_activequiz_renderer extends plugin_renderer_base
         # --> DOC
         ############################################################################################
 
+
+        $output .= '	<div>
+			<form action="javascript:void(0);">
+                <label for="session">Session ID:</label>
+                <input type="number" id="sessionid" name="session" value="5">
+
+
+
+
+                <label for="slot">Question Slot:</label>
+                <input type="number" id="slot" name="slot" value="1">
+
+
+                <label for="type">Chart Type:</label>
+
+
+				<select id="charttype" name="type">
+					<option value="none">--- choose a chart ---</option>
+					<option value="pie">Pie-Chart</option>
+					<option value="bar">Bar-Chart</option>
+					<option value="doughnut">Doughnut-Chart</option>
+					<option value="unknown">Unknown-Chart</option>
+				</select>
+
+
+
+
+            </form>
+        </div>
+
+        <div class="container">
+			<div class="chartwrapper">
+				<canvas id="apiChart"></canvas>
+			</div>
+        </div>
+';
+
+
+        /*
             $output .= html_writer::div('', '', array('id' => 'chartDiv'));
             $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
@@ -437,6 +476,10 @@ class mod_activequiz_renderer extends plugin_renderer_base
             $output .= html_writer::end_tag('form');
             $output .= html_writer::end_div();
 
+        $output .= html_writer::end_div();
+
+
+
 
         $output .= html_writer::div('', 'container', null);
         $output .= html_writer::div('', 'chartwrapper', null);
@@ -444,7 +487,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $output .= html_writer::end_tag('canvas');
         $output .= html_writer::end_div();
         $output .= html_writer::end_div();
-
+*/
         foreach ($attempt->getSlots() as $slot) {
             //render question form.
            // $output .= $this->render_question_form($slot, $attempt);
