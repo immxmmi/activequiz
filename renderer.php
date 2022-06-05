@@ -213,7 +213,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
             // see if the user has attempts, if so, let them know that continuing will continue them to their attempt
             if ($session->get_open_attempt_for_current_user()) {
-                echo html_writer::tag('p', get_string('attemptstarted', 'activequiz'), array('id' => 'quizinfobox'));
+              //  echo html_writer::tag('p', get_string('attemptstarted', 'activequiz'), array('id' => 'quizinfobox'));
             }
 
             // add the student join quiz form
@@ -395,7 +395,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         }
 
         // have a quiz information box to show statistics, feedback and more.
-        $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
+     //   $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
 
         ############################################################################################
         # --> DOC
