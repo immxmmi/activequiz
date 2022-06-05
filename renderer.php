@@ -313,7 +313,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
         $sessionID = $session->getSessionid(); // ID
 
-     /*
         $output .= html_writer::start_tag('head', array());
         $output .= html_writer::start_tag('script', array());
         $output .= "jQuery(document).ready(function () {
@@ -360,7 +359,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $output .= html_writer::end_tag('script');
         $output .= html_writer::end_tag('head');
 
-*/
+
         ############################################################################################
         # --> DOC
         ############################################################################################
@@ -775,7 +774,7 @@ EOD;
         // print jsinfo to javascript
         echo html_writer::start_tag('script', array('type' => 'text/javascript'));
         echo "rtqinitinfo = " . json_encode($jsinfo);
-
+/*
         echo "jQuery(document).ready(function () {
 				apiChart = jQuery('#apiChart');
 				jQuery('#charttype').bind('change', changeChartTypeHandler);
@@ -819,7 +818,7 @@ EOD;
 			};";
 
 
-
+*/
 
 
 
