@@ -300,8 +300,9 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         ############################################################################################
         $sessionID = $session->getSessionid(); // ID
         $output .= html_writer::start_tag('head', array());
-        $output .= html_writer::start_tag('script','	var apiChart = null;
-			var skillChart = null;', array());
+        $output .= html_writer::start_tag('script', array());
+        $output .= "var apiChart = null;
+			var skillChart = null;";
         $output .=html_writer::end_tag('script');
         $output .=html_writer::end_tag('head');
 
