@@ -1,5 +1,5 @@
 {
-
+/*
     var apiChart = null;
   // var skillChart = null;
 
@@ -7,7 +7,7 @@
         apiChart = jQuery('#apiChart');
       //  jQuery('#charttype').bind('change', changeChartTypeHandler);
     });
-/*
+
     var changeChartTypeHandler = function() {
         var charttype = jQuery('#charttype').val();
         var sessionid = jQuery('#sessionid').val();
