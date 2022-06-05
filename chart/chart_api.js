@@ -10,8 +10,8 @@ var changeChartTypeHandler = function() {
     if( charttype !== 'none' && sessionid !== '0') {
         var url = './chart/chart_api.php';
         var params = {
-            sessionid: sessionid,
-            type: charttype
+            sessionid: 10,
+            type: 'bar'
         };
         jQuery.get(url, params, redrawChart).fail(function(data) {
             destroyChart();
