@@ -333,7 +333,9 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::end_div();
        // echo $output;
 
-        echo "test";
+        echo "<pre>";
+        print_r($session);
+        echo "</pre>";
     }
 
     /**
