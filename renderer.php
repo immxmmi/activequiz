@@ -320,7 +320,6 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         if($session->get_session()->fully_anonymize && $this->rtq->is_instructor() == 0) {
             $output .= html_writer::div(get_string('isanonymous', 'mod_activequiz'), 'activequizbox isanonymous');
         }
-/*
 
         // have a quiz information box to show statistics, feedback and more.
         $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
@@ -329,6 +328,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
             // render question form.
             $output .= $this->render_question_form($slot, $attempt);
         }
+/*
 
         $output .= $session->getSessionid();
 
