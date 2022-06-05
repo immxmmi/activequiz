@@ -334,7 +334,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
        // echo $output;
 
         echo "<pre>";
-        print_r($session->getSessionid());
+        print_r($session);
         echo "</pre>";
     }
 
