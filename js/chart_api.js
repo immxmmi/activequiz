@@ -1,5 +1,5 @@
-{
 /*
+{
     var apiChart = null;
   // var skillChart = null;
 
@@ -45,5 +45,8 @@
             options: data.data.chartoptions
         });
     };
-*/
+
 }
+*/
+
+console.log("Hello world");
