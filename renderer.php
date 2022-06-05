@@ -436,9 +436,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         foreach ($attempt->getSlots() as $slot) {
-            // render question form.
-            //$output .= $this->render_question_form($slot, $attempt);
-
+            //render question form.
+            $output .= $this->render_question_form($slot, $attempt);
         }
 
         $output .= html_writer::end_div();
