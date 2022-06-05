@@ -1,4 +1,7 @@
 
+
+require("../../../lib/jquery/jquery-3.5.1.min.js");
+
 jQuery(document).ready(function () {
     apiChart = jQuery('#apiChart');
     jQuery('#charttype').bind('change', changeChartTypeHandler);
@@ -7,8 +10,6 @@ jQuery(document).ready(function () {
 var changeChartTypeHandler = function() {
     var charttype = jQuery('#charttype').val();
     var sessionid = jQuery('#sessionid').val();
-
-    console.log("test  dd dd");
 
     if( charttype !== 'none') {
         var url = './chart/chart_api.php';
