@@ -13,7 +13,7 @@ require_once("../../../config.php");
         </style>
         <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
         <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chart_js/Chart.min.js"></script>
-        <script src="../js/charta.js"></script>
+        <script src="../js/chart_api.js"></script>
     </head>
 
 
