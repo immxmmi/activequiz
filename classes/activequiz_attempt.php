@@ -190,13 +190,13 @@ class activequiz_attempt {
      * @param string|\stdClass $reviewoptions Can be string for overall actions like "edit" or an object of review options
      * @return string the HTML fragment for the question
      */
-    public function render_question($slotid, $review = false, $reviewoptions = '',$sessionId) {
+    public function render_question($slotid, $review = false, $reviewoptions = '') {
         $displayoptions = $this->get_display_options($review, $reviewoptions);
 
         $questionnum = $this->get_question_number();
         $this->add_question_number();
 
-        return $this->quba->render_question($slotid, $displayoptions, $questionnum, $sessionId);
+        return $this->quba->render_question($slotid, $displayoptions, $questionnum);
     }
 
     /**
@@ -356,10 +356,10 @@ class activequiz_attempt {
 
         foreach ($this->get_questions() as $question) {
 
-           // /** @var \mod_activequiz\activequiz_question $question */
-           // if ($question->getQuestion()->id == $qid) {
-           //     return $question;
-           // }
+            /** @var \mod_activequiz\activequiz_question $question */
+            if ($question->getQuestion()->id == $qid) {
+                return $question;
+            }
         }
 
         return false; // if still no match return false
