@@ -672,7 +672,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         // below IE 10
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
-      //  $this->page->requires->js('/mod/activequiz/chart/chart_api.js');
+        //$this->page->requires->js('/mod/activequiz/js/core.js');
 
         // add window.onload script manually to handle removing the loading mask
         echo html_writer::start_tag('script', array('type' => 'text/javascript'));
@@ -784,6 +784,54 @@ EOD;
         // print jsinfo to javascript
         echo html_writer::start_tag('script', array('type' => 'text/javascript'));
         echo "rtqinitinfo = " . json_encode($jsinfo);
+/*
+        echo "jQuery(document).ready(function () {
+				apiChart = jQuery('#apiChart');
+				jQuery('#charttype').bind('change', changeChartTypeHandler);
+			});
+
+			var changeChartTypeHandler = function() {
+				var charttype = jQuery('#charttype').val();
+                var sessionid = jQuery('#sessionid').val();
+
+				if( charttype !== 'none' && sessionid !== '0') {
+					var url = './chart/chart_api.php';
+					var params = {
+                        sessionid: sessionid,
+						type: charttype
+					};
+					jQuery.get(url, params, redrawChart).fail(function(data) {
+						destroyChart();
+						alert(data.responseJSON.meta.msg);
+					});
+				}
+			};
+
+			var destroyChart = function() {
+				if( skillChart !== null ) {
+					skillChart.destroy();
+				}
+			};
+
+			var redrawChart = function(data) {
+				if( data.meta.status === 'error' ) {
+					alert(data.meta.msg);
+					return;
+				}
+
+				destroyChart();
+				skillChart = new Chart(apiChart, {
+					type: data.data.charttype,
+					data: data.data.chartdata,
+					options: data.data.chartoptions
+				});
+			};";
+
+
+*/
+
+
+
         echo html_writer::end_tag('script');
 
 
