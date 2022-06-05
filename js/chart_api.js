@@ -1,7 +1,4 @@
 
-
-import "../../lib/jquery/jquery-3.5.1.min.js";
-
 jQuery(document).ready(function () {
     apiChart = jQuery('#apiChart');
     jQuery('#charttype').bind('change', changeChartTypeHandler);
