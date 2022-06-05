@@ -1,8 +1,9 @@
 {
-    var apiChart = apiChart = jQuery('#apiChart');
-    var skillChart = jQuery('#apiChart');;
+    var apiChart = null;
+    var skillChart = null;
 
     jQuery(document).ready(function () {
+        skillChart = null;
         apiChart = jQuery('#apiChart');
         jQuery('#charttype').bind('change', changeChartTypeHandler);
     });
