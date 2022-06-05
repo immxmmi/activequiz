@@ -203,6 +203,47 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
+
+        $chartoutput = '	<div>
+			<form action="javascript:void(0);">
+                <input type="hidden" id="sessionid" value="11">
+
+                <label for="type">Chart Type:</label>
+
+
+				<select id="charttype" name="type">
+					<option value="none">--- choose a chart ---</option>
+					<option value="pie">Pie-Chart</option>
+					<option value="bar">Bar-Chart</option>
+					<option value="doughnut">Doughnut-Chart</option>
+					<option value="unknown">Unknown-Chart</option>
+				</select>
+
+
+
+
+            </form>
+        </div>
+
+        <div class="container">
+			<div class="chartwrapper">
+				<canvas id="apiChart"></canvas>
+			</div>
+        </div>
+';
+
+
+
+
+
+
+
+
+
+
+
+
+
         // now set up chart vars to be then put into javascript
 
         /*
@@ -305,7 +346,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-        return $output;
+        return $chartoutput . $output;
     }
 
 }
