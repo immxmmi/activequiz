@@ -405,7 +405,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $output .= '	<div>
 			<form action="javascript:void(0);">
                 <label for="session">Session ID:</label>
-                <input type="number" id="sessionid" name="session" value="10">
+                <input type="number" id="sessionid" name="session" value="'.$sessionID.'">
 
 
 
