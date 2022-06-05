@@ -312,26 +312,26 @@ class mod_activequiz_renderer extends plugin_renderer_base {
 
 
         $output .= html_writer::div($instructions, 'activequizbox hidden', array('id' => 'instructionsbox'));
-
-        // have a quiz not responded box for the instructor to know who hasn't responded.
-        if ($this->rtq->is_instructor()) {
-            $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'notrespondedbox'));
-        }
-
-        if($session->get_session()->fully_anonymize && $this->rtq->is_instructor() == 0) {
-            $output .= html_writer::div(get_string('isanonymous', 'mod_activequiz'), 'activequizbox isanonymous');
-        }
-
-        // have a quiz information box to show statistics, feedback and more.
-        $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
-
-        foreach ($attempt->getSlots() as $slot) {
-            // render question form.
-            $output .= $this->render_question_form($slot, $attempt);
-        }
-
-        $output .= $session->getSessionid();
-
+//
+        //// have a quiz not responded box for the instructor to know who hasn't responded.
+        //if ($this->rtq->is_instructor()) {
+        //    $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'notrespondedbox'));
+        //}
+//
+        //if($session->get_session()->fully_anonymize && $this->rtq->is_instructor() == 0) {
+        //    $output .= html_writer::div(get_string('isanonymous', 'mod_activequiz'), 'activequizbox isanonymous');
+        //}
+//
+        //// have a quiz information box to show statistics, feedback and more.
+        //$output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
+//
+        //foreach ($attempt->getSlots() as $slot) {
+        //    // render question form.
+        //    $output .= $this->render_question_form($slot, $attempt);
+        //}
+//
+        //$output .= $session->getSessionid();
+//
 
         $output .= html_writer::end_div();
         echo $output;
