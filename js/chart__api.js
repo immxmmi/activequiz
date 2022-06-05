@@ -13,7 +13,7 @@
         var sessionid = jQuery('#sessionid').val();
         var slot = jQuery('#slot').val();
         if( charttype !== 'none' && sessionid !== '0') {
-            var url = '../chart/chart_api.php';
+            var url = './../chart/chart_api.php';
             var params = {
                 sessionid: sessionid,
                 slot: slot,
