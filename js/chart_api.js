@@ -1,6 +1,5 @@
-
-var apiChart = null;
-var skillChart = null;
+let apiChart = null;
+let skillChart = null;
 
 jQuery(document).ready(function () {
     apiChart = jQuery('#apiChart');
