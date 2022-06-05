@@ -324,15 +324,12 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         // have a quiz information box to show statistics, feedback and more.
         $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
 
+         //   $session->getSessionid(); // ID
         foreach ($attempt->getSlots() as $slot) {
             // render question form.
-        /**    $output .= $this->render_question_form($slot, $attempt); **/
+            $output .= $this->render_question_form($slot, $attempt,$session->getSessionid() );
         }
-/*
 
-        $output .= $session->getSessionid();
-
-*/
         $output .= html_writer::end_div();
         echo $output;
 
@@ -344,11 +341,12 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      *
      * @param int                                $slot the id of the question we're rendering
      * @param \mod_activequiz\activequiz_attempt $attempt
+     * @param session id $sessionId
      *
      * @return string HTML fragment of the question
      */
-    public function render_question_form($slot, $attempt) {
-
+    public function render_question_form($slot, $attempt, $sessionId) {
+/*
         $output = '';
         $qnum = $attempt->get_question_number();
         // Start the form.
@@ -399,7 +397,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
 
-
+*/
         return $output;
     }
 
