@@ -841,7 +841,7 @@ class activequiz_session {
      */
     public function getSessionid()
     {
-        return $this->sessionid;
+        return $this->session->id;
     }
 
 
