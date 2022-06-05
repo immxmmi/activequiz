@@ -347,7 +347,6 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      */
     public function render_question_form($slot, $attempt, $sessionId) {
         $output = '';
-/*
         $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
@@ -357,6 +356,7 @@ class mod_activequiz_renderer extends plugin_renderer_base {
                   'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8',
                   'id'      => 'q' . $qnum, 'class' => 'activequiz_question',
                   'name'    => 'q' . $qnum));
+/*
 
 
         $output .= $attempt->render_question($slot);
