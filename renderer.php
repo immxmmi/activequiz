@@ -672,7 +672,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         // below IE 10
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
-        $this->page->requires->js('/mod/activequiz/chart/chart_api.js');
+      //  $this->page->requires->js('/mod/activequiz/chart/chart_api.js');
 
         // add window.onload script manually to handle removing the loading mask
         echo html_writer::start_tag('script', array('type' => 'text/javascript'));
