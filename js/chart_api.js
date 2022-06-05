@@ -8,6 +8,8 @@ var changeChartTypeHandler = function() {
     var charttype = jQuery('#charttype').val();
     var sessionid = jQuery('#sessionid').val();
 
+    console.log("test  dd dd");
+
     if( charttype !== 'none') {
         var url = './chart/chart_api.php';
         var params = {
