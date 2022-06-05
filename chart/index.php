@@ -5,7 +5,7 @@ require_once("../../../config.php");
 <hthml>
     <head>
         <meta charset="utf-8">
-        <title>DataAPI Test</title>
+        <title>Chart</title>
 		<style type="text/css">
 			.chartwrapper {
 				width: 640px;
