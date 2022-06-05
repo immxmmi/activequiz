@@ -401,7 +401,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         # --> DOC
         ############################################################################################
 
-/*
+
         $output .= '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="'.$sessionID.'">
@@ -429,9 +429,9 @@ class mod_activequiz_renderer extends plugin_renderer_base
 			</div>
         </div>
 ';
-*/
 
 
+        /*
             $output .= html_writer::div('', '', array('id' => 'chartDiv'));
             $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
@@ -479,7 +479,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $output .= html_writer::end_tag('canvas');
         $output .= html_writer::end_div();
         $output .= html_writer::end_div();
-
+*/
         foreach ($attempt->getSlots() as $slot) {
             //render question form.
             $output .= $this->render_question_form($slot, $attempt);
