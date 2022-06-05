@@ -346,8 +346,8 @@ class mod_activequiz_renderer extends plugin_renderer_base {
      * @return string HTML fragment of the question
      */
     public function render_question_form($slot, $attempt, $sessionId) {
-/*
         $output = '';
+/*
         $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
