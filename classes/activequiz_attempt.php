@@ -356,10 +356,10 @@ class activequiz_attempt {
 
         foreach ($this->get_questions() as $question) {
 
-            /** @var \mod_activequiz\activequiz_question $question */
-            if ($question->getQuestion()->id == $qid) {
-                return $question;
-            }
+           // /** @var \mod_activequiz\activequiz_question $question */
+           // if ($question->getQuestion()->id == $qid) {
+           //     return $question;
+           // }
         }
 
         return false; // if still no match return false
