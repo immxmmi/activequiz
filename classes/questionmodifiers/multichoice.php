@@ -346,7 +346,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-        return $chartoutput . $output;
+        return $chartoutput ;
     }
 
 }
