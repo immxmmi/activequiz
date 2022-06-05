@@ -395,7 +395,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         }
 
         // have a quiz information box to show statistics, feedback and more.
-     //   $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
+        $output .= html_writer::div('', 'activequizbox hidden', array('id' => 'quizinfobox'));
 
         ############################################################################################
         # --> DOC
