@@ -400,10 +400,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
             $output .= html_writer::div('', '', array('id' => 'chartDiv'));
             $output .= html_writer::start_tag('form', array('action' => 'javascript:void(0);'));
 
-            $output .= html_writer::label('Session ID:' . $sessionID, '', array('id' =>'sessionid','value' => $sessionID));
+            $output .= html_writer::label('Session ID:' . $sessionID.'   ', '', array('id' =>'sessionid','value' => $sessionID));
             $output .= html_writer::end_tag('label');
-
-
 
             $output .= html_writer::label('Chart Type:', '', array('for' =>'type'));
             $output .= html_writer::end_tag('label');
