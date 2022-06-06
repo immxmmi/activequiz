@@ -34,6 +34,8 @@ class activequiz_session {
     /** @var \stdClass db object for the session */
     protected $session;
 
+    private $sessionid;
+
     /** @var  array An array of activequiz_attempts for the session */
     protected $attempts;
 
@@ -833,6 +835,16 @@ class activequiz_session {
         return $attempts;
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSessionid()
+    {
+        return $this->session->id;
+    }
+
+
 
 }
 

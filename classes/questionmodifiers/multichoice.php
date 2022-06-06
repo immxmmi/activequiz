@@ -44,7 +44,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
     public function add_js() {
         global $PAGE;
 
-        $PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
+       // $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
 
     }
 
@@ -203,7 +203,50 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
+/*
+        $chartoutput = '	<div>
+			<form action="javascript:void(0);">
+                <input type="hidden" id="sessionid" value="11">
+
+                <label for="type">Chart Type:</label>
+
+
+				<select id="charttype" name="type">
+					<option value="none">--- choose a chart ---</option>
+					<option value="pie">Pie-Chart</option>
+					<option value="bar">Bar-Chart</option>
+					<option value="doughnut">Doughnut-Chart</option>
+					<option value="unknown">Unknown-Chart</option>
+				</select>
+
+
+
+
+            </form>
+        </div>
+
+        <div class="container">
+			<div class="chartwrapper">
+				<canvas id="apiChart"></canvas>
+			</div>
+        </div>
+';
+
+*/
+
+
+
+
+
+
+
+
+
+
+
         // now set up chart vars to be then put into javascript
+
+        /*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -297,8 +340,13 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             var MultiChoiceChart = new Chart(ctx).Bar(data, options);
         ';
         $chartoutput .= \html_writer::end_tag('script');
-
         return $chartoutput . $output;
+**/
+
+
+
+
+        return '' ;
     }
 
 }
