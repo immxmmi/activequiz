@@ -313,56 +313,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
         $sessionID = $session->getSessionid(); // ID
 
-        /*
-        $output .= html_writer::start_tag('head', array());
-        $output .= html_writer::start_tag('script', array());
-        $output .= "jQuery(document).ready(function () {
-				apiChart = jQuery('#apiChart');
-				jQuery('#charttype').bind('change', changeChartTypeHandler);
-			});
-			
-			var changeChartTypeHandler = function() {
-				var charttype = jQuery('#charttype').val();
-                var sessionid = jQuery('#sessionid').val();
-            
-				if( charttype !== 'none' && sessionid !== '0') {
-					var url = './chart/chart_api.php';
-					var params = {
-                        sessionid: sessionid,
-						type: charttype
-					};
-					jQuery.get(url, params, redrawChart).fail(function(data) {
-						destroyChart();
-						alert(data.responseJSON.meta.msg);
-					});
-				}
-			};
-
-			var destroyChart = function() {
-				if( skillChart !== null ) {
-					skillChart.destroy();
-				}	
-			};
-			
-			var redrawChart = function(data) {
-				if( data.meta.status === 'error' ) {
-					alert(data.meta.msg);
-					return;
-				}
-				
-				destroyChart();
-				skillChart = new Chart(apiChart, {
-					type: data.data.charttype,
-					data: data.data.chartdata,
-					options: data.data.chartoptions
-				});
-			};";
-        $output .= html_writer::end_tag('script');
-        $output .= html_writer::end_tag('head');
-*/
-
-
-
         ############################################################################################
         # --> DOC
         ############################################################################################
@@ -430,6 +380,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
     public function render_question_form($slot, $attempt)
     {
         $output = '';
+        /*
         $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
@@ -479,7 +430,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         // Finish the form.
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
-
+*/
         return $output;
     }
 
