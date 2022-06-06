@@ -311,7 +311,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
         # --> DOC
         ############################################################################################
-        $sessionID = $session->getSessionid(); // ID
+        $sessionid = $session->getSessionid(); // ID
 
         ############################################################################################
         # --> DOC
@@ -354,7 +354,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
         foreach ($attempt->getSlots() as $slot) {
             //render question form.
-            $output .= $this->render_question_form($slot, $attempt);
+            $output .= $this->render_question_form($slot, $attempt,$sessionid);
         }
 
         $output .= html_writer::end_div();
@@ -377,10 +377,10 @@ class mod_activequiz_renderer extends plugin_renderer_base
      *
      * @return string HTML fragment of the question
      */
-    public function render_question_form($slot, $attempt)
+    public function render_question_form($slot, $attempt, $sessionid)
     {
         $output = '';
-        /*
+
         $qnum = $attempt->get_question_number();
         // Start the form.
         $output .= html_writer::start_tag('div', array('class' => 'activequizbox hidden', 'id' => 'q' . $qnum . '_container'));
@@ -430,7 +430,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         // Finish the form.
         $output .= html_writer::end_tag('form');
         $output .= html_writer::end_tag('div');
-*/
+
         return $output;
     }
 
