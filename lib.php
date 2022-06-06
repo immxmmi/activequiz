@@ -180,7 +180,7 @@ function activequiz_grade_item_update($activequiz, $grades = null) {
 
     } else if ($activequiz['graded'] == 1) {
         $params['gradetype'] = GRADE_TYPE_VALUE;
-        $params['grademax'] = $activequiz->scale;
+        $params['grademax'] = $activequiz['scale'];
         $params['grademin'] = 0;
 
     }
