@@ -5,6 +5,7 @@ require_once("../../../config.php");
 <hthml>
     <head>
         <meta charset="utf-8">
+<<<<<<< HEAD
         <title>Chart</title>
         <style type="text/css">
             .chartwrapper {
@@ -14,6 +15,63 @@ require_once("../../../config.php");
         <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
         <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chart_js/Chart.min.js"></script>
         <script src="../js/chart_api.js"></script>
+=======
+        <title>Chart 1.0</title>
+		<style type="text/css">
+			.chartwrapper {
+				width: 640px;
+			}
+		</style>
+		<script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
+        <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chartjs/Chart.min.js"></script>
+		<script>
+			var apiChart = null;
+			var skillChart = null;
+			
+			jQuery(document).ready(function () {
+				apiChart = jQuery('#apiChart');
+				jQuery('#charttype').bind('change', changeChartTypeHandler);
+			});
+			
+			var changeChartTypeHandler = function() {
+				var charttype = jQuery('#charttype').val();
+                var sessionid = jQuery('#sessionid').val();
+                var slot = jQuery('#slot').val();
+				if( charttype !== 'none' && sessionid !== '0') {
+					var url = './chart_api.php';
+					var params = {
+                        sessionid: sessionid,
+                        slot: slot,
+						type: charttype
+					};
+					jQuery.get(url, params, redrawChart).fail(function(data) {
+						destroyChart();
+						alert(data.responseJSON.meta.msg);
+					});
+				}
+			};
+
+			var destroyChart = function() {
+				if( skillChart !== null ) {
+					skillChart.destroy();
+				}	
+			};
+			
+			var redrawChart = function(data) {
+				if( data.meta.status === 'error' ) {
+					alert(data.meta.msg);
+					return;
+				}
+				
+				destroyChart();
+				skillChart = new Chart(apiChart, {
+					type: data.data.charttype,
+					data: data.data.chartdata,
+					options: data.data.chartoptions
+				});
+			};
+        </script>
+>>>>>>> 90d50e6db717a2d97fdc5885344268085f9e23d1
     </head>
 
 
