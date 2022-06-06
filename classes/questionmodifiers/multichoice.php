@@ -206,8 +206,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-
-/*
         $chartoutput = '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="11">
@@ -235,15 +233,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 			</div>
         </div>
 ';
-
-*/
-
-
-
-
-
-
-
 
 
 
@@ -344,13 +333,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             var MultiChoiceChart = new Chart(ctx).Bar(data, options);
         ';
         $chartoutput .= \html_writer::end_tag('script');
-        return $chartoutput . $output;
 **/
-
-
-
-
-        return '' ;
+        return $chartoutput . $output;
     }
 
 }

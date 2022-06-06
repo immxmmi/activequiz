@@ -409,6 +409,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $timercount = html_writer::div('', 'timercount', array('id' => 'q' . $qnum . '_questiontime'));
 
         $rtqQuestion = $attempt->get_question_by_slot($slot);
+
+
         if ($rtqQuestion->getTries() > 1 && !$this->rtq->is_instructor()) {
             $count = new stdClass();
             $count->tries = $rtqQuestion->getTries();
