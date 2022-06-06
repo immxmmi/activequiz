@@ -85,6 +85,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             // now get question definition
             $questiondef = $qa->get_question();
 
+
+
             // if dbanswers is empty get them from the question definition (as this will be the same for all attempts for this slot
             // also save a db query
             if (empty($dbanswers)) {
