@@ -816,11 +816,12 @@ EOD;
             }
         }
 
+        /*
         $response .= html_writer::tag('h3', $name, array('class' => 'responsename'));
         $response .= html_writer::div($attempt->responsesummary, 'responsesummary');
 
         $response .= html_writer::end_div();
-
+*/
         return $response;
     }
 
