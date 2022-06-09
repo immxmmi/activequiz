@@ -44,8 +44,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
     public function add_js() {
         global $PAGE;
 
-        $PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
-       //$PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
+        //$PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
+       $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
        $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
     }
 
@@ -204,7 +204,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
-/*
+
         $chartoutput = '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="11">
@@ -233,7 +233,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         </div>
 ';
 
-*/
+
 
 
 
@@ -247,7 +247,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
         // now set up chart vars to be then put into javascript
 
-
+/*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -345,7 +345,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-
+*/
 
         return $output.$chartoutput ;
     }
