@@ -10,6 +10,7 @@
     });
 
     var changeChartTypeHandler = function() {
+        alert("TEST");
         var charttype = jQuery('#charttype').val();
         var sessionid = jQuery('#sessionid').val();
         var slot = jQuery('#slot').val();
