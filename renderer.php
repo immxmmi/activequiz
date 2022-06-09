@@ -707,9 +707,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         // below IE 10
         $this->page->requires->js('/lib/jquery/jquery-3.5.1.min.js');
         $this->page->requires->js('/mod/activequiz/js/chart/Chart.min.js');
-        $this->page->requires->js('/mod/activequiz/js/test1/Chart.min.js');
         $this->page->requires->js('/mod/activequiz/js/chartApi.js');
-        $this->page->requires->js('/mod/activequiz/js/test2/Chart.min.js');
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
 
