@@ -219,11 +219,11 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 					<option value="doughnut">Doughnut-Chart</option>
 					<option value="unknown">Unknown-Chart</option>
 				</select>
-
-
-
-
             </form>
+            <script type="text/javascript">
+                    skillChart = null;
+        apiChart = jQuery("#apiChart");
+        jQuery("#charttype").bind("change", changeChartTypeHandler); </script>
         </div>
 
         <div class="container">
