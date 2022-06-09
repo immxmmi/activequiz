@@ -45,7 +45,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         global $PAGE;
 
         //$PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
-       $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
+       $PAGE->requires->js('/mod/activequiz/js/newChart/chart.min.js');
        $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
     }
 
