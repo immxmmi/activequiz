@@ -855,8 +855,7 @@ EOD;
             'hidestudentresponses',
             'showstudentresponses',
             'hidenotresponded',
-            'shownotresponded',
-            'show_chart'
+            'shownotresponded'
         ), 'activequiz');
 
         $this->page->requires->strings_for_js(array('seconds'), 'moodle');
