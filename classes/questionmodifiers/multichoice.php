@@ -47,9 +47,9 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
     public function add_js()
     {
         global $PAGE;
-        $PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
-        // $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
-        $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
+        //$PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
+        $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
+       // $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
     }
 
     /**
@@ -203,7 +203,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      */
     protected function add_chart($output, $xaxis, $answers)
     {
-
 
         $totalanswers = 0;
         foreach ($answers as $answercount) {

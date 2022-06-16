@@ -730,108 +730,83 @@ activequiz.show_chart_hide = function () {
     }
 };
 
+
+function create_chart(chart_typ){
+
+    var apiChart = document.getElementById('apiChart');
+    var skillChart = null;
+    var url = './chart/chart_api.php';
+    var params = {
+        sessionid: activequiz.get('sessionid'),
+        slot: '0',
+        type: chart_typ
+    };
+    jQuery.get(url, params, redrawChart).fail(function(data) {
+        destroyChart();
+        alert(data.responseJSON.meta.msg);
+    });
+
+    jQuery(document).ready(function () {
+        apiChart = jQuery('#apiChart');
+        jQuery('#charttype').bind('change', changeChartTypeHandler);
+    });
+
+    var changeChartTypeHandler = function() {
+        var charttype = jQuery('#charttype').val();
+        var sessionid = jQuery('#sessionid').val();
+        var slot = jQuery('#slot').val();
+        if( charttype !== 'none' && sessionid !== '0') {
+            var url = './../../chart/chart_api.php';
+            var params = {
+                sessionid: sessionid,
+                slot: slot,
+                type: charttype
+            };
+            jQuery.get(url, params, redrawChart).fail(function(data) {
+                destroyChart();
+                alert(data.responseJSON.meta.msg);
+            });
+        }
+    };
+
+    var destroyChart = function() {
+        if( skillChart !== null ) {
+            skillChart.destroy();
+        }
+    };
+
+    var redrawChart = function(data) {
+        if( data.meta.status === 'error' ) {
+            alert(data.meta.msg);
+            return;
+        }
+
+        destroyChart();
+        skillChart = new Chart(apiChart, {
+            type: data.data.charttype,
+            data: data.data.chartdata,
+            options: data.data.chartoptions
+        });
+
+    }
+
+
+
+
+};
+
 activequiz.show_chart_bar = function () {
     create_chart('bar');
 };
 
 
-
-    function create_chart(chart_typ){
-
-        var apiChart = document.getElementById('apiChart');
-        var skillChart = null;
-        var url = './chart/chart_api.php';
-        var params = {
-            sessionid: activequiz.get('sessionid'),
-            slot: '0',
-            type: chart_typ
-        };
-        jQuery.get(url, params, redrawChart).fail(function(data) {
-            destroyChart();
-            alert(data.responseJSON.meta.msg);
-        });
-
-        jQuery(document).ready(function () {
-            apiChart = jQuery('#apiChart');
-            jQuery('#charttype').bind('change', changeChartTypeHandler);
-        });
-
-        var changeChartTypeHandler = function() {
-            var charttype = jQuery('#charttype').val();
-            var sessionid = jQuery('#sessionid').val();
-            var slot = jQuery('#slot').val();
-            if( charttype !== 'none' && sessionid !== '0') {
-                var url = './../../chart/chart_api.php';
-                var params = {
-                    sessionid: sessionid,
-                    slot: slot,
-                    type: charttype
-                };
-                jQuery.get(url, params, redrawChart).fail(function(data) {
-                    destroyChart();
-                    alert(data.responseJSON.meta.msg);
-                });
-            }
-        };
-
-        var destroyChart = function() {
-            if( skillChart !== null ) {
-                skillChart.destroy();
-            }
-        };
-
-        var redrawChart = function(data) {
-            if( data.meta.status === 'error' ) {
-                alert(data.meta.msg);
-                return;
-            }
-
-            destroyChart();
-            skillChart = new Chart(apiChart, {
-                type: data.data.charttype,
-                data: data.data.chartdata,
-                options: data.data.chartoptions
-            });
-
-    }
-
-
-
-
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
 activequiz.show_chart_pie = function () {
 
-    var chart = document.getElementById('apiChart');
-
-    if(chart.style.display == "none"){
-        chart.style.display = "";
-    }else{
-        chart.style.display = "none";
-    }
+    create_chart('pie');
 };
 
 activequiz.show_chart_doughnut = function () {
-
-    var chart = document.getElementById('apiChart');
-
-    if(chart.style.display == "none"){
-        chart.style.display = "";
-    }else{
-        chart.style.display = "none";
-    }
+    create_chart('doughnut');
 };
 
 
