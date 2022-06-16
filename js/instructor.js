@@ -727,6 +727,10 @@ activequiz.show_chart = function () {
 
     var chart = document.getElementById('apiChart');
 
-    chart.style.display = "none";
+    if(chart.style.display == "none"){
+        chart.style.display = "show";
+    }else{
+        chart.style.display = "none";
+    }
 
 };
