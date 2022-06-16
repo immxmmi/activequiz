@@ -211,13 +211,13 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         }
 
 
-        $chartoutput = '
+        $chartoutput = html_writer::end_tag('div');
+        $chartoutput .= '
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
 			</div>
-        </div>
-';
+        </div>';
 
 
         // now set up chart vars to be then put into javascript
