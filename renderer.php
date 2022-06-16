@@ -402,7 +402,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
 
 
-        $output .= '	
 /*
 	<div>
 			<form action="javascript:void(0);">
@@ -423,7 +422,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
             </form>
         </div>
-*/
+        */
+        $output .= '	
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
