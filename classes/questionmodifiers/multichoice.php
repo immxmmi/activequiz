@@ -345,11 +345,11 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 */
 
-
+$test = "aaa";
 $chartoutput .= '
 
 <pre>
-'.print_r($xaxis).'
+'.print_r($test).'
 </pre>
 
 ';
