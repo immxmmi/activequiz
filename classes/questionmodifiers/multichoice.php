@@ -43,7 +43,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      */
     public function add_js() {
         global $PAGE;
-
         //$PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
        $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
        $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
@@ -65,7 +64,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
-
         $dbanswers = array();
 
 
@@ -234,7 +232,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 ';
 
 
-
+*/
 
 
 
@@ -247,7 +245,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
         // now set up chart vars to be then put into javascript
 
-/*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -341,13 +338,11 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             var MultiChoiceChart = new Chart(ctx).Bar(data, options);
         ';
         $chartoutput .= \html_writer::end_tag('script');
+
+
+        //return $output .$chartoutput ;
+
         return $chartoutput . $output;
-
-
-
-*/
-
-        return $output ;//.$chartoutput ;
     }
 
 }
