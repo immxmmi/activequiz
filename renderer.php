@@ -651,12 +651,30 @@ class mod_activequiz_renderer extends plugin_renderer_base
         );
 
         $output .=  html_writer::div(html_writer::tag('button', "Show Chart", array(
-                'class' => 'btn',
+                'class' => 'dropbtn',
                 'id' => 'show_chart',
                 'onclick' => 'activequiz.show_chart();'
             )
-        ), "dropdown", array(
+        ),html_writer::tag('button', "Show Chart", array(
+                'class' => 'dropbtn',
+                'id' => 'show_chart',
+                'onclick' => 'activequiz.show_chart();'
+            )
+        )
+
+
+
+            , "dropdown", array(
         ));
+
+
+
+
+
+
+
+
+
 
 
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
