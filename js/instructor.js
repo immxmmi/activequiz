@@ -733,7 +733,7 @@ activequiz.show_chart_hide = function () {
 activequiz.show_chart_bar = function () {
     var apiChart = document.getElementById('apiChart');
     var skillChart = null;
-    var url = './../../chart/chart_api.php';
+    var url = './chart/chart_api.php';
     var params = {
         sessionid: activequiz.get('sessionid'),
         slot: '1',
