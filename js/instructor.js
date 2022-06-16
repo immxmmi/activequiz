@@ -723,11 +723,11 @@ activequiz.show_chart = function () {
 
 
 
-    alert( activequiz.get('sessionid'));
 
     var chart = document.getElementById('apiChart');
 
     if(chart.style.display == "none"){
+    alert( activequiz.get('sessionid'));
         chart.style.display = "show";
     }else{
         chart.style.display = "none";
