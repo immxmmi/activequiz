@@ -402,7 +402,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
 
 
-
+/*
         $output .= '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="'.$sessionID.'">
@@ -429,7 +429,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 			</div>
         </div>
 ';
-
+*/
 
 
         /*
@@ -650,6 +650,13 @@ class mod_activequiz_renderer extends plugin_renderer_base
             )
         );
 
+        $output .= html_writer::tag('button', get_string('show_chart', 'activequiz'), array(
+                'class' => 'btn',
+                'id' => 'show_chart',
+                'onclick' => 'activequiz.show_chart();'
+            )
+        );
+
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
 
         return $output;
@@ -848,7 +855,8 @@ EOD;
             'hidestudentresponses',
             'showstudentresponses',
             'hidenotresponded',
-            'shownotresponded'
+            'shownotresponded',
+            'show_chart'
         ), 'activequiz');
 
         $this->page->requires->strings_for_js(array('seconds'), 'moodle');
