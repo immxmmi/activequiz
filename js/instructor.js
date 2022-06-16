@@ -721,9 +721,6 @@ activequiz.clear_and_hide_notresponded = function () {
 
 activequiz.show_chart = function () {
 
-
-
-
     var chart = document.getElementById('apiChart');
 
     if(chart.style.display == "none"){
@@ -731,5 +728,4 @@ activequiz.show_chart = function () {
     }else{
         chart.style.display = "none";
     }
-
 };
