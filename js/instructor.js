@@ -727,8 +727,7 @@ activequiz.show_chart = function () {
     var chart = document.getElementById('apiChart');
 
     if(chart.style.display == "none"){
-    alert( activequiz.get('sessionid'));
-        chart.style.display = "value";
+        chart.style.display = "";
     }else{
         chart.style.display = "none";
     }
