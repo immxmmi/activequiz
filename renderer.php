@@ -352,11 +352,10 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
 
 
-<<<<<<< HEAD
+
         foreach ($attempt->getSlots() as $slot) {
             //render question form.
             $output .= $this->render_question_form($slot, $attempt,$sessionid);
-=======
 /*
         $output .= '	<div>
 			<form action="javascript:void(0);">
@@ -439,7 +438,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         foreach ($attempt->getSlots() as $slot) {
             //render question form.
             $output .= $this->render_question_form($slot, $attempt);
->>>>>>> v3.0
         }
 
         $output .= html_writer::end_div();
@@ -643,14 +641,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
 
-
-
-
-
-
-
-
-
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
 
         return $output;
@@ -710,12 +700,12 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $this->page->requires->js('/lib/jquery/jquery-3.5.1.min.js');
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
-<<<<<<< HEAD
+
         //$this->page->requires->js('/mod/activequiz/js/chart_api.js');
         //$this->page->requires->js('/mod/activequiz/js/chartdata/Chart.min.js');
-=======
 
->>>>>>> v3.0
+
+
 
         // add window.onload script manually to handle removing the loading mask
         echo html_writer::start_tag('script', array('type' => 'text/javascript'));
