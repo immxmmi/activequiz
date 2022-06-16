@@ -37,7 +37,7 @@ activequiz.vars = activequiz.vars || {};
  *
  */
 activequiz.getQuizInfo = function () {
-
+console.log("test");
     var params = {
         'sesskey': activequiz.get('sesskey'),
         'sessionid': activequiz.get('sessionid')
@@ -46,7 +46,6 @@ activequiz.getQuizInfo = function () {
     activequiz.ajax.create_request('/mod/activequiz/quizinfo.php', params, function (status, response) {
 
         if (status == 500) {
-            alert(activequiz.get('sessionid'))
             alert('There was an error....' + response);
         } else if (status == 200) {
             if (response.status == 'notrunning') {
