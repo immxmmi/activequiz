@@ -721,20 +721,9 @@ activequiz.clear_and_hide_notresponded = function () {
 
 activequiz.show_chart = function () {
 
-    alert("test");
+    alert( activequiz.get('sessionid'));
 
-    var toggleresponsesBtn = document.getElementById('toggleresponses');
+    var chart = document.getElementById('apiChart');
 
-    if (activequiz.get('showstudentresponses') === false) { // if it is false, set it back to true for the student responses to show
 
-        toggleresponsesBtn.innerHTML = M.util.get_string('hidestudentresponses', 'activequiz');
-
-        activequiz.set('showstudentresponses', true);
-        activequiz.gather_current_results();
-    } else { // if it's set to true, or not set at all, then set it to false when this button is clicked
-
-        toggleresponsesBtn.innerHTML = M.util.get_string('showstudentresponses', 'activequiz');
-        activequiz.set('showstudentresponses', false);
-        activequiz.clear_and_hide_qinfobox();
-    }
 };
