@@ -37,7 +37,6 @@ activequiz.vars = activequiz.vars || {};
  *
  */
 activequiz.getQuizInfo = function () {
-console.log("test");
     var params = {
         'sesskey': activequiz.get('sesskey'),
         'sessionid': activequiz.get('sessionid')
