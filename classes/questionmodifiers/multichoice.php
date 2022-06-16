@@ -239,8 +239,15 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-        // now set up chart vars to be then put into javascript
+        $chartoutput .= html_writer::tag('canvas', '', array('id' => 'apiChart'));
+        $chartoutput .= html_writer::tag_end('canvas');
 
+
+
+
+
+        // now set up chart vars to be then put into javascript
+/*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -339,7 +346,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-
+*/
 
         return $chartoutput . $output;
     }
