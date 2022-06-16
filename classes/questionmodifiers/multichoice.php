@@ -349,7 +349,7 @@ $test = "aaa";
 $chartoutput .= '
 
 <pre>
-'.print_r($test).'
+'.var_dump($test).'
 </pre>
 
 ';
