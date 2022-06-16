@@ -217,6 +217,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
+				<p>TEST TEST</p>
 			</div>
 			</div>
         </div>';
