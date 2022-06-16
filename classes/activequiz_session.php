@@ -844,7 +844,8 @@ class activequiz_session {
         return $this->session->id;
     }
 
+    public function show_chart(){
 
-
+    }
 }
 
