@@ -202,10 +202,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
-        $chartoutput = '';
 
-/*
-        $chartoutput .= '	<div>
+        $chartoutput = '	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="11">
 
@@ -220,10 +218,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 					<option value="unknown">Unknown-Chart</option>
 				</select>
             </form>
-            <script type="text/javascript">
-                    skillChart = null;
-        apiChart = jQuery("#apiChart");
-        jQuery("#charttype").bind("change", changeChartTypeHandler); </script>
         </div>
 
         <div class="container">
@@ -234,7 +228,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 ';
 
 
-*/
+
 
 
 
@@ -246,7 +240,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
         // now set up chart vars to be then put into javascript
-
+/*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -345,7 +339,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 
 
-
+*/
         return $chartoutput . $output;
     }
 
