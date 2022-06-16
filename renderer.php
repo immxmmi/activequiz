@@ -402,8 +402,9 @@ class mod_activequiz_renderer extends plugin_renderer_base
         ############################################################################################
 
 
+        $output .= '	
 /*
-        $output .= '	<div>
+	<div>
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="'.$sessionID.'">
 
@@ -422,14 +423,13 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
             </form>
         </div>
-
+*/
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
 			</div>
         </div>
 ';
-*/
 
 
         /*
