@@ -273,7 +273,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         }
 
         $chartoutput = '';
-        $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
+        //$chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
+        $chartoutput .= \html_writer::tag('canvas', 'apiChart', array('id' => '', 'width' => $chartwidth, 'height' => $chartheight));
         $chartoutput .= \html_writer::start_tag('script', array('type' => 'text/javascript', 'id' => 'multichoice_js'));
 
         $chartoutput .= '
