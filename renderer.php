@@ -658,6 +658,13 @@ class mod_activequiz_renderer extends plugin_renderer_base
                 'id' => 'show_chart',
                 'onclick' => 'activequiz.show_chart();'
             ));
+        $output .=  html_writer::start_tag('div', array('class' => 'dropdown-content'));
+        $output .=  html_writer::tag('a', "Bar Chart", array('href' => '#'));
+        $output .=  html_writer::tag('a', "Bar Chart", array('href' => '#'));
+        $output .=  html_writer::tag('a', "Bar Chart", array('href' => '#'));
+        $output .= html_writer::end_tag('div');
+
+
 
         $output .= html_writer::end_tag('div');
 
