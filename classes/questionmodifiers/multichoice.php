@@ -274,11 +274,12 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
         $chartoutput = '';
         //$chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
-        $chartoutput .= \html_writer::tag('canvas', 'apiChart', array('id' => '', 'width' => $chartwidth, 'height' => $chartheight));
+        $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'apiChart', 'width' => $chartwidth, 'height' => $chartheight));
         $chartoutput .= \html_writer::start_tag('script', array('type' => 'text/javascript', 'id' => 'multichoice_js'));
 
+           // var ctx = document.getElementById("multichoicechart").getContext("2d");
         $chartoutput .= '
-            var ctx = document.getElementById("multichoicechart").getContext("2d");
+            var ctx = document.getElementById("apiChart").getContext("2d");
         ';
 
         // create javascript vars to then json encode for the output
