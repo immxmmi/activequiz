@@ -213,9 +213,11 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
         $chartoutput = html_writer::end_tag('div');
         $chartoutput .= '
+        <div class="activequizbox">
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
+			</div>
 			</div>
         </div>';
 
