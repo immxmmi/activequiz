@@ -345,17 +345,9 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
 */
 
-$test = "aaa";
-$chartoutput .= '
-
-<pre>
-'.var_dump($test).'
-</pre>
-
-';
 
 
-        return $chartoutput . $output;
+        return $chartoutput . $output . $xaxis;
     }
 
 }
