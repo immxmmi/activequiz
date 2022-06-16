@@ -210,9 +210,8 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
-
-       // $chartoutput = html_writer::end_tag('div');
-        $chartoutput = '
+        $chartoutput = html_writer::end_tag('div');
+        $chartoutput .= '
         <div class="activequizbox">
         <div class="container">
 			<div class="chartwrapper">
