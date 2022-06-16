@@ -43,10 +43,16 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      */
     public function add_js() {
         global $PAGE;
+<<<<<<< HEAD
 
         $PAGE->requires->js('/mod/activequiz/js/chartdata/Chart.min.js');
         $PAGE->requires->js('/mod/activequiz/js/chart_js_api.js');
 
+=======
+        $PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
+      // $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
+       $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
+>>>>>>> v3.0
     }
 
     /**
@@ -65,7 +71,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         // store the possible answersid as the key of the array, and then a count
         //  for the number of times it was answered
         $answers = array();
-
         $dbanswers = array();
 
 
@@ -206,9 +211,16 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             $totalanswers = $totalanswers + $answercount;
         }
 
+<<<<<<< HEAD
 
 
         $chartoutput = '	<div>
+=======
+        $chartoutput = '';
+
+/*
+        $chartoutput .= '	<div>
+>>>>>>> v3.0
 			<form action="javascript:void(0);">
                 <input type="hidden" id="sessionid" value="11">
 
@@ -222,11 +234,11 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 					<option value="doughnut">Doughnut-Chart</option>
 					<option value="unknown">Unknown-Chart</option>
 				</select>
-
-
-
-
             </form>
+            <script type="text/javascript">
+                    skillChart = null;
+        apiChart = jQuery("#apiChart");
+        jQuery("#charttype").bind("change", changeChartTypeHandler); </script>
         </div>
 
         <div class="container">
@@ -236,12 +248,17 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         </div>
 ';
 
+<<<<<<< HEAD
+=======
+
+*/
+
+>>>>>>> v3.0
 
 
 
         // now set up chart vars to be then put into javascript
 
-        /*
         $chartheight = 600;
         $chartwidth = 600;
         $labels = array();
@@ -274,11 +291,13 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         }
 
         $chartoutput = '';
-        $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
+        //$chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
+        $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'apiChart', 'width' => $chartwidth, 'height' => $chartheight));
         $chartoutput .= \html_writer::start_tag('script', array('type' => 'text/javascript', 'id' => 'multichoice_js'));
 
+           // var ctx = document.getElementById("multichoicechart").getContext("2d");
         $chartoutput .= '
-            var ctx = document.getElementById("multichoicechart").getContext("2d");
+            var ctx = document.getElementById("apiChart").getContext("2d");
         ';
 
         // create javascript vars to then json encode for the output
@@ -335,8 +354,17 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             var MultiChoiceChart = new Chart(ctx).Bar(data, options);
         ';
         $chartoutput .= \html_writer::end_tag('script');
+<<<<<<< HEAD
 **/
         return $chartoutput ;//. $output;
+=======
+
+
+
+
+
+        return $chartoutput . $output;
+>>>>>>> v3.0
     }
 
 }

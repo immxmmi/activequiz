@@ -37,7 +37,6 @@ activequiz.vars = activequiz.vars || {};
  *
  */
 activequiz.getQuizInfo = function () {
-
     var params = {
         'sesskey': activequiz.get('sesskey'),
         'sessionid': activequiz.get('sessionid')
@@ -717,4 +716,49 @@ activequiz.clear_and_hide_notresponded = function () {
         notrespondedbox.classList.add('hidden');
     }
 
+};
+
+
+activequiz.show_chart_hide = function () {
+
+    var chart = document.getElementById('apiChart');
+
+    if(chart.style.display == "none"){
+        chart.style.display = "";
+    }else{
+        chart.style.display = "none";
+    }
+};
+
+activequiz.show_chart_bar = function () {
+
+    var chart = document.getElementById('apiChart');
+
+    if(chart.style.display == "none"){
+        chart.style.display = "";
+    }else{
+        chart.style.display = "none";
+    }
+};
+
+activequiz.show_chart_pie = function () {
+
+    var chart = document.getElementById('apiChart');
+
+    if(chart.style.display == "none"){
+        chart.style.display = "";
+    }else{
+        chart.style.display = "none";
+    }
+};
+
+activequiz.show_chart_doughnut = function () {
+
+    var chart = document.getElementById('apiChart');
+
+    if(chart.style.display == "none"){
+        chart.style.display = "";
+    }else{
+        chart.style.display = "none";
+    }
 };
