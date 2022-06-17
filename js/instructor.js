@@ -20,7 +20,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import {Chart} from "./chart/Chart.min.js";
+import {Chart} from "./chart/Chart.min";
 
 
 // ensure that the namespace is defined
