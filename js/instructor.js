@@ -758,6 +758,8 @@ function create_chart(chart_typ){
     //create a drawing context on the canvas
     var ctx = apiChart.getContext("2d");
 
+    var myChart;
+
     //declare variables
     var data;
     var url = './chart/chart_api.php';
@@ -771,7 +773,7 @@ function create_chart(chart_typ){
             data = results.data.chartdata;
             options = results.data.chartoptions;
 
-            const myChart = new Chart(ctx, {
+            myChart = new Chart(ctx, {
                 type: type,
                 data: data,
                 options: options
@@ -781,3 +783,8 @@ function create_chart(chart_typ){
 
 };
 
+var destroyChart = function() {
+    if( skillChart !== null ) {
+        skillChart.destroy();
+    }
+};
