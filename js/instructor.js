@@ -804,16 +804,17 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-    $.ajax({
-        url: ''+url+'?sessionid='+activequiz.get('sessionid')+'&type='+chartTyp+'',
-        dataType: 'json',
-    }).done(function(results) {
-        myChart = new Chart(ctx,{
-            data: results.data.chartdata,
-            options: results.data.chartoptions
-        })
+    $( document ).ready(function() {
+        $.ajax({
+            url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
+            dataType: 'json',
+        }).done(function (results) {
+            myChart = new Chart(ctx, {
+                data: results.data.chartdata,
+                options: results.data.chartoptions
+            })
+        });
     });
-
 
 
 
