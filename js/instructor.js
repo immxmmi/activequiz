@@ -812,9 +812,6 @@ activequiz.show_chart_bar = function () {
             type = results.data.charttype;
             data = results.data.chartdata;
             options = results.data.chartoptions;
-            console.log(data);
-            console.log(options);
-            console.log(type);
 
             myChart = new Chart(ctx, {
                 type: type,
