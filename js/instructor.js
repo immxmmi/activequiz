@@ -808,14 +808,18 @@ activequiz.show_chart_bar = function () {
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
             dataType: 'json',
         }).done(function (results) {
+            type = results.fatal.charttype;
             data = results.data.chartdata;
             options = results.data.chartoptions;
             console.log(data);
             console.log(options);
-            //myChart = new Chart(ctx, {
-            //    data: results.data.chartdata,
-            //    options: results.data.chartoptions
-            //})
+            console.log(type);
+
+            myChart = new Chart(ctx, {
+                type: type,
+                data: data,
+                options: options
+            })
         });
 
 
