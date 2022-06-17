@@ -804,17 +804,18 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-        $.ajax({
+    $jsonData = $.ajax({
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
             dataType: 'json',
         }).done(function (results) {
-            data = results;
+            data = results.data;
+            console.log(data);
             //myChart = new Chart(ctx, {
             //    data: results.data.chartdata,
             //    options: results.data.chartoptions
             //})
         });
-        console.log(data);
+
 
 
 
