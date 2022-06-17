@@ -808,7 +808,7 @@ activequiz.show_chart_bar = function () {
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
             dataType: 'json',
         }).done(function (results) {
-            type = results.fatal.charttype;
+            type = results.data.charttype;
             data = results.data.chartdata;
             options = results.data.chartoptions;
             console.log(data);
