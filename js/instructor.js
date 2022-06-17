@@ -773,8 +773,6 @@ function create_chart(chart_typ){
             data = results.data.chartdata;
             options = results.data.chartoptions;
 
-            ctx.restore();
-
             myChart = new Chart(ctx, {
                 type: type,
                 data: data,
