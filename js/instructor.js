@@ -809,6 +809,7 @@ activequiz.show_chart_bar = function () {
         dataType: 'json',
     }).done(function(results) {
         data = results;
+        console.log(results)
     });
 
 /*
@@ -818,7 +819,6 @@ activequiz.show_chart_bar = function () {
     })
 */
 
-    console.log(data);
 
     // create_chart('bar');
 };
