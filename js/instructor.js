@@ -758,7 +758,7 @@ function create_chart(chart_typ){
     //create a drawing context on the canvas
     var ctx = apiChart.getContext("2d");
 
-    var myChart;
+    var myChart = null;
 
     //declare variables
     var data;
@@ -773,6 +773,9 @@ function create_chart(chart_typ){
             data = results.data.chartdata;
             options = results.data.chartoptions;
 
+            if( myChart !== null ) {
+                myChart.destroy();
+            }
             myChart = new Chart(ctx, {
                 type: type,
                 data: data,
@@ -783,8 +786,4 @@ function create_chart(chart_typ){
 
 };
 
-var destroyChart = function() {
-    if( skillChart !== null ) {
-        skillChart.destroy();
-    }
-};
+
