@@ -20,9 +20,11 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
 // ensure that the namespace is defined
 var activequiz = activequiz || {};
 activequiz.vars = activequiz.vars || {};
+
 
 /**
  * The instructor's getQuizInfo function
