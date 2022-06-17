@@ -530,7 +530,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         $output .=  html_writer::start_tag('div', array('class' => 'dropdown-content'));
-        $output .=  html_writer::tag('button', "none", array( 'class' => 'btn',
+        $output .=  html_writer::tag('button', "show", array( 'class' => 'btn',
             'id' => 'show_chart_hide',
             'onclick' => 'activequiz.show_chart_hide();'));
 
