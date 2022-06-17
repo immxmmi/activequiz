@@ -403,26 +403,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         $output .= '	
-
-	<div>
-			<form action="javascript:void(0);">
-                <input type="hidden" id="sessionid" value="'.$sessionID.'">
-
-                <label for="type">Chart Type:</label>
-
-
-				<select id="charttype" name="type">
-					<option value="none">--- choose a chart ---</option>
-					<option value="pie">Pie-Chart</option>
-					<option value="bar">Bar-Chart</option>
-					<option value="doughnut">Doughnut-Chart</option>
-					<option value="unknown">Unknown-Chart</option>
-				</select>
-
-
-
-            </form>
-        </div>
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
@@ -677,17 +657,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         $output .= html_writer::end_tag('div');
-
-
-
-
-
-
-
-
-
-
-
 
 
 
