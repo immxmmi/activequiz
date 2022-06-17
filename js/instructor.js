@@ -803,16 +803,13 @@ activequiz.show_chart_bar = function () {
 
     var skillChart = null;
     var url = './chart/chart_api.php';
+    var chartTyp = 'bar'
     var params = {
         sessionid: activequiz.get('sessionid'),
         type: 'bar'
     };
     var jsonData = $.ajax({
-        url: './chart/chart_api.php?sessionid=46&type=bar',
-        params: {
-            sessionid: activequiz.get('sessionid'),
-            type: 'bar'
-        },
+        url: './chart/chart_api.php?sessionid='+activequiz.get('sessionid')+'&type='+chartTyp+'',
         dataType: 'json',
     }).done(function(results) {
         console.log(results)
