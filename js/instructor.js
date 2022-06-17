@@ -726,12 +726,15 @@ activequiz.clear_and_hide_notresponded = function () {
 activequiz.show_chart_hide = function () {
 
     var chart = document.getElementById('chart');
+    var hide_btn = document.getElementById('show_chart_hide');
+
+
 
     if(chart.style.display == "none"){
-        chart.value = "hide";
+        hide_btn.value = "hide";
         chart.style.display = "";
     }else{
-        chart.value = "show";
+        hide_btn.value = "show";
         chart.style.display = "none";
     }
 };
