@@ -798,10 +798,7 @@ activequiz.show_chart_bar = function () {
     //declare variables
     var myChart;
     var data = {};
-    var procressedData = {};
 
-
-    var skillChart = null;
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
@@ -813,7 +810,13 @@ activequiz.show_chart_bar = function () {
     });
 
 
-    console.log(data);
+    myChart = new Chart(ctx,{
+        data: data.data.chartdata,
+        options: data.data.chartoptions
+    })
+
+
+
     // create_chart('bar');
 };
 
