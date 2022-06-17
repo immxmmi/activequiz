@@ -20,7 +20,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import "./chart/Chart.min";
+"./chart/Chart.min";
 
 // ensure that the namespace is defined
 var activequiz = activequiz || {};
