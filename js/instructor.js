@@ -805,7 +805,7 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-    require(['/mod/activequiz/js/chart/Chart.min.js'], function(Chart){
+    require(['./js/chart/Chart.min.js'], function(Chart){
 
     const myChart = new Chart(ctx, {
         type: 'bar',
