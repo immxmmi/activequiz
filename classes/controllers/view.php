@@ -58,7 +58,6 @@ class view {
         global $PAGE, $CFG, $DB;
 
         $this->pagevars = array();
-
         $this->pageurl = new \moodle_url($baseurl);
         $this->pageurl->remove_all_params();
 
@@ -331,8 +330,6 @@ class view {
 
                     }
                 }
-
-
                 break;
         }
     }
@@ -343,11 +340,9 @@ class view {
      *
      */
     protected function get_parameters() {
-
         $this->pagevars['action'] = optional_param('action', '', PARAM_ALPHANUM);
         $this->pagevars['group'] = optional_param('group', '0', PARAM_INT);
         $this->pagevars['groupmembers'] = optional_param('groupmembers', '', PARAM_RAW);
-
     }
 
 }

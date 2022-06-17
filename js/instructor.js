@@ -773,7 +773,38 @@ function create_chart(chart_typ){
 };
 
 activequiz.show_chart_bar = function () {
-    create_chart('bar');
+
+
+    // CHART
+    var $apiChart = document.getElementById('apiChart');
+
+    //create a drawing context on the canvas
+    var ctx = $apiChart.getContext("2d");
+
+
+
+    //declare variables
+    var myChart;
+    var data = {};
+    var procressedData = {};
+
+
+    var skillChart = null;
+    var url = './chart/chart_api.php';
+    var params = {
+        sessionid: activequiz.get('sessionid'),
+        type: chart_typ
+    };
+
+    var jsonData = $.ajax({
+        url: url,
+        params: params,
+        dataType: 'json',
+    }).done(function(results) {
+        console.log(results);
+    });
+
+   // create_chart('bar');
 };
 
 
