@@ -728,6 +728,8 @@ activequiz.show_chart_hide = function () {
     var chart = document.getElementById('chart');
     var hide_btn = document.getElementById('show_chart_hide');
 
+    console.log(hide_btn.value)
+
 
 
     if(chart.style.display == "none"){
