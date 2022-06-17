@@ -805,15 +805,15 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-
-    var jsonData = $.ajax({
+    $.ajax({
         url: ''+url+'?sessionid='+activequiz.get('sessionid')+'&type='+chartTyp+'',
         dataType: 'json',
     }).done(function(results) {
-        console.log(results)
+        data = results;
     });
 
-    jsonData;
+
+    console.log(data);
     // create_chart('bar');
 };
 
