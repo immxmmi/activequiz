@@ -809,7 +809,9 @@ activequiz.show_chart_bar = function () {
             dataType: 'json',
         }).done(function (results) {
             data = results.data.chartdata;
+            options = results.data.chartoptions;
             console.log(data);
+            console.log(options);
             //myChart = new Chart(ctx, {
             //    data: results.data.chartdata,
             //    options: results.data.chartoptions
