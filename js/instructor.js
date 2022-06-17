@@ -808,8 +808,11 @@ activequiz.show_chart_bar = function () {
         type: 'bar'
     };
     var jsonData = $.ajax({
-        url: url,
-        params: params,
+        url: './chart/chart_api.php',
+        params: {
+            sessionid: activequiz.get('sessionid'),
+            type: 'bar'
+        },
         dataType: 'json',
     }).done(function(results) {
         console.log(results)
