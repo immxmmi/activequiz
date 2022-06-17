@@ -728,8 +728,10 @@ activequiz.show_chart_hide = function () {
     var chart = document.getElementById('chart');
 
     if(chart.style.display == "none"){
+        chart.value = "hide";
         chart.style.display = "";
     }else{
+        chart.value = "show";
         chart.style.display = "none";
     }
 };
