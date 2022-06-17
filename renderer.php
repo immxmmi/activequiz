@@ -403,7 +403,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
 
         $output .= '	
-        <div class="container" id= "chart" >
+        <div class="container" id= "chart" style="display: none">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
 			</div>
