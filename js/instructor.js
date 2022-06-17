@@ -20,7 +20,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-import {Chart} from "./chart/Chart.min";
+const Chart = require('./chart/Chart.min.js');
 
 
 // ensure that the namespace is defined
