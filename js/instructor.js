@@ -793,7 +793,7 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var params = {
         sessionid: activequiz.get('sessionid'),
-        type: chart_typ
+        type: 'bar'
     };
 
     var jsonData = $.ajax({
