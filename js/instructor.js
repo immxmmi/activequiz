@@ -738,6 +738,10 @@ activequiz.show_chart_hide = function () {
 };
 
 
+
+
+var myChart = null;
+
 activequiz.show_chart_bar = function () {
 
     create_chart('bar');
@@ -753,9 +757,6 @@ activequiz.show_chart_doughnut = function () {
 };
 
 
-
-
-
 function create_chart(chart_typ){
 
     var hide_btn = document.getElementById('show_chart_hide');
@@ -769,7 +770,7 @@ function create_chart(chart_typ){
     //create a drawing context on the canvas
     var ctx = apiChart.getContext("2d");
 
-    var myChart = null;
+
 
     //declare variables
     var data;
@@ -795,3 +796,8 @@ function create_chart(chart_typ){
 };
 
 
+var destroyChart = function() {
+    if( skillChart !== null ) {
+        skillChart.destroy();
+    }
+};
