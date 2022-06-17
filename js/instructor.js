@@ -805,7 +805,9 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-    var myChart = new Chart(ctx, {
+    require(['.chart/Chart.min.js'], function(Chart){
+
+    const myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -841,7 +843,7 @@ activequiz.show_chart_bar = function () {
             }
         }
     });
-
+    });
 
 
 
