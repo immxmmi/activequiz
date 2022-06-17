@@ -801,7 +801,7 @@ activequiz.show_chart_bar = function () {
         dataType: 'json',
     }).done(function(results) {
     });
-        console.log(jsonData);
+        console.log(jsonData.data);
 
    // create_chart('bar');
 };
