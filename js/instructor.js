@@ -772,6 +772,18 @@ function create_chart(chart_typ){
 
 };
 
+
+
+activequiz.show_chart_pie = function () {
+
+    create_chart('pie');
+};
+
+activequiz.show_chart_doughnut = function () {
+    create_chart('doughnut');
+};
+
+
 activequiz.show_chart_bar = function () {
 
 
@@ -800,21 +812,10 @@ activequiz.show_chart_bar = function () {
         params: params,
         dataType: 'json',
     }).done(function(results) {
+        console.log(results)
     });
-        console.log(jsonData.data);
+    console.log(jsonData);
 
-   // create_chart('bar');
+    // create_chart('bar');
 };
-
-
-activequiz.show_chart_pie = function () {
-
-    create_chart('pie');
-};
-
-activequiz.show_chart_doughnut = function () {
-    create_chart('doughnut');
-};
-
-
 
