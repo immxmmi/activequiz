@@ -735,48 +735,9 @@ activequiz.show_chart_hide = function () {
 };
 
 
-function create_chart(chart_typ){
-
-    var apiChart = document.getElementById('apiChart');
-    var skillChart = null;
-    var url = './chart/chart_api.php';
-    var params = {
-        sessionid: activequiz.get('sessionid'),
-        type: chart_typ
-    };
-    jQuery.get(url, params, redrawChart).fail(function(data) {
-        destroyChart();
-        alert(data.responseJSON.meta.msg);
-    });
-
-
-    var destroyChart = function() {
-        if( skillChart !== null ) {
-            skillChart.destroy();
-        }
-    };
-
-    var redrawChart = function(data) {
-        if( data.meta.status === 'error' ) {
-            alert(data.meta.msg);
-            return;
-        }
-
-        destroyChart();
-        skillChart = new Chart(apiChart, {
-            type: data.data.charttype,
-            data: data.data.chartdata,
-            options: data.data.chartoptions
-        });
-
-    }
-
-
-
-
+activequiz.show_chart_bar = function () {
+    create_chart('bar');
 };
-
-
 
 activequiz.show_chart_pie = function () {
 
@@ -788,34 +749,29 @@ activequiz.show_chart_doughnut = function () {
 };
 
 
-activequiz.show_chart_bar = function () {
 
 
+
+function create_chart(chart_typ){
     // CHART
     var apiChart = document.getElementById('apiChart');
-
     //create a drawing context on the canvas
     var ctx = apiChart.getContext("2d");
 
-
-
     //declare variables
     var data;
-
     var url = './chart/chart_api.php';
-    var chartTyp = 'bar'
 
     require(['./js/chart/Chart.min.js'], function(Chart){
-
         $.ajax({
-            url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
+            url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chart_typ + '',
             dataType: 'json',
         }).done(function (results) {
             type = results.data.charttype;
             data = results.data.chartdata;
             options = results.data.chartoptions;
 
-           const myChart = new Chart(ctx, {
+            const myChart = new Chart(ctx, {
                 type: type,
                 data: data,
                 options: options
@@ -823,30 +779,5 @@ activequiz.show_chart_bar = function () {
         });
     });
 
-
-
-    /*
-    $(document).ready(function (){
-    $.ajax({
-            url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
-            dataType: 'json',
-        }).done(function (results) {
-            type = results.data.charttype;
-            data = results.data.chartdata;
-            options = results.data.chartoptions;
-
-            myChart = new Chart(ctx, {
-                type: type,
-                data: data,
-                options: options
-            })
-        });
-    });
-*/
-
-
-
-
-    // create_chart('bar');
 };
 
