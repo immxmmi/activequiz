@@ -799,22 +799,22 @@ activequiz.show_chart_bar = function () {
 
     //declare variables
     var myChart;
-    var data = {};
+    var data;
 
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-    $( document ).ready(function() {
         $.ajax({
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
             dataType: 'json',
         }).done(function (results) {
-            myChart = new Chart(ctx, {
-                data: results.data.chartdata,
-                options: results.data.chartoptions
-            })
+            data = results;
+            //myChart = new Chart(ctx, {
+            //    data: results.data.chartdata,
+            //    options: results.data.chartoptions
+            //})
         });
-    });
+        console.log(data);
 
 
 
