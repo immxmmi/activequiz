@@ -811,14 +811,14 @@ activequiz.show_chart_bar = function () {
         data = results;
     });
 
-
+/*
     myChart = new Chart(ctx,{
         data: data.data.chartdata,
         options: data.data.chartoptions
     })
+*/
 
-
-    console.log(myChart);
+    console.log(data.data);
 
     // create_chart('bar');
 };
