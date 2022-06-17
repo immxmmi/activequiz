@@ -818,7 +818,7 @@ activequiz.show_chart_bar = function () {
     })
 */
 
-    console.log(data.data);
+    console.log(data);
 
     // create_chart('bar');
 };
