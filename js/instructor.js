@@ -804,18 +804,16 @@ activequiz.show_chart_bar = function () {
     var skillChart = null;
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
-    var params = {
-        sessionid: activequiz.get('sessionid'),
-        type: 'bar'
-    };
+
+
     var jsonData = $.ajax({
-        url: './chart/chart_api.php?sessionid='+activequiz.get('sessionid')+'&type='+chartTyp+'',
+        url: ''+url+'?sessionid='+activequiz.get('sessionid')+'&type='+chartTyp+'',
         dataType: 'json',
     }).done(function(results) {
         console.log(results)
     });
-    console.log(jsonData);
 
+    jsonData;
     // create_chart('bar');
 };
 
