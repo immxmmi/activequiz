@@ -795,14 +795,13 @@ activequiz.show_chart_bar = function () {
         sessionid: activequiz.get('sessionid'),
         type: 'bar'
     };
-
     var jsonData = $.ajax({
         url: url,
         params: params,
         dataType: 'json',
     }).done(function(results) {
-        console.log(results);
     });
+        console.log(jsonData);
 
    // create_chart('bar');
 };
