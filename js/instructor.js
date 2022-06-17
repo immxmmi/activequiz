@@ -804,7 +804,8 @@ activequiz.show_chart_bar = function () {
     var url = './chart/chart_api.php';
     var chartTyp = 'bar'
 
-    $jsonData = $.ajax({
+    $(document).ready(function (){
+    $.ajax({
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chartTyp + '',
             dataType: 'json',
         }).done(function (results) {
@@ -821,6 +822,7 @@ activequiz.show_chart_bar = function () {
                 options: options
             })
         });
+    });
 
 
 
