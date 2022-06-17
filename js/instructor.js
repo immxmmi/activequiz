@@ -777,6 +777,10 @@ function create_chart(chart_typ){
     var url = './chart/chart_api.php';
 
     require(['./js/chart/Chart.min.js'], function(Chart){
+
+        destroyChart();
+
+
         $.ajax({
             url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chart_typ + '',
             dataType: 'json',
@@ -797,7 +801,7 @@ function create_chart(chart_typ){
 
 
 var destroyChart = function() {
-    if( skillChart !== null ) {
-        skillChart.destroy();
+    if( myChart !== null ) {
+        myChart.destroy();
     }
 };
