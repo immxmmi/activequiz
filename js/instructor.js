@@ -816,6 +816,7 @@ activequiz.show_chart_bar = function () {
     })
 
 
+    console.log(myChart);
 
     // create_chart('bar');
 };
