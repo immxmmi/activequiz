@@ -728,10 +728,6 @@ activequiz.show_chart_hide = function () {
     var chart = document.getElementById('chart');
     var hide_btn = document.getElementById('show_chart_hide');
 
-    console.log(hide_btn.value)
-
-
-
     if(chart.style.display == "none"){
         hide_btn.innerText = "hide";
         chart.style.display = "";
@@ -743,6 +739,7 @@ activequiz.show_chart_hide = function () {
 
 
 activequiz.show_chart_bar = function () {
+
     create_chart('bar');
 };
 
@@ -760,6 +757,13 @@ activequiz.show_chart_doughnut = function () {
 
 
 function create_chart(chart_typ){
+
+    var hide_btn = document.getElementById('show_chart_hide');
+    var chart = document.getElementById('chart');
+    chart.style.display = "";
+    hide_btn.innerText = "hide";
+
+
     // CHART
     var apiChart = document.getElementById('apiChart');
     //create a drawing context on the canvas
