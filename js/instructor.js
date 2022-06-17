@@ -725,7 +725,7 @@ activequiz.clear_and_hide_notresponded = function () {
 
 activequiz.show_chart_hide = function () {
 
-    var chart = document.getElementById('apiChart');
+    var chart = document.getElementById('chart');
 
     if(chart.style.display == "none"){
         chart.style.display = "";
