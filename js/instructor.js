@@ -774,7 +774,7 @@ function create_chart(chart_typ){
             options = results.data.chartoptions;
 
             if( myChart !== null ) {
-                myChart.destroy();
+                apiChart.destroy();
             }
             myChart = new Chart(ctx, {
                 type: type,
