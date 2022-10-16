@@ -1,4 +1,5 @@
-# Active Quiz
+# V.3.0              16.10.2022
+## Active Quiz
 
 ## What is it?
 This is a type of quiz designed to be used in face-to-face lessons, with a classroom full of computers/tablets/phones.
