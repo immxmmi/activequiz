@@ -1,5 +1,4 @@
 
-
     var apiChart = null;
     var skillChart = null;
 
@@ -47,4 +46,3 @@
             options: data.data.chartoptions
         });
     };
-
