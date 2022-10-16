@@ -28,31 +28,28 @@ require_once($CFG->dirroot . '/question/engine/lib.php');
  * @copyright 2014 University of Wisconsin - madison
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodifier {
+class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodifier
+{
 
 
-    public function requires_jquery() {
+    public function requires_jquery()
+    {
     }
 
-    public function add_css() {
+    public function add_css()
+    {
     }
 
     /**
      * Add chart.js to the page
      *
      */
-    public function add_js() {
+    public function add_js()
+    {
         global $PAGE;
-<<<<<<< HEAD
-
-        $PAGE->requires->js('/mod/activequiz/js/chartdata/Chart.min.js');
-        $PAGE->requires->js('/mod/activequiz/js/chart_js_api.js');
-
-=======
-        $PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
-      // $PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
-       $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
->>>>>>> v3.0
+        //$PAGE->requires->js('/mod/activequiz/js/chartjs/Chart.min.js');
+        //$PAGE->requires->js('/mod/activequiz/js/chart/Chart.min.js');
+       // $PAGE->requires->js('/mod/activequiz/js/chart_api.js');
     }
 
     /**
@@ -60,11 +57,12 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      * with the percentage of students that answered that option
      *
      * @param \mod_activequiz\activequiz_question $question The realtime quiz question
-     * @param array                               $attempts An array of \mod_activequiz\activequiz_attempt classes
-     * @param string                              $output The current output from getting the results
+     * @param array $attempts An array of \mod_activequiz\activequiz_attempt classes
+     * @param string $output The current output from getting the results
      * @return string Return the updated output to be passed to the client
      */
-    public function modify_questionresults_duringquiz($question, $attempts, $output) {
+    public function modify_questionresults_duringquiz($question, $attempts, $output)
+    {
         global $DB;
 
 
@@ -90,8 +88,6 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
             // now get question definition
             $questiondef = $qa->get_question();
 
-
-
             // if dbanswers is empty get them from the question definition (as this will be the same for all attempts for this slot
             // also save a db query
             if (empty($dbanswers)) {
@@ -109,7 +105,7 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
         }
         $xaxis = array();
         foreach ($dbanswers as $dbanswer) {
-            $xaxis[ $dbanswer->id ] = \question_utils::to_plain_text($dbanswer->answer, $dbanswer->answerformat);
+            $xaxis[$dbanswer->id] = \question_utils::to_plain_text($dbanswer->answer, $dbanswer->answerformat);
         }
 
         $newoutput = $this->add_chart($output, $xaxis, $answers);
@@ -121,12 +117,13 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
     /**
      *
      *
-     * @param array                              $answers The overall answers array that handles the count of answers
-     * @param \question_attempt                  $qa
+     * @param array $answers The overall answers array that handles the count of answers
+     * @param \question_attempt $qa
      * @param \qtype_multichoice_single_question $questiondef
      *
      */
-    protected function update_answers_single(&$answers, $qa, $questiondef) {
+    protected function update_answers_single(&$answers, $qa, $questiondef)
+    {
 
 
         // get the latest step that has an answer
@@ -142,14 +139,14 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
 
             // make sure the response answer actually exists in the order
             if (array_key_exists($response['answer'], $answerorder)) {
-                $studentanswer = $questiondef->answers[ $answerorder[ $response['answer'] ] ];
+                $studentanswer = $questiondef->answers[$answerorder[$response['answer']]];
 
                 // update the count of the answerid on the answers array
-                if (isset($answers[ $studentanswer->id ])) {
-                    $current = (int)$answers[ $studentanswer->id ];
-                    $answers[ $studentanswer->id ] = $current + 1;
+                if (isset($answers[$studentanswer->id])) {
+                    $current = (int)$answers[$studentanswer->id];
+                    $answers[$studentanswer->id] = $current + 1;
                 } else {
-                    $answers[ $studentanswer->id ] = 1;
+                    $answers[$studentanswer->id] = 1;
                 }
             }
         }
@@ -158,11 +155,12 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
     /**
      *
      *
-     * @param array                             $answers The overall answers array that handles the count of answers
-     * @param \question_attempt                 $qa
+     * @param array $answers The overall answers array that handles the count of answers
+     * @param \question_attempt $qa
      * @param \qtype_multichoice_multi_question $questiondef
      */
-    protected function update_answers_multi(&$answers, $qa, $questiondef) {
+    protected function update_answers_multi(&$answers, $qa, $questiondef)
+    {
 
         // get the order first so we can get the field ids
         $answerorder = $questiondef->get_order($qa);
@@ -179,13 +177,13 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
                 // next loop through the order to check if the 'choice' . $key are equal to 1
                 // (signifies that the student answered with that answer)
                 foreach ($answerorder as $key => $ansid) {
-                    if (!empty($response[ 'choice' . $key ])) {
+                    if (!empty($response['choice' . $key])) {
                         // update the count of the answerid on the answers array
-                        if (isset($answers[ $ansid ])) {
-                            $current = (int)$answers[ $ansid ];
-                            $answers[ $ansid ] = $current + 1;
+                        if (isset($answers[$ansid])) {
+                            $current = (int)$answers[$ansid];
+                            $answers[$ansid] = $current + 1;
                         } else {
-                            $answers[ $ansid ] = 1;
+                            $answers[$ansid] = 1;
                         }
                     }
                 }
@@ -198,173 +196,132 @@ class multichoice implements \mod_activequiz\questionmodifiers\ibasequestionmodi
      *
      *
      * @param string $output The current output defined by
-     * @param array  $xaxis an array of answer text values keyed by their answer id
-     * @param array  $answers an array of answer count keyed by the answer id
+     * @param array $xaxis an array of answer text values keyed by their answer id
+     * @param array $answers an array of answer count keyed by the answer id
      *
      * @return string
      */
-    protected function add_chart($output, $xaxis, $answers) {
-
+    protected function add_chart($output, $xaxis, $answers)
+    {
 
         $totalanswers = 0;
         foreach ($answers as $answercount) {
             $totalanswers = $totalanswers + $answercount;
         }
 
-<<<<<<< HEAD
-
-
-        $chartoutput = '	<div>
-=======
         $chartoutput = '';
 
-/*
-        $chartoutput .= '	<div>
->>>>>>> v3.0
-			<form action="javascript:void(0);">
-                <input type="hidden" id="sessionid" value="11">
-
-                <label for="type">Chart Type:</label>
-
-
-				<select id="charttype" name="type">
-					<option value="none">--- choose a chart ---</option>
-					<option value="pie">Pie-Chart</option>
-					<option value="bar">Bar-Chart</option>
-					<option value="doughnut">Doughnut-Chart</option>
-					<option value="unknown">Unknown-Chart</option>
-				</select>
-            </form>
-            <script type="text/javascript">
-                    skillChart = null;
-        apiChart = jQuery("#apiChart");
-        jQuery("#charttype").bind("change", changeChartTypeHandler); </script>
-        </div>
-
+        /*
         <div class="container">
 			<div class="chartwrapper">
 				<canvas id="apiChart"></canvas>
 			</div>
-        </div>
-';
-
-<<<<<<< HEAD
-=======
-
+			</div>
+        </div>';
 */
 
->>>>>>> v3.0
-
-
-
         // now set up chart vars to be then put into javascript
+        /*
+                $chartheight = 600;
+                $chartwidth = 600;
+                $labels = array();
+                $percentagedatasetdata = array();
+                $countdatasetdata = array();
+                foreach ($xaxis as $ansid => $xaxisitem) {
 
-        $chartheight = 600;
-        $chartwidth = 600;
-        $labels = array();
-        $percentagedatasetdata = array();
-        $countdatasetdata = array();
-        foreach ($xaxis as $ansid => $xaxisitem) {
+                    if (strlen($xaxisitem) > 30) {
+                        // if we have really long answers make the chart taller so that the chart section doesn't
+                        // get pushed up
+                        $chartheight = 800;
+                    }
 
-            if (strlen($xaxisitem) > 30) {
-                // if we have really long answers make the chart taller so that the chart section doesn't
-                // get pushed up
-                $chartheight = 800;
-            }
+                    $labels[] = $xaxisitem;
 
-            $labels[] = $xaxisitem;
+                    if (isset($answers[ $ansid ])) {
+                        // we have a value for this answer so get the count
+                        $anscount = $answers[ $ansid ];
+                    } else {
+                        $anscount = 0; // otherwise no one answered this option so it's 0
+                    }
+                    // set the data set values
+                    $countdatasetdata[] = $anscount;
+                    $percentagedatasetdata[] = $anscount / $totalanswers;
+                }
 
-            if (isset($answers[ $ansid ])) {
-                // we have a value for this answer so get the count
-                $anscount = $answers[ $ansid ];
-            } else {
-                $anscount = 0; // otherwise no one answered this option so it's 0
-            }
-            // set the data set values
-            $countdatasetdata[] = $anscount;
-            $percentagedatasetdata[] = $anscount / $totalanswers;
-        }
+                if (count($labels) > 6) {
+                    // if we have a lot of answers make the chart wider
+                    $chartwidth = 800;
+                }
 
-        if (count($labels) > 6) {
-            // if we have a lot of answers make the chart wider
-            $chartwidth = 800;
-        }
+                $chartoutput = '';
+                //$chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
+                $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'apiChart', 'width' => $chartwidth, 'height' => $chartheight));
+                $chartoutput .= \html_writer::start_tag('script', array('type' => 'text/javascript', 'id' => 'multichoice_js'));
 
-        $chartoutput = '';
-        //$chartoutput .= \html_writer::tag('canvas', '', array('id' => 'multichoicechart', 'width' => $chartwidth, 'height' => $chartheight));
-        $chartoutput .= \html_writer::tag('canvas', '', array('id' => 'apiChart', 'width' => $chartwidth, 'height' => $chartheight));
-        $chartoutput .= \html_writer::start_tag('script', array('type' => 'text/javascript', 'id' => 'multichoice_js'));
+                   // var ctx = document.getElementById("multichoicechart").getContext("2d");
+                $chartoutput .= '
+                    var ctx = document.getElementById("apiChart").getContext("2d");
+                ';
 
-           // var ctx = document.getElementById("multichoicechart").getContext("2d");
-        $chartoutput .= '
-            var ctx = document.getElementById("apiChart").getContext("2d");
-        ';
+                // create javascript vars to then json encode for the output
 
-        // create javascript vars to then json encode for the output
+                $data = new \stdClass();
+                $data->labels = $labels;
+                $data->datasets = array();
 
-        $data = new \stdClass();
-        $data->labels = $labels;
-        $data->datasets = array();
+                $countdataset = new \stdClass();
+                $countdataset->label = get_string('countdatasetlabel', 'activequiz');
+                $countdataset->fillColor = "#72E07A";
+                $countdataset->strokeColor = "#549C59";
+                $countdataset->highlightFill = "#B7EDBA";
+                $countdataset->highlightStroke = "#98EB9E";
+                $countdataset->data = $countdatasetdata;
+                $data->datasets[] = $countdataset;
 
-        $countdataset = new \stdClass();
-        $countdataset->label = get_string('countdatasetlabel', 'activequiz');
-        $countdataset->fillColor = "#72E07A";
-        $countdataset->strokeColor = "#549C59";
-        $countdataset->highlightFill = "#B7EDBA";
-        $countdataset->highlightStroke = "#98EB9E";
-        $countdataset->data = $countdatasetdata;
-        $data->datasets[] = $countdataset;
+                $percentagedataset = new \stdClass();
+                $percentagedataset->label = get_string('percentagedatasetlabel', 'activequiz');
+                $percentagedataset->fillColor = "rgba(220,220,220,0.5)";
+                $percentagedataset->strokeColor = "rgba(220,220,220,0.8)";
+                $percentagedataset->highlightFill = "rgba(220,220,220,0.75)";
+                $percentagedataset->highlightStroke = "rgba(220,220,220,1)";
+                $percentagedataset->data = $percentagedatasetdata;
 
-        $percentagedataset = new \stdClass();
-        $percentagedataset->label = get_string('percentagedatasetlabel', 'activequiz');
-        $percentagedataset->fillColor = "rgba(220,220,220,0.5)";
-        $percentagedataset->strokeColor = "rgba(220,220,220,0.8)";
-        $percentagedataset->highlightFill = "rgba(220,220,220,0.75)";
-        $percentagedataset->highlightStroke = "rgba(220,220,220,1)";
-        $percentagedataset->data = $percentagedatasetdata;
+                $options = new \stdClass();
+                $options->scaleBeginAtZero = true;
+                $options->scaleShowGridLines = true;
+                $options->scaleGridLineColor = "rgba(0,0,0,.05)";
+                $options->scaleGridLineWidth = 1;
+                $options->barShowStroke = true;
+                $options->barStrokeWidth = 2;
+                $options->barValueSpacing = 5;
+                $options->barDatasetSpacing = 1;
+                $options->legendTemplate = "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>";
+                //$options->responsive = true;
+                $options->scaleOverride = true;
 
-        $options = new \stdClass();
-        $options->scaleBeginAtZero = true;
-        $options->scaleShowGridLines = true;
-        $options->scaleGridLineColor = "rgba(0,0,0,.05)";
-        $options->scaleGridLineWidth = 1;
-        $options->barShowStroke = true;
-        $options->barStrokeWidth = 2;
-        $options->barValueSpacing = 5;
-        $options->barDatasetSpacing = 1;
-        $options->legendTemplate = "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>";
-        //$options->responsive = true;
-        $options->scaleOverride = true;
+                // set up scale values
+                if ($totalanswers < 10) {
+                    $options->scaleSteps = 2;
+                } else {
 
-        // set up scale values
-        if ($totalanswers < 10) {
-            $options->scaleSteps = 2;
-        } else {
+                    $steps = ceil($totalanswers / 5);
+                    // always add one step for some padding
+                    $steps = $steps + 1;
+                    $options->scaleSteps = $steps;
+                }
+                $options->scaleStepWidth = 5;
 
-            $steps = ceil($totalanswers / 5);
-            // always add one step for some padding
-            $steps = $steps + 1;
-            $options->scaleSteps = $steps;
-        }
-        $options->scaleStepWidth = 5;
-
-        $chartoutput .= '
-            var data = ' . json_encode($data) . ';
-            var options = ' . json_encode($options) . ';
-            var MultiChoiceChart = new Chart(ctx).Bar(data, options);
-        ';
-        $chartoutput .= \html_writer::end_tag('script');
-<<<<<<< HEAD
-**/
-        return $chartoutput ;//. $output;
-=======
+                $chartoutput .= '
+                    var data = ' . json_encode($data) . ';
+                    var options = ' . json_encode($options) . ';
+                    var MultiChoiceChart = new Chart(ctx).Bar(data, options);
+                ';
+                $chartoutput .= \html_writer::end_tag('script');
 
 
 
-
-
+        */
         return $chartoutput . $output;
->>>>>>> v3.0
     }
 
 }

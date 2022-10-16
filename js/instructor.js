@@ -20,9 +20,13 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+
+
+
 // ensure that the namespace is defined
 var activequiz = activequiz || {};
 activequiz.vars = activequiz.vars || {};
+
 
 /**
  * The instructor's getQuizInfo function
@@ -721,44 +725,83 @@ activequiz.clear_and_hide_notresponded = function () {
 
 activequiz.show_chart_hide = function () {
 
-    var chart = document.getElementById('apiChart');
+    var chart = document.getElementById('chart');
+    var hide_btn = document.getElementById('show_chart_hide');
 
     if(chart.style.display == "none"){
+        hide_btn.innerText = "hide";
         chart.style.display = "";
     }else{
+        hide_btn.innerText = "show";
         chart.style.display = "none";
     }
 };
 
+
+
+
+var myChart = null;
+
 activequiz.show_chart_bar = function () {
 
-    var chart = document.getElementById('apiChart');
-
-    if(chart.style.display == "none"){
-        chart.style.display = "";
-    }else{
-        chart.style.display = "none";
-    }
+    create_chart('bar');
 };
 
 activequiz.show_chart_pie = function () {
 
-    var chart = document.getElementById('apiChart');
-
-    if(chart.style.display == "none"){
-        chart.style.display = "";
-    }else{
-        chart.style.display = "none";
-    }
+    create_chart('pie');
 };
 
 activequiz.show_chart_doughnut = function () {
+    create_chart('doughnut');
+};
 
-    var chart = document.getElementById('apiChart');
 
-    if(chart.style.display == "none"){
-        chart.style.display = "";
-    }else{
-        chart.style.display = "none";
+function create_chart(chart_typ){
+
+    var hide_btn = document.getElementById('show_chart_hide');
+    var chart = document.getElementById('chart');
+    chart.style.display = "";
+    hide_btn.innerText = "hide";
+
+
+    // CHART
+    var apiChart = document.getElementById('apiChart');
+    //create a drawing context on the canvas
+    var ctx = apiChart.getContext("2d");
+
+
+
+    //declare variables
+    var data;
+    var url = './chart/chart_api.php';
+
+    require(['./js/chart/Chart.min.js'], function(Chart){
+
+        destroyChart();
+
+
+        $.ajax({
+            url: '' + url + '?sessionid=' + activequiz.get('sessionid') + '&type=' + chart_typ + '',
+            dataType: 'json',
+        }).done(function (results) {
+            type = results.data.charttype;
+            data = results.data.chartdata;
+            options = results.data.chartoptions;
+
+            myChart = new Chart(ctx, {
+                type: type,
+                data: data,
+                options: options
+            })
+        });
+    });
+
+};
+
+
+var destroyChart = function() {
+    if( myChart !== null ) {
+        myChart.destroy();
     }
 };
