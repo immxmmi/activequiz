@@ -5,7 +5,6 @@ require_once("../../../config.php");
 <hthml>
     <head>
         <meta charset="utf-8">
-<<<<<<< HEAD
         <title>Chart</title>
         <style type="text/css">
             .chartwrapper {
@@ -15,15 +14,7 @@ require_once("../../../config.php");
         <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
         <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chart_js/Chart.min.js"></script>
         <script src="../js/chart_js_api.js"></script>
-=======
-        <title>Chart 1.0</title>
-		<style type="text/css">
-			.chartwrapper {
-				width: 640px;
-			}
-		</style>
-		<script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-        <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chartjs/Chart.min.js"></script>
+
 		<script>
 			var apiChart = null;
 			var skillChart = null;
