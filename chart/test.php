@@ -26,22 +26,20 @@ $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
-var_dump($activequiz_attempt);
 
-echo '<pre>'; var_dump($activequiz_attempt); echo '</pre>';
-echo "<br>";
-echo "<br>";
-echo "<br>";
-print_r($activequiz_attempt);
 
 
 
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$slot = $session->getCurrentquestion(); // SLOT
+$slot = 0;//$session->getCurrentquestion(); // SLOT
 // $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
+
+
+
+
 
 $answers = $question_attemp->getListOfAnswers();
 
