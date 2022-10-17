@@ -31,10 +31,12 @@ $answers = $question_attemp->getListOfAnswers();
 
 $ListOfAllquestion = [];
 
+
 foreach ( $allquestionengids as $questionID){
     array_push( $ListOfAllquestion, $questionID);
 }
 
 print_r($ListOfAllquestion);
+print_r($answers);
 
 
