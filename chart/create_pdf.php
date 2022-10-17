@@ -11,13 +11,18 @@
         </style>
 
         <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-        <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/pdf_generator.js"></script>
+        <script src="../js/pdf_generator.js"></script>
+
+
+        <script>
+            createPdf();
+        </script>
+
 
 
         <!--
-        <script src="../js/chart_js_api.js"></script>
-
         <script>
+
             var apiChart = null;
             var skillChart = null;
 
