@@ -12,14 +12,23 @@ require_once("class/truefalsechoice.php");
 global $DB;
 
 // Parameter
-$questuinid = optional_param('questionID', false, PARAM_TEXT);
+$questuinid = optional_param('questionID', PARAM_TEXT);
+$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 
 //QUIZ BUILDER
 //$quiz = new quiz_builder();
+# # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
+$activequiz_attempt = new activequiz_attempt($sessionid);
+$allquestionengids = $activequiz_attempt->getAllQuestionengids();
+#######################################################
+
+
 $question= new mdl_question($questuinid);
 
 
 echo "<pre>";
+var_dump($allquestionengids);
+echo "</pre>";
 var_dump($question->getId());
 var_dump($question->getName());
 var_dump($question->getQuestiontext());
