@@ -47,7 +47,7 @@ $questionID = $question_attemp->getQuestionId();
 
 var_dump($answers);
 
-echo '<pre>'; var_dump($questionID); echo '</pre>';
+echo '<pre>'; var_dump($question_attemp); echo '</pre>';
 echo "<br>";
 echo "<br>";
 echo "<br>";
