@@ -13,7 +13,7 @@ global $DB;
 // Parameter
 //$charttype = optional_param('type', false, PARAM_TEXT); //
 //$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-$sessionid = 1; //$sessionID = 46;
+$sessionid = 2; //$sessionID = 46;
 $charttype = "bar"; //
 $chart = new chart_builder();
 
