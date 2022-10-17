@@ -12,7 +12,7 @@ global $DB;
 
 // Parameter
 
-$question = optional_param('question', false, PARAM_TEXT); //
+//$question = optional_param('question', false, PARAM_TEXT); //
 $quiz = new quiz_builder();
 
 
