@@ -43,7 +43,7 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 
 $answers = $question_attemp->getListOfAnswers();
 
-$questionID = $question_attemp->getQuestionusageid();
+$questionID = $question_attemp->getQuestionId();
 
 var_dump($questionID);
 
