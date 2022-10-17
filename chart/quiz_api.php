@@ -24,6 +24,7 @@ echo "<pre>";
 var_dump($question->getId());
 var_dump($question->getName());
 var_dump($question->getQuestiontext());
+echo strip_tags($question->getQuestiontext());
 echo "</pre>";
 
 
