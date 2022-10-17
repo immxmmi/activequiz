@@ -29,14 +29,12 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 
 $answers = $question_attemp->getListOfAnswers();
 
-
-
-
-
+$ListOfAllquestion[] = [];
 
 foreach ( $allquestionengids as $questionID){
-    print_r($questionID);
+    array_push( $ListOfAllquestion, $questionID);
 }
 
+print_r($ListOfAllquestion);
 
 
