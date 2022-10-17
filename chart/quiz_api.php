@@ -14,7 +14,7 @@ global $DB;
 $questuinid = optional_param('questionID', false, PARAM_TEXT);
 
 //QUIZ BUILDER
-$quiz = new quiz_builder();
+//$quiz = new quiz_builder();
 $question= new mdl_question($questuinid);
 
 
