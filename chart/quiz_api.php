@@ -11,15 +11,10 @@ require_once("class/truefalsechoice.php");
 global $DB;
 
 // Parameter
-$charttype = optional_param('type', false, PARAM_TEXT); //
-//$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-//$chart = new chart_builder();
+$questuinid = optional_param('questionID', false, PARAM_TEXT);
 
-var_dump($charttype);
-//echo json_decode($charttype, JSON_PRETTY_PRINT);
+var_dump($questuinid);
 
-//echo json_encode($data, JSON_PRETTY_PRINT);
-//exit;
 
 
 
