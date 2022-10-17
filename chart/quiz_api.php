@@ -13,7 +13,17 @@ global $DB;
 // Parameter
 $questuinid = optional_param('questionID', false, PARAM_TEXT);
 
-var_dump($questuinid);
+//QUIZ BUILDER
+$quiz = new quiz_builder();
+$question= new mdl_question($questuinid);
+
+
+
+echo "<pre>";
+var_dump($question);
+echo "</pre>";
+
+
 
 
 
