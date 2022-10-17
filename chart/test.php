@@ -47,17 +47,9 @@ print_r($ListOfAllquestion);
 //var_dump($q->getQuestionsummary());
 //echo"<pre>";
 
-//$question= new mdl_question(2);
+$question= new mdl_question(2);
 
 
-/*
-$id = 2;
-global $DB;
-        $sql = 'SELECT * FROM "public"."mdl_question" WHERE id = :id';
-        $params = array('id' => $id);
-        $result = $DB->get_records_sql($sql, $params);
-
-*/
 
 
 $id = 2;
@@ -68,7 +60,8 @@ var_dump($result);
 
 
 
-    //    var_dump($question);
+
+var_dump($question);
 
 
 

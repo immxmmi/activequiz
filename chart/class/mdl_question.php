@@ -17,8 +17,8 @@ class mdl_question
                 $sql = 'SELECT * FROM "public"."mdl_question" WHERE id = :id';
                 $params = array('id' => $id);
                 $result = $DB->get_records_sql($sql, $params);
-                $this->id = $result->id;
-                $this->category = $result->category;
+                //$this->id = $result->id;
+                //$this->category = $result->category;
                 $this->name->name;
                 $this->questiontext->questiontext;
 
