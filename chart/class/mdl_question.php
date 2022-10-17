@@ -29,6 +29,39 @@ class mdl_question
 
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuestiontext()
+    {
+        return $this->questiontext;
+    }
+
+
 
 
 
