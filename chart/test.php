@@ -59,11 +59,13 @@ $result = $DB->get_records_sql($sql, $params);
 //var_dump($result);
 
 
+foreach ($result as $q){
+
 echo "<pre>";
-var_dump($result['id']);
-var_dump($result->id);
+var_dump($q);
 echo "</pre>";
 
+}
 
 
 
