@@ -62,7 +62,7 @@ $result = $DB->get_records_sql($sql, $params);
 foreach ($result as $q){
 
 echo "<pre>";
-var_dump($q);
+var_dump($q->id);
 echo "</pre>";
 
 }
