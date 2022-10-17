@@ -43,7 +43,7 @@ echo "<br>";
 echo "<br>";
 */
 
-echo '<pre>'; var_dump($allquestionengids[0]); echo '</pre>';
+echo '<pre>'; sizeof($allquestionengids); echo '</pre>';
 echo "<br>";
 echo "<br>";
 //echo '<pre>'; var_dump($allquestionengids); echo '</pre>';
