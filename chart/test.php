@@ -27,7 +27,7 @@ $slot = 1;//$session->getCurrentquestion(); // SLOT
 $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
 
-$answers = $question_attemp->getListOfAnswers();
+$answers = $question_attemp->getListOfAnswers()[0];
 
 $ListOfAllquestion = [];
 
@@ -41,7 +41,8 @@ print_r($ListOfAllquestion);
 
 
 echo"<pre>";
-var_dump($answers[0][0]->getQuestionID());
-var_dump($answers[0][0]->getQuestionsummary());
+foreach ($answers as $q)
+var_dump($q->getQuestionID());
+var_dump($q->getQuestionsummary());
 echo"<pre>";
 
