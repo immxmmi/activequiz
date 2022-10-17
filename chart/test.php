@@ -60,7 +60,8 @@ $result = $DB->get_records_sql($sql, $params);
 
 
 echo "<pre>";
-var_dump($result);
+var_dump($result['id']);
+var_dump($result->id);
 echo "</pre>";
 
 
