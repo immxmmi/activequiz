@@ -46,6 +46,7 @@ echo "<br>";
 echo '<pre>'; var_dump($allquestionengids); echo '</pre>';
 echo "<br>";
 echo "<br>";
+echo '<pre>'; var_dump($question_attemp->getQuestionid()); echo '</pre>';
 print_r($allquestionengids);
 print_r($answers);
 print_r($answers);
