@@ -16,7 +16,7 @@ $quiz = new quiz_builder();
 
 
 $data = null;
-$chart->setInfo("no Question Type Found!");
+$quiz->setInfo("no Question Type Found!");
 $quiz = $quiz->build_quiz_data("test");
 
 
