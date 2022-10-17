@@ -28,6 +28,11 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 
 var_dump($activequiz_attempt);
 
+echo '<pre>'; var_dump($activequiz_attempt); echo '</pre>';
+echo "<br>";
+echo "<br>";
+echo "<br>";
+print_r($activequiz_attempt);
 
 
 
