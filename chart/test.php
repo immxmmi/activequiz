@@ -59,7 +59,7 @@ $result = $DB->get_records_sql($sql, $params);
 //var_dump($result);
 
 echo "<pre>";
-var_dump($result[0]);
+var_dump($result[1]);
 echo "</pre>";
 
 
