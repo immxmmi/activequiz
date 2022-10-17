@@ -57,9 +57,9 @@ global $DB;
         $params = array('id' => $id);
         $result = $DB->get_records_sql($sql, $params);
 
-        var_dump($result);
 */
 
+        var_dump($question);
 
 
 
