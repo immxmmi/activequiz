@@ -12,50 +12,11 @@ global $DB;
 
 // Parameter
 $charttype = optional_param('type', false, PARAM_TEXT); //
-$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 $quiz = new quiz_builder();
 
-# # # # # # # # -SESSION- # # # # # # # #
-$session = new activequiz_session($sessionid);
-##########################################
 
-# # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
-$activequiz_attempt = new activequiz_attempt($sessionid);
-$allquestionengids = $activequiz_attempt->getAllQuestionengids();
-#######################################################
-
-# # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$slot = $session->getCurrentquestion(); // SLOT
-// $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
-$question_attemp = new question_attempts($allquestionengids, $slot);
-#####################################################
-
-$answers = $question_attemp->getListOfAnswers();
-
-$steps = new attempt_steps($answers);
-$steps = $steps->getAttemptstepids();
-
-$steps_data = new attempt_step_data($steps);
-$steps_data = $steps_data->getStepDataList();
-
-
-
-
-$questionType = "singel";
-$single = new single_choice();
-$trueFalse = new true_false_choice();
 $data = null;
-
 $data = $quiz->build_quiz_data("test");
-
-
-
-
-
-
-
-
-
 
 
 http_response_code($quiz->getResponseCode());
