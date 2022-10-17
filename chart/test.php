@@ -39,7 +39,8 @@ foreach ( $allquestionengids as $questionID){
 print_r($ListOfAllquestion);
 
 
+
 echo"<pre>";
-var_dump($answers->getQuestionsummary());
+var_dump($answers[1]);
 echo"<pre>";
 
