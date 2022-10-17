@@ -12,21 +12,18 @@ require_once("../../../config.php");
         }
     </style>
     <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
-    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+    <script src="../js/pdf_generator.js"></script>
 </head>
 
 <body>
-<p>Click the button to create a PDF document with form fields using <code>pdf-lib</code></p>
 <button onclick="createPdf()">Create PDF</button>
-<p class="small">(Your browser will download the resulting file)</p>
 
 
 
 <script>
     const { PDFDocument, StandardFonts, rgb } = PDFLib
 
-    async function createPdf() {
+    async function createPdf2() {
         // Create a new PDFDocument
         const pdfDoc = await PDFDocument.create()
 
