@@ -3,7 +3,6 @@
     <meta charset="utf-8" />
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
-    <script src="../js/pdf_generator.js"></script>
 </head>
 
 <body>
@@ -12,5 +11,6 @@
 <p class="small">(Your browser will download the resulting file)</p>
 </body>
 
+    <script src="../js/pdf_generator.js"></script>
 
 </html>
