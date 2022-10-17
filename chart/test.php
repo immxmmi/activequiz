@@ -32,7 +32,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$slot = 1;//$session->getCurrentquestion(); // SLOT
+$slot = $session->getCurrentquestion(); // SLOT
 // $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
@@ -42,6 +42,17 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 
 
 $answers = $question_attemp->getListOfAnswers();
+
+
+var_dump($answers);
+
+echo '<pre>'; var_dump($answers); echo '</pre>';
+echo "<br>";
+echo "<br>";
+echo "<br>";
+print_r($answers);
+
+
 
 $steps = new attempt_steps($answers);
 $steps = $steps->getAttemptstepids();
