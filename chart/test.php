@@ -2,6 +2,7 @@
 require_once("../../../config.php");
 require_once("class/mdl_activequiz_sessions.php");
 require_once("class/mdl_activequiz_attempt.php");
+require_once("class/mdl_question.php");
 require_once("class/mdl_question_attempts.php");
 require_once("class/mdl_question_attempt_steps.php");
 require_once("class/mdl_question_attempt_step_data.php");
@@ -40,9 +41,12 @@ print_r($ListOfAllquestion);
 
 
 
-echo"<pre>";
-foreach ($answers as $q)
-var_dump($q->getQuestionID());
-var_dump($q->getQuestionsummary());
-echo"<pre>";
+//echo"<pre>";
+//foreach ($answers as $q)
+//var_dump($q->getQuestionID());
+//var_dump($q->getQuestionsummary());
+//echo"<pre>";
 
+$question= new mdl_question($sessionid);
+
+var_dump($question);
