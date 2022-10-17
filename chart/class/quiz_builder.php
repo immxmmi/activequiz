@@ -20,7 +20,7 @@ class quiz_builder
                 $this->data = array(
                     'question' => $question
                 );
-        return $this->convert_chart_to_json();
+        return $this->convert_quiz_to_json();
     }
 
 
