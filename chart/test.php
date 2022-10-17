@@ -45,7 +45,7 @@ $answers = $question_attemp->getListOfAnswers();
 
 $questionID = $question_attemp->getQuestionId();
 
-var_dump($questionID);
+var_dump($answers);
 
 echo '<pre>'; var_dump($questionID); echo '</pre>';
 echo "<br>";
