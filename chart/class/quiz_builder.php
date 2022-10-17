@@ -41,16 +41,17 @@ class quiz_builder
         return $response;
     }
 
-
-
-
     /**
      * @return int
      */
-    public function getResponseCode()
+    public function getResponseCode(): int
     {
         return $this->response_code;
     }
+
+
+
+
 
     /**
      * @param string $msg

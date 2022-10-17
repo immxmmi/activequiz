@@ -20,7 +20,7 @@ $quiz->setInfo("no Question Type Found!");
 $quiz = $quiz->build_quiz_data("test");
 
 
-http_response_code($quiz->getResponseCode());
+http_response_code(200);
 header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
