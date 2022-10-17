@@ -15,7 +15,9 @@ require_once("../../../config.php");
 </head>
 
 <body>
+<p>Click the button to create a new PDF document with <code>pdf-lib</code></p>
 <button onclick="createPdf()">Create PDF</button>
+<p class="small">(Your browser will download the resulting file)</p>
 </body>
 
 <script>
