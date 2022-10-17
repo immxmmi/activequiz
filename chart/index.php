@@ -2,7 +2,7 @@
 require_once("../../../config.php");
 ?>
 <!doctype html>
-<hthml>
+<html>
     <head>
         <meta charset="utf-8">
         <title>Chart</title>
@@ -98,4 +98,4 @@ require_once("../../../config.php");
     </div>
 
     </body>
-</hthml>
+</html>

@@ -1,7 +1,4 @@
 
-<?php
-require_once("../../../config.php");
-?>
 <!doctype html>
 <hthml>
     <head>
@@ -12,6 +9,8 @@ require_once("../../../config.php");
                 width: 640px;
             }
         </style>
+
+        <!--
         <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
         <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/chart_js/Chart.min.js"></script>
         <script src="../js/chart_js_api.js"></script>
@@ -99,4 +98,6 @@ require_once("../../../config.php");
     </div>
 
     </body>
-</hthml>
+</html>
+
+    --!>
