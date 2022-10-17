@@ -1,17 +1,8 @@
-<?php
-require_once("../../../config.php");
-?>
-<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Chart</title>
-    <style type="text/css">
-        .chartwrapper {
-            width: 640px;
-        }
-    </style>
-    <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
 </head>
 
 <body>
@@ -54,4 +45,3 @@ require_once("../../../config.php");
     }
 </script>
 </html>
-
