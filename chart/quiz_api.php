@@ -15,7 +15,7 @@ $charttype = optional_param('type', false, PARAM_TEXT); //
 //$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
 //$chart = new chart_builder();
 
-console.log("Hello ");
+console.log("Hello world!");
 echo json_decode($charttype, JSON_PRETTY_PRINT);
 
 //echo json_encode($data, JSON_PRETTY_PRINT);
