@@ -38,11 +38,14 @@ $answers = $question_attemp->getListOfAnswers();
 
 
 
-
+/*
 echo '<pre>'; var_dump($allquestionengids); echo '</pre>';
 echo "<br>";
 echo "<br>";
 echo "<br>";
+*/
+
 print_r($allquestionengids);
+print_r($answers);
 
 
