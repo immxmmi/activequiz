@@ -10,7 +10,11 @@ require_once("class/single_choice.php");
 require_once("class/truefalsechoice.php");
 global $DB;
 
-
+// Parameter
+//$charttype = optional_param('type', false, PARAM_TEXT); //
+//$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
+$sessionid = 2; //$sessionID = 46;
+$charttype = "bar"; //
 
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $activequiz_attempt = new activequiz_attempt($sessionid);
@@ -24,6 +28,4 @@ echo "<br>";
 echo "<br>";
 echo "<br>";
 print_r($allquestionengids);
-
-
 
