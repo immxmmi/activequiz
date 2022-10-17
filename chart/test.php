@@ -37,7 +37,7 @@ foreach ( $allquestionengids as $questionID){
     array_push( $ListOfAllquestion, $questionID);
 }
 
-print_r($ListOfAllquestion);
+//print_r($ListOfAllquestion);
 
 
 
@@ -59,7 +59,7 @@ $result = $DB->get_records_sql($sql, $params);
 //var_dump($result);
 
 echo "<pre>";
-var_dump($result);
+var_dump($result[0]);
 echo "</pre>";
 
 
