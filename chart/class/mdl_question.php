@@ -9,12 +9,11 @@ class mdl_question
     private $questiontext;
 
 
-    public function __construct($questionId)
+    public function __construct($id)
     {
         global $DB;
-        if ($questionId !== null) {
+        if ($id !== null) {
 
-            foreach ($questionId as $id) {
                 $sql = 'SELECT * FROM "public"."mdl_question" WHERE id = :id';
                 $params = array('id' => $id);
                 $result = $DB->get_records_sql($sql, $params);
@@ -23,7 +22,6 @@ class mdl_question
                 $this->name->name;
                 $this->questiontext->questiontext;
 
-            }
         }
 
     }
