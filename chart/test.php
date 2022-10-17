@@ -34,21 +34,9 @@ $answers = $question_attemp->getListOfAnswers();
 
 
 
+foreach ( $allquestionengids as $questionID){
+    print_r($questionID);
+}
 
-
-
-
-/*
-echo "<br>";
-echo "<br>";
-*/
-
-echo '<pre>'; sizeof($allquestionengids); echo '</pre>';
-echo "<br>";
-echo "<br>";
-//echo '<pre>'; var_dump($allquestionengids); echo '</pre>';
-//print_r($allquestionengids);
-//print_r($answers);
-//print_r($answers);
 
 
