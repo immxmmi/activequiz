@@ -58,7 +58,7 @@ class mdl_question
      */
     public function getQuestiontext()
     {
-        return $this->questiontext;
+        return strip_tags($this->questiontext);
     }
 
 

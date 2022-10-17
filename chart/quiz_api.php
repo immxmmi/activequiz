@@ -19,12 +19,10 @@ $questuinid = optional_param('questionID', false, PARAM_TEXT);
 $question= new mdl_question($questuinid);
 
 
-
 echo "<pre>";
 var_dump($question->getId());
 var_dump($question->getName());
 var_dump($question->getQuestiontext());
-echo strip_tags($question->getQuestiontext());
 echo "</pre>";
 
 
