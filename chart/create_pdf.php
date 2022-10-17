@@ -16,6 +16,7 @@ require_once("../../../config.php");
 
 <body>
 <button onclick="createPdf()">Create PDF</button>
+</body>
 
 <script>
     const { PDFDocument, StandardFonts, rgb } = PDFLib
@@ -54,6 +55,5 @@ require_once("../../../config.php");
 
 
 
-</body>
 
 </html>
