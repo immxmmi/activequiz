@@ -47,7 +47,7 @@ print_r($ListOfAllquestion);
 //var_dump($q->getQuestionsummary());
 //echo"<pre>";
 
-$question= new mdl_question(2);
+//$question= new mdl_question(2);
 
 
 
@@ -58,10 +58,10 @@ $params = array('id' => $id);
 $result = $DB->get_records_sql($sql, $params);
 var_dump($result);
 
+echo "<pre>";
+var_dump($result[0]);
+echo "</pre>";
 
-
-
-var_dump($question);
 
 
 
