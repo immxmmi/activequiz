@@ -11,7 +11,8 @@ require_once("class/truefalsechoice.php");
 global $DB;
 
 // Parameter
-//$charttype = optional_param('type', false, PARAM_TEXT); //
+
+$question = optional_param('question', false, PARAM_TEXT); //
 $quiz = new quiz_builder();
 
 
