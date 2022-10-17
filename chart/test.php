@@ -47,25 +47,12 @@ foreach ( $allquestionengids as $questionID){
 //var_dump($q->getQuestionsummary());
 //echo"<pre>";
 
-//$question= new mdl_question(2);
-
-
-
-
-$id = 2;
-$sql = 'SELECT * FROM "public"."mdl_question" WHERE id = :id';
-$params = array('id' => $id);
-$result = $DB->get_records_sql($sql, $params);
-//var_dump($result);
-
-
-foreach ($result as $q){
+$question= new mdl_question(2);
 
 echo "<pre>";
-var_dump($q->id);
+var_dump($question);
 echo "</pre>";
 
-}
 
 
 
