@@ -1,110 +1,102 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/pdf-lib@1.11.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+</head>
 
-<!doctype html>
-<hthml>
-    <head>
-        <meta charset="utf-8">
-        <title>Chart</title>
-        <style type="text/css">
-            .chartwrapper {
-                width: 640px;
-            }
-        </style>
+<body>
+<p>Click the button to create a PDF document with form fields using <code>pdf-lib</code></p>
+<button onclick="createForm()">Create PDF</button>
+<p class="small">(Your browser will download the resulting file)</p>
+</body>
 
-        <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-        <script src="../js/pdf_generator.js"></script>
+<script>
+    const { PDFDocument } = PDFLib
 
+    async function createForm() {
+        // Create a new PDFDocument
+        const pdfDoc = await PDFDocument.create()
 
-        <script>
-            createForm();
-        </script>
+        // Add a blank page to the document
+        const page = pdfDoc.addPage([550, 750])
 
+        // Get the form so we can add fields to it
+        const form = pdfDoc.getForm()
 
+        // Add the superhero text field and description
+        page.drawText('Enter your favorite superhero:', { x: 50, y: 700, size: 20 })
 
-        <!--
-        <script>
+        const superheroField = form.createTextField('favorite.superhero')
+        superheroField.setText('One Punch Man')
+        superheroField.addToPage(page, { x: 55, y: 640 })
 
-            var apiChart = null;
-            var skillChart = null;
+        // Add the rocket radio group, labels, and description
+        page.drawText('Select your favorite rocket:', { x: 50, y: 600, size: 20 })
 
-            jQuery(document).ready(function () {
-                apiChart = jQuery('#apiChart');
-                jQuery('#charttype').bind('change', changeChartTypeHandler);
-            });
+        page.drawText('Falcon Heavy', { x: 120, y: 560, size: 18 })
+        page.drawText('Saturn IV', { x: 120, y: 500, size: 18 })
+        page.drawText('Delta IV Heavy', { x: 340, y: 560, size: 18 })
+        page.drawText('Space Launch System', { x: 340, y: 500, size: 18 })
 
-            var changeChartTypeHandler = function() {
-                var charttype = jQuery('#charttype').val();
-                var sessionid = jQuery('#sessionid').val();
-                var slot = jQuery('#slot').val();
-                if( charttype !== 'none' && sessionid !== '0') {
-                    var url = './chart_api.php';
-                    var params = {
-                        sessionid: sessionid,
-                        slot: slot,
-                        type: charttype
-                    };
-                    jQuery.get(url, params, redrawChart).fail(function(data) {
-                        destroyChart();
-                        alert(data.responseJSON.meta.msg);
-                    });
-                }
-            };
+        const rocketField = form.createRadioGroup('favorite.rocket')
+        rocketField.addOptionToPage('Falcon Heavy', page, { x: 55, y: 540 })
+        rocketField.addOptionToPage('Saturn IV', page, { x: 55, y: 480 })
+        rocketField.addOptionToPage('Delta IV Heavy', page, { x: 275, y: 540 })
+        rocketField.addOptionToPage('Space Launch System', page, { x: 275, y: 480 })
+        rocketField.select('Saturn IV')
 
-            var destroyChart = function() {
-                if( skillChart !== null ) {
-                    skillChart.destroy();
-                }
-            };
+        // Add the gundam check boxes, labels, and description
+        page.drawText('Select your favorite gundams:', { x: 50, y: 440, size: 20 })
 
-            var redrawChart = function(data) {
-                if( data.meta.status === 'error' ) {
-                    alert(data.meta.msg);
-                    return;
-                }
+        page.drawText('Exia', { x: 120, y: 400, size: 18 })
+        page.drawText('Kyrios', { x: 120, y: 340, size: 18 })
+        page.drawText('Virtue', { x: 340, y: 400, size: 18 })
+        page.drawText('Dynames', { x: 340, y: 340, size: 18 })
 
-                destroyChart();
-                skillChart = new Chart(apiChart, {
-                    type: data.data.charttype,
-                    data: data.data.chartdata,
-                    options: data.data.chartoptions
-                });
-            };
-        </script>
-    </head>
+        const exiaField = form.createCheckBox('gundam.exia')
+        const kyriosField = form.createCheckBox('gundam.kyrios')
+        const virtueField = form.createCheckBox('gundam.virtue')
+        const dynamesField = form.createCheckBox('gundam.dynames')
 
+        exiaField.addToPage(page, { x: 55, y: 380 })
+        kyriosField.addToPage(page, { x: 55, y: 320 })
+        virtueField.addToPage(page, { x: 275, y: 380 })
+        dynamesField.addToPage(page, { x: 275, y: 320 })
 
-    <body>
-    <div>
-        <form action="javascript:void(0);">
-            <label for="session">Session ID:</label>
-            <input type="number" id="sessionid" name="session" value="5">
+        exiaField.check()
+        dynamesField.check()
 
+        // Add the planet dropdown and description
+        page.drawText('Select your favorite planet*:', { x: 50, y: 280, size: 20 })
 
-            <label for="slot">Question Slot:</label>
-            <input type="number" id="slot" name="slot" value="1">
+        const planetsField = form.createDropdown('favorite.planet')
+        planetsField.addOptions(['Venus', 'Earth', 'Mars', 'Pluto'])
+        planetsField.select('Pluto')
+        planetsField.addToPage(page, { x: 55, y: 220 })
 
+        // Add the person option list and description
+        page.drawText('Select your favorite person:', { x: 50, y: 180, size: 18 })
 
-            <label for="type">Chart Type:</label>
+        const personField = form.createOptionList('favorite.person')
+        personField.addOptions([
+            'Julius Caesar',
+            'Ada Lovelace',
+            'Cleopatra',
+            'Aaron Burr',
+            'Mark Antony',
+        ])
+        personField.select('Ada Lovelace')
+        personField.addToPage(page, { x: 55, y: 70 })
 
+        // Just saying...
+        page.drawText(`* Pluto should be a planet too!`, { x: 15, y: 15, size: 15 })
 
-            <select id="charttype" name="type">
-                <option value="none">--- choose a chart ---</option>
-                <option value="pie">Pie-Chart</option>
-                <option value="bar">Bar-Chart</option>
-                <option value="doughnut">Doughnut-Chart</option>
-                <option value="unknown">Unknown-Chart</option>
-            </select>
+        // Serialize the PDFDocument to bytes (a Uint8Array)
+        const pdfBytes = await pdfDoc.save()
 
-
-        </form>
-    </div>
-
-    <div class="container">
-        <div class="chartwrapper">
-            <canvas id="apiChart"></canvas>
-        </div>
-    </div>
-
-    </body>
+        // Trigger the browser to download the PDF document
+        download(pdfBytes, "pdf-lib_form_creation_example.pdf", "application/pdf");
+    }
+</script>
 </html>
-
-    --!>
