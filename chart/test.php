@@ -41,6 +41,6 @@ print_r($ListOfAllquestion);
 
 
 echo"<pre>";
-var_dump($answers[1]);
+var_dump($answers);
 echo"<pre>";
 
