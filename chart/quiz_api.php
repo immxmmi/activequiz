@@ -16,7 +16,8 @@ $quiz = new quiz_builder();
 
 
 $data = null;
-$data = $quiz->build_quiz_data("test");
+$chart->setInfo("no Question Type Found!");
+$quiz = $quiz->build_quiz_data("test");
 
 
 http_response_code($quiz->getResponseCode());
