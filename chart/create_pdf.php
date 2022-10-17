@@ -12,18 +12,11 @@ require_once("../../../config.php");
         }
     </style>
     <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
-    <script src="../js/pdf_generator.js"></script>
-</head>
-
-<body>
-<button onclick="createPdf()">Create PDF</button>
-
-
 
 <script>
     const { PDFDocument, StandardFonts, rgb } = PDFLib
 
-    async function createPdf2() {
+    async function createPdf() {
         // Create a new PDFDocument
         const pdfDoc = await PDFDocument.create()
 
@@ -53,6 +46,12 @@ require_once("../../../config.php");
         download(pdfBytes, "pdf-lib_creation_example.pdf", "application/pdf");
     }
 </script>
+
+<body>
+<button onclick="createPdf()">Create PDF</button>
+
+
+
 
 
 </body>
