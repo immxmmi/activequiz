@@ -22,7 +22,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-$slot = 1;//$session->getCurrentquestion(); // SLOT
+$slot = 0;//$session->getCurrentquestion(); // SLOT
 // $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
