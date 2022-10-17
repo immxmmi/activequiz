@@ -102,6 +102,15 @@ class question_attempts
     /**
      * @return mixed
      */
+    public function getQuestionusageid()
+    {
+        return $this->questionusageid;
+    }
+
+
+    /**
+     * @return mixed
+     */
     public function getQuestionsummary()
     {
         return $this->questionsummary;
