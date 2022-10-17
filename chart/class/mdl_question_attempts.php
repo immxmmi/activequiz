@@ -102,10 +102,13 @@ class question_attempts
     /**
      * @return mixed
      */
-    public function getQuestionId()
+    public function getQuestionid()
     {
         return $this->questionid;
     }
+
+
+
 
 
     /**

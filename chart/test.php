@@ -43,11 +43,11 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 
 $answers = $question_attemp->getListOfAnswers();
 
-$questionID = $question_attemp->getQuestionId();
+$questionID = $question_attemp->getQuestionid();
 
 var_dump($answers);
 
-echo '<pre>'; var_dump($question_attemp); echo '</pre>';
+echo '<pre>'; var_dump($questionID); echo '</pre>';
 echo "<br>";
 echo "<br>";
 echo "<br>";
