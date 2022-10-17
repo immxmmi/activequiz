@@ -56,10 +56,10 @@ $id = 2;
 $sql = 'SELECT * FROM "public"."mdl_question" WHERE id = :id';
 $params = array('id' => $id);
 $result = $DB->get_records_sql($sql, $params);
-var_dump($result);
+//var_dump($result);
 
 echo "<pre>";
-var_dump($result[0]);
+var_dump($result);
 echo "</pre>";
 
 
