@@ -23,7 +23,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 
-$summary = new question_attempts($allquestionengids[0],0);
+$summary = new question_attempts($allquestionengids[0],1);
 
 //$question= new mdl_question($questuinid);
 
