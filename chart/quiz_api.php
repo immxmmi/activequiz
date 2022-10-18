@@ -23,11 +23,13 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 
+$summary = new question_attempts($allquestionengids[0],0);
+
 //$question= new mdl_question($questuinid);
 
 
 echo "<pre>";
-var_dump($allquestionengids);
+var_dump($summary);
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
