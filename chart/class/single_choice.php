@@ -10,22 +10,21 @@ class single_choice
     private $values = array();
     private $data = array();
 
-    public function load_quiz_data($answers,$steps_data)
+    public function load_quiz_data($answers, $steps_data)
     {
         $question_one = $answers[0][0];
 
-       for ($i = 0; $i < sizeof($question_one->getQuestionsummary()); $i++) {
-           $current_data = array($question_one->getQuestionsummary()[$i]=>0);
-           $this->data = array_merge($this->data, $current_data);
-       }
+        for ($i = 0; $i < sizeof($question_one->getQuestionsummary()); $i++) {
+            $current_data = array($question_one->getQuestionsummary()[$i] => 0);
+            $this->data = array_merge($this->data, $current_data);
+        }
 
-/*
-                foreach ($steps_data as $summary) {
-                    $responsesummary = $summary[0]->getResponsesummary();
-                    $this->data = $this->addValue($this->data, $responsesummary);
-                }
-*/
-
+        /*
+                        foreach ($steps_data as $summary) {
+                            $responsesummary = $summary[0]->getResponsesummary();
+                            $this->data = $this->addValue($this->data, $responsesummary);
+                        }
+        */
 
 
         foreach ($steps_data as $summary) {

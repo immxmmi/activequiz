@@ -1,25 +1,23 @@
 <?php
-require_once("../../../config.php");
-require_once("../chart/class/mdl_question_attempts.php");
+require_once("../../../../config.php");
+require_once("../../chart/class/mdl_question_attempts.php");
 
 class quiz_builder
 {
     private $response_code = 200;
     private $status = 'success';
-    private $msg = 'Chartdata successfully fetched';
+    private $msg = 'Quizdata successfully fetched';
     private $data = array();
-    private $options = array();
     private $info = '-';
 
     public function __construct()
     {
     }
 
-
     public function build_quiz_data($question, $answer)
     {
 
-        if ($question == null) {
+        if ($question === null) {
             $this->info = "no Question - Failed";
         } else {
             $this->info = "Loading - Success";
@@ -31,11 +29,9 @@ class quiz_builder
         return $this->convert_quiz_to_json();
     }
 
-
     private function convert_quiz_to_json()
     {
         http_response_code($this->response_code);
-        //header('Content-Type: application/json');
         $response = array(
             'meta' => array(
                 'status' => $this->status,
@@ -56,23 +52,5 @@ class quiz_builder
     {
         return $this->response_code;
     }
-
-
-    /**
-     * @param string $msg
-     */
-    public function setMsg($msg)
-    {
-        $this->msg = $msg;
-    }
-
-    /**
-     * @param string $info
-     */
-    public function setInfo($info)
-    {
-        $this->info = $info;
-    }
-
 
 }

@@ -14,14 +14,14 @@ class question_data
     {
         global $DB;
         if ($questionusageid !== null) {
-                $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
-                $params = array('questionusageid' => $questionusageid);
-                $result = $DB->get_records_sql($sql, $params);
-                $this->summary = $result[$questionusageid]->questionsummary;
-                $text = explode(':', $this->summary);
-                $this->question = $text[0];
-                $this->answers = $text[1]; //explode(';', $text[1]);
-                $this->rightanswer = $result[$questionusageid]->rightanswer;
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
+            $params = array('questionusageid' => $questionusageid);
+            $result = $DB->get_records_sql($sql, $params);
+            $this->summary = $result[$questionusageid]->questionsummary;
+            $text = explode(':', $this->summary);
+            $this->question = $text[0];
+            $this->answers = $text[1]; //explode(';', $text[1]);
+            $this->rightanswer = $result[$questionusageid]->rightanswer;
         }
 
     }
@@ -59,9 +59,5 @@ class question_data
     {
         return $this->answers;
     }
-
-
-
-
 
 }
