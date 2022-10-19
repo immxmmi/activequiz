@@ -14,7 +14,6 @@ require_once("class/truefalsechoice.php");
 global $DB;
 
 
-
 $quiz_build = new quiz_builder();
 // Parameter
 //$questuinid = optional_param('questionid', PARAM_TEXT);
@@ -31,21 +30,25 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 //$summary = new question_attempts(3,1);
 
 //$question= new mdl_question(2);
-$quizdata = array();
 
-    foreach($allquestionengids as $id){
+if ($allquestionengids != null) {
+
+    $quizdata = array();
+
+    foreach ($allquestionengids as $id) {
         array_push($quizdata, new question_data($id));
     }
+}
 
-    $qu = array();
-    $aw = array();
+$qu = array();
+$aw = array();
 
 
-    foreach ($quizdata as $qd){
-        array_push($qu,$qd->getQuestion());
-        array_push($aw,$qd->getAnswers());
-    }
-$data = $quiz_build->build_quiz_data($qu,$aw);
+foreach ($quizdata as $qd) {
+    array_push($qu, $qd->getQuestion());
+    array_push($aw, $qd->getAnswers());
+}
+$data = $quiz_build->build_quiz_data($qu, $aw);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
