@@ -6,6 +6,8 @@ class question_data
 {
 
     private $summary;
+    private $question;
+    private $answers;
     private $rightanswer;
 
     public function __construct($questionusageid)
@@ -16,6 +18,9 @@ class question_data
                 $params = array('questionusageid' => $questionusageid);
                 $result = $DB->get_records_sql($sql, $params);
                 $this->summary = $result[$questionusageid]->questionsummary;
+
+                $this->answers = explode(';', $this->summary);
+
                 $this->rightanswer = $result[$questionusageid]->rightanswer;
         }
 
@@ -26,6 +31,8 @@ class question_data
      */
     public function getSummary()
     {
+
+
         return strip_tags($this->summary);
     }
 
