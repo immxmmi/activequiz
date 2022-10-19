@@ -37,8 +37,14 @@ $quizdata = array();
         array_push($quizdata, new question_data($id));
     }
 
+    $qu = array();
+    $aw = array();
 $quiz_build->setInfo("no Question Type Found!");
-$data = $quiz_build->build_quiz_data($quizdata[0]->getQuestion(),$quizdata[0]->getAnswers());
+    foreach ($quizdata as $qd){
+        array_push($qu,$qd->getQuestion());
+        array_push($qu,$qd->getAnswers());
+    }
+$data = $quiz_build->build_quiz_data($qd->getQuestion(),$qd->getAnswers());
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
