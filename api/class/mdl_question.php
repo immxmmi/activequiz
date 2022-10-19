@@ -1,5 +1,5 @@
 <?php
-require_once("../../../config.php");
+require_once("../../../../config.php");
 global $DB;
 class mdl_question
 {
