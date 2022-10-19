@@ -21,7 +21,6 @@ class question_data
                 $text = explode(':', $this->summary);
                 $this->question = $text[0];
                 $this->answers = explode(';', $text[1]);
-
                 $this->rightanswer = $result[$questionusageid]->rightanswer;
         }
 
