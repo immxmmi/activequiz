@@ -42,7 +42,7 @@ $quizdata = array();
 $quiz_build->setInfo("no Question Type Found!");
     foreach ($quizdata as $qd){
         array_push($qu,$qd->getQuestion());
-        array_push($qu,$qd->getAnswers());
+        array_push($aw,$qd->getAnswers());
     }
 $data = $quiz_build->build_quiz_data($qu,$aw);
 
