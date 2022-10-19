@@ -8,10 +8,14 @@ require_once("class/mdl_question_data.php");
 require_once("class/mdl_question_attempt_steps.php");
 require_once("class/mdl_question_attempt_step_data.php");
 require_once("class/chart_builder.php");
+require_once("class/quiz_builder.php");
 require_once("class/single_choice.php");
 require_once("class/truefalsechoice.php");
 global $DB;
 
+
+
+$quiz_build = new quiz_builder();
 // Parameter
 //$questuinid = optional_param('questionid', PARAM_TEXT);
 $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
@@ -33,14 +37,14 @@ $quizdata = array();
         array_push($quizdata, new question_data($id));
     }
 
+$quiz_build->setInfo("no Question Type Found!");
 
+http_response_code($quiz_build->getResponseCode());
+header('Content-Type: application/json');
+$data = $quiz_build->build_quiz_data($quizdata);
 
-
-echo "<pre>";
-var_dump($quizdata);
-echo "</pre>";
-
-
+echo json_encode($data, JSON_PRETTY_PRINT);
+exit;
 
 
 
