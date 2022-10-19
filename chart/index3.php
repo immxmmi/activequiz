@@ -33,7 +33,7 @@ require_once("../../../config.php");
             sessionid: session
         };
     var redrawChart = function(data) {
-            alert(data.meta.msg);
+            alert(data.meta.data);
             return;
     }
         jQuery.get(url, params, redrawChart).fail(function(data) {
