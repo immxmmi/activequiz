@@ -3,7 +3,7 @@ require_once("../../../config.php");
 ?>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <script src="<?php echo $CFG->wwwroot; ?>/lib/jquery/jquery-3.5.1.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
@@ -17,35 +17,28 @@ require_once("../../../config.php");
 </body>
 
 
-
-
-
-
-
-
-
 <script>
 
     var session = 2;
-
+    /// QUIZ DATA
+    var quizdata = null;
+    if (session != null) {
         var url = './quiz_api.php';
         var params = {
             sessionid: session
         };
-    var redrawChart = function(data) {
-            console.log(data);
+        var addquizdata = function (data) {
+            quizdata = data;
             return;
-    }
-        jQuery.get(url, params, redrawChart).fail(function(data) {
+        }
+
+        jQuery.get(url, params, addquizdata).fail(function (data) {
             alert(data.responseJSON.meta.data);
         });
+    }
+    // QUIZ DATA
 
-
-
-
-
-
-    const { PDFDocument, StandardFonts, rgb } = PDFLib
+    const {PDFDocument, StandardFonts, rgb} = PDFLib
 
     async function createPdf() {
         // Create a new PDFDocument
@@ -58,7 +51,7 @@ require_once("../../../config.php");
         const page = pdfDoc.addPage()
 
         // Get the width and height of the page
-        const { width, height } = page.getSize()
+        const {width, height} = page.getSize()
 
         // Draw a string of text toward the top of the page
         const fontSize = 30
