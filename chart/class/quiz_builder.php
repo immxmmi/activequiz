@@ -16,16 +16,17 @@ class quiz_builder
     }
 
 
-    public function build_quiz_data($question, $answer){
+    public function build_quiz_data($question, $answer)
+    {
 
-        if($question == null){
-            this->setInfo("no Question - Failed");
-        }else{
-            $this->setInfo("Loading - Success");
-                $this->data = array(
-                    'question' => $question,
-                    'answers' => $answer
-                );
+        if ($question == null) {
+            $this->info = "no Question - Failed";
+        } else {
+            $this->info = "Loading - Success";
+            $this->data = array(
+                'question' => $question,
+                'answers' => $answer
+            );
         }
         return $this->convert_quiz_to_json();
     }
@@ -57,9 +58,6 @@ class quiz_builder
     }
 
 
-
-
-
     /**
      * @param string $msg
      */
@@ -75,7 +73,6 @@ class quiz_builder
     {
         $this->info = $info;
     }
-
 
 
 }
