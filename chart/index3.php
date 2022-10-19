@@ -16,10 +16,16 @@ require_once("../../../config.php");
 
 </body>
 
+<div>
+    <form action="javascript:void(0);">
+        <label for="session">Session ID:</label>
+        <input type="number" id="sessionid" name="session" value="2">
+    </form>
+</div>
+
 
 <script>
-
-    var session = 2;
+    var session =  jQuery('#sessionid').val();
     /// QUIZ DATA
     var quizdata = null;
     if (session !== null) {
@@ -42,7 +48,9 @@ require_once("../../../config.php");
 
     async function createPdf() {
             var qu = quizdata.data.data.question;
+            var aw = quizdata.data.data.answers;
       console.log(qu);
+      console.log(aw);
 
         if (quizdata === null) {
             // Create a new PDFDocument
