@@ -40,6 +40,8 @@ var_dump($test);
 //var_dump($question->getQuestiontext());
 echo "</pre>";
 
+print_r($test);
+
 
 
 
