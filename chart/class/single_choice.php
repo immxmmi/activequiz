@@ -5,7 +5,6 @@ global $DB;
 
 class single_choice
 {
-
     private $labels = array();
     private $values = array();
     private $data = array();
