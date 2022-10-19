@@ -1,4 +1,5 @@
 <?php
+require_once("mdl_question_attempt_steps.php");
 global $DB;
 
 class attempt_step_data
