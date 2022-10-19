@@ -21,10 +21,6 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 
-//$summary = new question_attempts(3,1);
-
-//$question= new mdl_question(2);
-
 if ($allquestionengids != null) {
 
     $quizdata = array();
@@ -39,9 +35,10 @@ $aw = array();
 
 
 foreach ($quizdata as $qd) {
-    array_push($qu, $qd->getQuestion());
-    array_push($aw, $qd->getAnswers());
+    $qu[] = $qd->getQuestion();
+    $aw[] = $qd->getAnswers();
 }
+
 $data = $quiz_build->build_quiz_data($qu, $aw);
 
 http_response_code($quiz_build->getResponseCode());
