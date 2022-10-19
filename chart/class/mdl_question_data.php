@@ -44,6 +44,23 @@ class question_data
         return $this->rightanswer;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @return false|string[]
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+
 
 
 

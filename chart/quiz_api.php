@@ -36,6 +36,7 @@ $test = new question_data(4);
 
 echo "<pre>";
 var_dump($test->getSummary());
+var_dump($test->getAnswers());
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
