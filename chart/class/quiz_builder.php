@@ -19,9 +19,9 @@ class quiz_builder
     public function build_quiz_data($question, $answer){
 
         if($question == null){
-            this->setInfo("no Question");
+            this->setInfo("no Question - Failed");
         }else{
-            $this->
+            $this->setInfo("Loading - Success");
                 $this->data = array(
                     'question' => $question,
                     'answers' => $answer
