@@ -38,10 +38,10 @@ $quizdata = array();
     }
 
 $quiz_build->setInfo("no Question Type Found!");
+$data = $quiz_build->build_quiz_data("tesr");
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
-$data = $quiz_build->build_quiz_data($quizdata);
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
