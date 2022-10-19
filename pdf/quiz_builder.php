@@ -1,6 +1,4 @@
 <?php
-require_once("../../../config.php");
-require_once("../chart/class/mdl_question_attempts.php");
 
 class quiz_builder
 {
