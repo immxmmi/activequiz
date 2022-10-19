@@ -26,7 +26,7 @@ class question_data
      */
     public function getSummary()
     {
-        return $this->summary;
+        return strip_tags($this->summary);
     }
 
     /**
