@@ -33,7 +33,7 @@ $test = new question_data(2);
 
 
 echo "<pre>";
-var_dump($test[0]);
+var_dump($test);
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
