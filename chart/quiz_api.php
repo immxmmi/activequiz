@@ -29,8 +29,8 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 //$question= new mdl_question(2);
 $quizdata = array();
 
-    foreach(t as $allquestionengids){
-        array_push($quizdata, new question_data(t));
+    foreach($allquestionengids as $id){
+        array_push($quizdata, new question_data($id));
     }
 
 
