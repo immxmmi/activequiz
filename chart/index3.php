@@ -52,29 +52,15 @@ require_once("../../../config.php");
 
 <script>
 
-    jQuery(document).ready(function () {
-        apiChart = jQuery('#apiChart');
-        jQuery('#charttype').bind('change', changeChartTypeHandler);
-    });
+    var session = 2;
 
-    var changeChartTypeHandler = function() {
-        var charttype = jQuery('#charttype').val();
-        var sessionid = jQuery('#sessionid').val();
-        var slot = jQuery('#slot').val();
-        if( charttype !== 'none' && sessionid !== '0') {
-            var url = './chart_api.php';
-            var params = {
-                sessionid: sessionid,
-                slot: slot,
-                type: charttype
-            };
-            jQuery.get(url, params, redrawChart).fail(function(data) {
-                destroyChart();
-                alert(data.responseJSON.meta.msg);
-            });
-        }
-    };
-
+        var url = './quiz_api.php';
+        var params = {
+            sessionid: session
+        };
+        jQuery.get(url, params, redrawChart).fail(function(data) {
+            alert(data.responseJSON.meta.data);
+        });
 
 
     const { PDFDocument, StandardFonts, rgb } = PDFLib
