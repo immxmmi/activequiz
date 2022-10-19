@@ -27,20 +27,17 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 //$summary = new question_attempts(3,1);
 
 //$question= new mdl_question(2);
+$quizdata = array();
 
-
-$test = new question_data(4);
+    foreach(t as $allquestionengids){
+        array_push($quizdata, new question_data(t));
+    }
 
 
 
 
 echo "<pre>";
-var_dump($test->getQuestion());
-var_dump($test->getAnswers());
-//echo "</pre>";
-//var_dump($question->getId());
-//var_dump($question->getName());
-//var_dump($question->getQuestiontext());
+var_dump($quizdata);
 echo "</pre>";
 
 
