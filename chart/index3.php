@@ -37,7 +37,7 @@ require_once("../../../config.php");
             alert(data.meta.info);
             return;
     }
-        jQuery.get(url, params, redrawChart(data)).success(function(data) {
+        jQuery.get(url, params, redrawChart(data)).fail(function(data) {
             alert(data.responseJSON.meta.data);
         });
 
@@ -48,7 +48,7 @@ require_once("../../../config.php");
 
     const { PDFDocument, StandardFonts, rgb } = PDFLib
 
-    async function createPdf(data) {
+    async function createPdf() {
         // Create a new PDFDocument
         const pdfDoc = await PDFDocument.create()
 
