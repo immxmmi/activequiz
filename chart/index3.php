@@ -41,9 +41,9 @@ require_once("../../../config.php");
     const {PDFDocument, StandardFonts, rgb} = PDFLib
 
     async function createPdf() {
-            console.log(data);
+            console.log(quizdata);
 
-        if (data === null) {
+        if (quizdata === null) {
             // Create a new PDFDocument
             const pdfDoc = await PDFDocument.create()
 
