@@ -19,7 +19,7 @@ require_once("../../../config.php");
 <div>
     <form action="javascript:void(0);">
         <label for="session">Session ID:</label>
-        <input type="number" id="sessionid" name="session">
+        <input type="number" id="sessionid" name="session" value="1">
     </form>
 </div>
 
