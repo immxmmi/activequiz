@@ -26,16 +26,16 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 
 //$summary = new question_attempts(3,1);
 
-$question= new mdl_question(2);
+//$question= new mdl_question(2);
 
 
-//$test = new question_data(2);
+$test = new question_data(2);
 
 
 
 
 echo "<pre>";
-var_dump($question);
+var_dump($test->getSummary());
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
