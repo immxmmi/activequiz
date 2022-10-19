@@ -14,33 +14,6 @@ require_once("../../../config.php");
 <button onclick="createPdf()">Create PDF</button>
 <p class="small">(Your browser will download the resulting file)</p>
 
-
-<div>
-    <form action="javascript:void(0);">
-        <label for="session">Session ID:</label>
-        <input type="number" id="sessionid" name="session" value="5">
-
-
-        <label for="slot">Question Slot:</label>
-        <input type="number" id="slot" name="slot" value="1">
-
-
-        <label for="type">Chart Type:</label>
-
-
-        <select id="charttype" name="type">
-            <option value="none">--- choose a chart ---</option>
-            <option value="pie">Pie-Chart</option>
-            <option value="bar">Bar-Chart</option>
-            <option value="doughnut">Doughnut-Chart</option>
-            <option value="unknown">Unknown-Chart</option>
-        </select>
-
-
-    </form>
-</div>
-
-
 </body>
 
 
