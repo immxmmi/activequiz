@@ -32,12 +32,11 @@ require_once("../../../config.php");
         var params = {
             sessionid: session
         };
-
     var redrawChart = function(data) {
-            alert(data.meta.info);
+            alert(data.meta.msg);
             return;
     }
-        jQuery.get(url, params, redrawChart(data)).fail(function(data) {
+        jQuery.get(url, params, redrawChart).fail(function(data) {
             alert(data.responseJSON.meta.data);
         });
 
