@@ -39,7 +39,8 @@ $quizdata = array();
 
     $qu = array();
     $aw = array();
-$quiz_build->setInfo("no Question Type Found!");
+
+
     foreach ($quizdata as $qd){
         array_push($qu,$qd->getQuestion());
         array_push($aw,$qd->getAnswers());

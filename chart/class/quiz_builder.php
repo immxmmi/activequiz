@@ -17,10 +17,16 @@ class quiz_builder
 
 
     public function build_quiz_data($question, $answer){
+
+        if($question == null){
+            this->setInfo("no Question");
+        }else{
+            $this->
                 $this->data = array(
                     'question' => $question,
                     'answers' => $answer
                 );
+        }
         return $this->convert_quiz_to_json();
     }
 
