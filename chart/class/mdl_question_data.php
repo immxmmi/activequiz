@@ -6,6 +6,7 @@ class question_data
 {
 
     private $summary;
+    private $rightanswer;
 
     public function __construct($questionusageid)
     {
@@ -14,7 +15,8 @@ class question_data
                 $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
                 $params = array('questionusageid' => $questionusageid);
                 $result = $DB->get_records_sql($sql, $params);
-                $this->summary = $result;
+                $this->summary = $result[$questionusageid]->questionsummary;
+                $this->rightanswer = $result[$questionusageid]->rightanswer;
         }
 
     }
