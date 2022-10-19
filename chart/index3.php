@@ -42,7 +42,7 @@ require_once("../../../config.php");
 
     async function createPdf() {
             console.log(data);
-            console.log(data.meta);
+
         if (data === null) {
             // Create a new PDFDocument
             const pdfDoc = await PDFDocument.create()
