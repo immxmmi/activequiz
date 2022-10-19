@@ -41,7 +41,7 @@ require_once("../../../config.php");
     const {PDFDocument, StandardFonts, rgb} = PDFLib
 
     async function createPdf() {
-            var qu = quizdata.data.data.questions;
+            var qu = quizdata.data.data;
       console.log(qu);
 
         if (quizdata === null) {
