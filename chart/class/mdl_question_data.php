@@ -29,6 +29,15 @@ class question_data
         return $this->summary;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getRightanswer()
+    {
+        return $this->rightanswer;
+    }
+
+
 
 
 }

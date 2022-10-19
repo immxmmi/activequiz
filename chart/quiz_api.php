@@ -26,33 +26,23 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 
 //$summary = new question_attempts(3,1);
 
-//$question= new mdl_question($questuinid);
+$question= new mdl_question(2);
 
 
 //$test = new question_data(2);
 
 
 
-global $DB;
-
-    $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
-    $params = array('questionusageid' => 3);
-    $result = $DB->get_records_sql($sql, $params);
-    $test = $result;
-
-
-
-
 
 echo "<pre>";
-var_dump($test);
+var_dump($question);
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
 //var_dump($question->getQuestiontext());
 echo "</pre>";
 
-print_r($test);
+
 
 
 
