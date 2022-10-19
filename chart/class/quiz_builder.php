@@ -16,7 +16,7 @@ class quiz_builder
     }
 
 
-    public function build_quiz_data($question,$answers){
+    public function build_quiz_data($question){
                 $this->data = array(
                     'question' => $question
                 );
