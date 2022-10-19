@@ -1,4 +1,5 @@
 <?php
+require_once("../../../config.php");
 global $DB;
 
 class question_attempts

@@ -1,4 +1,7 @@
 <?php
+require_once("../../../config.php");
+require_once("mdl_question_attempts.php");
+
 class chart_builder
 {
     private $response_code = 200;
