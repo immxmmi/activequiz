@@ -44,7 +44,7 @@ $quiz_build->setInfo("no Question Type Found!");
         array_push($qu,$qd->getQuestion());
         array_push($qu,$qd->getAnswers());
     }
-$data = $quiz_build->build_quiz_data($qd->getQuestion(),$qd->getAnswers());
+$data = $quiz_build->build_quiz_data($qu,$aw);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
