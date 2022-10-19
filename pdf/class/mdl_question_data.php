@@ -3,7 +3,6 @@ global $DB;
 
 class question_data
 {
-
     private $summary;
     private $question;
     private $answers;
@@ -30,8 +29,6 @@ class question_data
      */
     public function getSummary()
     {
-
-
         return strip_tags($this->summary);
     }
 
