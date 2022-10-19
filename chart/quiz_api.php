@@ -38,7 +38,7 @@ $quizdata = array();
     }
 
 $quiz_build->setInfo("no Question Type Found!");
-var_dump($quizdata[0]->getAnswer());
+var_dump($quizdata[0]->getAnswers());
 $data = $quiz_build->build_quiz_data($quizdata[0]->getQuestion(),"$quizdata[0]->getAnswer()");
 
 http_response_code($quiz_build->getResponseCode());
