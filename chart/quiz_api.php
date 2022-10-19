@@ -29,7 +29,19 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 //$question= new mdl_question($questuinid);
 
 
-$test = new question_data(2);
+//$test = new question_data(2);
+
+
+
+global $DB;
+
+    $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
+    $params = array('questionusageid' => 2);
+    $result = $DB->get_records_sql($sql, $params);
+    $test = $result;
+
+
+
 
 
 echo "<pre>";
