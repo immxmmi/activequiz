@@ -23,13 +23,24 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 
-$summary = new question_attempts(3,1);
+//$summary = new question_attempts(3,1);
 
 //$question= new mdl_question($questuinid);
 
 
+
+
+global $DB;
+
+        $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+        $params = array('questionusageid' => 3, 'slot' => 1);
+        $result = $DB->get_records_sql($sql, $params);
+        $question_attemps = $this->get_attempts_by_questionengid($result);
+
+
+
 echo "<pre>";
-var_dump($summary);
+var_dump($result);
 //echo "</pre>";
 //var_dump($question->getId());
 //var_dump($question->getName());
