@@ -34,7 +34,7 @@ require_once("../../../config.php");
         };
 
     var redrawChart = function(data) {
-            alert(data.meta.msg);
+            alert(data.meta.info);
             return;
     }
         jQuery.get(url, params, redrawChart).fail(function(data) {
