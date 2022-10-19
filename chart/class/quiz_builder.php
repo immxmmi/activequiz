@@ -18,8 +18,8 @@ class quiz_builder
 
     public function build_quiz_data($question,$answers){
                 $this->data = array(
-                    'question' => $question,
-                    'answers' => $answers[0]
+                    'question' => $question
+                //,'answers' => $answers[0]
                 );
         return $this->convert_quiz_to_json();
     }
