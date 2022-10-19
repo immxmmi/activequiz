@@ -83,9 +83,5 @@ class activequiz_session
         return $this->currentquestion;
     }
 
-
-
-
-
 }
 
