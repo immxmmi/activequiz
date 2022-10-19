@@ -18,7 +18,7 @@ class question_data
                 $params = array('questionusageid' => $questionusageid);
                 $result = $DB->get_records_sql($sql, $params);
                 $this->summary = $result[$questionusageid]->questionsummary;
-                $text = explode('\n:', $this->summary);
+                $text = explode(':', $this->summary);
                 $this->question = $text[0];
                 $this->answers = $text[1]; //explode(';', $text[1]);
                 $this->rightanswer = $result[$questionusageid]->rightanswer;
