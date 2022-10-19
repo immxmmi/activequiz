@@ -33,10 +33,17 @@ require_once("../../../config.php");
             sessionid: session
         };
 
-
-        jQuery.get(url, params, createPdf(data)).success(function(data) {
+    var redrawChart = function(data) {
+            alert(data.meta.info);
+            return;
+    }
+        jQuery.get(url, params, redrawChart(data)).success(function(data) {
             alert(data.responseJSON.meta.data);
         });
+
+
+
+
 
 
     const { PDFDocument, StandardFonts, rgb } = PDFLib
