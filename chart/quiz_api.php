@@ -36,7 +36,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 global $DB;
 
     $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
-    $params = array('questionusageid' => 2);
+    $params = array('questionusageid' => 3);
     $result = $DB->get_records_sql($sql, $params);
     $test = $result[2];
 
