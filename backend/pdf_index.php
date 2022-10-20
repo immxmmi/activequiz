@@ -10,7 +10,7 @@ require_once("../../../config.php");
 </head>
 
 <body>
-<p>QUIZ PDF - CREATE <code>pdf-lib</code></p>
+<p>QUIZ PDF - CREATE </p>
 <button onclick="createPdf()">Create PDF</button>
 </body>
 
