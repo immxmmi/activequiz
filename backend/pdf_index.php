@@ -10,10 +10,8 @@ require_once("../../../config.php");
 </head>
 
 <body>
-<p>Click the button to create a new PDF document with <code>pdf-lib</code></p>
+<p>QUIZ PDF - CREATE <code>pdf-lib</code></p>
 <button onclick="createPdf()">Create PDF</button>
-<p class="small">(Your browser will download the resulting file)</p>
-
 </body>
 
 <div>
@@ -77,7 +75,7 @@ require_once("../../../config.php");
 
             page.drawText(aw[0], {
                 x: 80,
-                y: height - 4 * fontSize,
+                y: height - 6 * fontSize,
                 size: fontSize,
                 font: timesRomanFont,
                 color: rgb(0, 0.53, 0.71),
