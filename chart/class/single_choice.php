@@ -20,7 +20,8 @@ class single_choice
 
         /*
                         foreach ($steps_data as $summary) {
-                            $responsesummary = $summary[0]->getResponsesummary();
+                            $respon
+        esummary = $summary[0]->getResponsesummary();
                             $this->data = $this->addValue($this->data, $responsesummary);
                         }
         */
