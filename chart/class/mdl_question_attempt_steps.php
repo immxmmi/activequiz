@@ -84,6 +84,4 @@ class attempt_steps
         return $this->answer_list;
     }
 
-
-
 }

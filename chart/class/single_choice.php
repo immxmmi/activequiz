@@ -1,5 +1,4 @@
 <?php
-require_once("../../../config.php");
 require_once("mdl_question_attempt_step_data.php");
 global $DB;
 
