@@ -1,5 +1,4 @@
 <?php
-require_once("../../../config.php");
 global $DB;
 
 class true_false_choice{
