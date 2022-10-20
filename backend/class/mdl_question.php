@@ -1,5 +1,6 @@
 <?php
 global $DB;
+
 class mdl_question
 {
     private $id;
