@@ -29,7 +29,7 @@ require_once("../../../config.php");
     /// QUIZ DATA
     var quizdata = null;
     if (session !== null) {
-        var url = './quiz_api.php';
+        var url = './api/quiz_api.php';
         var params = {
             sessionid: session
         };
