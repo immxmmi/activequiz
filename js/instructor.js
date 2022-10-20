@@ -774,7 +774,7 @@ function create_chart(chart_typ){
 
     //declare variables
     var data;
-    var url = './chart/chart_api.php';
+    var url = './backend/chart_api.php';
 
     require(['./js/chart/Chart.min.js'], function(Chart){
 
