@@ -7,7 +7,6 @@ require_once("../../chart/class/mdl_question_attempts.php");
 require_once("../builder/quiz_builder.php");
 global $DB;
 
-
 // PARAMETER
 $sessionid = optional_param('sessionid', false, PARAM_TEXT);
 
