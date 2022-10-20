@@ -49,10 +49,10 @@ require_once("../../../config.php");
     async function createPdf() {
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
-      console.log(qu);
-      console.log(aw);
+              console.log(qu);
+             console.log(aw);
 
-        if (quizdata === null) {
+        //if (quizdata === null) {
             // Create a new PDFDocument
             const pdfDoc = await PDFDocument.create()
 
@@ -81,6 +81,5 @@ require_once("../../../config.php");
             // Trigger the browser to download the PDF document
             download(pdfBytes, "pdf-lib_creation_example.pdf", "application/pdf");
         }
-    }
 </script>
 </html>
