@@ -79,7 +79,7 @@ require_once("../../../config.php");
             const pdfBytes = await pdfDoc.save()
 
             // Trigger the browser to download the PDF document
-            download(pdfBytes, "pdf-lib_creation_example.pdf", "application/pdf");
+            download(pdfBytes, "QUIZ PDF", "application/pdf");
         }
 </script>
 </html>
