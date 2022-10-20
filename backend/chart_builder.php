@@ -1,5 +1,4 @@
 <?php
-require_once("../../../config.php");
 require_once("class/mdl_question_attempts.php");
 
 class chart_builder
