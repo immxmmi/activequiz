@@ -49,7 +49,7 @@ require_once("../../../config.php");
     async function createPdf() {
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
-              console.log(qu);
+              console.log(qu[0]);
              console.log(aw);
 
         //if (quizdata === null) {
