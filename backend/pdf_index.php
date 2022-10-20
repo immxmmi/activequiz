@@ -49,7 +49,7 @@ require_once("../../../config.php");
     async function createPdf() {
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
-              console.log(qu[0]);
+              console.log(qu);
              console.log(aw);
 
         //if (quizdata === null) {
@@ -67,8 +67,16 @@ require_once("../../../config.php");
 
             // Draw a string of text toward the top of the page
             const fontSize = 30
-            page.drawText('Creating PDFs in JavaScript is awesome!', {
+            page.drawText(qu[0], {
                 x: 50,
+                y: height - 4 * fontSize,
+                size: fontSize,
+                font: timesRomanFont,
+                color: rgb(0, 0.53, 0.71),
+            })
+
+            page.drawText(aw[0], {
+                x: 80,
                 y: height - 4 * fontSize,
                 size: fontSize,
                 font: timesRomanFont,
