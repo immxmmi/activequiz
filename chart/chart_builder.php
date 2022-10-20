@@ -1,5 +1,5 @@
 <?php
-require_once("./mdl_question_attempts.php");
+require_once("./class/mdl_question_attempts.php");
 
 class chart_builder
 {
