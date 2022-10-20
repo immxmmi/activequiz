@@ -45,6 +45,11 @@ require_once("../../../config.php");
     const {PDFDocument, StandardFonts, rgb} = PDFLib
 
     async function createPdf() {
+
+        // TIME
+        const d = new Date();
+        let time = d.getTime();
+
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
               console.log(qu);
@@ -85,7 +90,7 @@ require_once("../../../config.php");
             const pdfBytes = await pdfDoc.save()
 
             // Trigger the browser to download the PDF document
-            download(pdfBytes, "QUIZ PDF", "application/pdf");
+            download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
         }
 </script>
 </html>
