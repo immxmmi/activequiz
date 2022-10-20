@@ -1,5 +1,4 @@
 <?php
-require_once("../../../../config.php");
 require_once("../class/mdl_question_data.php");
 require_once("../../chart/class/mdl_activequiz_attempt.php");
 require_once("../../chart/class/mdl_activequiz_sessions.php");
