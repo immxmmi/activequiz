@@ -66,12 +66,13 @@ class report_overview_renderer extends \plugin_renderer_base {
         $regradeurl = clone($this->pageurl);
         $regradeurl->param('action', 'regradeall');
         $regradeall = new \single_button($regradeurl, get_string('regradeallgrades', 'activequiz'), 'GET');
+        $regradeall = new \single_button($regradeurl, get_string('regradeallgrades', 'activequiz'), 'GET');
+
         $output .= \html_writer::div($this->output->render($regradeall), '');
 
         $output = \html_writer::div($output, 'activequizbox');
 
-        // new Code
-        $output .= \html_writer::div($output, 'test');
+
 
         echo $output;
 
