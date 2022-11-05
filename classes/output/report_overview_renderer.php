@@ -54,8 +54,6 @@ class report_overview_renderer extends \plugin_renderer_base
         $output = '';
         $selectsession = \html_writer::start_div('');
         $selectsession .= \html_writer::tag('h3', get_string('selectsession', 'activequiz'), array('class' => 'inline-block'));
-        $selectsession .= \html_writer::tag('h3', $selectedid);
-
 
         $sessionselecturl = clone($this->pageurl);
         $sessionselecturl->param('action', 'viewsession');
