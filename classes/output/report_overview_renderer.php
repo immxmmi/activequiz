@@ -33,6 +33,14 @@ class report_overview_renderer extends \plugin_renderer_base {
 
     use renderer_base;
 
+
+    public function test(){
+        alert("Hello! I am an alert box!!");
+    }
+
+
+
+
     /**
      * renders and echos the home page fore the responses section
      *
@@ -60,7 +68,7 @@ class report_overview_renderer extends \plugin_renderer_base {
 
 
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit' , 'class' => 'btn btn-info'));
+        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit' , 'class' => 'btn btn-info', 'onclick' => "test()"));
         $selectsession .= \html_writer::end_div();
 
         $output .= $selectsession;
@@ -114,5 +122,6 @@ class report_overview_renderer extends \plugin_renderer_base {
         $sessionattempts->finish_output();
 
     }
+
 
 }
