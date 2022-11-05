@@ -60,6 +60,7 @@ class report_overview_renderer extends \plugin_renderer_base {
         $sessionselect = new \single_select($sessionselecturl, 'sessionid', $sessionoptions, $selectedid);
 
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
+        $selectsession .= \html_writer::tag(button, 'test', array('id' => 'tophat'));
         $selectsession .= \html_writer::end_div();
 
         $output .= $selectsession;
