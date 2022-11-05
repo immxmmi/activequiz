@@ -70,6 +70,9 @@ class report_overview_renderer extends \plugin_renderer_base {
 
         $output = \html_writer::div($output, 'activequizbox');
 
+        // new Code
+        $output .= \html_writer::div($output, 'test');
+
         echo $output;
 
     }
