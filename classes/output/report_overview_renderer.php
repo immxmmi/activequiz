@@ -45,7 +45,6 @@ class report_overview_renderer extends \plugin_renderer_base {
         $selectsession = \html_writer::start_div('');
         $selectsession .= \html_writer::tag('h3', get_string('selectsession', 'activequiz'), array('class' => 'inline-block'));
         $selectsession .= \html_writer::tag('h3', $selectedid);
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'class' => 'pdfButton'));
 
 
         $sessionselecturl = clone($this->pageurl);
@@ -58,6 +57,8 @@ class report_overview_renderer extends \plugin_renderer_base {
         }
 
         $sessionselect = new \single_select($sessionselecturl, 'sessionid', $sessionoptions, $selectedid);
+
+        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'class' => 'pdfButton'));
 
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
         $selectsession .= \html_writer::end_div();
