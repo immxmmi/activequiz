@@ -1,4 +1,5 @@
 <?php
+
 namespace mod_activequiz\output;
 
 // This file is part of Moodle - http://moodle.org/
@@ -28,26 +29,27 @@ use mod_activequiz\traits\renderer_base;
 
 defined('MOODLE_INTERNAL') || die();
 
-class report_overview_renderer extends \plugin_renderer_base {
+class report_overview_renderer extends \plugin_renderer_base
+{
 
 
     use renderer_base;
 
 
-    public function test(){
+    public function test()
+    {
         alert("Hello! I am an alert box!!");
     }
-
-
 
 
     /**
      * renders and echos the home page fore the responses section
      *
-     * @param array      $sessions
+     * @param array $sessions
      * @param string|int $selectedid
      */
-    public function select_session($sessions, $selectedid = '') {
+    public function select_session($sessions, $selectedid = '')
+    {
 
         $output = '';
         $selectsession = \html_writer::start_div('');
@@ -61,7 +63,7 @@ class report_overview_renderer extends \plugin_renderer_base {
         $sessionoptions = array();
         foreach ($sessions as $session) {
             /** @var \mod_activequiz\activequiz_session $session */
-            $sessionoptions[ $session->get_session()->id ] = $session->get_session()->name;
+            $sessionoptions[$session->get_session()->id] = $session->get_session()->name;
         }
 
         $sessionselect = new \single_select($sessionselecturl, 'sessionid', $sessionoptions, $selectedid);
@@ -70,7 +72,7 @@ class report_overview_renderer extends \plugin_renderer_base {
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
         $selectsession .= \html_writer::end_div();
 
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit' , 'class' => 'btn btn-info', 'onclick' => ''+$this->test()));
+        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => '(function(){alert("Hey i am calling");return false;})();return false;'));
 
         $output .= $selectsession;
 
@@ -83,7 +85,6 @@ class report_overview_renderer extends \plugin_renderer_base {
         $output = \html_writer::div($output, 'activequizbox');
 
 
-
         echo $output;
 
     }
@@ -92,7 +93,8 @@ class report_overview_renderer extends \plugin_renderer_base {
      * Report home function.  is empty untill we need something on the home page
      *
      */
-    public function home() {
+    public function home()
+    {
 
 
         $gradestable = new \mod_activequiz\tableviews\overallgradesview('gradestable', $this->activequiz, $this->pageurl);
@@ -114,7 +116,8 @@ class report_overview_renderer extends \plugin_renderer_base {
      *
      * @param \mod_activequiz\tableviews\sessionattempts $sessionattempts
      */
-    public function view_session_attempts(\mod_activequiz\tableviews\sessionattempts $sessionattempts) {
+    public function view_session_attempts(\mod_activequiz\tableviews\sessionattempts $sessionattempts)
+    {
 
 
         $sessionattempts->setup();
