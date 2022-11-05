@@ -60,8 +60,6 @@ class report_overview_renderer extends \plugin_renderer_base {
 
 
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
-        $selectsession .= \html_writer::end_div();
-        $selectsession .= \html_writer::div('test','test');
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit' , 'class' => 'btn btn-info'));
         $selectsession .= \html_writer::end_div();
 
