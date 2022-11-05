@@ -41,11 +41,11 @@ class report_overview_renderer extends \plugin_renderer_base {
      */
     public function select_session($sessions, $selectedid = '') {
 
-
         $output = '';
-
         $selectsession = \html_writer::start_div('');
         $selectsession .= \html_writer::tag('h3', get_string('selectsession', 'activequiz'), array('class' => 'inline-block'));
+        $selectsession .= \html_writer::tag('h3', $selectedid);
+
 
         $sessionselecturl = clone($this->pageurl);
         $sessionselecturl->param('action', 'viewsession');
@@ -65,7 +65,6 @@ class report_overview_renderer extends \plugin_renderer_base {
 
         $regradeurl = clone($this->pageurl);
         $regradeurl->param('action', 'regradeall');
-        $regradeall = new \single_button($regradeurl, get_string('regradeallgrades', 'activequiz'), 'GET');
         $regradeall = new \single_button($regradeurl, get_string('regradeallgrades', 'activequiz'), 'GET');
 
         $output .= \html_writer::div($this->output->render($regradeall), '');
