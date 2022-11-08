@@ -19,7 +19,7 @@ require_once("../../../config.php");
 <div>
     <form action="javascript:void(0);">
         <label for="session">Session ID:</label>
-        <input type="number" id="sessionid" name="session">
+        <input type="number" id="sessionid" name="session" hidden>
     </form>
 </div>
 
@@ -51,9 +51,10 @@ require_once("../../../config.php");
         // TIME
         const d = new Date();
         let time = d.getTime();
-
+            var right_answer = quizdata.data;
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
+              console.log(right_answer);
               console.log(qu);
              console.log(aw);
 

@@ -9,7 +9,8 @@
             <path value="file://$PROJECT_DIR$/pdf" />
             <path value="file://$PROJECT_DIR$/code" />
             <path value="file://$PROJECT_DIR$/api" />
-            <path value="file://$PROJECT_DIR$/backend" />
+            <path value="file://$PROJECT_DIR$/backend/src" />
+            <path value="file://$PROJECT_DIR$/backend/assets" />
           </resourceRoots>
         </entryData>
       </entry>

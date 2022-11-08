@@ -12,7 +12,7 @@ class quiz_builder
     {
     }
 
-    public function build_quiz_data($question, $answer)
+    public function build_quiz_data($question, $answer, $right_answer)
     {
 
         if ($question === null) {
@@ -21,7 +21,8 @@ class quiz_builder
             $this->info = "Loading - Success";
             $this->data = array(
                 'question' => $question,
-                'answers' => $answer
+                'answers' => $answer,
+                'right_answer' => $right_answer
             );
         }
         return $this->convert_quiz_to_json();

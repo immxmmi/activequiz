@@ -16,6 +16,8 @@ $quizdata = array();
 $qu = array();
 // ARRAY OF ANSWERS
 $aw = array();
+// ARRAY OF ANSWERS
+$right = array();
 //QUIZ BUILDER
 $quiz_build = new quiz_builder();
 
@@ -36,10 +38,11 @@ if ($allquestionengids != null) {
 foreach ($quizdata as $qd) {
     array_push($qu, $qd->getQuestion());
     array_push($aw, $qd->getAnswers());
+    array_push($right, $qd->getRightanswer());
 }
 
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($qu, $aw);
+$data = $quiz_build->build_quiz_data($qu, $aw, $right);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
