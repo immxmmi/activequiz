@@ -30,13 +30,9 @@
     $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 
 
-    //if($slot === null){
+    if(!is_numeric($slot)){
         $slot = $session->getCurrentquestion(); // SLOT
-    //}
-    echo("ee");
-    echo("ee");
-    echo("ee");
-    print_r("test");
+    }
 
     $question_attemp = new question_attempts($allquestionengids, $slot);
     #####################################################
