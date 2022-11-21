@@ -1,6 +1,7 @@
 var session = jQuery('#sessionid').val();
 /// QUIZ DATA
 var quizdata = null;
+var quizdataa = null;
 
 if (session !== null) {
     var url = './api/quiz_api.php';
@@ -26,7 +27,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
      $.getJSON(url,param,function (data){
-         console.log(data.data.data);
+         quizdataa = data.data.data;
      });
 }
 
@@ -34,7 +35,7 @@ async function createPdf(session) {
 
     generateChartBySessionAndSlot(session, 'bar', 3);
 
-
+    console.log(quizdataa);
 
     // TIME
     const d = new Date();
