@@ -57,9 +57,7 @@ require_once("../../../config.php");
             //var right_answer = quizdata.data;
             var qu = quizdata.data.data.question;
             var aw = quizdata.data.data.answers;
-              console.log(right_answer);
-              console.log(qu);
-             console.log(aw);
+
 
         //if (quizdata === null) {
             // Create a new PDFDocument
