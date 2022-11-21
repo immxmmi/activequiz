@@ -1,3 +1,23 @@
+var session = jQuery('#sessionid').val();
+/// QUIZ DATA
+var quizdata = null;
+
+
+if (session !== null) {
+    var url = './api/quiz_api.php';
+    var params = {sessionid: session};
+
+
+    var addquizdata = function (data) {
+        quizdata = data.data.data;
+        return;
+    }
+
+    jQuery.get(url, params, addquizdata).fail(function (data) {
+        alert(data.responseJSON.meta.data);
+    });
+}
+
 
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
@@ -18,17 +38,17 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
 
-async function createPdf(sessionID) {
+async function createPdf() {
     showMessage();
-    generateChartBySessionAndSlot(sessionID, 'bar', 1);
-/*
+    generateChartBySessionAndSlot(11, 'bar', 3);
+
 
     // TIME
     const d = new Date();
     let time = d.getTime();
     //var right_answer = quizdata.data;
-    var qu = {};
-    var aw = {};
+    var qu = quizdata.question;
+    var aw = quizdata.answers;
 
 
     //if (quizdata === null) {
@@ -67,6 +87,4 @@ async function createPdf(sessionID) {
 
     // Trigger the browser to download the PDF document
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
-
- */
 }
