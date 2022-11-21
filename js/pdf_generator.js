@@ -24,13 +24,13 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    var quizdataa = {};
+    var quizdata;
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
-        quizdataa.push(data.data.data);
+        quizdata = data.data.data;
+        console.log(quizdata);
     });
-        console.log(quizdataa);
 }
 
 async function createPdf(session) {
