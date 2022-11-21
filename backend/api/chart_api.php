@@ -13,7 +13,6 @@
     // Parameter
     $charttype = optional_param('type', false, PARAM_TEXT); //
     $sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-    $slot_test = optional_param('slot', false, PARAM_TEXT); //$sessionID = 46;
     $chart = new chart_builder();
 
     # # # # # # # # -SESSION- # # # # # # # #
@@ -26,7 +25,6 @@
     #######################################################
 
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-    console.log($slot_test);
     $slot = $session->getCurrentquestion(); // SLOT
    // $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
     $question_attemp = new question_attempts($allquestionengids, $slot);
