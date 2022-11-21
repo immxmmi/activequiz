@@ -23,7 +23,7 @@ if (session !== null) {
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
-async function generateChartBySessionAndSlot(sessionid, type, slot) {
+async function generateChartBySessionAndSlota(sessionid, type, slot) {
     var quizdata;
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
@@ -32,6 +32,18 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
         console.log(quizdata);
     });
 }
+
+function myData(Data)
+{
+    console.log(Data[0]);
+}
+
+async function generateChartBySessionAndSlot(sessionid, type, slot) {
+    loadJSON("https://jsonplaceholder.typicode.com/posts",myData,'jsonp');
+}
+
+
+
 
 async function createPdf(session) {
 
