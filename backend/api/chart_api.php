@@ -55,7 +55,7 @@
         case "singel":
             $single->load_quiz_data($answers,$steps_data);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
-            $chart->setInfo("no Question Type Found!" + $slot);
+            $chart->setInfo("no Question Type Found! ".$slot);
             break;
         case "true/false":
             $trueFalse->setData($answers[0]);
