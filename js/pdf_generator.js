@@ -1,21 +1,21 @@
-var session = jQuery('#sessionid').val();
+//var session = jQuery('#sessionid').val();
 /// QUIZ DATA
 var quizdata = null;
 
-if (session !== null) {
-    var url = './api/quiz_api.php';
-    var params = {sessionid: session};
-
-
+//if (session !== null) {
+//    var url = './api/quiz_api.php';
+//    var params = {sessionid: session};
+//
+//
     var addquizdata = function (data) {
         quizdata = data;
         return;
     }
 
-    jQuery.get(url, params, addquizdata).fail(function (data) {
-        alert(data.responseJSON.meta.data);
-    });
-}
+//    jQuery.get(url, params, addquizdata).fail(function (data) {
+//        alert(data.responseJSON.meta.data);
+//    });
+//}
 
 
 // QUIZ DATA
@@ -23,11 +23,9 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    var param = {sessionid: session, type: type, slot: slot};
     var url = './api/quiz_api.php';
-     $.getJSON(url,param,function (data){
-         console.log(data);
-     });
+    var param = {sessionid: session, type: type, slot: slot};
+     $.getJSON(url,param,addquizdata(data));
 }
 
 async function createPdf(session) {
