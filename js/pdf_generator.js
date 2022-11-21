@@ -25,11 +25,13 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
-    var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php';
-    var params = {sessionid: sessionid};
+    var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
+    //var params = {sessionid: sessionid};
 
 
     var addquizdata = function (data) {
+        console.log(data);
+        console.log(url);
         quizdata = data;
         return;
     }
