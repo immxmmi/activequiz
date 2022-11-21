@@ -51,7 +51,7 @@ require_once("../../../config.php");
 
     async function createPdf() {
 
-        $data = generateChartBySlot(3).object;
+        $data = generateChartBySlot(3).Object;
         console.log($data);
 
 
