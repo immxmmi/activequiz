@@ -28,7 +28,7 @@ function showMessage(){
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var quizdata;
-    var url = '<?php echo $CFG->wwwroot; ?>/mod/activequiz/backend/api/quiz_api.php';
+    var url = '/mod/activequiz/backend/api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
         quizdata = data.data.data;
