@@ -29,7 +29,7 @@ function showMessage(){
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var quizdata;
     var url = '/mod/activequiz/backend/api/quiz_api.php';
-    var param = {sessionid: session, type: type, slot: slot};
+    var param = {sessionid: sessionid, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
         quizdata = data.data.data;
         console.log(quizdata);
