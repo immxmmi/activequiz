@@ -26,7 +26,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
     var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php';
-    var params = {sessionid: session};
+    var params = {sessionid: sessionid};
 
 
     var addquizdata = function (data) {
