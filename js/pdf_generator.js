@@ -25,7 +25,9 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = './api/quiz_api.php';
     var param = {sessionid: sessionid, type: type, slot: slot};
-     $.getJSON(url,param,addquizdata(data));
+     $.getJSON(url,param,function (data) {
+         addquizdata(data);
+     });
 }
 
 async function createPdf(session) {
