@@ -24,5 +24,5 @@ require_once("../../../config.php");
 </div>
 
 
-<script src="../js/pdf_generator.js"></script>
+<script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/pdf_generator.js"></script>
 </html>
