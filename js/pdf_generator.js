@@ -27,10 +27,10 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var quizdataa = null;
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
-     $.getJSON(url,param,function (data){
-         quizdataa = data.data.data;
-     });
-    console.log( quizdataa);
+    $.getJSON(url, param, function (data) {
+        quizdataa = data.data.data;
+        console.log(quizdataa);
+    });
 }
 
 async function createPdf(session) {
