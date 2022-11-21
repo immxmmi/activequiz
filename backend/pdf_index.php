@@ -24,5 +24,5 @@ require_once("../../../config.php");
 </div>
 
 
-<script src="../js/download_pd.js"></script>
+<script src="../js/pdf_generator.js"></script>
 </html>
