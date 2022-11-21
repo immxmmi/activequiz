@@ -25,7 +25,7 @@ require_once("../../../config.php");
 
 
 <script>
-    var session =  jQuery('#sessionid').val();
+    var session = jQuery('#sessionid').val();
     /// QUIZ DATA
     var quizdata = null;
     if (session !== null) {
@@ -45,63 +45,61 @@ require_once("../../../config.php");
     // QUIZ DATA
 
     const {PDFDocument, StandardFonts, rgb} = PDFLib
-    async function generateChartBySessionAndSlot(sessionid,slot){
-        $link = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid='+sessionid+'&type=bar&slot='+slot;
-        console.log($link)
-        return    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=11&type=bar&slot=3');
+
+    async function generateChartBySessionAndSlot(sessionid, slot, type) {
+        return $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;);
     }
 
     async function createPdf() {
 
-        $data = generateChartBySessionAndSlot(11,3);
+        $data = generateChartBySessionAndSlot(11, 3, 'bar');
         console.log($data);
-
 
 
         // TIME
         const d = new Date();
         let time = d.getTime();
-            //var right_answer = quizdata.data;
-            var qu = quizdata.data.data.question;
-            var aw = quizdata.data.data.answers;
+        //var right_answer = quizdata.data;
+        var qu = quizdata.data.data.question;
+        var aw = quizdata.data.data.answers;
 
 
         //if (quizdata === null) {
-            // Create a new PDFDocument
-            const pdfDoc = await PDFDocument.create()
+        // Create a new PDFDocument
+        const pdfDoc = await PDFDocument.create()
 
-            // Embed the Times Roman font
-            const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman)
+        // Embed the Times Roman font
+        const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman)
 
-            // Add a blank page to the document
-            const page = pdfDoc.addPage()
+        // Add a blank page to the document
+        const page = pdfDoc.addPage()
 
-            // Get the width and height of the page
-            const {width, height} = page.getSize()
+        // Get the width and height of the page
+        const {width, height} = page.getSize()
 
-            // Draw a string of text toward the top of the page
-            const fontSize = 30
-            page.drawText(qu[0], {
-                x: 50,
-                y: height - 4 * fontSize,
-                size: fontSize,
-                font: timesRomanFont,
-                color: rgb(0, 0.53, 0.71),
-            })
+        // Draw a string of text toward the top of the page
+        const fontSize = 30
+        page.drawText(qu[0], {
+            x: 50,
+            y: height - 4 * fontSize,
+            size: fontSize,
+            font: timesRomanFont,
+            color: rgb(0, 0.53, 0.71),
+        })
 
-            page.drawText(aw[0], {
-                x: 80,
-                y: height - 6 * fontSize,
-                size: fontSize,
-                font: timesRomanFont,
-                color: rgb(0, 0.53, 0.71),
-            })
+        page.drawText(aw[0], {
+            x: 80,
+            y: height - 6 * fontSize,
+            size: fontSize,
+            font: timesRomanFont,
+            color: rgb(0, 0.53, 0.71),
+        })
 
-            // Serialize the PDFDocument to bytes (a Uint8Array)
-            const pdfBytes = await pdfDoc.save()
+        // Serialize the PDFDocument to bytes (a Uint8Array)
+        const pdfBytes = await pdfDoc.save()
 
-            // Trigger the browser to download the PDF document
-            download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
-        }
+        // Trigger the browser to download the PDF document
+        download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
+    }
 </script>
 </html>
