@@ -55,7 +55,7 @@
         case "singel":
             $single->load_quiz_data($answers,$steps_data);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
-            $chart->setInfo("TESRRRR ".$slot);
+            $chart->setMsg("TESRRRR ".$slot);
             break;
         case "true/false":
             $trueFalse->setData($answers[0]);
