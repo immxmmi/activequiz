@@ -26,7 +26,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
      $.getJSON(url,param,function (data){
-         console.log(data.data);
+         console.log(data.data.data);
      });
 }
 
