@@ -27,10 +27,10 @@
 
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 
-    $slot = null; // optional_param('slot', false, PARAM_TEXT); //; // SLOT
-    if($slot === null){
+    $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
+    //if($slot === null){
         $slot = $session->getCurrentquestion(); // SLOT
-    }
+    //}
 
     $question_attemp = new question_attempts($allquestionengids, $slot);
     #####################################################
@@ -55,12 +55,10 @@
         case "singel":
             $single->load_quiz_data($answers,$steps_data);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
-            $chart->setMsg("TESRRRR ".$slot);
             break;
         case "true/false":
             $trueFalse->setData($answers[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
-            $chart->setMsg("TESRRRR ".$slot);
         default:
             $chart->setInfo("no Question Type Found!");
             $data = $chart->build_new_chart(null, null, null);
