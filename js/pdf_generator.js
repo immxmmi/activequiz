@@ -22,6 +22,9 @@ if (session !== null) {
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
+function showMessage(){
+    alert("click here");
+}
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var quizdata;
@@ -35,9 +38,9 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
 
-async function createPdf(session) {
-
-    generateChartBySessionAndSlot(session, 'bar', 3);
+async function createPdf() {
+    showMessage();
+    generateChartBySessionAndSlot(11, 'bar', 3);
 
 
     // TIME
