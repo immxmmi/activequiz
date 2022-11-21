@@ -22,9 +22,8 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    $data = null;
-    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
-         $data = data;
+    $data = $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
+         return data;
     });
    return $data;
 }
