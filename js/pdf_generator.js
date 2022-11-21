@@ -23,7 +23,7 @@ if (session !== null) {
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
-async function generateChartBySessionAndSlota(sessionid, type, slot) {
+async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var quizdata;
     var url = './api/quiz_api.php';
     var param = {sessionid: session, type: type, slot: slot};
@@ -37,20 +37,6 @@ function myData(Data)
 {
     console.log(Data[0]);
 }
-
-async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    let url = 'https://labtask87.s3.amazonaws.com/employeedata.json';
-
-    fetch(url)
-        .then(res => res.json())
-        .then((out) => {
-            console.log('Checkout this JSON! ', out);
-        })
-        .catch(err => { throw err });
-
-}
-
-
 
 
 async function createPdf(session) {
