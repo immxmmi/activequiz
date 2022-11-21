@@ -1,7 +1,7 @@
 //var session = jQuery('#sessionid').val();
 /// QUIZ DATA
 var quizdata = null;
-/*
+
 if (session !== null) {
     var url = './api/quiz_api.php';
     var params = {sessionid: session};
@@ -16,7 +16,7 @@ if (session !== null) {
         alert(data.responseJSON.meta.data);
     });
 }
-*/
+
 
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
@@ -25,13 +25,11 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
-    var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
-    //var params = {sessionid: sessionid};
+    var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php';
+    var params = {sessionid: session, type: type, slot: slot};
 
 
     var addquizdata = function (data) {
-        console.log(data);
-        console.log(url);
         quizdata = data;
         return;
     }
