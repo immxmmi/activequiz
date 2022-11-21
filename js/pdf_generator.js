@@ -1,10 +1,9 @@
-var session =  jQuery('#sessionid').val();
+var session = jQuery('#sessionid').val();
 /// QUIZ DATA
 var quizdata = null;
 if (session !== null) {
     var url = './api/quiz_api.php';
     var params = {sessionid: session};
-
 
 
     var addquizdata = function (data) {
@@ -18,23 +17,22 @@ if (session !== null) {
 }
 
 
-
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
-async function generateChartBySessionAndSlot(sessionid,type,slot){
-    return    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid='+sessionid+'&type='+type+'&slot='+slot);
+async function generateChartBySessionAndSlot(sessionid, type, slot) {
+    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
+        return data;
+    });
 }
 
 async function createPdf(session) {
 
 
+    $data = generateChartBySessionAndSlot(session, 'bar', 3);
 
-    $data = generateChartBySessionAndSlot(session,'bar',3);
-    $data.success(function (data) {
-        console.log(data);
-    })
+    console.log(data);
 
 
     // TIME
@@ -80,5 +78,5 @@ async function createPdf(session) {
     const pdfBytes = await pdfDoc.save()
 
     // Trigger the browser to download the PDF document
-    download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
+    download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
 }
