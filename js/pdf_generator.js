@@ -1,4 +1,4 @@
-var session = jQuery('#sessionid').val();
+var session = 11;
 /// QUIZ DATA
 var quizdata = null;
 
