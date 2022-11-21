@@ -33,7 +33,10 @@
     //if($slot === null){
         $slot = $session->getCurrentquestion(); // SLOT
     //}
-    print_r($slot);
+    echo("ee");
+    echo("ee");
+    echo("ee");
+    print_r("test");
 
     $question_attemp = new question_attempts($allquestionengids, $slot);
     #####################################################
