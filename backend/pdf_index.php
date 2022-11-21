@@ -48,7 +48,7 @@ require_once("../../../config.php");
 
     async function createPdf() {
 
-        $.getJSON('http://time.jsontest.com', function(data) {
+        $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=11&type=bar&slot=3', function(data) {
             console.log(data);
         });
 
