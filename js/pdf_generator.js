@@ -1,3 +1,21 @@
+var session =  jQuery('#sessionid').val();
+/// QUIZ DATA
+var quizdata = null;
+if (session !== null) {
+    var url = './api/quiz_api.php';
+    var params = {sessionid: session};
+
+
+
+    var addquizdata = function (data) {
+        quizdata = data;
+        return;
+    }
+
+    jQuery.get(url, params, addquizdata).fail(function (data) {
+        alert(data.responseJSON.meta.data);
+    });
+}
 
 
 
@@ -12,32 +30,12 @@ async function generateChartBySessionAndSlot(sessionid,type,slot){
 async function createPdf(session) {
 
 
-    //var session =  jQuery('#sessionid').val();
-/// QUIZ DATA
-    var quizdata = null;
-    if (session !== null) {
-        var url = './api/quiz_api.php';
-        var params = {
-            sessionid: session
-        };
-        var addquizdata = function (data) {
-            quizdata = data;
-            return;
-        }
-
-        jQuery.get(url, params, addquizdata).fail(function (data) {
-            alert(data.responseJSON.meta.data);
-        });
-    }
-
-
-
 
 
 
 
     $data = generateChartBySessionAndSlot(session,'bar',3);
-    console.log($data);
+    console.log($data.responseJSON);
 
 
     // TIME
