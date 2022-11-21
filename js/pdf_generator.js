@@ -25,7 +25,7 @@ let dano = null;
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     let data = null;
     $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
-         dano = data;
+         this.dano = data;
     });
 
     console.log(dano);
