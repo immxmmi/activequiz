@@ -49,13 +49,7 @@ require_once("../../../config.php");
     async function createPdf() {
 
         $.getJSON('http://time.jsontest.com', function(data) {
-
-            var text = `Date: ${data.date}<br>
-                    Time: ${data.time}<br>
-                    Unix time: ${data.milliseconds_since_epoch}`
-
-
-            $(".mypanel").html(text);
+            console.log(data);
         });
 
 
