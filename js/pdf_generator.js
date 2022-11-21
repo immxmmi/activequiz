@@ -20,12 +20,13 @@ if (session !== null) {
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
+var dano = null;
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    $data = $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
-         return data;
+    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
+         dano = data;
     });
-   return $data;
+   return dano;
 }
 
 async function createPdf(session) {
