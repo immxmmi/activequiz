@@ -7,10 +7,11 @@ var quizdata = null;
 //    var params = {sessionid: session};
 //
 //
-    var addquizdata = function (data) {
-        quizdata = data;
-        return;
-    }
+var addquizdata = function (data) {
+    quizdata = data;
+    console.log(quizdata);
+    return;
+}
 
 //    jQuery.get(url, params, addquizdata).fail(function (data) {
 //        alert(data.responseJSON.meta.data);
@@ -25,16 +26,14 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = './api/quiz_api.php';
     var param = {sessionid: sessionid, type: type, slot: slot};
-     $.getJSON(url,param,function (data) {
-         addquizdata(data);
-     });
+    $.getJSON(url, param, function (data) {
+        addquizdata(data);
+    });
 }
 
 async function createPdf(session) {
 
     generateChartBySessionAndSlot(session, 'bar', 3);
-
-    console.log(quizdata);
 
 
     // TIME
