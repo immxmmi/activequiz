@@ -45,8 +45,9 @@ require_once("../../../config.php");
     // QUIZ DATA
 
     const {PDFDocument, StandardFonts, rgb} = PDFLib
-    async function generateChartBySessionAndSlot(sessionid,slot2){
-        $link = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=11&type=bar&slot='.$slot2;
+    async function generateChartBySessionAndSlot(sessionid,slot){
+        $link = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=11&type=bar&slot=';
+        $link .= slot;
         console.log($link)
         return    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=11&type=bar&slot=3');
     }
