@@ -24,7 +24,7 @@ async function createPdf(sessionID) {
     showMessage();
     generateChartBySessionAndSlot(sessionID, 'bar', 3);
 
-
+/*
     // TIME
     const d = new Date();
     let time = d.getTime();
@@ -69,4 +69,5 @@ async function createPdf(sessionID) {
 
     // Trigger the browser to download the PDF document
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
+ */
 }
