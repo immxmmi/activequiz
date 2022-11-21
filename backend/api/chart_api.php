@@ -29,11 +29,11 @@
 
     $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
 
-    print_r($slot);
 
     //if($slot === null){
         $slot = $session->getCurrentquestion(); // SLOT
     //}
+    print_r($slot);
 
     $question_attemp = new question_attempts($allquestionengids, $slot);
     #####################################################
