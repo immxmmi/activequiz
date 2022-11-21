@@ -60,6 +60,7 @@
         case "true/false":
             $trueFalse->setData($answers[0]);
             $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
+            $chart->setMsg("TESRRRR ".$slot);
         default:
             $chart->setInfo("no Question Type Found!");
             $data = $chart->build_new_chart(null, null, null);
