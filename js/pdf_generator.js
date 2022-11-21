@@ -38,9 +38,9 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
 
-async function createPdf() {
+async function createPdf(sessionID) {
     showMessage();
-    generateChartBySessionAndSlot(3, 'bar', 1);
+    generateChartBySessionAndSlot(sessionID, 'bar', 1);
 
 
     // TIME
