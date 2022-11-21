@@ -1,22 +1,21 @@
-//var session = jQuery('#sessionid').val();
+var session = jQuery('#sessionid').val();
 /// QUIZ DATA
 var quizdata = null;
 
-//if (session !== null) {
-//    var url = './api/quiz_api.php';
-//    var params = {sessionid: session};
-//
-//
-var addquizdata = function (data) {
-    quizdata = data;
-    console.log(quizdata);
-    return;
-}
+if (session !== null) {
+    var url = './api/quiz_api.php';
+    var params = {sessionid: session};
 
-//    jQuery.get(url, params, addquizdata).fail(function (data) {
-//        alert(data.responseJSON.meta.data);
-//    });
-//}
+
+    var addquizdata = function (data) {
+        quizdata = data;
+        return;
+    }
+
+    jQuery.get(url, params, addquizdata).fail(function (data) {
+        alert(data.responseJSON.meta.data);
+    });
+}
 
 
 // QUIZ DATA
@@ -25,10 +24,10 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = './api/quiz_api.php';
-    var param = {sessionid: sessionid, type: type, slot: slot};
-    $.getJSON(url, param, function (data) {
-        addquizdata(data);
-    });
+    var param = {sessionid: session, type: type, slot: slot};
+     $.getJSON(url,param,function (data){
+         console.log(data);
+     });
 }
 
 async function createPdf(session) {
@@ -36,12 +35,13 @@ async function createPdf(session) {
     generateChartBySessionAndSlot(session, 'bar', 3);
 
 
+
     // TIME
     const d = new Date();
     let time = d.getTime();
     //var right_answer = quizdata.data;
-    var qu = {};//quizdata.data.data.question;
-    var aw = {};//quizdata.data.data.answers;
+    var qu = quizdata.data.data.question;
+    var aw = quizdata.data.data.answers;
 
 
     //if (quizdata === null) {
