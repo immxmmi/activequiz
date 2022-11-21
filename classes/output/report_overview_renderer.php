@@ -73,6 +73,7 @@ class report_overview_renderer extends \plugin_renderer_base
 
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.')'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
+        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/pdf-lib'));
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
