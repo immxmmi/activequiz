@@ -23,23 +23,9 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-
-
-    var url = 'https://www.moodle.local/mod/activequiz/backend/api/chart_api.php';
-    var params = {sessionid: session, type: type, slot: slot};
-
-
-    var addquizdata = function (data) {
-        quizdata = data;
-        return;
-    }
-
-    jQuery.get(url, params, addquizdata).fail(function (data) {
-        alert(data.responseJSON.meta.data);
-    });
-
-
-  //  return $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot);
+     $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot,function (data){
+         console.log(data);
+     });
 }
 
 async function createPdf(session) {
