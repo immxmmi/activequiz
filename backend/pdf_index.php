@@ -47,9 +47,18 @@ require_once("../../../config.php");
     const {PDFDocument, StandardFonts, rgb} = PDFLib
 
     async function createPdf() {
-        fetch('https://reqbin.com/echo/get/json')
-            .then(response => response.json())
-            .then(json => console.log(json))
+
+        $.getJSON('http://time.jsontest.com', function(data) {
+
+            var text = `Date: ${data.date}<br>
+                    Time: ${data.time}<br>
+                    Unix time: ${data.milliseconds_since_epoch}`
+
+
+            $(".mypanel").html(text);
+        });
+
+
 
         // TIME
         const d = new Date();
