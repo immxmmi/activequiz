@@ -24,11 +24,11 @@ let dano = null;
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
     let data = null;
-    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (data) {
-         this.dano = data;
+    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot, function (json) {
+        var data = JSON.stringify(json);
+        console.log(data);
     });
 
-    console.log(dano);
    return dano;
 }
 
