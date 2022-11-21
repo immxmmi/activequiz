@@ -8,7 +8,7 @@ if (session !== null) {
 
 
     var addquizdata = function (data) {
-        quizdata = data;
+        quizdata = data.data.data;
         return;
     }
 
@@ -40,8 +40,8 @@ async function createPdf(session) {
     const d = new Date();
     let time = d.getTime();
     //var right_answer = quizdata.data;
-    var qu = quizdata.data.data.question;
-    var aw = quizdata.data.data.answers;
+    var qu = quizdata.question;
+    var aw = quizdata.answers;
 
 
     //if (quizdata === null) {
