@@ -22,9 +22,9 @@ async function generateChartBySessionAndSlot(sessionid,type,slot){
     return    $.getJSON('https://www.moodle.local/mod/activequiz/backend/api/chart_api.php?sessionid='+sessionid+'&type='+type+'&slot='+slot);
 }
 
-async function createPdf() {
+async function createPdf(session) {
 
-    $data = generateChartBySessionAndSlot(11,'bar',3);
+    $data = generateChartBySessionAndSlot(session,'bar',3);
     console.log($data);
 
 
