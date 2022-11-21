@@ -40,7 +40,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 async function createPdf() {
     showMessage();
-    generateChartBySessionAndSlot(11, 'bar', 3);
+    generateChartBySessionAndSlot(3, 'bar', 3);
 
 
     // TIME
