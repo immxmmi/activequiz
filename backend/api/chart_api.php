@@ -27,7 +27,7 @@
 
     # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
 
-    $slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
+    $slot = null; // optional_param('slot', false, PARAM_TEXT); //; // SLOT
     if($slot === null){
         $slot = $session->getCurrentquestion(); // SLOT
     }
