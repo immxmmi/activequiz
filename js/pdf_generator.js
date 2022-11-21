@@ -35,7 +35,7 @@ async function createPdf(session) {
 
 
     $data = generateChartBySessionAndSlot(session,'bar',3);
-    console.log($data.responseJSON.meta.data);
+    console.log($data);
 
 
     // TIME
