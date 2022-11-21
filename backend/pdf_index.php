@@ -16,6 +16,12 @@ require_once("../../../config.php");
 <button onclick="createPdf(11)">Create PDF</button>
 </body>
 
+<div>
+    <form action="javascript:void(0);">
+        <label for="session">Session ID:</label>
+        <input type="number" id="sessionid" name="session" value="2">
+    </form>
+</div>
 
 
 <script src="<?php echo $CFG->wwwroot; ?>/mod/activequiz/js/pdf_generator.js"></script>
