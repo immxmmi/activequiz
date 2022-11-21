@@ -610,7 +610,6 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $this->page->requires->js('/lib/jquery/jquery-3.5.1.min.js');
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
-        $this->page->requires->js('/mod/activequiz/js/pdf_generator.js');
        // $this->page->requires->js('/mod/activequiz/js/chart/Chart.min.js');
 
 
