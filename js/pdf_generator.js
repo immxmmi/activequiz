@@ -39,7 +39,15 @@ function myData(Data)
 }
 
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    loadJSON("https://jsonplaceholder.typicode.com/posts",myData,'jsonp');
+    let url = 'https://labtask87.s3.amazonaws.com/employeedata.json';
+
+    fetch(url)
+        .then(res => res.json())
+        .then((out) => {
+            console.log('Checkout this JSON! ', out);
+        })
+        .catch(err => { throw err });
+
 }
 
 
