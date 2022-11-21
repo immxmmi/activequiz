@@ -29,8 +29,10 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 async function createPdf(session) {
 
-
-    var data = generateChartBySessionAndSlot(session, 'bar', 3);
+    var data;
+    generateChartBySessionAndSlot(session, 'bar', 3).done(function (json){
+       console.log(json);
+    });
 
     console.log(data);
 
