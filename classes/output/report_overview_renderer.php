@@ -71,7 +71,7 @@ class report_overview_renderer extends \plugin_renderer_base
         $selectsession .= \html_writer::end_div();
 
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => '(function(){alert("PDF DOWANLOAD OF ID ' . $selectedid . ' ");return false;})();return false;'));
-        $selectsession .= \html_writer::tag('h3', 'test');
+        $selectsession .= \html_writer::tag('script', 'showMessage();');
 
         $output .= $selectsession;
 
