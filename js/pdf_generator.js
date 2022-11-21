@@ -31,13 +31,6 @@ async function createPdf(session) {
 
 
 
-.success(function (data) {
-        console.log("first: " + new Date().getTime());
-        callback(data);
-    })
-
-
-
     $data = generateChartBySessionAndSlot(session,'bar',3);
     $data.success(function (data) {
         console.log(data);
