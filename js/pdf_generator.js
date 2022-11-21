@@ -38,8 +38,8 @@ async function createPdf(session) {
     const d = new Date();
     let time = d.getTime();
     //var right_answer = quizdata.data;
-    var qu = quizdata.data.data.question;
-    var aw = quizdata.data.data.answers;
+    var qu = {};//quizdata.data.data.question;
+    var aw = {};//quizdata.data.data.answers;
 
 
     //if (quizdata === null) {
