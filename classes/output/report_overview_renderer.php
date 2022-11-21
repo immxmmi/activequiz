@@ -67,10 +67,12 @@ class report_overview_renderer extends \plugin_renderer_base
         $sessionselect = new \single_select($sessionselecturl, 'sessionid', $sessionoptions, $selectedid);
 
 
+
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
         $selectsession .= \html_writer::end_div();
 
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
+        $selectsession .= \html_writer::tag('h3', sessionid, array('id' => ''.sessionid));
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => '(function(){alert("PDF DOWANLOAD OF ID ' . $selectedid . ' ");return false;})();return false;'));
         $selectsession .= \html_writer::tag('button', 'PDF Test', array('id' => 'print', 'OnClick' => 'createPdf('.$selectedid.')'));
 
