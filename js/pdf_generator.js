@@ -8,8 +8,8 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php/';
     var param = {sessionid: sessionid, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
-       // quizdata = data.data.data;
-        console.log(data);
+        quizdata = data.data.data;
+        console.log(quizdata);
         //return quizdata;
     });
 
