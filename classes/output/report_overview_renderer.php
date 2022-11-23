@@ -73,6 +73,8 @@ class report_overview_renderer extends \plugin_renderer_base
 
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/pdf-lib'));
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.')'));
+        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/dist/pdf-lib.js'));
+        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
         $output .= $selectsession;
 
