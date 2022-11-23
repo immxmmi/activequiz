@@ -188,13 +188,13 @@ async function createPdf(sessionID) {
     generateChartBySessionAndSlot(sessionID, 'bar', 3);
 
 
-    const reportUrl = '/mod/activequiz/assets/ActiveQuiz_Report_Deckblatt.pdf';
+    const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
 
-    const pngUrl = '/mod/activequiz/assets/fh_logo.png';
+    const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
-    const chartUrl = '/mod/activequiz/assets/Chart.png';
+    const chartUrl = '/mod/activequiz/backend/assets/Chart.png';
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
