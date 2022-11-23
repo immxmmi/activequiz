@@ -20,7 +20,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 async function createPdf(sessionID) {
 
     // QUIZDATA
-    const data = generateChartBySessionAndSlot(11, 'bar', 3);
+    const data = generateChartBySessionAndSlot(11, 'bar', 1);
 
     // Test Data
     const question = ["Question 1", "Question 2"];
