@@ -1,44 +1,6 @@
-// Muss ins php file
-//import {download} from "https://unpkg.com/downloadjs@1.4.7";
-
-
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-//------------------ Inhaltsverzeichnis --------------------
-/*
-const getPageRefs = (pdfDoc) => {
-    const refs = [];
-    pdfDoc.catalog.Pages.traverse((kid, ref) => {
-      if (kid instanceof PDFPage) refs.push(ref);
-    });
-    return refs;
-  };
-
-const createOutlineItem = (pdfDoc, title, parent, nextOrPrev, page, isLast = false) =>
-  PDFDictionary.from(
-    {
-      Title: PDFString.fromString(title),
-      Parent: parent,
-      [isLast ? 'Prev' : 'Next']: nextOrPrev,
-      Dest: PDFArray.fromArray(
-        [
-          page,
-          PDFName.from('XYZ'),
-          PDFNull.instance,
-          PDFNull.instance,
-          PDFNull.instance,
-        ],
-        pdfDoc.index,
-      ),
-    },
-    pdfDoc.index,
-  );
-*/
-
-function showMessage(){
-    alert("click here");
-}
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
@@ -46,154 +8,45 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/quiz_api.php';
     var param = {session: sessionid, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
-        quizdata = data.data.data;
+       // quizdata = data.data.data;
         console.log(quizdata);
+        //return quizdata;
     });
 
-
-    //----------------------- Inhaltverzeichnis -------------------
-    /*
-    const page1 = pdfDoc.addPage();
-    page1.drawImage(pngImage, {
-        x: 30,
-        y: height-126-30,
-        width: 200,
-        height: 126,
-    });
-    page1.drawText('Question 1', {
-        x: 40,
-        y: height-126-30-40,
-        size: 28,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page1.drawText('Answer 1', {
-        x: 40,
-        y: height-126-30-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page1.drawText('Answer 2', {
-        x: 40,
-        y: height-126-30-40-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page1.drawText('Answer 3', {
-        x: 40,
-        y: height-126-30-40-40-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0.537, 0.702, 0.114), //green
-    });
-    page1.drawImage(chartImage, {
-        x: 30,
-        y: height-126-30-40-40-40-40-300,
-        width: 500,
-        height: 300,
-    });
-
-
-    pdfDoc.addPage(page1);
-    const pageRefs = getPageRefs(pdfDoc);
-    const outlinesDictRef = pdfDoc.index.nextObjectNumber();
-    const outlineItem1Ref = pdfDoc.index.nextObjectNumber();
-    const outlineItem1 = createOutlineItem(
-        pdfDoc,
-        'Question 1',
-        outlinesDictRef,
-        outlineItem1Ref,
-        pageRefs[0],
-        true,
-    );
-
-    const outlinesDict = PDFDictionary.from(
-        {
-          Type: PDFName.from('Outlines'),
-          First: outlineItem1Ref,
-          Last: outlineItem1Ref,
-          Count: PDFNumber.fromNumber(1),
-        },
-        pdfDoc.index,
-      );
-
-    pdfDoc.index.assign(outlinesDictRef, outlinesDict);
-    pdfDoc.index.assign(outlineItem1Ref, outlineItem1);
-
-    pdfDoc.catalog.set('Outlines', outlinesDictRef);
-
-    //const pdfBytes = PDFDocumentWriter.saveToBytes(pdfDoc);
-
-    const pdfBytes = await pdfDoc.save();
-    const d = new Date();
-    const time = d.getTime();
-    download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
-    */
-    //---------------- Old -------------------------
-    /*
-    const page = pdfDoc.addPage();
-    page.drawImage(pngImage, {
-        x: 30,
-        y: height-126-30,
-        width: 200,
-        height: 126,
-    });
-    page.drawText('Question 1', {
-        x: 40,
-        y: height-126-30-40,
-        size: 28,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page.drawText('Answer 1', {
-        x: 40,
-        y: height-126-30-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page.drawText('Answer 2', {
-        x: 40,
-        y: height-126-30-40-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0, 0.1, 0.156),
-    });
-    page.drawText('Answer 3', {
-        x: 40,
-        y: height-126-30-40-40-40-40,
-        size: 18,
-        font: arialFont,
-        color: rgb(0.537, 0.702, 0.114), //green
-    });
-    page.drawImage(chartImage, {
-        x: 30,
-        y: height-126-30-40-40-40-40-300,
-        width: 500,
-        height: 300,
-    });
-
-    const pdfBytes = await pdfDoc.save();
-    const d = new Date();
-    const time = d.getTime();
-    download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");*/
+    return 0;
 }
 
 
-
 async function createPdf(sessionID) {
-    //showMessage();
-    generateChartBySessionAndSlot(sessionID, 'bar', 3);
 
+    // QUIZDATA
+    const data = generateChartBySessionAndSlot(sessionID, 'bar', 3);
 
+    // Test Data
+    const question = ["Question 1", "Question 2"];
+    const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
+    const rightAnswer = ["Answer1", "Answer2"];
+
+    /*
+
+    // TIME
+    const d = new Date();
+    let time = d.getTime();
+    //var right_answer = quizdata.data;
+    var qu = {} //quizdata.question;
+    var aw = {} //quizdata.answers;
+
+    */
+
+    // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
 
+    // Logo
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
+    // Chart
     const chartUrl = '/mod/activequiz/backend/assets/Chart.png';
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
@@ -201,9 +54,7 @@ async function createPdf(sessionID) {
     const pngImage = await pdfDoc.embedPng(pngImageBytes);
     const chartImage = await pdfDoc.embedPng(chartImageBytes);
 
-    const question = ["Question 1", "Question 2"];
-    const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
-    const rightAnswer = ["Answer1", "Answer2"];
+
 
     const pages = pdfDoc.getPages();
 
@@ -277,12 +128,6 @@ async function createPdf(sessionID) {
     download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
 
     /*
-        // TIME
-        const d = new Date();
-        let time = d.getTime();
-        //var right_answer = quizdata.data;
-        var qu = {} //quizdata.question;
-        var aw = {} //quizdata.answers;
 
 
         //if (quizdata === null) {
