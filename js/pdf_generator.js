@@ -1,19 +1,20 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
+var quizdata;
+
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
-    var quizdata;
     var url = '/mod/activequiz/backend/api/chart_api.php/';
     var param = {sessionid: sessionid, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
         quizdata = data.data.chartdata;
-        console.log(quizdata);
-        //return quizdata;
+
+
     });
 
-    return 0;
+    return quizdata;
 }
 
 
