@@ -9,7 +9,7 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var param = {sessionid: sessionid, type: type, slot: slot};
     $.getJSON(url, param, function (data) {
        // quizdata = data.data.data;
-        console.log(quizdata);
+        console.log(data);
         //return quizdata;
     });
 
