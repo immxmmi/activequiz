@@ -41,17 +41,23 @@ async function createPdf(sessionID) {
     //await generateChartBySessionAndSlot(sessionID, 'pie', 1);
     //await generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
     getQuizDataBySession(2);
-    const data = quizData.at(0)
+    const data = quizData.at(0);
+    cleanData();
 
     console.log(data);
     console.log(data.question);
+    console.log(data.answers);
+    console.log(data.right_answer);
 
-    cleanData();
-
-    // Test Data
-    const question = ["Question 1", "Question 2"];
+    const question = data.question;
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"], ["Answer1", "Answer2", "Answer3", "Answer4"]];
     const rightAnswer = ["Answer1", "Answer2"];
+
+
+    // Test Data
+    //const question = ["Question 1", "Question 2"];
+    //const answers = [["Answer1", "Answer2", "Answer3", "Answer4"], ["Answer1", "Answer2", "Answer3", "Answer4"]];
+    //const rightAnswer = ["Answer1", "Answer2"];
 
 
     // TIME
