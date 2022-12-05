@@ -5,35 +5,29 @@ var quizdata = [];
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
-
     var url = '/mod/activequiz/backend/api/chart_api.php/';
     var params = {sessionid: sessionid, type: type, slot: slot};
-
 
    $.getJSON(url, params, function (data) {
         quizdata.push(data);
        console.log(quizdata);
     });
-
-
-    return quizdata;
 }
 
 
 async function createPdf(sessionID) {
 
     // QUIZDATA
-    const data = generateChartBySessionAndSlot(11, 'bar', 1);
+    generateChartBySessionAndSlot(11, 'bar', 1);
 
+    console.log(quizdata);
 
-    data.then((json) => {
-        console.log("test");
-    });
     // Test Data
     const question = ["Question 1", "Question 2"];
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
     const rightAnswer = ["Answer1", "Answer2"];
 
+    quizdata = null;
     /*
 
     // TIME
