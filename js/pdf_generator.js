@@ -41,12 +41,10 @@ async function createPdf(sessionID) {
     //await generateChartBySessionAndSlot(sessionID, 'pie', 1);
     //await generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
     getQuizDataBySession(2);
+    const data = quizData.at(0)
 
-    console.log(quizData);
-    console.log(quizData[0]);
-    console.log(quizData.at(0));
-    console.log(quizData.at(0).question);
-    console.log(quizData.question);
+    console.log(data);
+    console.log(data.question);
 
     cleanData();
 
