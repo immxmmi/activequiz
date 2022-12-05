@@ -34,9 +34,9 @@ function cleanData() {
 
 async function getChartDataBySessionID(sessionID, slots){
     for (let slot = 1; slot < slots; slot++){
-         generateChartBySessionAndSlot(sessionID, 'bar', slot);
-         generateChartBySessionAndSlot(sessionID, 'pie', slot);
-         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+         await generateChartBySessionAndSlot(sessionID, 'bar', slot);
+         await generateChartBySessionAndSlot(sessionID, 'pie', slot);
+         await generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
 
