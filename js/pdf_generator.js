@@ -32,14 +32,23 @@ function cleanData() {
     quizData = [];
 }
 
+async function getChartDataBySessionID(sessionID, slots){
+    for (let slot = 1; i < slots; i++){
+         generateChartBySessionAndSlot(sessionID, 'bar', slot);
+         generateChartBySessionAndSlot(sessionID, 'pie', slot);
+         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+    }
+}
 
 async function createPdf(sessionID) {
 
     // QUIZDATA
-    //await generateChartBySessionAndSlot(sessionID, 'bar', 1);
-    //await generateChartBySessionAndSlot(sessionID, 'pie', 1);
-    //await generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
-    getQuizDataBySession(2);
+    await getChartDataBySessionID(sessionID, 1);
+    console.log(chartData);
+
+    await getQuizDataBySession(2);
+
+
     const data = quizData.at(0);
     cleanData();
 
@@ -62,11 +71,9 @@ async function createPdf(sessionID) {
    // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
-//
     // Logo
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
-//
     // Chart
     const chartUrl = '/mod/activequiz/backend/assets/Chart.png';
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
@@ -156,32 +163,4 @@ async function createPdf(sessionID) {
     const time = d.getTime();
     // Download
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
-
-// trash
-
-    //if (quizdata === null) {
-    // Create a new PDFDocument
-//   // const pdfDoc = await PDFDocument.create()
-// //// Embed the Times Roman font//
-   // const timesRomanFont = await //pdfDoc.embedFont(StandardFonts.TimesRoman)// // Add a blank page to the document
-   // const page = pdfDoc.addPage()// // Get// the width and height of the page
-   // const {width, height} = page.getSize()// // Draw a string of text toward the top of the page
-   // const fontSize = 30
-   // page.drawText(qu[0], {
-   //     x: 50,
-   //     y: height - 4 * fontSize,
-   //     size: fontSize,
-   //     font: timesRomanFont,
-   //   //  color: rgb(0, 0.53, 0.71),
-   // })// page.drawText(aw[0], {
-   //     x: 80,
-   //     y: height - 6 * fontSize,
-   //     size: fontSize,
-   //     font: timesRomanFont,
-   //     color: rgb(0, 0.53, 0.71),
-//    })
-// //// Serialize the PDFDocument to bytes// (a Uint8Array)
-   // const pdfBytes = await pdfDoc.save()// // Trigger the browser to download the PDF document
-//    download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
-
 }
