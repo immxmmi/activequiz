@@ -1,7 +1,7 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-var quizdata = [];
+let quizdata = [];
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
@@ -18,7 +18,7 @@ function cleanQuizdata(){
 }
 
 
-async function createPdf(sessionID) {
+await async function createPdf(sessionID) {
 
     // QUIZDATA
     generateChartBySessionAndSlot(sessionID, 'bar', 1);
@@ -32,7 +32,7 @@ async function createPdf(sessionID) {
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
     const rightAnswer = ["Answer1", "Answer2"];
 
-    cleanQuizdata();
+  //  cleanQuizdata();
     /*
 
     // TIME
