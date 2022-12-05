@@ -7,7 +7,7 @@ let chartData = [];
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
 
-    var url = '/mod/activequiz/backend/api/chart_api.php/';
+    var url = '/mod/activequiz/backend/api/quiz_api.php/';
     var params = {sessionid: sessionid, type: type, slot: slot};
 
    $.getJSON(url, params, function (data) {
