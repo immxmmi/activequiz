@@ -28,7 +28,7 @@ async function getQuizDataBySession(sessionid) {
 
 
 function cleanData() {
-    chartData = [];
+    //chartData = [];
     quizData = [];
 }
 
