@@ -21,9 +21,9 @@ function cleanQuizdata(){
 async function createPdf(sessionID) {
 
     // QUIZDATA
-    generateChartBySessionAndSlot(11, 'bar', 1);
-    generateChartBySessionAndSlot(11, 'pie', 1);
-    generateChartBySessionAndSlot(11, 'doughnut', 1);
+    generateChartBySessionAndSlot(sessionID, 'bar', 1);
+    generateChartBySessionAndSlot(sessionID, 'pie', 1);
+    generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
 
     console.log(quizdata);
 
