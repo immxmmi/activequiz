@@ -44,6 +44,7 @@ async function createPdf(sessionID) {
 
     // QUIZDATA
     await getChartDataBySessionID(sessionID, 1);
+    console.log('chartData');
     console.log(chartData);
 
     await getQuizDataBySession(2);
@@ -52,9 +53,13 @@ async function createPdf(sessionID) {
     const data = quizData.at(0);
     cleanData();
 
+    console.log('quizData');
     console.log(data);
+    console.log('data.question');
     console.log(data.question);
+    console.log('data.answers');
     console.log(data.answers);
+    console.log('data.right_answer');
     console.log(data.right_answer);
 
     const question = data.question;
