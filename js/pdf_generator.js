@@ -1,7 +1,7 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-var quizdata;
+var quizdata = {};
 
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
@@ -11,8 +11,8 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
    $.getJSON(url, params, function (data) {
-        quizdata = data.data.chartdata;
-       console.log(data);
+        quizdata.push(data.data.chartdata);
+       console.log(data.data.chartdata);
     });
 
 
