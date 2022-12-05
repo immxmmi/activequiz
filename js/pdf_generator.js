@@ -28,6 +28,8 @@ async function createPdf(sessionID) {
 
     console.log(quizdata);
 
+    cleanQuizdata();
+
     // Test Data
     const question = ["Question 1", "Question 2"];
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
