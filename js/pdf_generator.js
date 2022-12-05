@@ -4,11 +4,11 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 let quizdata = [];
 
 // Generate Chart By Parameter
-async function generateChartBySessionAndSlot(sessionid, type, slot) {
-    var url = '/mod/activequiz/backend/api/chart_api.php/';
-    var params = {sessionid: sessionid, type: type, slot: slot};
+await async function generateChartBySessionAndSlot(sessionid, type, slot) {
+    const url = '/mod/activequiz/backend/api/chart_api.php/';
+    const params = {sessionid: sessionid, type: type, slot: slot};
 
-   $.getJSON(url, params, function (data) {
+    $.getJSON(url, params, function (data) {
         quizdata.push(data.data);
     });
 }
@@ -18,7 +18,7 @@ function cleanQuizdata(){
 }
 
 
-await async function createPdf(sessionID) {
+async function createPdf(sessionID) {
 
     // QUIZDATA
     generateChartBySessionAndSlot(sessionID, 'bar', 1);
