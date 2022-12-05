@@ -18,7 +18,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 // Generate Chart By Parameter
 function getQuizDataBySession(sessionid) {
 
-    var url = '/mod/activequiz/backend/api/quiz_api.php/';
+    var url = '/mod/activequiz/backend/api/quiz_api.php?';
     var params = {sessionid: sessionid};
 
     $.getJSON(url, params, function (data) {
