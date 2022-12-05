@@ -10,8 +10,11 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
    $.getJSON(url, params, function (data) {
         quizdata.push(data);
-       console.log(quizdata);
     });
+}
+
+function cleanQuizdata(){
+    quizdata = [];
 }
 
 
@@ -19,6 +22,8 @@ async function createPdf(sessionID) {
 
     // QUIZDATA
     generateChartBySessionAndSlot(11, 'bar', 1);
+    generateChartBySessionAndSlot(11, 'pie', 1);
+    generateChartBySessionAndSlot(11, 'doughnut', 1);
 
     console.log(quizdata);
 
@@ -27,7 +32,7 @@ async function createPdf(sessionID) {
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
     const rightAnswer = ["Answer1", "Answer2"];
 
-    quizdata = [];
+    cleanQuizdata();
     /*
 
     // TIME
