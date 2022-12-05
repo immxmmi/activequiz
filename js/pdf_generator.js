@@ -11,8 +11,8 @@ async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 
    $.getJSON(url, params, function (data) {
-        quizdata.push(data.data.chartdata);
-       console.log(data.data.chartdata);
+        quizdata.push(data);
+       console.log(quizdata);
     });
 
 
