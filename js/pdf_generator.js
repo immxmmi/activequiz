@@ -40,7 +40,7 @@ async function createPdf(sessionID) {
     //await generateChartBySessionAndSlot(sessionID, 'bar', 1);
     //await generateChartBySessionAndSlot(sessionID, 'pie', 1);
     //await generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
-    getQuizDataBySession(sessionID);
+    getQuizDataBySession(2);
 
     console.log(quizData);
 
