@@ -1,52 +1,63 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-let quizdata = [];
+let quizData = [];
+let chartData = [];
 
 // Generate Chart By Parameter
-async function generateChartBySessionAndSlot(sessionid, type, slot) {
+function generateChartBySessionAndSlot(sessionid, type, slot) {
 
     var url = '/mod/activequiz/backend/api/chart_api.php/';
     var params = {sessionid: sessionid, type: type, slot: slot};
 
    $.getJSON(url, params, function (data) {
-        quizdata.push(data.data);
+       chartData.push(data.data);
     });
 }
 
-function cleanQuizdata(){
-    quizdata = [];
+// Generate Chart By Parameter
+function getQuizDataBySession(sessionid) {
+
+    var url = '/mod/activequiz/backend/api/chart_api.php/';
+    var params = {sessionid: sessionid};
+
+    $.getJSON(url, params, function (data) {
+        quizData.push(data.data);
+    });
 }
 
 
-function createPdf(sessionID) {
+
+function cleanData(){
+    chartData = [];
+    quizData = [];
+}
+
+
+async function createPdf(sessionID) {
 
     // QUIZDATA
-     generateChartBySessionAndSlot(sessionID, 'bar', 1);
-     generateChartBySessionAndSlot(sessionID, 'pie', 1);
-     generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
+    //await generateChartBySessionAndSlot(sessionID, 'bar', 1);
+    //await generateChartBySessionAndSlot(sessionID, 'pie', 1);
+    //await generateChartBySessionAndSlot(sessionID, 'doughnut', 1);
+    getQuizDataBySession(sessionID);
 
-    console.log(quizdata);
+    console.log(quizData);
 
-    cleanQuizdata();
+    cleanData();
 
     // Test Data
     const question = ["Question 1", "Question 2"];
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"], ["Answer1", "Answer2", "Answer3", "Answer4"]];
     const rightAnswer = ["Answer1", "Answer2"];
 
-    //  cleanQuizdata();
-    /*
 
     // TIME
     const d = new Date();
     let time = d.getTime();
     //var right_answer = quizdata.data;
-    var qu = {} //quizdata.question;
-    var aw = {} //quizdata.answers;
-
-    */
-
+   // var question = {} //quizdata.question;
+    //var aw = {} //quizdata.answers;
     // Deckblatt
     //          const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     //          const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
