@@ -22,7 +22,7 @@ function getQuizDataBySession(sessionid) {
     var params = {sessionid: sessionid};
 
     $.getJSON(url, params, function (data) {
-        quizData.push(data);
+        quizData.push(data.data.data);
     });
 }
 
@@ -43,6 +43,10 @@ async function createPdf(sessionID) {
     getQuizDataBySession(2);
 
     console.log(quizData);
+    console.log(quizData[0]);
+    console.log(quizData.at(0));
+    console.log(quizData.at(0).question);
+    console.log(quizData.question);
 
     cleanData();
 
