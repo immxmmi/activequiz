@@ -6,27 +6,17 @@ var quizdata;
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
-   // var url = '/mod/activequiz/backend/api/chart_api.php/';
+    var url = '/mod/activequiz/backend/api/chart_api.php/';
     var params = {sessionid: sessionid, type: type, slot: slot};
 
 
+   $.getJSON(url, params, function (data) {
+        quizdata = data.data.chartdata;
+       console.log(data);
+    });
 
 
-
-   // $.getJSON(url, params, function (data) {
-   //     quizdata = data.data.chartdata;
-   // });
-
-
-    const query = Object.keys(params)
-        .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-        .join('&');
-
-    const url = `/mod/activequiz/backend/api/chart_api.php/${query}`;
-
-    return fetch(url).then((data) => data.json());
-
-  //  return quizdata;
+    return quizdata;
 }
 
 
