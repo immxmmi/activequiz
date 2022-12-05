@@ -6,15 +6,27 @@ var quizdata;
 // Generate Chart By Parameter
 async function generateChartBySessionAndSlot(sessionid, type, slot) {
 
-    var url = '/mod/activequiz/backend/api/chart_api.php/';
-    var param = {sessionid: sessionid, type: type, slot: slot};
-    $.getJSON(url, param, function (data) {
-        quizdata = data.data.chartdata;
+   // var url = '/mod/activequiz/backend/api/chart_api.php/';
+    var params = {sessionid: sessionid, type: type, slot: slot};
 
 
-    });
 
-    return quizdata;
+
+
+   // $.getJSON(url, params, function (data) {
+   //     quizdata = data.data.chartdata;
+   // });
+
+
+    const query = Object.keys(params)
+        .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+        .join('&');
+
+    const url = `/mod/activequiz/backend/api/chart_api.php/${query}`;
+
+    return fetch(url).then((data) => data.json());
+
+  //  return quizdata;
 }
 
 
@@ -23,6 +35,10 @@ async function createPdf(sessionID) {
     // QUIZDATA
     const data = generateChartBySessionAndSlot(11, 'bar', 1);
 
+        console.log("test");
+    data .then((json) => {
+        console.log("test");
+    });
     // Test Data
     const question = ["Question 1", "Question 2"];
     const answers = [["Answer1", "Answer2", "Answer3", "Answer4"],["Answer1", "Answer2", "Answer3", "Answer4"]];
@@ -126,7 +142,7 @@ async function createPdf(sessionID) {
     const pdfBytes = await pdfDoc.save();
     const d = new Date();
     const time = d.getTime();
-    download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
+   // download(pdfBytes, "QUIZ PDF" + time.toString() , "application/pdf");
 
     /*
 
