@@ -35,8 +35,8 @@ async function createPdf(sessionID) {
     // QUIZDATA
     const data = generateChartBySessionAndSlot(11, 'bar', 1);
 
-        console.log("test");
-    data .then((json) => {
+
+    data.then((json) => {
         console.log("test");
     });
     // Test Data
