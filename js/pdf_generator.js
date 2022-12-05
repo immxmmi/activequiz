@@ -33,7 +33,7 @@ function cleanData() {
 }
 
 async function getChartDataBySessionID(sessionID, slots){
-    for (let slot = 1; i < slots; i++){
+    for (let slot = 1; i < slots; slot++){
          generateChartBySessionAndSlot(sessionID, 'bar', slot);
          generateChartBySessionAndSlot(sessionID, 'pie', slot);
          generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
