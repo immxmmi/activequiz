@@ -34,22 +34,20 @@ function cleanData() {
 
 async function getChartDataBySessionID(sessionID, slots){
     for (let slot = 1; slot < slots; slot++){
-         await generateChartBySessionAndSlot(sessionID, 'bar', slot);
-         await generateChartBySessionAndSlot(sessionID, 'pie', slot);
-         await generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+         generateChartBySessionAndSlot(sessionID, 'bar', slot);
+         generateChartBySessionAndSlot(sessionID, 'pie', slot);
+         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
 
 async function createPdf(sessionID) {
 
     // QUIZDATA
-    await getChartDataBySessionID(sessionID, 1);
-    console.log('chartData');
-    console.log(chartData);
+    // await getChartDataBySessionID(sessionID, 1);
+    // console.log('chartData');
+    // console.log(chartData);
 
     await getQuizDataBySession(2);
-
-
     const data = quizData.at(0);
     cleanData();
 
