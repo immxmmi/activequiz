@@ -56,15 +56,15 @@ async function createPdf(sessionID) {
     console.log('quizData');
     console.log(data);
     console.log('data.question');
-    console.log(data.question);
+    console.log(data.question[0]);
     console.log('data.answers');
-    console.log(data.answers);
+    console.log(data.answers[0]);
     console.log('data.right_answer');
-    console.log(data.right_answer);
+    console.log(data.right_answer[0]);
 
-    const question = data.question;
-    const answers = data.answers;
-    const rightAnswer = data.right_answer;
+    const question = data.question[0];
+    const answers = data.answers[0];
+    const rightAnswer = data.right_answer[0];
 
 
     // Test Data
