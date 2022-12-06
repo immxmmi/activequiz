@@ -1,9 +1,6 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-let quizData = [];
-let chartData = [];
-
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
@@ -182,8 +179,11 @@ async function createPdf(sessionID) {
 
     });
 
-    getQuizDataBySession(sessionID).then(async (quizDD) => {
-            console.log(quizDD);
+    getQuizDataBySession(sessionID).then(async (quizData) => {
+            console.log(quizData.data);
+            console.log(quizData.data.question);
+            console.log(quizData.data.answers);
+            console.log(quizData.data.right_answer);
 
     })
 
