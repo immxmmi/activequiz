@@ -13,7 +13,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     //    chartData.push(data.data.chartdata.labels);
     //    chartData.push(data.data.chartdata.datasets[0].data);
     //});
-    var url = '/mod/activequiz/backend/api/chart_api.php?sessionid='+sessionid+'&type='+type+'&slot='+slot;
+    var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
     console.log(url);
     return fetch(url).then((response) => response.json());
 }
@@ -36,14 +36,14 @@ function cleanData() {
 }
 
 async function getChartDataBySessionID(sessionID) {
-   // for (let slot = 1; slot < slots; slot++) {
-     return    generateChartBySessionAndSlot(sessionID, 'bar', 1);
-      //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
-     //   generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
-   // }
+    // for (let slot = 1; slot < slots; slot++) {
+    return generateChartBySessionAndSlot(sessionID, 'bar', 1);
+    //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
+    //   generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+    // }
 }
 
-function downloadChart(title, labels, data, chartType){
+function downloadChart(title, labels, data, chartType) {
 
     var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
         type: chartType,
@@ -68,9 +68,8 @@ function downloadChart(title, labels, data, chartType){
         },
     });
 
-   return myChart.toBase64Image();
+    return myChart.toBase64Image();
 }
-
 
 
 async function createPdf(sessionID) {
@@ -85,7 +84,7 @@ async function createPdf(sessionID) {
     // console.log(chartData);
 
     await getQuizDataBySession(sessionID);
-     getChartDataBySessionID(sessionID).then((data) => console.log(data));
+
 
     if (quizData.length > 0) {
 
@@ -107,16 +106,19 @@ async function createPdf(sessionID) {
         const rightAnswer = data.right_answer[0];
 
 
-
         const title = 'Test';
         const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
         const dataTest = [12, 19, 3, 5, 2, 3];
         const chartType = 'bar';
-        const rowChart = downloadChart(title,lables, dataTest, chartType);
+        getChartDataBySessionID(sessionID).then((data) => {
+            console.log(data.data.data);
+            const rowChart = downloadChart(title, lables, dataTest, chartType);
+            console.log(rowChart);
+
+        });
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
-       // console.log(rowChart);
-        console.log(chartData);
+        // console.log(rowChart);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
@@ -173,7 +175,7 @@ async function createPdf(sessionID) {
             const radioGroup = form.createRadioGroup(question[i]);
 
 
-          //  for (j = 0; j < answers[i].length; j++) {
+            //  for (j = 0; j < answers[i].length; j++) {
             for (j = 0; j < 1; j++) {
                 if (answers[i][j] == rightAnswer[i]) {
                     page.drawText(answers[i][j], {
