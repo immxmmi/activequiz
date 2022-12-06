@@ -110,9 +110,7 @@ async function createPdf(sessionID) {
             const labels = data.data.chartdata.labels;
             const datasets = data.data.chartdata.datasets.at(0).data;
             const title = data.data.chartdata.datasets.at(0).label;
-            const chartType = 'bar';
-            console.log(data.data);
-            console.log(data.meta);
+            const chartType = data.data.charttype;
             const rowChart = downloadChart(title, labels, datasets, chartType);
             console.log(rowChart);
 
