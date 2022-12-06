@@ -170,11 +170,12 @@ async function createPdf(sessionID) {
     }
 
     getQuizDataBySession(sessionID).then(async (quizData) => {
-        const quesion = quizData.data.data.question;
-        let answers;
-        const rightAnswer = quizData.data.data.right_answer;
-
         getChartDataBySessionID(sessionID).then((data) => {
+
+            const question = quizData.data.data.question;
+            let answers;
+            const rightAnswer = quizData.data.data.right_answer;
+
             const labels = data.data.chartdata.labels;
             answers = labels;
             const datasets = data.data.chartdata.datasets.at(0).data;
@@ -182,13 +183,12 @@ async function createPdf(sessionID) {
             const chartType = data.data.charttype;
             downloadChart(title, labels, datasets, chartType);
 
+
+            console.log(question);
+            console.log(answers);
+            console.log(rightAnswer);
+
         });
-
-
-        console.log(quesion);
-        console.log(answers);
-        console.log(rightAnswer);
-
 
     })
 
