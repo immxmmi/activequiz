@@ -81,8 +81,6 @@ async function createPdf(sessionID) {
     // console.log(chartData);
 
     await getQuizDataBySession(sessionID);
-    await char(sessionID);
-
     await getChartDataBySessionID(sessionID);
 
     if (quizData.length > 0) {
