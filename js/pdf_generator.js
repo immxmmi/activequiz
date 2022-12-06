@@ -115,6 +115,7 @@ async function createPdf(sessionID) {
 
        // console.log(rowChart);
         console.log(chartData);
+        console.log(currentLabels);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
