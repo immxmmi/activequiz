@@ -1,6 +1,6 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
-
+const ChartJsImage = require('chartjs-to-image');
 
 let quizData = [];
 let chartData = [];
