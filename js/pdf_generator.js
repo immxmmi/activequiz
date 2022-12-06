@@ -173,7 +173,7 @@ async function createPdf(sessionID) {
 
 
           //  for (j = 0; j < answers[i].length; j++) {
-            for (j = 0; j < 0; j++) {
+            for (j = 0; j < 1; j++) {
                 if (answers[i][j] == rightAnswer[i]) {
                     page.drawText(answers[i][j], {
                         x: 70,
