@@ -20,9 +20,9 @@ class quiz_builder
         } else {
             $this->info = "Loading - Success";
             $this->data = array(
-                'question' => $question,
-                'answers' => $answer,
-                'right_answer' => $right_answer
+                'question' => $question[0],
+                'answers' => $answer[0],
+                'right_answer' => $right_answer[0]
             );
         }
         return $this->convert_quiz_to_json();
