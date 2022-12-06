@@ -11,6 +11,8 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 
     $.getJSON(url, params, function (data) {
         console.log(data);
+        console.log(data.data);
+        console.log(data.data.chartdata);
         chartData.push(data.data);
     });
 }
