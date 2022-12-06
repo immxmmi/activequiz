@@ -106,18 +106,14 @@ async function createPdf(sessionID) {
         const rightAnswer = data.right_answer[0];
 
 
-        const title = 'Test';
-        //const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
-        const dataTest = [12, 19, 3, 5, 2, 3];
-        const chartType = 'bar';
         getChartDataBySessionID(sessionID).then((data) => {
             const labels = data.data.chartdata.labels;
-            console.log(labels)
-            const datasets = data.data.chartdata.datasets;
-            console.log(datasets)
-            console.log(datasets.at(0).data)
-
-            const rowChart = downloadChart(title, labels, dataTest, chartType);
+            const datasets = data.data.chartdata.datasets.at(0).data;
+            const title = data.data.chartdata.datasets.at(0).label;
+            const chartType = 'bar';
+            console.log(data.data);
+            console.log(data.meta);
+            const rowChart = downloadChart(title, labels, datasets, chartType);
             console.log(rowChart);
 
         });
