@@ -67,9 +67,11 @@ function teee(){
 
 
 async function createPdf(sessionID) {
+    teee();
     if (sessionID == null) {
         return;
     }
+
 
     // QUIZDATA
     // await getChartDataBySessionID(sessionID, 1);
