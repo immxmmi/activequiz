@@ -10,10 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     var params = {sessionid: sessionid, type: type, slot: slot};
 
     $.getJSON(url, params, function (data) {
-        console.log(data);
-        console.log(data.data);
-        console.log(data.data.chartdata);
-        chartData.push(data.data);
+        chartData.push(data.data.chartdata);
     });
 }
 
@@ -115,7 +112,6 @@ async function createPdf(sessionID) {
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
        // console.log(rowChart);
-        console.log(chartData);
         console.log(chartData.labels);
 
         // Test Data
