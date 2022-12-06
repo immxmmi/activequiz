@@ -10,7 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 // Generate Chart By Parameter
 async function getQuizDataBySession(sessionid) {
 
-    var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid='+sessionid;
+    var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
     //var params = {sessionid: sessionid};
 //
     //$.getJSON(url, params, function (data) {
@@ -169,21 +169,26 @@ async function createPdf(sessionID) {
         return;
     }
 
-    getChartDataBySessionID(sessionID).then((data) => {
-        const labels = data.data.chartdata.labels;
-        const datasets = data.data.chartdata.datasets.at(0).data;
-        const title = data.data.chartdata.datasets.at(0).label;
-        const chartType = data.data.charttype;
-        const rowChart = downloadChart(title, labels, datasets, chartType);
-        console.log(rowChart);
-
-    });
-
     getQuizDataBySession(sessionID).then(async (quizData) => {
-            console.log(quizData.data);
-            console.log(quizData.data.data.question);
-            console.log(quizData.data.data.answers);
-            console.log(quizData.data.data.right_answer);
+        const quesion = quizData.data.data.question;
+        let answers;
+        const rightAnswer = quizData.data.data.right_answer;
+
+        getChartDataBySessionID(sessionID).then((data) => {
+            const labels = data.data.chartdata.labels;
+            answers = labels;
+            const datasets = data.data.chartdata.datasets.at(0).data;
+            const title = data.data.chartdata.datasets.at(0).label;
+            const chartType = data.data.charttype;
+            downloadChart(title, labels, datasets, chartType);
+
+        });
+
+
+        console.log(quesion);
+        console.log(answers);
+        console.log(rightAnswer);
+
 
     })
 
