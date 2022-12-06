@@ -61,7 +61,7 @@ function downloadChart(title, labels, data, chartType) {
     return myChart.toBase64Image();
 }
 
-async function buildPdf() {
+async function buildPdf(question, answers, rightAnswer, chartImgDataBase64) {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -181,15 +181,12 @@ async function createPdf(sessionID) {
             const chartType = data.data.charttype;
 
             // DATA
-            const rowChart = downloadChart(title, labels, datasets, chartType);
+            const chartImgDataBase64 = downloadChart(title, labels, datasets, chartType);
             const rightAnswer = quizData.data.data.right_answer;
             const question = quizData.data.data.question;
             answers = labels;
 
-            console.log(question);
-            console.log(rowChart);
-            console.log(answers);
-            console.log(rightAnswer);
+            buildPdf(question,answers,rightAnswer,chartImgDataBase64);
 
         });
 
