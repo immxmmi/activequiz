@@ -112,6 +112,8 @@ async function createPdf(sessionID) {
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
        // console.log(rowChart);
+        console.log(chartData);
+        console.log(chartData.chartdata);
         console.log(chartData.chartdata.labels);
 
         // Test Data
