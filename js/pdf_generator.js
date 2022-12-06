@@ -21,7 +21,7 @@ async function getQuizDataBySession(sessionid) {
     var params = {sessionid: sessionid};
 
     $.getJSON(url, params, function (data) {
-        quizData.push(data.data.data.labels);
+        quizData.push(data.data.data);
     });
 }
 
