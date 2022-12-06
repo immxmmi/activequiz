@@ -3,6 +3,7 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 let quizData = [];
 let chartData = [];
+let currentLabels = [];
 
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
@@ -10,6 +11,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     var params = {sessionid: sessionid, type: type, slot: slot};
 
     $.getJSON(url, params, function (data) {
+        currentLabels.push(data.data.chartdata);
         chartData.push(data.data);
     });
 }
@@ -112,11 +114,7 @@ async function createPdf(sessionID) {
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
        // console.log(rowChart);
-        console.log(chartData[0].at(0));
-        console.log(chartData.labels);
-        console.log(chartData.at(0));
-        console.log(chartData.chartdata);
-        console.log(chartData.chartdata.labels);
+        console.log(chartData);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
