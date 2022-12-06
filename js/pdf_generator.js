@@ -38,7 +38,6 @@ async function getChartDataBySessionID(sessionID, slots) {
         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
-
 async function createPdf(sessionID) {
     if (sessionID == null) {
         return;
@@ -174,3 +173,5 @@ async function createPdf(sessionID) {
         download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
     }
 }
+
+createPdf();
