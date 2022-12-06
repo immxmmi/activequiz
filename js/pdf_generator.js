@@ -61,9 +61,9 @@ async function createPdf(sessionID) {
     }
 
     // QUIZDATA
-     const chartData = getChartDataBySessionID(sessionID, 1);
+    // const chartData = getChartDataBySessionID(sessionID, 1);
 
-    console.log(chartData);
+    //console.log(chartData);
 
 
     // console.log('chartData');
