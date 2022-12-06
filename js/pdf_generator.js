@@ -31,12 +31,12 @@ function cleanData() {
     quizData = [];
 }
 
-async function getChartDataBySessionID(sessionID, slots) {
-    for (let slot = 1; slot < slots; slot++) {
-        generateChartBySessionAndSlot(sessionID, 'bar', slot);
-        generateChartBySessionAndSlot(sessionID, 'pie', slot);
-        generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
-    }
+async function getChartDataBySessionID(sessionID) {
+   // for (let slot = 1; slot < slots; slot++) {
+     return    generateChartBySessionAndSlot(sessionID, 'bar', 1);
+      //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
+     //   generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+   // }
 }
 
 function downloadChart(title, labels, data, chartType){
@@ -81,6 +81,9 @@ async function createPdf(sessionID) {
     // console.log(chartData);
 
     await getQuizDataBySession(sessionID);
+    await char(sessionID);
+
+    await getChartDataBySessionID(sessionID);
 
     if (quizData.length > 0) {
 
@@ -102,6 +105,7 @@ async function createPdf(sessionID) {
         const rightAnswer = data.right_answer[0];
 
 
+
         const title = 'Test';
         const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
         const dataTest = [12, 19, 3, 5, 2, 3];
@@ -110,6 +114,7 @@ async function createPdf(sessionID) {
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
         console.log(rowChart);
+        console.log(chartData);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
