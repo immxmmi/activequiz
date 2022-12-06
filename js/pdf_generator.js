@@ -19,12 +19,6 @@ async function getQuizDataBySession(sessionid) {
     return fetch(url).then((response) => response.json());
 }
 
-
-function cleanData() {
-    chartData = [];
-    quizData = [];
-}
-
 async function getChartDataBySessionID(sessionID) {
     // for (let slot = 1; slot < slots; slot++) {
     return generateChartBySessionAndSlot(sessionID, 'bar', 1);
@@ -57,6 +51,11 @@ function downloadChart(title, labels, data, chartType) {
             },
         },
     });
+
+    var a = document.createElement('a');
+    a.href = chartImgDataBase64.toBase64Image();
+    a.download = 'my_file_name.png';
+    a.click();
 
     return myChart.toBase64Image();
 }
