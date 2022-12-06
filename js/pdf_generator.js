@@ -6,7 +6,6 @@ let chartData = [];
 
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
-
     var url = '/mod/activequiz/backend/api/chart_api.php/';
     var params = {sessionid: sessionid, type: type, slot: slot};
 
@@ -32,15 +31,18 @@ function cleanData() {
     quizData = [];
 }
 
-async function getChartDataBySessionID(sessionID, slots){
-    for (let slot = 1; slot < slots; slot++){
-         generateChartBySessionAndSlot(sessionID, 'bar', slot);
-         generateChartBySessionAndSlot(sessionID, 'pie', slot);
-         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
+async function getChartDataBySessionID(sessionID, slots) {
+    for (let slot = 1; slot < slots; slot++) {
+        generateChartBySessionAndSlot(sessionID, 'bar', slot);
+        generateChartBySessionAndSlot(sessionID, 'pie', slot);
+        generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
 
 async function createPdf(sessionID) {
+    if (sessionID == null) {
+        return;
+    }
 
     // QUIZDATA
     // await getChartDataBySessionID(sessionID, 1);
@@ -71,7 +73,7 @@ async function createPdf(sessionID) {
     //const rightAnswer = ["Answer1", "Answer2"];
 
 
-   // Deckblatt
+    // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
     // Logo
