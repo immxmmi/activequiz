@@ -39,6 +39,33 @@ async function getChartDataBySessionID(sessionID, slots) {
         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
+
+function teee(){
+
+// Create the chart
+    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
+        type: 'horizontalBar',
+        data: {
+            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
+            datasets: [
+                {
+                    label: 'My data',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                },
+            ],
+        },
+    });
+
+// Get the chart's base64 image string
+    var image = myChart.toBase64Image();
+    console.log(image);
+}
+
+
+
 async function createPdf(sessionID) {
     if (sessionID == null) {
         return;
