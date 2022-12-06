@@ -181,9 +181,9 @@ async function createPdf(sessionID) {
 
     getQuizDataBySession(sessionID).then(async (quizData) => {
             console.log(quizData.data);
-            console.log(quizData.data.question);
-            console.log(quizData.data.answers);
-            console.log(quizData.data.right_answer);
+            console.log(quizData.data.at(0).question);
+            console.log(quizData.data.at(0).answers);
+            console.log(quizData.data.at(0).right_answer);
 
     })
 
