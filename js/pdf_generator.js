@@ -3,7 +3,6 @@ const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 let quizData = [];
 let chartData = [];
-let currentLabels = [];
 
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
@@ -11,8 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     var params = {sessionid: sessionid, type: type, slot: slot};
 
     $.getJSON(url, params, function (data) {
-        currentLabels.push(data.data.chartdata);
-        chartData.push(data.data);
+        chartData.push(data.data.chartdata);
     });
 }
 
@@ -115,7 +113,6 @@ async function createPdf(sessionID) {
 
        // console.log(rowChart);
         console.log(chartData);
-        console.log(currentLabels);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
@@ -172,7 +169,8 @@ async function createPdf(sessionID) {
             const radioGroup = form.createRadioGroup(question[i]);
 
             for (j = 0; j < answers[i].length; j++) {
-                if (answers[i][j] == rightAnswer[i]) {
+               // if (answers[i][j] == rightAnswer[i]) {
+                if (1 < 0) {
                     page.drawText(answers[i][j], {
                         x: 70,
                         y: height - 126 - 30 - 40 - (40 * j),
