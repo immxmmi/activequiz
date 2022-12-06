@@ -51,7 +51,7 @@ async function createPdf(sessionID) {
 
     await getQuizDataBySession(sessionID);
     const data = quizData.at(0);
-    cleanData();
+   // cleanData();
 
     console.log('quizData');
     console.log(data);
