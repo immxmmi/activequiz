@@ -113,6 +113,7 @@ async function createPdf(sessionID) {
 
        // console.log(rowChart);
         console.log(chartData);
+        console.log(chartData[0]);
         console.log(chartData.chartdata);
         console.log(chartData.chartdata.labels);
 
