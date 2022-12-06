@@ -111,7 +111,7 @@ async function createPdf(sessionID) {
         const dataTest = [12, 19, 3, 5, 2, 3];
         const chartType = 'bar';
         getChartDataBySessionID(sessionID).then((data) => {
-            console.log(data.data.data);
+            console.log(data.data);
             const rowChart = downloadChart(title, lables, dataTest, chartType);
             console.log(rowChart);
 
