@@ -174,4 +174,3 @@ async function createPdf(sessionID) {
     }
 }
 
-createPdf();
