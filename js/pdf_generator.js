@@ -41,7 +41,6 @@ async function getChartDataBySessionID(sessionID, slots) {
 
 function teee(){
 
-// Create the chart
     var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
         type: 'horizontalBar',
         data: {
@@ -56,11 +55,21 @@ function teee(){
                 },
             ],
         },
+        options: {
+            animation: {
+                onComplete: function () {
+                    console.log(myChart.toBase64Image());
+                },
+            },
+        },
     });
 
-// Get the chart's base64 image string
-    var image = myChart.toBase64Image();
-    console.log(image);
+    var a = document.createElement('a');
+    a.href = myChart.toBase64Image();
+    a.download = 'my_file_name.png';
+
+// Trigger the download
+    a.click();
 }
 
 
