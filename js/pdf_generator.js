@@ -168,9 +168,10 @@ async function createPdf(sessionID) {
             const form = pdfDoc.getForm();
             const radioGroup = form.createRadioGroup(question[i]);
 
-            for (j = 0; j < answers[i].length; j++) {
-               // if (answers[i][j] == rightAnswer[i]) {
-                if (1 < 0) {
+
+          //  for (j = 0; j < answers[i].length; j++) {
+            for (j = 0; j < 0; j++) {
+                if (answers[i][j] == rightAnswer[i]) {
                     page.drawText(answers[i][j], {
                         x: 70,
                         y: height - 126 - 30 - 40 - (40 * j),
