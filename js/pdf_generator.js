@@ -170,21 +170,24 @@ async function createPdf(sessionID) {
     }
 
     getQuizDataBySession(sessionID).then(async (quizData) => {
+            let answers;
+
         getChartDataBySessionID(sessionID).then((data) => {
 
-            const question = quizData.data.data.question;
-            let answers;
-            const rightAnswer = quizData.data.data.right_answer;
 
             const labels = data.data.chartdata.labels;
-            answers = labels;
             const datasets = data.data.chartdata.datasets.at(0).data;
             const title = data.data.chartdata.datasets.at(0).label;
             const chartType = data.data.charttype;
-            downloadChart(title, labels, datasets, chartType);
 
+            // DATA
+            const rowChart = downloadChart(title, labels, datasets, chartType);
+            const rightAnswer = quizData.data.data.right_answer;
+            const question = quizData.data.data.question;
+            answers = labels;
 
             console.log(question);
+            console.log(rowChart);
             console.log(answers);
             console.log(rightAnswer);
 
