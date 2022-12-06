@@ -76,7 +76,7 @@ class report_overview_renderer extends \plugin_renderer_base
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.')'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
-        $selectsession .= \html_writer::tag('script', '', array('src' => '"https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
+        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
         $selectsession .= \html_writer::tag('canvas', '', array('id' => 'chart', 'width' => '600', 'height' => '600'));
         $output .= $selectsession;
 
