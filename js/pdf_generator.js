@@ -10,6 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     var params = {sessionid: sessionid, type: type, slot: slot};
 
     $.getJSON(url, params, function (data) {
+        console.log(data);
         chartData.push(data.data);
     });
 }
@@ -89,14 +90,14 @@ async function createPdf(sessionID) {
         const data = quizData.at(0);
         cleanData();
 
-        console.log('quizData');
-        console.log(data);
-        console.log('data.question');
-        console.log(data.question[0]);
-        console.log('data.answers');
-        console.log(data.answers[0]);
-        console.log('data.right_answer');
-        console.log(data.right_answer[0]);
+        //console.log('quizData');
+        //console.log(data);
+        //console.log('data.question');
+        //console.log(data.question[0]);
+        //console.log('data.answers');
+        //console.log(data.answers[0]);
+        //console.log('data.right_answer');
+        //console.log(data.right_answer[0]);
 
         const question = data.question[0];
         const answers = data.answers[0];
@@ -111,7 +112,7 @@ async function createPdf(sessionID) {
         const rowChart = downloadChart(title,lables, dataTest, chartType);
         //window.location.href = 'data:application/octet-stream;base64,' + img;
 
-        console.log(rowChart);
+       // console.log(rowChart);
         console.log(chartData);
         console.log(chartData.labels);
 
