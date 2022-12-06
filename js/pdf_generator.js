@@ -22,7 +22,6 @@ async function getQuizDataBySession(sessionid) {
 
     $.getJSON(url, params, function (data) {
         quizData.push(data.data.data.labels);
-        quizData.push(data.data.data.datasets);
     });
 }
 
@@ -114,8 +113,6 @@ async function createPdf(sessionID) {
 
        // console.log(rowChart);
         console.log(chartData);
-        console.log(chartData[0]);
-        console.log(chartData[1]);
 
         // Test Data
         //const question = ["Question 1", "Question 2"];
