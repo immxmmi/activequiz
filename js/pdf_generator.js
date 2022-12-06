@@ -1,6 +1,5 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
-const ChartJsImage = require('chartjs-to-image');
 
 let quizData = [];
 let chartData = [];
@@ -79,7 +78,7 @@ async function createPdf(sessionID) {
     // console.log(chartData);
 
     await getQuizDataBySession(sessionID);
-/*
+
     if (quizData.length > 0) {
 
 
@@ -202,7 +201,5 @@ async function createPdf(sessionID) {
         // Download
         download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
     }
-
- */
 }
 
