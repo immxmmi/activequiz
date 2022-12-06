@@ -1,7 +1,6 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-const ChartJsImage = require('chartjs-to-image');
 
 let quizData = [];
 let chartData = [];
@@ -40,21 +39,6 @@ async function getChartDataBySessionID(sessionID, slots) {
         generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     }
 }
-
-
-function test(chartData){
-    // Generate the chart
-    const chart = new ChartJsImage();
-    chart.setConfig({
-        type: 'bar',
-        data: { labels: chartData[0].chartdata.labels, datasets: chartData[0].chartdata.datasets},
-    });
-
-    // Save it
-    chart.toFile('/html/mod/activequiz/backend/assets');
-}
-
-
 async function createPdf(sessionID) {
     if (sessionID == null) {
         return;
