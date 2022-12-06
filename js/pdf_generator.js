@@ -115,9 +115,8 @@ async function createPdf(sessionID) {
             console.log(labels)
             const datasets = data.data.chartdata.datasets;
             console.log(datasets)
-            console.log(datasets.at(0))
-            console.log(datasets.data)
-            console.log(datasets)
+            console.log(datasets.at(0).data)
+
             const rowChart = downloadChart(title, labels, dataTest, chartType);
             console.log(rowChart);
 
