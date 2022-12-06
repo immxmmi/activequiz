@@ -39,16 +39,16 @@ async function getChartDataBySessionID(sessionID, slots) {
     }
 }
 
-function teee(){
+function teee(labels, data){
 
     var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
         type: 'horizontalBar',
         data: {
-            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
+            labels: labels,
             datasets: [
                 {
                     label: 'My data',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: data,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1,
@@ -75,7 +75,9 @@ function teee(){
 
 
 async function createPdf(sessionID) {
-    teee();
+    const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+    const dataTest = [12, 19, 3, 5, 2, 3];
+    teee(lables, dataTest);
     if (sessionID == null) {
         return;
     }
