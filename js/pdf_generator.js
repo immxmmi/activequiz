@@ -39,18 +39,18 @@ async function getChartDataBySessionID(sessionID, slots) {
     }
 }
 
-function teee(labels, data){
+function downloadChart(title, labels, data, chartType){
 
     var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
-        type: 'horizontalBar',
+        type: chartType,
         data: {
             labels: labels,
             datasets: [
                 {
-                    label: 'My data',
+                    label: title,
                     data: data,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: 'rgba(26,56,229,0.2)',
+                    borderColor: 'rgb(49,141,53)',
                     borderWidth: 1,
                 },
             ],
@@ -64,20 +64,12 @@ function teee(labels, data){
         },
     });
 
-    var a = document.createElement('a');
-    a.href = myChart.toBase64Image();
-    a.download = 'test.png';
-
-// Trigger the download
-    a.click();
+   return myChart.toBase64Image();
 }
 
 
 
 async function createPdf(sessionID) {
-    const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
-    const dataTest = [12, 19, 3, 5, 2, 3];
-    teee(lables, dataTest);
     if (sessionID == null) {
         return;
     }
@@ -110,11 +102,19 @@ async function createPdf(sessionID) {
         const rightAnswer = data.right_answer[0];
 
 
+        const title = 'Test';
+        const lables = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
+        const dataTest = [12, 19, 3, 5, 2, 3];
+        const chartType = 'bar';
+        const rowChart = downloadChart(title,lables, dataTest, chartType);
+        //window.location.href = 'data:application/octet-stream;base64,' + img;
+
+        console.log(rowChart);
+
         // Test Data
         //const question = ["Question 1", "Question 2"];
         //const answers = [["Answer1", "Answer2", "Answer3", "Answer4"], ["Answer1", "Answer2", "Answer3", "Answer4"]];
         //const rightAnswer = ["Answer1", "Answer2"];
-
 
         // Deckblatt
         const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
