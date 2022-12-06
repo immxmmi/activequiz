@@ -10,7 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
     var params = {sessionid: sessionid, type: type, slot: slot};
 
     $.getJSON(url, params, function (data) {
-        chartData.push(data.data);
+        chartData.push(data.data.chartdata);
     });
 }
 
@@ -21,7 +21,7 @@ async function getQuizDataBySession(sessionid) {
     var params = {sessionid: sessionid};
 
     $.getJSON(url, params, function (data) {
-        quizData.push(data.data.data.chartdata);
+        quizData.push(data.data.data);
     });
 }
 
