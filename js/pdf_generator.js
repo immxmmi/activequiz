@@ -53,8 +53,10 @@ function downloadChart(title, labels, data, chartType) {
     });
 
     var a = document.createElement('a');
-    a.href = chartImgDataBase64.toBase64Image();
+    a.href = myChart.toBase64Image();
     a.download = 'my_file_name.png';
+
+// Trigger the download
     a.click();
 
     return myChart.toBase64Image();
