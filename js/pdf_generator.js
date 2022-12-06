@@ -21,7 +21,7 @@ async function getQuizDataBySession(sessionid) {
     var params = {sessionid: sessionid};
 
     $.getJSON(url, params, function (data) {
-        quizData.push(data.data.data);
+        quizData.push(data.data.data.labels);
     });
 }
 
@@ -58,7 +58,7 @@ function downloadChart(title, labels, data, chartType){
         options: {
             animation: {
                 onComplete: function () {
-                    console.log(myChart.toBase64Image());
+                    //console.log(myChart.toBase64Image());
                 },
             },
         },
