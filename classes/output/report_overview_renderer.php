@@ -52,6 +52,7 @@ class report_overview_renderer extends \plugin_renderer_base
     {
 
         $output = '';
+        $output .= \html_writer::tag('canvas', '', array('id' => 'chart', 'width' => '600', 'height' => '600', 'hidden'));
         $selectsession = \html_writer::start_div('');
         $selectsession .= \html_writer::tag('h3', get_string('selectsession', 'activequiz'), array('class' => 'inline-block'));
 
@@ -77,8 +78,6 @@ class report_overview_renderer extends \plugin_renderer_base
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.')'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
-        $selectsession .= \html_writer::tag('canvas', '', array('id' => 'chart', '' =>'hidden'));
-        //$selectsession .= \html_writer::tag('canvas', '', array('id' => 'chart', 'width' => '600', 'height' => '600', 'hidden'));
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
