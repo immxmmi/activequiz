@@ -6,13 +6,16 @@ let chartData = [];
 
 // Generate Chart By Parameter
 function generateChartBySessionAndSlot(sessionid, type, slot) {
-    var url = '/mod/activequiz/backend/api/chart_api.php/';
-    var params = {sessionid: sessionid, type: type, slot: slot};
-
-    $.getJSON(url, params, function (data) {
-        chartData.push(data.data.chartdata.labels);
-        chartData.push(data.data.chartdata.datasets[0].data);
-    });
+    //var url = '/mod/activequiz/backend/api/chart_api.php/';
+    //var params = {sessionid: sessionid, type: type, slot: slot};
+    //
+    //$.getJSON(url, params, function (data) {
+    //    chartData.push(data.data.chartdata.labels);
+    //    chartData.push(data.data.chartdata.datasets[0].data);
+    //});
+    var url = '/mod/activequiz/backend/api/chart_api.php?sessionid='+sessionid+'&type='+type+'&slot='+slot;
+    console.log(url);
+    return fetch(url).then((response) => response.json());
 }
 
 // Generate Chart By Parameter
@@ -82,7 +85,7 @@ async function createPdf(sessionID) {
     // console.log(chartData);
 
     await getQuizDataBySession(sessionID);
-    await getChartDataBySessionID(sessionID);
+     getChartDataBySessionID(sessionID).then((data) => console.log(data));
 
     if (quizData.length > 0) {
 
