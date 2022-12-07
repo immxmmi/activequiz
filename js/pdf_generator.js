@@ -46,7 +46,7 @@ function downloadChart(title, labels, data, chartType) {
         options: {
             animation: {
                 onComplete: function () {
-                    //console.log(myChart.toBase64Image());
+                    console.log(myChart.toBase64Image());
                 },
             },
         },
@@ -187,6 +187,8 @@ async function createPdf(sessionID) {
             const chartImgDataBase64 = downloadChart(title, labels, datasets, chartType);
             const rightAnswer = quizData.data.data.right_answer;
             const question = quizData.data.data.question;
+            console.log(rightAnswer);
+            console.log(question);
             answers = labels;
 
             buildPdf(question,answers,rightAnswer,chartImgDataBase64);
