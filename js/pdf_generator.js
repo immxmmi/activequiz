@@ -47,8 +47,6 @@ function downloadChart2(title, labels, data, chartType) {
     });
 
 
-
-
     var a = document.createElement('a');
     a.href = myChart.toBase64Image();
     a.download = 'my_file_name.png';
@@ -58,7 +56,6 @@ function downloadChart2(title, labels, data, chartType) {
 
     return myChart.toBase64Image();
 }
-
 
 
 function downloadChart() {
@@ -93,8 +90,7 @@ function downloadChart() {
     a.click();
 }
 
-//async function buildPdf(question, answers, rightAnswer, chartImgDataBase64) {
-async function buildPdf() {
+async function buildPdf(question, answers, rightAnswer, labels, chartType) {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -103,20 +99,14 @@ async function buildPdf() {
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
-    const chartUrl = '/mod/activequiz/backend/assets/Chart.png';
-    const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
-
-    // Chart
-    const url = "https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
-    const chartIurl = await fetch(url).then((res) => res.arrayBuffer());
-
-
+    const url = "https://quickchart.io/chart?c={type:"+chartType+",data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
 
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const pngImage = await pdfDoc.embedPng(pngImageBytes);
     const chartImage = await pdfDoc.embedPng(chartImageBytes);
-    const chartIurlImg = await pdfDoc.embedPng(chartIurl);
+
 
     const pages = pdfDoc.getPages();
 
@@ -135,7 +125,7 @@ async function buildPdf() {
 
     //for (let i = 0; i < question.length; i++) {
     //    let j;
-        const page = pdfDoc.addPage();
+    const page = pdfDoc.addPage();
     //    page.drawImage(pngImage, {
     //        x: 10,
     //        y: height - 126,
@@ -156,53 +146,53 @@ async function buildPdf() {
 
     // //  //  for (j = 0; j < answers[i].length; j++) {
     // //  for (j = 0; j < 1; j++) {
-     //      if (answers[i][j] == rightAnswer[i]) {
-     //          page.drawText(answers[i][j], {
-     //              x: 70,
-     //              y: height - 126 - 30 - 40 - (40 * j),
-     //              size: 18,
-     //              font: arialFont,
-     //              color: rgb(0.537, 0.702, 0.114),
-     //          });
-     //          radioGroup.addOptionToPage(answers[i][j], page, {
-     //              height: 15,
-     //              width: 15,
-     //              x: 43,
-     //              y: height - 126 - 30 - 40 - (40 * j)
-     //          });
-     //          radioGroup.select(answers[i][j]);
-     //      } else {
-     //          page.drawText(answers[i][j], {
-     //              x: 70,
-     //              y: height - 126 - 30 - 40 - (40 * j),
-     //              size: 18,
-     //              font: arialFont,
-     //              color: rgb(0, 0.1, 0.156),
-     //          });
-     //          radioGroup.addOptionToPage(answers[i][j], page, {
-     //              height: 15,
-     //              width: 15,
-     //              x: 43,
-     //              y: height - 126 - 30 - 40 - (40 * j)
-     //          });
-     //      }
-     //  }
-   //    page.drawImage(chartImage, {
-   //        x: 30,
-   //        y: height - 126 - 30 - 40 - (40 * j) - 300,
-   //        width: 500,
-   //        height: 300,
-   //    });
-   //    form.flatten();
-   //}
+    //      if (answers[i][j] == rightAnswer[i]) {
+    //          page.drawText(answers[i][j], {
+    //              x: 70,
+    //              y: height - 126 - 30 - 40 - (40 * j),
+    //              size: 18,
+    //              font: arialFont,
+    //              color: rgb(0.537, 0.702, 0.114),
+    //          });
+    //          radioGroup.addOptionToPage(answers[i][j], page, {
+    //              height: 15,
+    //              width: 15,
+    //              x: 43,
+    //              y: height - 126 - 30 - 40 - (40 * j)
+    //          });
+    //          radioGroup.select(answers[i][j]);
+    //      } else {
+    //          page.drawText(answers[i][j], {
+    //              x: 70,
+    //              y: height - 126 - 30 - 40 - (40 * j),
+    //              size: 18,
+    //              font: arialFont,
+    //              color: rgb(0, 0.1, 0.156),
+    //          });
+    //          radioGroup.addOptionToPage(answers[i][j], page, {
+    //              height: 15,
+    //              width: 15,
+    //              x: 43,
+    //              y: height - 126 - 30 - 40 - (40 * j)
+    //          });
+    //      }
+    //  }
+    //    page.drawImage(chartImage, {
+    //        x: 30,
+    //        y: height - 126 - 30 - 40 - (40 * j) - 300,
+    //        width: 500,
+    //        height: 300,
+    //    });
+    //    form.flatten();
+    //}
 
 
-    page.drawImage(chartIurlImg, {
-               x: 30,
-               y: 30,
-               width: 500,
-               height: 300,
-           });
+    page.drawImage(chartImage, {
+        x: 30,
+        y: 30,
+        width: 500,
+        height: 300,
+    });
 
     const pdfBytes = await pdfDoc.save();
     // Time and Date
@@ -219,40 +209,34 @@ async function createPdf(sessionID) {
         return;
     }
 
-   // getQuizDataBySession(sessionID).then(async (quizData) => {
-   //         let answers;
-//
-   //     getChartDataBySessionID(sessionID).then((data) => {
-//
-//
-   //         const labels = data.data.chartdata.labels;
-   //         const datasets = data.data.chartdata.datasets.at(0).data;
-   //         const title = data.data.chartdata.datasets.at(0).label;
-   //         const chartType = data.data.charttype;
-//
-   //         console.log(labels);
+    getQuizDataBySession(sessionID).then(async (quizData) => {
+        let answers;
+        getChartDataBySessionID(sessionID).then((data) => {
 
+
+            const labels = data.data.chartdata.labels;
+            const datasets = data.data.chartdata.datasets.at(0).data;
+            const title = data.data.chartdata.datasets.at(0).label;
+            const chartType = data.data.charttype;
+
+            console.log(labels);
 
 
             // DATA
             //const chartImgDataBase64 =
 
-              //  downloadChart('title', 'labels', 'datasets', 'chartType');
-   //             downloadChart();
+            //  downloadChart('title', 'labels', 'datasets', 'chartType');
 
 
-
-
-
-           // const rightAnswer = quizData.data.data.right_answer;
-           // const question = quizData.data.data.question;
-           // answers = labels;
+            // const rightAnswer = quizData.data.data.right_answer;
+            // const question = quizData.data.data.question;
+            // answers = labels;
 
             buildPdf();
-//
-  //      });
-//
-  //  })
-//
+
+        });
+
+    })
+
 }
 
