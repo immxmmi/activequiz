@@ -180,18 +180,7 @@ async function createPdf(sessionID) {
 
             console.log(labels);
 
-            const fs = require('fszzzzzzzzzzzz');
 
-// directory path
-            const dir = './';
-
-// create new directory
-            fs.mkdir(dir, (err) => {
-                if (err) {
-                    throw err;
-                }
-                console.log("Directory is created.");
-            });
 
             // DATA
             //const chartImgDataBase64 =
