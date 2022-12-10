@@ -90,7 +90,9 @@ function downloadChart() {
     a.click();
 }
 
-async function buildPdf(title,question, answers, rightAnswer, labels, chartType) {
+async function buildPdf(label,question, answers, rightAnswer, labeles, chartType) {
+    const labels = "[2012  ,2013  ,2014,2015, 2016]";
+    const data = "[120,60,50,180,120]";
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -98,13 +100,11 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     // Logo
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
-    // Chart
 
-    const lab = "[2012  ,2013  ,2014,2015, 2016]";
-    const dat = "[120,60,50,180,120]";
-    const typ = "{type:'"+chartType+"',data:{labels:"+lab+",datasets:[{label:'"+title+"',data:"+dat+"}]}}";
-    let url = "https://quickchart.io/chart?c="+typ;
-    url = encodeURI(url);
+
+    // Chart
+    const datas = "{type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+title+"',data:"+data+"}]}}";
+    const url = encodeURI("https://quickchart.io/chart?c="+datas);
     console.log(url);
 
 
