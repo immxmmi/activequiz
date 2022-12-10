@@ -94,6 +94,12 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     const labels = "[2012  ,2013  ,2014,2015, 2016]";
     const data = "[120,60,50,180,120]";
 
+    labels2.forEach(a => {
+        console.log(a);
+    })
+
+
+
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
@@ -104,7 +110,6 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     // Chart
     const url = encodeURI("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:"+data+"}]}}");
     console.log(url);
-
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
 
