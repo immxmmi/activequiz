@@ -101,7 +101,8 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     // Chart
 
     const typ = "{type:'"+chartType+"',data:{labels:[2012  ,2013  ,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
-    const url = "https://quickchart.io/chart?c="+typ;
+    let url = "https://quickchart.io/chart?c="+typ;
+    url = encodeURI(url);
     console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
