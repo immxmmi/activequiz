@@ -23,32 +23,7 @@ async function getChartDataBySessionID(sessionID) {
 }
 
 function downloadChart(title, labels, data, chartType) {
-
-  /*  var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
-        type: chartType,
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: title,
-                    data: data,
-                    backgroundColor: 'rgba(26,56,229,0.2)',
-                    borderColor: 'rgb(49,141,53)',
-                    borderWidth: 1,
-                },
-            ],
-        },
-        options: {
-            animation: {
-                onComplete: function () {
-                    console.log(myChart.toBase64Image());
-                },
-            },
-        },
-    });
-    */
-
-
+var ctx = document.getElementById('chart').getContext('2d');
     var myChart = new Chart( {
         type: chartType,
         data: {
