@@ -237,7 +237,7 @@ async function createPdf(sessionID) {
             // const question = quizData.data.data.question;
             // answers = labels;
 
-            buildPdf(title,'question', 'answers', 'rightAnswer', labels, 'pie');
+            buildPdf('title','question', 'answers', 'rightAnswer', labels, 'pie');
 
         });
 
