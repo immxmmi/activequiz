@@ -106,9 +106,17 @@ async function buildPdf() {
     const chartUrl = '/mod/activequiz/backend/assets/Chart.png';
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
+    // Chart
+    const url = "https://quickchart.io/chart?c={type:'bar',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    const chartIurl = await fetch(url).then((res) => res.arrayBuffer());
+
+
+
+
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
     const pngImage = await pdfDoc.embedPng(pngImageBytes);
     const chartImage = await pdfDoc.embedPng(chartImageBytes);
+    const chartIurlImg = await pdfDoc.embedPng(chartIurl);
 
     const pages = pdfDoc.getPages();
 
@@ -187,6 +195,15 @@ async function buildPdf() {
    //    });
    //    form.flatten();
    //}
+
+
+    page.drawImage(chartIurlImg, {
+               x: 30,
+               y: height - 126 - 30 - 40 - (40 * j) - 300,
+               width: 500,
+               height: 300,
+           });
+
     const pdfBytes = await pdfDoc.save();
     // Time and Date
     const d = new Date();
