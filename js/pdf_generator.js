@@ -135,7 +135,7 @@ async function buildPdf() {
 
     //for (let i = 0; i < question.length; i++) {
     //    let j;
-    //    const page = pdfDoc.addPage();
+        const page = pdfDoc.addPage();
     //    page.drawImage(pngImage, {
     //        x: 10,
     //        y: height - 126,
