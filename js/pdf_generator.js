@@ -97,6 +97,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
 
     labels2.forEach(a => {
             data2 += a.toString().replace(" ","");
+            data2 += ',';
     })
 
     data2 += "]";
