@@ -22,7 +22,7 @@ async function getChartDataBySessionID(sessionID) {
     // }
 }
 
-function downloadChart(title, labels, data, chartType) {
+function downloadChart2(title, labels, data, chartType) {
     var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
         type: 'horizontalBar',
         data: {
@@ -57,6 +57,40 @@ function downloadChart(title, labels, data, chartType) {
     a.click();
 
     return myChart.toBase64Image();
+}
+
+
+
+function downloadChart() {
+    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
+        type: 'horizontalBar',
+        data: {
+            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
+            datasets: [
+                {
+                    label: 'My data',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            animation: {
+                onComplete: function () {
+                    console.log(myChart.toBase64Image());
+                },
+            },
+        },
+    });
+
+    var a = document.createElement('a');
+    a.href = myChart.toBase64Image();
+    a.download = 'my_file_name.png';
+
+// Trigger the download
+    a.click();
 }
 
 async function buildPdf(question, answers, rightAnswer, chartImgDataBase64) {
