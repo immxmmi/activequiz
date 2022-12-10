@@ -220,9 +220,8 @@ async function createPdf(sessionID) {
             //const chartImgDataBase64 =
 
               //  downloadChart('title', 'labels', 'datasets', 'chartType');
-                downloadChart();
+   //             downloadChart();
 
-s
 
 
 
@@ -231,7 +230,7 @@ s
            // const question = quizData.data.data.question;
            // answers = labels;
 
-           // buildPdf(question,answers,rightAnswer,chartImgDataBase64);
+            buildPdf(question,answers,rightAnswer,chartImgDataBase64);
 //
   //      });
 //
