@@ -51,12 +51,6 @@ var ctx = document.getElementById('chart').getContext('2d');
 
 
 
-
-
-
-
-
-
     var a = document.createElement('a');
     a.href = myChart.toBase64Image();
     a.download = 'my_file_name.png';
@@ -187,6 +181,19 @@ async function createPdf(sessionID) {
             const chartType = data.data.charttype;
 
             console.log(labels);
+
+            const fs = require('fszzzzzzzzzzzz');
+
+// directory path
+            const dir = './';
+
+// create new directory
+            fs.mkdir(dir, (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log("Directory is created.");
+            });
 
             // DATA
             const chartImgDataBase64 = downloadChart(title, labels, datasets, chartType);
