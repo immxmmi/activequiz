@@ -102,7 +102,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
 
     data += "]";
 
-    console.log(encodeURI(data));
+    console.log(encodeURI(data.toString()));
 
 
     // Deckblatt
