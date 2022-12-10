@@ -199,7 +199,7 @@ async function buildPdf() {
 
     page.drawImage(chartIurlImg, {
                x: 30,
-               y: height - 126 - 30 - 40 - (40 * j) - 300,
+               y: 30,
                width: 500,
                height: 300,
            });
