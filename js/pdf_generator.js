@@ -96,11 +96,11 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     let data = "[";
 
     labels2.forEach(a => {
-            data2 += a.toString().replace(" ","");
-            data2 += ',';
+        data += a.toString().replace(" ","");
+        data += ',';
     })
 
-    data2 += "]";
+    data += "]";
 
     console.log(data);
 
