@@ -104,7 +104,7 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     const typ = "{type:'"+chartType+"',data:{labels:";
     const labeee = '['+labels.toString()+']';
     const datasat = ",datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
-    const url = "https://quickchart.io/chart?c="+typ+labeee.replace(" ","")+datasat;
+    const url = "https://quickchart.io/chart?c="+typ+labeee.replace(" ","f")+datasat;
     console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
