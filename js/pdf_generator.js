@@ -222,7 +222,7 @@ async function createPdf(sessionID) {
               //  downloadChart('title', 'labels', 'datasets', 'chartType');
                 downloadChart();
 
-
+s
 
 
 
