@@ -146,39 +146,39 @@ async function buildPdf() {
         const radioGroup = form.createRadioGroup(question[i]);
 
 
-        //  for (j = 0; j < answers[i].length; j++) {
-        for (j = 0; j < 1; j++) {
-            if (answers[i][j] == rightAnswer[i]) {
-                page.drawText(answers[i][j], {
-                    x: 70,
-                    y: height - 126 - 30 - 40 - (40 * j),
-                    size: 18,
-                    font: arialFont,
-                    color: rgb(0.537, 0.702, 0.114),
-                });
-                radioGroup.addOptionToPage(answers[i][j], page, {
-                    height: 15,
-                    width: 15,
-                    x: 43,
-                    y: height - 126 - 30 - 40 - (40 * j)
-                });
-                radioGroup.select(answers[i][j]);
-            } else {
-                page.drawText(answers[i][j], {
-                    x: 70,
-                    y: height - 126 - 30 - 40 - (40 * j),
-                    size: 18,
-                    font: arialFont,
-                    color: rgb(0, 0.1, 0.156),
-                });
-                radioGroup.addOptionToPage(answers[i][j], page, {
-                    height: 15,
-                    width: 15,
-                    x: 43,
-                    y: height - 126 - 30 - 40 - (40 * j)
-                });
-            }
-        }
+     //  //  for (j = 0; j < answers[i].length; j++) {
+     //  for (j = 0; j < 1; j++) {
+     //      if (answers[i][j] == rightAnswer[i]) {
+     //          page.drawText(answers[i][j], {
+     //              x: 70,
+     //              y: height - 126 - 30 - 40 - (40 * j),
+     //              size: 18,
+     //              font: arialFont,
+     //              color: rgb(0.537, 0.702, 0.114),
+     //          });
+     //          radioGroup.addOptionToPage(answers[i][j], page, {
+     //              height: 15,
+     //              width: 15,
+     //              x: 43,
+     //              y: height - 126 - 30 - 40 - (40 * j)
+     //          });
+     //          radioGroup.select(answers[i][j]);
+     //      } else {
+     //          page.drawText(answers[i][j], {
+     //              x: 70,
+     //              y: height - 126 - 30 - 40 - (40 * j),
+     //              size: 18,
+     //              font: arialFont,
+     //              color: rgb(0, 0.1, 0.156),
+     //          });
+     //          radioGroup.addOptionToPage(answers[i][j], page, {
+     //              height: 15,
+     //              width: 15,
+     //              x: 43,
+     //              y: height - 126 - 30 - 40 - (40 * j)
+     //          });
+     //      }
+     //  }
         page.drawImage(chartImage, {
             x: 30,
             y: height - 126 - 30 - 40 - (40 * j) - 300,
