@@ -99,8 +99,8 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
-
-    console.log("["+labels.toString()+"]");
+    const tt = labels.toString();
+    console.log("["+tt+"]");
     const typ = "{type:'"+chartType+"',";
     const data = "data:{labels:";
     const labeee = "["+labels.toString()+"]";
