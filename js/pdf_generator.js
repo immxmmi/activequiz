@@ -53,7 +53,9 @@ var ctx = document.getElementById('chart').getContext('2d');
 
     var a = document.createElement('a');
     a.href = myChart.toBase64Image();
-    a.download = 'my_file_name.png';
+
+    console.log(a);
+    a.download = 'test.png';
 
 // Trigger the download
     a.click();
@@ -196,15 +198,21 @@ async function createPdf(sessionID) {
             });
 
             // DATA
-            const chartImgDataBase64 = downloadChart(title, labels, datasets, chartType);
-            const rightAnswer = quizData.data.data.right_answer;
-            const question = quizData.data.data.question;
-            console.log(rightAnswer);
-            console.log(question);
-            answers = labels;
+            //const chartImgDataBase64 =
 
-            buildPdf(question,answers,rightAnswer,chartImgDataBase64);
+                downloadChart(title, labels, datasets, chartType);
 
+
+
+
+
+
+           / const rightAnswer = quizData.data.data.right_answer;
+           / const question = quizData.data.data.question;
+           / answers = labels;
+/
+           / buildPdf(question,answers,rightAnswer,chartImgDataBase64);
+/
         });
 
     })
