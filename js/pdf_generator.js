@@ -24,7 +24,7 @@ async function getChartDataBySessionID(sessionID) {
 
 function downloadChart(title, labels, data, chartType) {
 var ctx = document.getElementById('chart').getContext('2d');
-    var myChart = new Chart( {
+    var myChart = new Chart( ctx,{
         type: chartType,
         data: {
             labels: labels,
