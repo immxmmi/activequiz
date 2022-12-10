@@ -100,7 +100,7 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
 
-    console.log("["+labels.toString()+"]");
+    console.log("["+labels.toString().replace(" ", "")+"]");
     const typ = "{type:'"+chartType+"',";
     const data = "data:{labels:";
     const labeee = "["+labels.toString()+"]";
