@@ -100,8 +100,9 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
 
-    const testt = "[2012  ,2013  ,2014,2015, 2016]";
-    const typ = "{type:'"+chartType+"',data:{labels:"+testt+",datasets:[{label:'"+title+"',data:[120,60,50,180,120]}]}}";
+    const lab = "[2012  ,2013  ,2014,2015, 2016]";
+    const dat = "[120,60,50,180,120]";
+    const typ = "{type:'"+chartType+"',data:{labels:"+lab+",datasets:[{label:'"+title+"',data:"+dat+"}]}}";
     let url = "https://quickchart.io/chart?c="+typ;
     url = encodeURI(url);
     console.log(url);
