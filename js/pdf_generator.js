@@ -93,7 +93,8 @@ function downloadChart() {
     a.click();
 }
 
-async function buildPdf(question, answers, rightAnswer, chartImgDataBase64) {
+//async function buildPdf(question, answers, rightAnswer, chartImgDataBase64) {
+async function buildPdf() {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -230,7 +231,7 @@ async function createPdf(sessionID) {
            // const question = quizData.data.data.question;
            // answers = labels;
 
-            buildPdf(question,answers,rightAnswer,chartImgDataBase64);
+            buildPdf();
 //
   //      });
 //
