@@ -197,7 +197,7 @@ async function buildPdf() {
    //}
 
 
-    page.drawImage(chartImage, {
+    page.drawImage(chartIurlImg, {
                x: 30,
                y: 30,
                width: 500,
