@@ -99,6 +99,8 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
             data2 += a.toString().replace(" ","");
     })
 
+    data2 += "]";
+
     console.log(data2);
 
 
