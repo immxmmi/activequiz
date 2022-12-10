@@ -11,11 +11,6 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 async function getQuizDataBySession(sessionid) {
 
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
-    //var params = {sessionid: sessionid};
-//
-    //$.getJSON(url, params, function (data) {
-    //    quizData.push(data.data.data);
-    //});
     return fetch(url).then((response) => response.json());
 }
 
@@ -29,7 +24,7 @@ async function getChartDataBySessionID(sessionID) {
 
 function downloadChart(title, labels, data, chartType) {
 
-    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
+  /*  var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
         type: chartType,
         data: {
             labels: labels,
@@ -51,6 +46,41 @@ function downloadChart(title, labels, data, chartType) {
             },
         },
     });
+    */
+
+
+    var myChart = new Chart( {
+        type: chartType,
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: title,
+                    data: data,
+                    backgroundColor: 'rgba(26,56,229,0.2)',
+                    borderColor: 'rgb(49,141,53)',
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            animation: {
+                onComplete: function () {
+                    console.log(myChart.toBase64Image());
+                },
+            },
+        },
+    });
+
+
+
+
+
+
+
+
+
+
 
     var a = document.createElement('a');
     a.href = myChart.toBase64Image();
