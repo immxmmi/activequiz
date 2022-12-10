@@ -219,7 +219,8 @@ async function createPdf(sessionID) {
             // DATA
             //const chartImgDataBase64 =
 
-                downloadChart('title', 'labels', 'datasets', 'chartType');
+              //  downloadChart('title', 'labels', 'datasets', 'chartType');
+                downloadChart();
 
 
 
