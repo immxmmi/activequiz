@@ -99,16 +99,10 @@ async function buildPdf(title,question, answers, rightAnswer, labels, chartType)
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
-    const tt = labels.toString();
-    console.log("["+tt+"]");
-    const typ = "{type:'"+chartType+"',data:{labels:";
-    const labeee = '['+labels.toString()+']';
-    const datasat = ",datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
-    const url = "https://quickchart.io/chart?c="+typ+labeee.replace(" ","f")+datasat;
 
-    const go = encodeURI(url);
-    console.log(go);
-
+    const typ = "{type:'"+chartType+"',data:{labels:[2012  ,2013  ,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    const url = "https://quickchart.io/chart?c="+typ;
+    console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
 
@@ -229,7 +223,7 @@ async function createPdf(sessionID) {
             const title = data.data.chartdata.datasets.at(0).label;
             const chartType = data.data.charttype;
 
-            console.log(datasets);
+            console.log(labels);
 
 
             // DATA
