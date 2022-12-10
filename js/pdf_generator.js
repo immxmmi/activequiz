@@ -179,14 +179,14 @@ async function buildPdf() {
      //          });
      //      }
      //  }
-        page.drawImage(chartImage, {
-            x: 30,
-            y: height - 126 - 30 - 40 - (40 * j) - 300,
-            width: 500,
-            height: 300,
-        });
-        form.flatten();
-    }
+   //    page.drawImage(chartImage, {
+   //        x: 30,
+   //        y: height - 126 - 30 - 40 - (40 * j) - 300,
+   //        width: 500,
+   //        height: 300,
+   //    });
+   //    form.flatten();
+   //}
     const pdfBytes = await pdfDoc.save();
     // Time and Date
     const d = new Date();
