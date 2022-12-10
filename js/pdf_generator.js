@@ -125,29 +125,29 @@ async function buildPdf() {
         color: rgb(0.0, 0.392, 0.612), //blau
     });
 
-    for (let i = 0; i < question.length; i++) {
-        let j;
-        const page = pdfDoc.addPage();
-        page.drawImage(pngImage, {
-            x: 10,
-            y: height - 126,
-            width: 180,
-            height: 113
-        });
-        page.drawText(question[i], {
-            x: 40,
-            y: height - 126 - 30,
-            size: 28,
-            font: arialFont,
-            color: rgb(0, 0.1, 0.156),
-            maxWidth: width - 80
-        });
-        const form = pdfDoc.getForm();
-        const radioGroup = form.createRadioGroup(question[i]);
+    //for (let i = 0; i < question.length; i++) {
+    //    let j;
+    //    const page = pdfDoc.addPage();
+    //    page.drawImage(pngImage, {
+    //        x: 10,
+    //        y: height - 126,
+    //        width: 180,
+    //        height: 113
+    //    });
+    //    page.drawText(question[i], {
+    //        x: 40,
+    //        y: height - 126 - 30,
+    //        size: 28,
+    //        font: arialFont,
+    //        color: rgb(0, 0.1, 0.156),
+    //        maxWidth: width - 80
+    //    });
+    //    const form = pdfDoc.getForm();
+    //    const radioGroup = form.createRadioGroup(question[i]);
 
 
-     //  //  for (j = 0; j < answers[i].length; j++) {
-     //  for (j = 0; j < 1; j++) {
+    // //  //  for (j = 0; j < answers[i].length; j++) {
+    // //  for (j = 0; j < 1; j++) {
      //      if (answers[i][j] == rightAnswer[i]) {
      //          page.drawText(answers[i][j], {
      //              x: 70,
