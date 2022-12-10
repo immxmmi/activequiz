@@ -222,8 +222,8 @@ async function createPdf(sessionID) {
             const datasets = data.data.chartdata.datasets.at(0).data;
             const title = data.data.chartdata.datasets.at(0).label;
             const dataset = data.data.chartdata.datasets;
-            console.log(datasets);
-            console.log(datasets.toString());
+            //console.log(datasets);
+            //console.log(datasets.toString());
             const chartType = data.data.charttype;
 
             console.log(labels);
