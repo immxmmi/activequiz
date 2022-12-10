@@ -99,7 +99,9 @@ async function buildPdf(question, answers, rightAnswer, labels, chartType) {
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
-    const url = "https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels.toString()+",datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    const url = "https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    console.log(url);
+
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
 
 
