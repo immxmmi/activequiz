@@ -102,6 +102,8 @@ async function buildPdf(question, answers, rightAnswer, labels, chartType) {
     const url = "https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
     console.log(url);
 
+    https://quickchart.io/chart?c={type:'pie',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}
+
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
 
 
@@ -219,6 +221,9 @@ async function createPdf(sessionID) {
             const labels = data.data.chartdata.labels;
             const datasets = data.data.chartdata.datasets.at(0).data;
             const title = data.data.chartdata.datasets.at(0).label;
+            const dataset = data.data.chartdata.datasets;
+            console.log(datasets);
+            console.log(datasets.toString());
             const chartType = data.data.charttype;
 
             console.log(labels);
@@ -234,7 +239,7 @@ async function createPdf(sessionID) {
             // const question = quizData.data.data.question;
             // answers = labels;
 
-            buildPdf('question', 'answers', 'rightAnswer', labels, 'pie');
+            buildPdf('question', 'answers', 'rightAnswer', labels, chartType);
 
         });
 
