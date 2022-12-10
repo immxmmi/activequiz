@@ -103,7 +103,7 @@ async function buildPdf(label,question, answers, rightAnswer, labeles, chartType
 
 
     // Chart
-    const datas = "{type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+title+"',data:"+data+"}]}}";
+    const datas = "{type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:"+data+"}]}}";
     const url = encodeURI("https://quickchart.io/chart?c="+datas);
     console.log(url);
 
