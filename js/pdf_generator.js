@@ -23,17 +23,16 @@ async function getChartDataBySessionID(sessionID) {
 }
 
 function downloadChart(title, labels, data, chartType) {
-var ctx = document.getElementById('chart').getContext('2d');
-    var myChart = new Chart( ctx,{
-        type: chartType,
+    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
+        type: 'horizontalBar',
         data: {
-            labels: labels,
+            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
             datasets: [
                 {
-                    label: title,
-                    data: data,
-                    backgroundColor: 'rgba(26,56,229,0.2)',
-                    borderColor: 'rgb(49,141,53)',
+                    label: 'My data',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1,
                 },
             ],
@@ -50,12 +49,9 @@ var ctx = document.getElementById('chart').getContext('2d');
 
 
 
-
     var a = document.createElement('a');
     a.href = myChart.toBase64Image();
-
-    console.log(a);
-    a.download = 'test.png';
+    a.download = 'my_file_name.png';
 
 // Trigger the download
     a.click();
@@ -207,12 +203,12 @@ async function createPdf(sessionID) {
 
 
 
-           / const rightAnswer = quizData.data.data.right_answer;
-           / const question = quizData.data.data.question;
-           / answers = labels;
-/
-           / buildPdf(question,answers,rightAnswer,chartImgDataBase64);
-/
+           // const rightAnswer = quizData.data.data.right_answer;
+           // const question = quizData.data.data.question;
+           // answers = labels;
+
+           // buildPdf(question,answers,rightAnswer,chartImgDataBase64);
+
         });
 
     })
