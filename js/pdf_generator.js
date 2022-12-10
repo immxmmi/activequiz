@@ -93,16 +93,16 @@ function downloadChart() {
 async function buildPdf(label,question, answers, rightAnswer, labels2, chartType) {
     const labels = "[2012  ,2013  ,2014,2015, 2016]";
     const data2 = "[120,60,50,180,120,]";
-    let data = "[";
+    let data = "";
 
     labels2.forEach(a => {
         data += a.toString().replace(" ","");
         data += ",";
     })
 
-    data += "]";
 
-    console.log(encodeURI(data.toString()));
+
+    console.log(encodeURI(data));
 
 
     // Deckblatt
@@ -113,7 +113,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const url = encodeURI("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:"+data+"}]}}");
+    const url = encodeURI("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
     console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
