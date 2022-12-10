@@ -90,7 +90,7 @@ function downloadChart() {
     a.click();
 }
 
-async function buildPdf(question, answers, rightAnswer, labels, chartType) {
+async function buildPdf(title,question, answers, rightAnswer, labels, chartType) {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -99,7 +99,8 @@ async function buildPdf(question, answers, rightAnswer, labels, chartType) {
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
     // Chart
-    const url = "https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'Users',data:[120,60,50,180,120]}]}}";
+    const lab = ''
+    const url = "https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:[2012,2013,2014,2015, 2016],datasets:[{label:'"+title+"',data:[120,60,50,180,120]}]}}";
     console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
@@ -234,7 +235,7 @@ async function createPdf(sessionID) {
             // const question = quizData.data.data.question;
             // answers = labels;
 
-            buildPdf('question', 'answers', 'rightAnswer', labels, 'pie');
+            buildPdf(title,'question', 'answers', 'rightAnswer', labels, 'pie');
 
         });
 
