@@ -167,18 +167,18 @@ async function createPdf(sessionID) {
         return;
     }
 
-    getQuizDataBySession(sessionID).then(async (quizData) => {
-            let answers;
-
-        getChartDataBySessionID(sessionID).then((data) => {
-
-
-            const labels = data.data.chartdata.labels;
-            const datasets = data.data.chartdata.datasets.at(0).data;
-            const title = data.data.chartdata.datasets.at(0).label;
-            const chartType = data.data.charttype;
-
-            console.log(labels);
+   // getQuizDataBySession(sessionID).then(async (quizData) => {
+   //         let answers;
+//
+   //     getChartDataBySessionID(sessionID).then((data) => {
+//
+//
+   //         const labels = data.data.chartdata.labels;
+   //         const datasets = data.data.chartdata.datasets.at(0).data;
+   //         const title = data.data.chartdata.datasets.at(0).label;
+   //         const chartType = data.data.charttype;
+//
+   //         console.log(labels);
 
 
 
@@ -197,10 +197,10 @@ async function createPdf(sessionID) {
            // answers = labels;
 
            // buildPdf(question,answers,rightAnswer,chartImgDataBase64);
-
-        });
-
-    })
-
+//
+  //      });
+//
+  //  })
+//
 }
 
