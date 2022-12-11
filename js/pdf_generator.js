@@ -96,7 +96,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     let data = "";
 
     labels2.forEach(a => {
-        data += a.toString().replace(" ","");
+        data += a.toString();
         data += ",";
     })
 
@@ -113,7 +113,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const url = encodeURI("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
+    const url = encodeToBase64("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
     console.log(url);
 
     const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
