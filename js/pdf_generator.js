@@ -40,6 +40,7 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
 
     // Chart
     const chartUrl = createChartLink(chartType, label, labels, data, question);
+    console.log(chartUrl);
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
 
