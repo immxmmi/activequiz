@@ -97,7 +97,7 @@ function startChart(chartType, label, labels, data) {
     const dogs = [50, 60, 70, 180, 190];
 
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]},{label:'Cats',data:[${dogs}]}]}}`
+    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]}]}}`
 
 };
 
