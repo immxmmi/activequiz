@@ -140,7 +140,6 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
     const time = d.getTime();
     // Download
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
-
 }
 
 
