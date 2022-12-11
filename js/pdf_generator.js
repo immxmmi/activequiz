@@ -24,9 +24,7 @@ async function getChartDataBySessionID(sessionID) {
 
 function createChartLink(chartType, label, labels, data, question) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    label = encodeURI(question);
 
-    console.log(question);
     return encodeURI(`https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`);
 }
 
@@ -155,7 +153,8 @@ async function createPdf(sessionID) {
         getChartDataBySessionID(sessionID).then((chartData) => {
             // Chart data
             const chartType = chartData.data.charttype;
-            const label = chartData.data.chartdata.datasets.at(0).label;
+            let label = chartData.data.chartdata.datasets.at(0).label;
+            label = 'Answers';
             const labels = chartData.data.chartdata.labels;
             const data = chartData.data.chartdata.datasets.at(0).data;
             // Quiz Data
