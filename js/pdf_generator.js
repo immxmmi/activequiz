@@ -90,33 +90,25 @@ function downloadChart() {
     a.click();
 }
 
+
+
+function startChart() {
+    const months = ['January', 'February', 'March', 'April', 'May'];
+    const cats = [100, 200, 300, 400, 500];
+    const dogs = [50, 60, 70, 180, 190];
+
+    // great tip for quoted array, https://stackoverflow.com/a/43651811/52160
+    let monthStr = months.map(x => "'" + x + "'").toString();
+    return `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${monthStr}], datasets:[{label:'Dogs',data:[${dogs}]},{label:'Cats',data:[${cats}]}]}}`
+
+};
+
+
 async function buildPdf(label,question, answers, rightAnswer, labels2, chartType) {
 
     // QUICKCHART
 
-    const QuickChart = require('/js/quickchart-js');
-
-    const chart = new QuickChart();
-
-
-    chart.setWidth(500)
-    chart.setHeight(300);
-
-// Config can be set as string or as a Javascript object
-    chart.setConfig(`{
-  type: 'bar',
-  data: {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-    datasets: [{
-      label: 'Users',
-      data: [50, 60, 70, 180]
-    }]
-  }
-}`);
-
-// Print the chart URL
-    console.log(chart.getUrl());
-
+    console.log(startChart());
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
