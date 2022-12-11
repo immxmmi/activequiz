@@ -94,7 +94,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
 
     // QUICKCHART
 
-    const QuickChart = require('./quickchart-js');
+    const QuickChart = require('/js/quickchart-js');
 
     const chart = new QuickChart();
 
