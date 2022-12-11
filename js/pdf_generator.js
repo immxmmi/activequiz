@@ -91,18 +91,31 @@ function downloadChart() {
 }
 
 async function buildPdf(label,question, answers, rightAnswer, labels2, chartType) {
-    const labels = "[2012  ,2013  ,2014,2015, 2016]";
-    const data = "[120,60,50,180,120,]";
-    let data2 = "";
 
-    labels2.forEach(a => {
-        data2 += a.toString();
-        data2 += ",";
-    })
+    // QUICKCHART
+
+    const QuickChart = require('quickchart-js');
+
+    const chart = new QuickChart();
 
 
+    chart.setWidth(500)
+    chart.setHeight(300);
 
-    console.log(encodeURI(data2));
+// Config can be set as string or as a Javascript object
+    chart.setConfig(`{
+  type: 'bar',
+  data: {
+    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+    datasets: [{
+      label: 'Users',
+      data: [50, 60, 70, 180]
+    }]
+  }
+}`);
+
+// Print the chart URL
+    console.log(chart.getUrl());
 
 
     // Deckblatt
