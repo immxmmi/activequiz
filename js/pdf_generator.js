@@ -92,23 +92,21 @@ function downloadChart() {
 
 
 
-function startChart(labels) {
-    const months = ['January', 'February', 'March', 'April', 'May'];
+function startChart(chartType, label, labels, data) {
     const cats = [100, 200, 300, 400, 500];
     const dogs = [50, 60, 70, 180, 190];
 
-    // great tip for quoted array, https://stackoverflow.com/a/43651811/52160
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    return `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]},{label:'Cats',data:[${dogs}]}]}}`
+    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]},{label:'Cats',data:[${dogs}]}]}}`
 
 };
 
 
-async function buildPdf(label,question, answers, rightAnswer, labels, chartType) {
+async function buildPdf(label,question, answers, rightAnswer, labels, chartType, data) {
 
     // QUICKCHART
 
-    console.log(encodeURI(startChart(labels)));
+    console.log(encodeURI(startChart( 'bar',labels, data)));
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -254,7 +252,7 @@ async function createPdf(sessionID) {
             // const question = quizData.data.data.question;
             // answers = labels;
 
-            buildPdf('title','question', 'answers', 'rightAnswer', labels, 'pie');
+            buildPdf('title','question', 'answers', 'rightAnswer', labels, 'pie', datasets);
 
         });
 
