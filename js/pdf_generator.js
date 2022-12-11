@@ -91,22 +91,21 @@ function downloadChart() {
 }
 
 
-
 function startChart(chartType, label, labels, data) {
-    const cats = [100, 200, 300, 400, 500];
-    const dogs = [50, 60, 70, 180, 190];
+    console.log(data);
+    data = [100, 200, 300, 400, 500];
 
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]}]}}`
+    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`
 
 };
 
 
-async function buildPdf(label,question, answers, rightAnswer, labels, chartType, data) {
+async function buildPdf(chartType, label, labels, data, rightAnswer, question, answers) {
 
     // QUICKCHART
 
-    console.log(encodeURI(startChart( 'bar',labels, data)));
+    console.log(encodeURI(startChart(chartType, label, labels, data)));
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -231,28 +230,18 @@ async function createPdf(sessionID) {
 
     getQuizDataBySession(sessionID).then(async (quizData) => {
         let answers;
-        getChartDataBySessionID(sessionID).then((data) => {
+        getChartDataBySessionID(sessionID).then((chartData) => {
+            // Chart data
+            const chartType = chartData.data.charttype;
+            const label = chartData.data.chartdata.datasets.at(0).label;
+            const labels = chartData.data.chartdata.labels;
+            const data = chartData.data.chartdata.datasets.at(0).data;
+            // Quiz Data
+            const rightAnswer = quizData.data.data.right_answer;
+            const question = quizData.data.data.question;
+            const answers = labels;
 
-
-            const labels = data.data.chartdata.labels;
-            const datasets = data.data.chartdata.datasets.at(0).data;
-            const title = data.data.chartdata.datasets.at(0).label;
-            const chartType = data.data.charttype;
-
-            console.log(labels);
-
-
-            // DATA
-            //const chartImgDataBase64 =
-
-            //  downloadChart('title', 'labels', 'datasets', 'chartType');
-
-
-            // const rightAnswer = quizData.data.data.right_answer;
-            // const question = quizData.data.data.question;
-            // answers = labels;
-
-            buildPdf('title','question', 'answers', 'rightAnswer', labels, 'pie', datasets);
+            buildPdf(chartType, label, labels, data, rightAnswer, question, answers);
 
         });
 
