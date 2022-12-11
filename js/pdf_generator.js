@@ -108,7 +108,7 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
 
     // QUICKCHART
 
-    console.log(startChart());
+    console.log(encodeURI(startChart()));
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
