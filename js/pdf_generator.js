@@ -22,79 +22,7 @@ async function getChartDataBySessionID(sessionID) {
     // }
 }
 
-function downloadChart2(title, labels, data, chartType) {
-    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
-        type: 'horizontalBar',
-        data: {
-            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
-            datasets: [
-                {
-                    label: 'My data',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                },
-            ],
-        },
-        options: {
-            animation: {
-                onComplete: function () {
-                    console.log(myChart.toBase64Image());
-                },
-            },
-        },
-    });
-
-
-    var a = document.createElement('a');
-    a.href = myChart.toBase64Image();
-    a.download = 'my_file_name.png';
-
-// Trigger the download
-    a.click();
-
-    return myChart.toBase64Image();
-}
-
-
-function downloadChart() {
-    var myChart = new Chart(document.getElementById('chart').getContext('2d'), {
-        type: 'horizontalBar',
-        data: {
-            labels: ['One', 'Two', 'Three', 'Four', 'Five', 'Six'],
-            datasets: [
-                {
-                    label: 'My data',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                },
-            ],
-        },
-        options: {
-            animation: {
-                onComplete: function () {
-                    console.log(myChart.toBase64Image());
-                },
-            },
-        },
-    });
-
-    var a = document.createElement('a');
-    a.href = myChart.toBase64Image();
-    a.download = 'my_file_name.png';
-
-// Trigger the download
-    a.click();
-}
-
-
 function createChartLink(chartType, label, labels, data) {
-    console.log(data);
-    //data = [100, 200, 300, 400, 500];
-
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     return encodeURI(`https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`);
 };
@@ -102,18 +30,15 @@ function createChartLink(chartType, label, labels, data) {
 
 async function buildPdf(chartType, label, labels, data, rightAnswer, question, answers) {
 
-    // QUICKCHART
-
-
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
+
     // Logo
     const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    console.log(createChartLink(chartType, label, labels, data));
     const chartUrl = createChartLink(chartType, label, labels, data);
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
