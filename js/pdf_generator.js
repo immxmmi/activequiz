@@ -92,17 +92,17 @@ function downloadChart() {
 
 async function buildPdf(label,question, answers, rightAnswer, labels2, chartType) {
     const labels = "[2012  ,2013  ,2014,2015, 2016]";
-    const data2 = "[120,60,50,180,120,]";
-    let data = "";
+    const data = "[120,60,50,180,120,]";
+    let data2 = "";
 
     labels2.forEach(a => {
-        data += a.toString();
-        data += ",";
+        data2 += a.toString();
+        data2 += ",";
     })
 
 
 
-    console.log(encodeURI(data));
+    console.log(encodeURI(data2));
 
 
     // Deckblatt
