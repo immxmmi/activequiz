@@ -27,7 +27,6 @@ function createChartLink(chartType, label, labels, data) {
     return encodeURI(`https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`);
 };
 
-
 async function buildPdf(chartType, label, labels, data, rightAnswer, question, answers) {
 
     // Deckblatt
@@ -141,7 +140,6 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
     // Download
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
 }
-
 
 async function createPdf(sessionID) {
     if (sessionID == null) {
