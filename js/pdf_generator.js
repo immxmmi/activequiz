@@ -118,11 +118,11 @@ async function buildPdf(label,question, answers, rightAnswer, labels2, chartType
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const url = ("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
-    encodeURI(url.toString().replace(" ",""));
-    console.log(url);
+    //const url = ("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
+    //encodeURI(url.toString().replace(" ",""));
+    //console.log(url);
 
-    const chartImageBytes = await fetch(url).then((res) => res.arrayBuffer());
+    const chartImageBytes = await fetch(reportUrl).then((res) => res.arrayBuffer());
 
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
