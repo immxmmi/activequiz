@@ -93,7 +93,7 @@ function downloadChart() {
 
 function createChartLink(chartType, label, labels, data) {
     console.log(data);
-    data = [100, 200, 300, 400, 500];
+    //data = [100, 200, 300, 400, 500];
 
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     return encodeURI(`https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`);
