@@ -91,13 +91,12 @@ function downloadChart() {
 }
 
 
-function startChart(chartType, label, labels, data) {
+function createChartLink(chartType, label, labels, data) {
     console.log(data);
     data = [100, 200, 300, 400, 500];
 
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    return `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`
-
+    return encodeURI(`https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'Answers',data:[${data}]}]}}`);
 };
 
 
@@ -105,7 +104,6 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
 
     // QUICKCHART
 
-    console.log(encodeURI(startChart(chartType, label, labels, data)));
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -115,11 +113,9 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    //const url = ("https://quickchart.io/chart?c={type:'"+chartType+"',data:{labels:"+labels+",datasets:[{label:'"+label+"',data:["+data+"]}]}}");
-    //encodeURI(url.toString().replace(" ",""));
-    //console.log(url);
-
-    const chartImageBytes = await fetch(reportUrl).then((res) => res.arrayBuffer());
+    console.log(reateChartLink(chartType, label, labels, data));
+    const chartUrl = createChartLink(chartType, label, labels, data);
+    const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
 
     const pdfDoc = await PDFDocument.load(existingPdfBytes);
