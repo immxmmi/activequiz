@@ -99,7 +99,7 @@ function startChart(labels) {
 
     // great tip for quoted array, https://stackoverflow.com/a/43651811/52160
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    return `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]},{label:'Cats',data:[${monthStr}]}]}}`
+    return `https://quickchart.io/chart?width=500&height=300&c={type:'bar',data:{labels:[${labelsStr}], datasets:[{label:'Dogs',data:[${cats}]},{label:'Cats',data:[${dogs}]}]}}`
 
 };
 
