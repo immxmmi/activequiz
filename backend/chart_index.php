@@ -86,7 +86,6 @@ require_once("../../../config.php");
                 <option value="unknown">Unknown-Chart</option>
             </select>
 
-
         </form>
     </div>
 
