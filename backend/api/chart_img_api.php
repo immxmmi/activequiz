@@ -6,12 +6,8 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 
 global $DB;
 
-//https://quickchart.io/chart?type:'bar'&=data:{labels:['Q1','Q2','Q3','Q4'], datasets:[{label:'Users', data:[50,60,70,180]},{label:'Revenue',data:[100,200,300,400]}]}
-
-
 
 // PARAMETER
-//$rowdata = optional_param('c', false, PARAM_TEXT);
 $height = optional_param('height', false, PARAM_TEXT);
 $weight = optional_param('weight', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
@@ -30,7 +26,7 @@ $datay=array(62,105,85,50);
 
 
 // Create the graph. These two calls are always required
-$graph = new Graph(350,220,'auto');
+$graph = new Graph($height,$weight,'auto');
 $graph->SetScale("textlin");
 
 //$theme_class="DefaultTheme";
