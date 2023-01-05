@@ -19,14 +19,14 @@ if(!$height){
     $height = 250;
 }
 if(!$weight){
-    $weight = 400;
+    $weight = 250;
 }
 
 $datay=array(62,105,85,50);
 
 
 // Create the graph. These two calls are always required
-$graph = new Graph($height,$weight,'auto');
+$graph = new Graph($weight,$height,'auto');
 $graph->SetScale("textlin");
 
 //$theme_class="DefaultTheme";
