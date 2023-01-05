@@ -81,7 +81,7 @@ $graph->Add($gbplot);
 
 //Set title of the chart, x-axis and y-axis
 
-$graph->title->Set("Accumulated Bar Chart");
+$graph->title->Set($label);
 
 $graph->xaxis->title->Set("Series-1");
 
