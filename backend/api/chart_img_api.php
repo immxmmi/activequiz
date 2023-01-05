@@ -5,6 +5,10 @@ require_once("../class/mdl_activequiz_attempt.php");
 require_once("../class/mdl_activequiz_sessions.php");
 require_once("../class/mdl_question_attempts.php");
 require_once("../builder/chart_img_builder.php");
+
+require_once ('../lib/jpgraph-4.3.5/src/jpgraph.php');
+require_once ('../lib/jpgraph-4.3.5/src/jpgraph_line.php');
+
 global $DB;
 
 //https://quickchart.io/chart?type:'bar'&=data:{labels:['Q1','Q2','Q3','Q4'], datasets:[{label:'Users', data:[50,60,70,180]},{label:'Revenue',data:[100,200,300,400]}]}
@@ -16,11 +20,47 @@ global $DB;
 $type = optional_param('type', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
-$data = optional_param('data', false, PARAM_TEXT);
-var_dump($type);
-var_dump($labels);
-var_dump($label);
-var_dump($data);
+$datas = optional_param('data', false, PARAM_TEXT);
+
+
+$data = array(10,6,16,23,11,9,5);
+
+//Declare the graph object
+
+$graph = new Graph(400,250);
+
+//Clear all
+
+$graph->ClearTheme();
+
+//Set the scale
+
+$graph->SetScale('textlin');
+
+//Set the linear plot
+
+$linept=new LinePlot($data);
+
+//Set the line color
+
+$linept->SetColor('green');
+
+//Add the plot to create the chart
+
+$graph->Add($linept);
+
+//Display the chart
+
+$graph->Stroke();
+
+
+
+
+
+
+
+
+
 //$img = new img();
 //http_response_code($img->getResponseCode());
 //header('Content-Type: application/json');
