@@ -31,7 +31,7 @@ $data = optional_param('data', false, PARAM_TEXT);
 
 
 $datay=array(62,105,85,50);
-$labelss = array('A','B','C','D');
+//$labels = array('A','B','C','D');
 
 
 
@@ -50,7 +50,7 @@ $graph->SetBox(false);
 //$graph->ygrid->SetColor('gray');
 $graph->ygrid->SetFill(false);
 
-$graph->xaxis->SetTickLabels($labelss);
+$graph->xaxis->SetTickLabels($labels);
 $graph->yaxis->HideLine(false);
 $graph->yaxis->HideTicks(false,false);
 
