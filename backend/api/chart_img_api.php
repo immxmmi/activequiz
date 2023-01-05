@@ -16,7 +16,7 @@ $label = optional_param('label', false, PARAM_TEXT);
 $datas = optional_param('data', false, PARAM_TEXT);
 
 if(!$height){
-    $height = 350;
+    $height = 250;
 }
 if(!$weight){
     $weight = 400;
