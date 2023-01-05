@@ -27,7 +27,7 @@ $datas = optional_param('data', false, PARAM_TEXT);
 if(!$height){
     $height = 250;
 }
-i$f(!$weight){
+if(!$weight){
     $weight = 400;
 }
 //Set the data
