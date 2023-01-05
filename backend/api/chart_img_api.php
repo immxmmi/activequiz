@@ -14,8 +14,8 @@ global $DB;
 // PARAMETER
 //$rowdata = optional_param('c', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
-$labels = optional_param('data', false, PARAM_TEXT);
-$label = optional_param('data', false, PARAM_TEXT);
+$labels = optional_param('labels', false, PARAM_TEXT);
+$label = optional_param('label', false, PARAM_TEXT);
 $data = optional_param('data', false, PARAM_TEXT);
 var_dump($type);
 var_dump($labels);
