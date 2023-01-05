@@ -63,9 +63,21 @@ $b1plot = new BarPlot($data);
 $graph->Add($b1plot);
 
 
-$b1plot->SetColor("white");
+
+
+
+
+
+
+$b1plot->SetColor("green");
 $b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
 $b1plot->SetWidth(45);
+
+
+
+
+
+
 
 
 // Display the graph
