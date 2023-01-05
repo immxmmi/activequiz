@@ -23,7 +23,6 @@ $weight = optional_param('weight', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
-$label = "Test";
 $datas = optional_param('data', false, PARAM_TEXT);
 
 if(!$height){
@@ -32,66 +31,41 @@ if(!$height){
 if(!$weight){
     $weight = 400;
 }
-//Set the data
 
-$series1=array(10,60,30,70,25,67,10);
-
-$series2=array(34,89,56,12,59,70,23);
+$datay=array(62,105,85,50);
 
 
-
-//Declare object to draw the chart
-
-$graph = new Graph(500,300);
-
-//Clear all
-
-$graph->ClearTheme();
-
-//Set some setting for the chart
-
+// Create the graph. These two calls are always required
+$graph = new Graph(350,220,'auto');
 $graph->SetScale("textlin");
 
-$graph->SetShadow();
+//$theme_class="DefaultTheme";
+//$graph->SetTheme(new $theme_class());
 
-$graph->img->SetMargin(80,30,20,50);
+// set major and minor tick positions manually
+$graph->yaxis->SetTickPositions(array(0,30,60,90,120,150), array(15,45,75,105,135));
+$graph->SetBox(false);
 
+//$graph->ygrid->SetColor('gray');
+$graph->ygrid->SetFill(false);
+$graph->xaxis->SetTickLabels(array('A','B','C','D'));
+$graph->yaxis->HideLine(false);
+$graph->yaxis->HideTicks(false,false);
 
+// Create the bar plots
+$b1plot = new BarPlot($datay);
 
-//Create object and colors for the bar plots
-
-$b1plot = new BarPlot($series1);
-
-$b1plot->SetFillColor("blue");
-
-$b2plot = new BarPlot($series2);
-
-$b2plot->SetFillColor("red");
-
-
-
-//Create object for the grouped bar plot
-
-$gbplot = new AccBarPlot(array($b1plot, $b2plot));
+// ...and add it to the graPH
+$graph->Add($b1plot);
 
 
+$b1plot->SetColor("white");
+$b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
+$b1plot->SetWidth(45);
+$graph->title->Set("Bar Gradient(Left reflection)");
 
-//Add the plot for the chart
-
-$graph->Add($gbplot);
-
-//Set title of the chart, x-axis and y-axis
-
-$graph->title->Set($label);
-
-$graph->xaxis->title->Set("Series-1");
-
-$graph->yaxis->title->Set("Series-2");
-
-//Display the graph
-
+// Display the graph
 $graph->Stroke();
-
 
 
 
