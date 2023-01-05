@@ -8,15 +8,15 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 // Create the graph. These two calls are always required
 
 $height = optional_param('height', false, PARAM_TEXT);
-//if(!$height){
+if(!$height){
     $height = 350;
-//}
+}
 $weight = optional_param('weight', false, PARAM_TEXT);
-//if(!$weight){
+if(!$weight){
     $weight = 400;
-//}
+}
 
-$graph = new Graph($height,$weight,'auto');
+$graph = new Graph(350,220,'auto');
 $graph->SetScale("textlin");
 
 
