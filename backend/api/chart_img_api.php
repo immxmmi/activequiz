@@ -62,7 +62,7 @@ $graph->Add($b1plot);
 $b1plot->SetColor("white");
 $b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
 $b1plot->SetWidth(45);
-$graph->title->Set("Bar Gradient(Left reflection)");
+$graph->title->Set(""+$label);
 
 // Display the graph
 $graph->Stroke();
