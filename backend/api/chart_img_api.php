@@ -46,7 +46,7 @@ foreach ($row_data as $val) {
 //$graph->SetTheme(new $theme_class());
 
 // set major and minor tick positions manually
-$graph->yaxis->SetTickPositions(array(0,30,60,90,120,150), array(15,45,75,105,135));
+$graph->yaxis->SetTickPositions(array(0,3,6,9,12,15), array(15,45,75,105,135));
 $graph->SetBox(false);
 
 //$graph->ygrid->SetColor('gray');
