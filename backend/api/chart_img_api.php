@@ -1,7 +1,18 @@
 <?php
+require_once("../../../../config.php");
+require_once("../class/mdl_question_data.php");
+require_once("../class/mdl_activequiz_attempt.php");
+require_once("../class/mdl_activequiz_sessions.php");
+require_once("../class/mdl_question_attempts.php");
+require_once("../builder/chart_img_builder.php");
+
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_line.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
+
+global $DB;
+
+//https://quickchart.io/chart?type:'bar'&=data:{labels:['Q1','Q2','Q3','Q4'], datasets:[{label:'Users', data:[50,60,70,180]},{label:'Revenue',data:[100,200,300,400]}]}
 
 
 
@@ -37,6 +48,7 @@ $graph->SetBox(false);
 
 //$graph->ygrid->SetColor('gray');
 $graph->ygrid->SetFill(false);
+
 $graph->xaxis->SetTickLabels(array('A','B','C','D'));
 $graph->yaxis->HideLine(false);
 $graph->yaxis->HideTicks(false,false);
