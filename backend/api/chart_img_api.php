@@ -8,10 +8,10 @@ global $DB;
 
 
 // PARAMETER
-$height = optional_param('height', false, PARAM_TEXT);
+$height = (int)optional_param('height', false, PARAM_TEXT);
 if(!$height){$height = 250;}
 
-$weight = optional_param('weight', false, PARAM_TEXT);
+$weight = (int)optional_param('weight', false, PARAM_TEXT);
 if(!$weight){$weight = 350;}
 
 // Create the graph. These two calls are always required
