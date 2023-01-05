@@ -6,8 +6,8 @@ require_once("../class/mdl_activequiz_sessions.php");
 require_once("../class/mdl_question_attempts.php");
 require_once("../builder/chart_img_builder.php");
 
-require_once ('../lib/jpgraph-4.3.5/src/jpgraph.php');
-require_once ('../lib/jpgraph-4.3.5/src/jpgraph_line.php');
+require_once ('../jpgraph-4.4.1/src/jpgraph.php');
+require_once ('../jpgraph-4.4.1/src/jpgraph_line.php');
 
 global $DB;
 
