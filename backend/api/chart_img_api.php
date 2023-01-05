@@ -27,6 +27,7 @@ $graph->title->Set($label);
 
 $labels = optional_param('labels', false, PARAM_TEXT);
 $data = optional_param('data', false, PARAM_TEXT);
+$data = explode(",", $data);
 
 
 
