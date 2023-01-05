@@ -551,7 +551,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $inqcontrol .= html_writer::end_tag('div');
 
 
-        $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
+        $output .= html_writer::div($inqcontrol, 'btn rtq_inquiz', array('id' => 'inquizcontrols'));
 
         return $output;
     }
