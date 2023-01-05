@@ -24,8 +24,13 @@ $type = optional_param('type', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
 $graph->title->Set($label);
 
-$labels = optional_param('labels', false, PARAM_TEXT);
-$labels = explode("',' ", $labels);
+$row_labels = optional_param('labels', false, PARAM_TEXT);
+$row_labels = explode("',' ", $row_labels);
+$labels = array();
+foreach ($row_labels as $val) {
+    $test = "test";
+    array_push($labels,trim($val,'\''));
+}
 
 $row_data = optional_param('data', false, PARAM_TEXT);
 $row_data = explode(",", $row_data);
