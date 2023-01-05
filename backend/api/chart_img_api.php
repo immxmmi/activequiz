@@ -11,11 +11,12 @@ global $DB;
 //type:'bar',
 //data:{labels:['Q1','Q2','Q3','Q4'], datasets:[{label:'Users', data:[50,60,70,180]},{label:'Revenue',data:[100,200,300,400]}]}}
 
-var_dump("test");
+
 
 // PARAMETER
-//$type = optional_param('type', false, PARAM_TEXT);
-//$data = optional_param('data', false, PARAM_TEXT);
+$type = optional_param('type', false, PARAM_TEXT);
+$data = optional_param('data', false, PARAM_TEXT);
+var_dump($type);
 //$img = new img();
 //http_response_code($img->getResponseCode());
 //header('Content-Type: application/json');
