@@ -521,34 +521,32 @@ class mod_activequiz_renderer extends plugin_renderer_base
         );
 
 
-        $output .=  html_writer::start_tag('div', array('class' => 'dropdown'));
+        $output .= html_writer::start_tag('div', array('class' => 'dropdown'));
 
-      $output .=  html_writer::tag('button', "Show Chart",
-          array(
-              'class' => 'btn'
-          ));
+        $output .= html_writer::tag('button', "Show Charst",
+            array(
+                'class' => 'btn'
+            ));
 
 
-        $output .=  html_writer::start_tag('div', array('class' => 'dropdown-content'));
-        $output .=  html_writer::tag('button', "show", array( 'class' => 'btn',
+        $output .= html_writer::start_tag('div', array('class' => 'dropdown-content'));
+        $output .= html_writer::tag('button', "show", array('class' => 'btn',
             'id' => 'show_chart_hide',
             'onclick' => 'activequiz.show_chart_hide();'));
 
-        $output .=  html_writer::tag('button', "Pie Chart",  array( 'class' => 'btn',
+        $output .= html_writer::tag('button', "Pie Chart", array('class' => 'btn',
             'id' => 'show_chart_pie',
             'onclick' => 'activequiz.show_chart_pie();'));
-        $output .=  html_writer::tag('button', "Bar Chart",  array( 'class' => 'btn',
+        $output .= html_writer::tag('button', "Bar Chart", array('class' => 'btn',
             'id' => 'show_chart_bar()',
             'onclick' => 'activequiz.show_chart_bar();'));
-        $output .=  html_writer::tag('button', "Doughnut Chart",  array( 'class' => 'btn',
-            'id' =>  'activequiz.show_chart_doughnut()',
+        $output .= html_writer::tag('button', "Doughnut Chart", array('class' => 'btn',
+            'id' => 'activequiz.show_chart_doughnut()',
             'onclick' => 'activequiz.show_chart_doughnut();'));
         $output .= html_writer::end_tag('div');
 
 
-
         $output .= html_writer::end_tag('div');
-
 
 
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
@@ -610,10 +608,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
         $this->page->requires->js('/lib/jquery/jquery-3.5.1.min.js');
         $this->page->requires->js('/mod/activequiz/js/classList.js');
         $this->page->requires->js('/mod/activequiz/js/core.js');
-       // $this->page->requires->js('/mod/activequiz/js/chart/Chart.min.js');
-
-
-
+        // $this->page->requires->js('/mod/activequiz/js/chart/Chart.min.js');
 
 
         // add window.onload script manually to handle removing the loading mask
@@ -732,8 +727,6 @@ EOD;
         ############################################################################################
         # --> DOC
         ############################################################################################
-
-
 
 
         // add strings for js
