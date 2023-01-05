@@ -31,16 +31,8 @@ $data = optional_param('data', false, PARAM_TEXT);
 
 
 $datay=array(62,105,85,50);
-$labelss = array('A','B','C','D');
-
-
-
 $labels = explode("',' ", $labels);
 
-echo "\n";
-var_dump($labels);
-echo "\n";
-var_dump($labelss);
 
 
 
@@ -71,7 +63,7 @@ $b1plot->SetWidth(45);
 
 
 // Display the graph
-//$graph->Stroke();
+$graph->Stroke();
 
 
 
