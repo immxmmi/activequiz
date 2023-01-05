@@ -35,7 +35,7 @@ $labelss = array('A','B','C','D');
 
 
 
-$newStr = explode(" ", $labels);
+$newStr = explode("','", $labels);
 echo "\n";
 var_dump($labels);
 echo "\n";
