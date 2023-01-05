@@ -3,33 +3,30 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_line.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 
+
+
 // PARAMETER
-
-// Create the graph. These two calls are always required
-$graph = new Graph(350,220,'auto');
-$graph->SetScale("textlin");
-
-
+//$rowdata = optional_param('c', false, PARAM_TEXT);
 $height = optional_param('height', false, PARAM_TEXT);
-if(!$height){
-    $height = 350;
-}
 $weight = optional_param('weight', false, PARAM_TEXT);
-if(!$weight){
-    $weight = 400;
-}
-
-
 $type = optional_param('type', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
 $datas = optional_param('data', false, PARAM_TEXT);
 
+if(!$height){
+    $height = 350;
+}
+if(!$weight){
+    $weight = 400;
+}
 
 $datay=array(62,105,85,50);
 
 
-
+// Create the graph. These two calls are always required
+$graph = new Graph(350,220,'auto');
+$graph->SetScale("textlin");
 
 //$theme_class="DefaultTheme";
 //$graph->SetTheme(new $theme_class());
