@@ -24,8 +24,10 @@ async function getChartDataBySessionID(sessionID) {
 
 function createChartLink(chartType, label, labels, data, question) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
+    const height = 250;
+    const weight = 350;
    // const url = `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`;
-    var url = https://www.moodle.local/mod/activequiz/backend/api/chart_img_api.php?type=bar&height=250&weight=350&label=Users&labels=['Q1','Q2','Q3','Q4']&data=data:[50,60,70,180]
+    var url = `https://www.moodle.local/mod/activequiz/backend/api/chart_img_api.php?type='${chartType}'&height='${height}'&weight='${weight}'&label='${label}'&labels=[${labelsStr}]&data=data:[${data}]`;
     return encodeURI(url);
 }
 
