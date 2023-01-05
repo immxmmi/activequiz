@@ -24,10 +24,8 @@ $type = optional_param('type', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
 $graph->title->Set($label);
 
-
 $labels = optional_param('labels', false, PARAM_TEXT);
 $labels = explode("',' ", $labels);
-
 
 $row_data = optional_param('data', false, PARAM_TEXT);
 $row_data = explode(",", $row_data);
@@ -39,11 +37,8 @@ foreach ($row_data as $val) {
 
 
 
-
-
-
-//$theme_class="DefaultTheme";
-//$graph->SetTheme(new $theme_class());
+$theme_class="DefaultTheme";
+$graph->SetTheme(new $theme_class());
 
 // set major and minor tick positions manually
 $graph->yaxis->SetTickPositions(array(0,30,60,90,120,150), array(15,45,75,105,135));
