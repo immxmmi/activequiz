@@ -13,7 +13,7 @@ $weight = optional_param('weight', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
-$datas = optional_param('data', false, PARAM_TEXT);
+$data = optional_param('data', false, PARAM_TEXT);
 
 if(!$height){
     $height = 250;
@@ -24,6 +24,8 @@ if(!$weight){
 
 $datay=array(62,105,85,50);
 
+var_dump($data);
+var_dump($datay);
 
 // Create the graph. These two calls are always required
 $graph = new Graph($weight,$height,'auto');
