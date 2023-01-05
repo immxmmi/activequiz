@@ -19,7 +19,7 @@ if(!$height){
     $height = 250;
 }
 if(!$weight){
-    $weight = 250;
+    $weight = 350;
 }
 
 $datay=array(62,105,85,50);
