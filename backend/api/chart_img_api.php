@@ -8,6 +8,7 @@ require_once("../builder/chart_img_builder.php");
 
 require_once ("../jpgraph-4.4.1/src/jpgraph.php");
 require_once ("../jpgraph-4.4.1/src/jpgraph_line.php");
+require_once ("../jpgraph-4.4.1/src/jpgraph_bar.php");
 
 global $DB;
 
