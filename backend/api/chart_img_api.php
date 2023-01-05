@@ -35,7 +35,7 @@ $datay=array(62,105,85,50);
 $labels = explode("',' ", $labels);
 
 echo "\n";
-var_dump($labels);
+var_dump($data);
 
 
 
