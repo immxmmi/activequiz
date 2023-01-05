@@ -525,7 +525,8 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
         $inqcontrol .= html_writer::tag('button', "Show Chart",
             array(
-                'class' => 'btn'
+                'class' => 'btn',
+                'disabled' => 'true'
             ));
 
         $inqcontrol .= html_writer::start_tag('div', array('class' => 'dropdown-content'));
