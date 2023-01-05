@@ -23,6 +23,7 @@ $weight = optional_param('weight', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
+$label = "Test";
 $datas = optional_param('data', false, PARAM_TEXT);
 
 if(!$height){
