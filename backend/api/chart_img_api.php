@@ -6,7 +6,7 @@ require_once("../class/mdl_activequiz_sessions.php");
 require_once("../class/mdl_question_attempts.php");
 require_once("../builder/chart_img_builder.php");
 
-require_once ('../class');
+require_once ("../class");
 
 global $DB;
 
