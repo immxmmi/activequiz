@@ -26,8 +26,12 @@ $graph->title->Set($label);
 
 
 $labels = optional_param('labels', false, PARAM_TEXT);
-$data = optional_param('data', false, PARAM_TEXT);
-$data = explode(",", $data);
+$row_data = optional_param('data', false, PARAM_TEXT);
+$row_data = explode(",", $row_data);
+$data = array();
+foreach ($row_data as $val) {
+    array_push($data,(int)$val);
+}
 
 
 
