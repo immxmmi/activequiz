@@ -27,7 +27,7 @@ $datas = optional_param('data', false, PARAM_TEXT);
 
 
 $datay=array(62,105,85,50);
-$labels = array('A','B','C','D');
+
 
 
 
@@ -40,9 +40,7 @@ $graph->SetBox(false);
 
 //$graph->ygrid->SetColor('gray');
 $graph->ygrid->SetFill(false);
-$graph->xaxis->SetTickLabels($labels);
-
-
+$graph->xaxis->SetTickLabels(array('A','B','C','D'));
 $graph->yaxis->HideLine(false);
 $graph->yaxis->HideTicks(false,false);
 
@@ -57,12 +55,6 @@ $b1plot->SetColor("white");
 $b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
 $b1plot->SetWidth(45);
 $graph->title->Set($label);
-
-
-
-
-
-
 
 // Display the graph
 $graph->Stroke();
