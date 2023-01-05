@@ -26,6 +26,9 @@ $graph->title->Set($label);
 
 
 $labels = optional_param('labels', false, PARAM_TEXT);
+$labels = explode("',' ", $labels);
+
+
 $row_data = optional_param('data', false, PARAM_TEXT);
 $row_data = explode(",", $row_data);
 $data = array();
@@ -35,12 +38,7 @@ foreach ($row_data as $val) {
 
 
 
-$datay=array(62,105,85,50);
 
-$labels = explode("',' ", $labels);
-
-echo "\n";
-var_dump($data);
 
 
 
@@ -59,7 +57,7 @@ $graph->yaxis->HideLine(false);
 $graph->yaxis->HideTicks(false,false);
 
 // Create the bar plots
-$b1plot = new BarPlot($datay);
+$b1plot = new BarPlot($data);
 
 // ...and add it to the graPH
 $graph->Add($b1plot);
@@ -71,7 +69,7 @@ $b1plot->SetWidth(45);
 
 
 // Display the graph
-//$graph->Stroke();
+$graph->Stroke();
 
 
 
