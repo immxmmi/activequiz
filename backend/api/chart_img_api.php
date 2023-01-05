@@ -35,8 +35,8 @@ $labelss = array('A','B','C','D');
 
 
 
-var_dump($data);
-var_dump($datay);
+//var_dump($data);
+//var_dump($datay);
 
 
 
@@ -67,7 +67,7 @@ $b1plot->SetWidth(45);
 
 
 // Display the graph
-//$graph->Stroke();
+$graph->Stroke();
 
 
 
