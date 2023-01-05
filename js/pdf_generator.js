@@ -27,7 +27,7 @@ function createChartLink(chartType, label, labels, data, question) {
     const height = 250;
     const weight = 350;
    // const url = `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`;
-    var url = `./backend/api/chart_img_api.php?type=bar&height=${height}&weight=${weight}&label=${label}&labels=[${labelsStr}]&data=data:[${data}]`;
+    var url = `./backend/api/chart_img_api.php?type=bar&height=${height}&weight=${weight}&label=${label}&labels=${labelsStr}&data=data:${data}`;
     return encodeURI(url);
 }
 
