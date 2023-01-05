@@ -68,10 +68,12 @@ $graph->Add($b1plot);
 
 
 
+// rand
+$border = "black";
+$b1plot->SetColor($border);
 
-$b1plot->SetColor("green");
 $b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
-$b1plot->SetWidth(45);
+$b1plot->SetWidth(70);
 
 
 
