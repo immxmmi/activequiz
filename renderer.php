@@ -549,7 +549,7 @@ class mod_activequiz_renderer extends plugin_renderer_base
 
         $dropmenu .= html_writer::end_tag('div');
 
-        $inqcontrol .= $dropmenu;
+        $output .= $dropmenu;
 
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
 
