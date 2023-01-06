@@ -31,15 +31,13 @@ class chart_img_builder
     }
 
 
-    public function getHeight(): int
-    {
+    public function getHeight(){
         if (!$this->height) {
             $this->height = 300;
         }
         return $this->height;
     }
-    public function getWeight(): int
-    {
+    public function getWeight(){
         if (!$this->weight) {
             $this->weight = 600;
         }
