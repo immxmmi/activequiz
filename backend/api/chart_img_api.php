@@ -21,7 +21,7 @@ $img_build = new chart_img_builder($height,$weight,$type,$label,$labels,$data);
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
 // Adjust the margin a bit to make more room for titles
-$graph->SetMargin(60,30,20,120);
+$graph->SetMargin(50,50,50,50);
 // SETTINGS
 $graph->SetScale($img_build->getScale());
 $graph->SetFrame(false);
