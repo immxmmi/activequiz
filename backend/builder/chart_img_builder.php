@@ -9,7 +9,7 @@ class chart_img_builder
     private $title = "label";
     private $labels = array();
     private $data = array();
-    private $scale = "intlin";
+    private $scale = "textint";
 
 
     public function __construct($height,$weight,$type,$label,$row_labels,$row_data)

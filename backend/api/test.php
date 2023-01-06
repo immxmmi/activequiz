@@ -12,14 +12,23 @@ function separator1000_usd($aVal) {
 }
 
 // Some data
-$datay=array(120567,134013,192000,87000);
+$datay=array(3,3,3,3);
+
+
+
+
+
 
 // Create the graph and setup the basic parameters
 $graph = new Graph(500,300,'auto');
+
 $graph->img->SetMargin(80,30,30,40);
 $graph->SetScale('textint');
 $graph->SetShadow();
 $graph->SetFrame(false); // No border around the graph
+
+
+
 
 // Add some grace to the top so that the scale doesn't
 // end exactly at the max value.
@@ -34,11 +43,16 @@ $a = $gDateLocale->GetShortMonth();
 $graph->xaxis->SetTickLabels($a);
 $graph->xaxis->SetFont(FF_FONT2);
 
+
+
+
 // Setup graph title ands fonts
 $graph->title->Set('Example of Y-scale callback formatting');
 $graph->title->SetFont(FF_FONT2,FS_BOLD);
 $graph->xaxis->title->Set('Year 2002');
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
+
+
 
 // Create a bar pot
 $bplot = new BarPlot($datay);
@@ -53,6 +67,10 @@ $bplot->value->Show();
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
 $bplot->value->SetAngle(45);
 $bplot->value->SetFormatCallback('separator1000_usd');
+
+
+
+
 
 // Black color for positive values and darkred for negative values
 $bplot->value->SetColor('black','darkred');
