@@ -74,13 +74,6 @@ class chart_img_builder
         }
     }
 
-    /**
-     * @return int
-     */
-    public function getHeight(): int
-    {
-        return $this->height;
-    }
 
     /**
      * @return int
@@ -128,7 +121,7 @@ class chart_img_builder
         $this->graph->xaxis->title->Set($this->xlabel);
         $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
         //LABELS
-        $this->graph->xaxis->SetTickLabels($this->getLabels());
+        $this->graph->xaxis->SetTickLabels($this->labels);
     }
 
     private function choiceBarPlot(){
