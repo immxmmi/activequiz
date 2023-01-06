@@ -76,17 +76,6 @@ class chart_img_builder
 
 
     /**
-     * @return int
-     */
-    public function getWeight(): int
-    {
-        return $this->weight;
-    }
-
-
-
-
-    /**
      * @return string
      */
     public function getType(): string
@@ -128,7 +117,7 @@ class chart_img_builder
         $this->setYaxisGraph();
         $this->setXaxisGraph();
         // BAR
-        $bplot = new BarPlot($this->getData());
+        $bplot = new BarPlot($this->data);
         $bplot->SetFillColor('orange');
         $bplot->SetWidth(0.8);
         $bplot->SetShadow();
