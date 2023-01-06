@@ -33,8 +33,24 @@ class chart_img_builder
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
-        $this->graph = new Graph($this->getWeight(),$this->getHeight(),'auto');
+        $this->setGraph();
     }
+
+    /**
+     * @param Graph $graph
+     */
+    public function setGraph()
+    {
+        $this->graph = new Graph($this->getWeight(),$this->getHeight(),'auto');
+        $this->graph->SetMargin(60,30,50,50);
+        $this->graph->SetScale($this->scale());
+        $this->graph->SetShadow();
+        $this->graph->SetFrame(false);
+    }
+
+
+
+
 
 
     /**
