@@ -21,7 +21,7 @@ $type = optional_param('type', false, PARAM_TEXT);
 
 // IMG
 $img_build = new chart_img_builder($height,$weight,$label);
-$img_build->setData($data);
+$img_build->setData();
 
 
 // Create the graph
