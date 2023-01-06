@@ -27,58 +27,49 @@ $graph->SetMargin(40,30,20,40);
 // SETTINGS
 $graph->SetScale($img_build->getScale());
 $graph->SetShadow();
-$graph->SetFrame(false); // No border around the graph
+$graph->SetFrame(true);
 
 
 
 
+// TITLE
+$graph->title->Set($img_build->getTitle());
+$graph->title->SetFont(FF_FONT1,FS_BOLD);
 
+// Y
 $graph->yaxis->scale->SetGrace(50);
 $graph->yaxis->title->Set('Y-title');
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
-// LABELS
+// LABELS X
 $graph->xaxis->title->Set('X-title');
 $graph->xaxis->SetTickLabels($img_build->getLabels());
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
-
-// Setup the titles
-$graph->title->Set($img_build->getTitle());
-$graph->title->SetFont(FF_FONT1,FS_BOLD);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // BAR
 $bplot = new BarPlot($img_build->getData());
 $bplot->SetFillColor('orange');
-$bplot->SetWidth(0.5);
+$bplot->SetWidth(0.8);
 $bplot->SetShadow();
 
-// Setup the values that are displayed on top of each bar
+// VALUE
 $bplot->value->Show();
-
-// Must use TTF fonts if we want text at an arbitrary angle
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
 $bplot->value->SetAngle(45);
-
-
-// Black color for positive values and darkred for negative values
 $bplot->value->SetColor('black','darkred');
+
+
+
 $graph->Add($bplot);
+
+
+
+
+
+
+
+
 
 
 // Display the graph
