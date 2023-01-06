@@ -33,8 +33,7 @@ $graph->SetMargin(40,30,20,40);
 
 // BAR
 $bplot = new BarPlot($img_build->getData());
-//$bplot->SetFillColor('orange');
-$bplot->value->SetColor('black','darkred');
+$bplot->SetFillColor('orange');
 $graph->Add($bplot);
 
 
