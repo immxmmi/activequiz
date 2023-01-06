@@ -17,10 +17,7 @@ $type = optional_param('type', false, PARAM_TEXT);
 
 
 // IMG
-$img_build = new chart_img_builder($height,$weight,$label,$labels);
-$img_build->setData($data);
-
-
+$img_build = new chart_img_builder($height,$weight,$label,$data,$labels);
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
@@ -35,12 +32,7 @@ $graph->SetMargin(40,30,20,40);
 
 
 // BAR
-//$bplot = new BarPlot($img_build->getData());
-
-$datay=array(12,8,19,3,10,5);
-
-// Create a bar pot
-$bplot = new BarPlot($datay);
+$bplot = new BarPlot($img_build->getData());
 $bplot->SetFillColor('orange');
 $graph->Add($bplot);
 
