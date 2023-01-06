@@ -72,14 +72,8 @@ $graph->Add($b1plot);
 $border = "black";
 $b1plot->SetColor($border);
 
-$b1plot->SetFillGradient("#4B0082","white",GRAD_LEFT_REFLECTION);
+$b1plot->SetFillGradient("#4B0082","black",GRAD_LEFT_REFLECTION);
 $b1plot->SetWidth(70);
-
-
-
-
-
-
 
 
 // Display the graph
