@@ -52,7 +52,7 @@ $bplot->SetShadow();
 // VALUE
 $bplot->value->Show();
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
-$bplot->value->SetAngle(45);
+$bplot->value->SetAngle(75);
 $bplot->value->SetColor('black','darkred');
 
 
