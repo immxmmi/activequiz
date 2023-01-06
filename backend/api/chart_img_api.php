@@ -33,7 +33,7 @@ $graph->title->Set($img_build->getTitle());
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Y
-$graph->yaxis->scale->SetGrace(10);
+$graph->yaxis->scale->SetGrace(1);
 $graph->yaxis->title->Set('Y-title');
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
