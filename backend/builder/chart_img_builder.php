@@ -32,7 +32,7 @@ class chart_img_builder
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
-        $this->graph = new Graph($this->getWeight(),$this->getHeight(),'auto');
+       // $this->graph = new Graph($this->getWeight(),$this->getHeight(),'auto');
     }
 
 
