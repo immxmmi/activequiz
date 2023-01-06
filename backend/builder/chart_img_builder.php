@@ -3,23 +3,27 @@
 class chart_img_builder
 {
 
-    public $height = 300;
-    public $weight = 600;
     public $type = "bar";
+    private $height = 300;
+    private $weight = 600;
     private $title = "label";
     private $labels = array();
+    private $ylabel = "-";
+    private $xlabel = "-";
     private $data = array();
     private $scale = "textint";
+    public $graph;
 
 
-    public function __construct($height,$weight,$type,$label,$row_labels,$row_data)
+    public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
     {
         $this->type = $type;
+        $this->xlabel = $xlabel;
+        $this->ylabel = $ylabel;
         $this->height = $height;
         if (!$this->height) {
             $this->height = 300;
         }
-
         $this->weight = $weight;
         if (!$this->weight) {
             $this->weight = 600;
@@ -28,11 +32,8 @@ class chart_img_builder
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
-
+        $this->graph = new Graph($this->getWeight(),$this->getHeight(),'auto');
     }
-
-
-
 
 
     /**
@@ -50,7 +51,7 @@ class chart_img_builder
     {
         $row_labels = explode("',' ", $row_labels);
         foreach ($row_labels as $val) {
-            array_push($this->labels,trim($val,'\''));
+            array_push($this->labels, trim($val, '\''));
         }
     }
 
@@ -69,7 +70,7 @@ class chart_img_builder
     {
         $row_data = explode(",", $row_data);
         foreach ($row_data as $val) {
-            array_push($this->data,(int)$val);
+            array_push($this->data, (int)$val);
         }
     }
 
@@ -105,11 +106,29 @@ class chart_img_builder
         return $this->scale;
     }
 
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
 
+    /**
+     * @return string
+     */
+    public function getYlabel(): string
+    {
+        return $this->ylabel;
+    }
 
-
-
-
+    /**
+     * @return string
+     */
+    public function getXlabel(): string
+    {
+        return $this->xlabel;
+    }
 
 
 }
