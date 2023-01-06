@@ -36,11 +36,11 @@ $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Y
 $graph->yaxis->scale->SetGrace(10);
-$graph->yaxis->title->Set($img_build->ylabel);
+$graph->yaxis->title->Set($img_build->getYlabel());
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
 // LABELS X
-$graph->xaxis->title->Set($img_build->xlabel);
+$graph->xaxis->title->Set($img_build->getXlabel());
 $graph->xaxis->SetTickLabels($img_build->getLabels());
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
 

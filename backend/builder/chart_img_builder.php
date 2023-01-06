@@ -19,6 +19,7 @@ class chart_img_builder
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
+
         $this->height = $height;
         if (!$this->height) {
             $this->height = 300;
