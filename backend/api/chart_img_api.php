@@ -36,7 +36,11 @@ $graph->SetMargin(40,30,20,40);
 
 
 // BAR
-$bplot = new BarPlot($img_build->getData());
+//$bplot = new BarPlot($img_build->getData());
+
+$datay=array(12,8,19,3,10,5);
+// Create a bar pot
+$bplot = new BarPlot($datay);
 $bplot->SetFillColor('orange');
 $graph->Add($bplot);
 
