@@ -21,9 +21,9 @@ class chart_img_builder
 
         $this->title = $label;
 
-        $this->setLabels($row_labels);
+        //$this->setLabels($row_labels);
 
-        $this->setData($row_data);
+        //$this->setData($row_data);
     }
 
 
