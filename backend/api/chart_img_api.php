@@ -7,7 +7,14 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 
 global $DB;
 
+// Callback function for Y-scale to get 1000 separator on labels
+function separator1000($aVal) {
+    return number_format($aVal);
+}
 
+function separator1000_usd($aVal) {
+    return '$'.number_format($aVal);
+}
 
 
 // PARAMETER
