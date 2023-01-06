@@ -3,8 +3,8 @@
 class chart_img_builder
 {
 
-    public $height = 250;
-    public $weight = 350;
+    public $height = 300;
+    public $weight = 600;
     public $type = "bar";
     private $title = "label";
     private $labels = array();
@@ -17,12 +17,12 @@ class chart_img_builder
         $this->type = $type;
         $this->height = $height;
         if (!$this->height) {
-            $this->height = 250;
+            $this->height = 300;
         }
 
         $this->weight = $weight;
         if (!$this->weight) {
-            $this->weight = 350;
+            $this->weight = 600;
         }
 
         $this->title = $label;

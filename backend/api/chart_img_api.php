@@ -10,6 +10,8 @@ global $DB;
 // PARAMETER
 $height = (int)optional_param('height', false, PARAM_TEXT);
 $weight = (int)optional_param('weight', false, PARAM_TEXT);
+$xlabel = optional_param('xlabel', false, PARAM_TEXT);
+$ylabel = optional_param('ylabel', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
 $label = optional_param('label', false, PARAM_TEXT);
 $labels = optional_param('labels', false, PARAM_TEXT);
@@ -34,11 +36,11 @@ $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Y
 $graph->yaxis->scale->SetGrace(10);
-$graph->yaxis->title->Set('Y-title');
+$graph->yaxis->title->Set($ylabel);
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
 // LABELS X
-$graph->xaxis->title->Set('X-title');
+$graph->xaxis->title->Set($xlabel);
 $graph->xaxis->SetTickLabels($img_build->getLabels());
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
 
