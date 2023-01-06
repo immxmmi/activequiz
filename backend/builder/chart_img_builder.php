@@ -14,14 +14,17 @@ class chart_img_builder
     public function __construct($height,$weight,$label, $row_labels)
     {
         $this->height = $height;
-        if(!$this->height){$this->height = 250;}
+        if (!$this->height) {
+            $this->height = 250;
+        }
 
         $this->weight = $weight;
-        if(!$this->weight){$this->weight = 350;}
+        if (!$this->weight) {
+            $this->weight = 350;
+        }
 
         $this->title = $label;
-
-        //$this->setLabels($row_labels);
+        $this->setLabels($row_labels);
 
     }
 
@@ -40,7 +43,7 @@ class chart_img_builder
     /**
      * @param array $labels
      */
-    public function setLabels(array $row_labels)
+    public function setLabels($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
         foreach ($row_labels as $val) {
