@@ -24,5 +24,10 @@ $img_build = new chart_img_builder($height,$weight,$type,$title,$xlabel,$ylabel,
 $graph = $img_build->graph;
 
 
+
+
+
+
+
 // Display the graph
 $graph->Stroke();

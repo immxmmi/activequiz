@@ -22,26 +22,19 @@ class chart_img_builder
         $this->ylabel = $ylabel;
 
         $this->height = $height;
+        if (!$this->height) {
+            $this->height = 300;
+        }
+
         $this->weight = $weight;
+        if (!$this->weight) {
+            $this->weight = 600;
+        }
 
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
         $this->createGraph();
-    }
-
-
-    public function getHeight(){
-        if (!$this->height) {
-            $this->height = 300;
-        }
-        return $this->height;
-    }
-    public function getWeight(){
-        if (!$this->weight) {
-            $this->weight = 600;
-        }
-        return $this->weight;
     }
 
     public function setLabels($row_labels)
@@ -70,7 +63,7 @@ class chart_img_builder
         $this->graph->SetFrame(false);
 
         // TITLE
-        $this->graph->title->Set($this->title);
+        $this->graph->title->Set($this->getTitle());
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
 
         $this->choiceBarPlot();
