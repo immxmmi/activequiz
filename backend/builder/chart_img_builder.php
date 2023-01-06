@@ -20,10 +20,12 @@ class chart_img_builder
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
+
         $this->height = $height;
         if (!$this->height) {
             $this->height = 300;
         }
+
         $this->weight = $weight;
         if (!$this->weight) {
             $this->weight = 600;
@@ -35,18 +37,6 @@ class chart_img_builder
         $this->createGraph();
     }
 
-
-    /**
-     * @return array
-     */
-    public function getLabels(): array
-    {
-        return $this->labels;
-    }
-
-    /**
-     * @param array $labels
-     */
     public function setLabels($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
@@ -54,18 +44,6 @@ class chart_img_builder
             array_push($this->labels, trim($val, '\''));
         }
     }
-
-    /**
-     * @return array
-     */
-    public function getData(): array
-    {
-        return $this->data;
-    }
-
-    /**
-     * @param array $data
-     */
     public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
@@ -74,104 +52,36 @@ class chart_img_builder
         }
     }
 
-    /**
-     * @return int
-     */
-    public function getHeight(): int
-    {
-        return $this->height;
-    }
-
-    /**
-     * @return int
-     */
-    public function getWeight(): int
-    {
-        return $this->weight;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getScale(): string
-    {
-        return $this->scale;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getYlabel(): string
-    {
-        return $this->ylabel;
-    }
-
-    /**
-     * @return string
-     */
-    public function getXlabel(): string
-    {
-        return $this->xlabel;
-    }
-
     private function createGraph()
     {
         $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
         $this->graph->SetMargin(60, 30, 50, 50);
+
         // SETTINGS
-        $this->graph->SetScale($this->getScale());
+        $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
         $this->graph->SetFrame(false);
+
         // TITLE
-        $this->graph->title->Set($this->getTitle());
+        $this->graph->title->Set($this->title);
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
 
         $this->choiceBarPlot();
-
     }
 
-
-
-
-    private function setYaxisGraph(){
-        $this->graph->yaxis->title->Set($this->ylabel);
-        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
-        $this->graph->yaxis->scale->SetGrace(10);
-    }
-    private function setXaxisGraph(){
-        $this->graph->xaxis->title->Set($this->getXlabel());
-        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
-        //LABELS
-        $this->graph->xaxis->SetTickLabels($this->getLabels());
-
-    }
-
+    // Bar
     private function choiceBarPlot(){
+
         $this->setYaxisGraph();
         $this->setXaxisGraph();
+
         // BAR
-        $bplot = new BarPlot($this->getData());
+        $bplot = new BarPlot($this->data());
         $bplot->SetFillColor('orange');
         $bplot->SetWidth(0.8);
         $bplot->SetShadow();
 
-         // VALUE
+        // VALUE
         $bplot->value->Show();
         $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
         $bplot->value->SetAngle(45);
@@ -179,6 +89,16 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-
+    private function setYaxisGraph(){
+        $this->graph->yaxis->title->Set($this->ylabel);
+        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
+        $this->graph->yaxis->scale->SetGrace(10);
+    }
+    private function setXaxisGraph(){
+        $this->graph->xaxis->title->Set($this->xlabel);
+        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
+        //LABELS
+        $this->graph->xaxis->SetTickLabels($this->labels);
+    }
 
 }
