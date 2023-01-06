@@ -16,11 +16,10 @@ $weight = (int)optional_param('weight', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
 
 
-
-
-
 // IMG
 $img_build = new chart_img_builder($height,$weight,$label,$labels);
+
+$img_build->setData($data);
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');

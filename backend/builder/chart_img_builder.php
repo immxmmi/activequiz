@@ -59,7 +59,7 @@ class chart_img_builder
     /**
      * @param array $data
      */
-    public function setData(array $row_data)
+    public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
         foreach ($row_data as $val) {
