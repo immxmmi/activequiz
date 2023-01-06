@@ -143,14 +143,35 @@ class chart_img_builder
         // TITLE
         $this->graph->title->Set($this->getTitle());
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
+
+        // Axis
+        $this->setXaxisGraph();
+        $this->setYaxisGraph();
     }
 
+
+    private function choiceBarPlot(){
+        $this->setYaxisGraph();
+        $this->setXaxisGraph();
+        // BAR
+        $bplot = new BarPlot($this->getData());
+        $bplot->SetFillColor('orange');
+        $bplot->SetWidth(0.8);
+        $bplot->SetShadow();
+
+         // VALUE
+        $bplot->value->Show();
+        $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
+        $bplot->value->SetAngle(45);
+        $bplot->value->SetColor('green','darkred');
+
+        $this->graph->Add($bplot);
+    }
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->getYlabel());
         $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
         $this->graph->yaxis->scale->SetGrace(10);
     }
-
     private function setXaxisGraph(){
         $this->graph->xaxis->title->Set($this->getXlabel());
         $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);

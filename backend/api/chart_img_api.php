@@ -26,20 +26,5 @@ $graph = $img_build->graph;
 
 
 
-
-// BAR
-$bplot = new BarPlot($img_build->getData());
-$bplot->SetFillColor('orange');
-$bplot->SetWidth(0.8);
-$bplot->SetShadow();
-
-// VALUE
-$bplot->value->Show();
-$bplot->value->SetFont(FF_ARIAL,FS_BOLD);
-$bplot->value->SetAngle(45);
-$bplot->value->SetColor('green','darkred');
-
-$graph->Add($bplot);
-
 // Display the graph
 $graph->Stroke();
