@@ -43,8 +43,6 @@ $graph->SetFrame(false); // No border around the graph
 // Setup the titles
 //$graph->title->Set($img_build->getTitle());
 $graph->yaxis->scale->SetGrace(50);
-$graph->yaxis->SetLabelFormatCallback('separator1000');
-
 
 // LABELS
 $graph->xaxis->SetTickLabels($img_build->getLabels());
@@ -84,9 +82,6 @@ $bplot->value->Show();
 // Must use TTF fonts if we want text at an arbitrary angle
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
 $bplot->value->SetAngle(45);
-//$bplot->value->SetFormatCallback('separator1000_usd');
-
-
 
 
 // Black color for positive values and darkred for negative values
