@@ -33,7 +33,7 @@ $graph->title->Set($img_build->getTitle());
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Y
-$graph->yaxis->scale->SetGrace(1);
+$graph->yaxis->scale->SetGrace(10);
 $graph->yaxis->title->Set('Y-title');
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
@@ -52,12 +52,9 @@ $bplot->SetShadow();
 $bplot->value->Show();
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
 $bplot->value->SetAngle(45);
-$bplot->value->SetColor('black','darkred');
-
-
+$bplot->value->SetColor('green','darkred');
 
 $graph->Add($bplot);
-
 
 // Display the graph
 $graph->Stroke();
