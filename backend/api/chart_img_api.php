@@ -21,7 +21,7 @@ $img_build = new chart_img_builder($height,$weight,$type,$label,$labels,$data);
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
 // Adjust the margin a bit to make more room for titles
-$graph->SetMargin(40,30,20,40);
+$graph->SetMargin(60,30,20,120);
 // SETTINGS
 $graph->SetScale($img_build->getScale());
 $graph->SetFrame(false);
@@ -52,7 +52,7 @@ $bplot->SetShadow();
 // VALUE
 $bplot->value->Show();
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
-$bplot->value->SetAngle(75);
+$bplot->value->SetAngle(45);
 $bplot->value->SetColor('black','darkred');
 
 
