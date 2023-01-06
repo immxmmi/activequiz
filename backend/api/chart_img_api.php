@@ -27,18 +27,29 @@ $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
 // Add a drop shadow
 $graph->SetShadow();
 $graph->SetScale($img_build->getScale());
-$graph->title->Set($img_build->getTitle());
+
 
 
 // Adjust the margin a bit to make more room for titles
 $graph->SetMargin(40,30,20,40);
 
+
+
 // BAR
-$bplot = new BarPlot($img_build->data);
+$bplot = new BarPlot($img_build->getData());
 $bplot->SetFillColor('orange');
 $graph->Add($bplot);
 
+
+
+
+
+
+
+
 // Setup the titles
+//$graph->title->Set($img_build->getTitle());
+$graph->title->Set('A basic bar graph');
 $graph->xaxis->title->Set('X-title');
 $graph->yaxis->title->Set('Y-title');
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
