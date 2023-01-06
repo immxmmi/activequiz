@@ -1,5 +1,6 @@
 <?php
 require_once("../../../../config.php");
+require_once("../builder/chart_img_builder.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_line.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
@@ -7,68 +8,42 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 global $DB;
 
 // PARAMETER
+$labels = optional_param('labels', false, PARAM_TEXT);
+$data = optional_param('data', false, PARAM_TEXT);
+$label = optional_param('label', false, PARAM_TEXT);
 $height = (int)optional_param('height', false, PARAM_TEXT);
-if(!$height){$height = 250;}
-
 $weight = (int)optional_param('weight', false, PARAM_TEXT);
-if(!$weight){$weight = 350;}
+$type = optional_param('type', false, PARAM_TEXT);
 
-// Create the graph. These two calls are always required
-$graph = new Graph($weight,$height,'auto');
-$graph->SetScale('intlin');
+
+
+// IMG
+$img_build = new chart_img_builder($height,$weight,$label,$data, $labels);
+
+
+// Create the graph
+$graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
 
 // Add a drop shadow
 $graph->SetShadow();
+$graph->SetScale($img_build->getScale());
+$graph->title->Set($img_build->getTitle());
+
+
 // Adjust the margin a bit to make more room for titles
 $graph->SetMargin(40,30,20,40);
 
-
-// TYPE
-$type = optional_param('type', false, PARAM_TEXT);
-
-// LABEL
-$label = optional_param('label', false, PARAM_TEXT);
-$graph->title->Set($label);
-
-
-
-$row_labels = optional_param('labels', false, PARAM_TEXT);
-$row_labels = explode("',' ", $row_labels);
-$labels = array();
-foreach ($row_labels as $val) {
-    $test = "test";
-    array_push($labels,trim($val,'\''));
-}
-
-$row_data = optional_param('data', false, PARAM_TEXT);
-$row_data = explode(",", $row_data);
-$data = array();
-foreach ($row_data as $val) {
-    array_push($data,(int)$val);
-}
-
-// Create the bar plots
-$bplot = new BarPlot($data);
-
-
-// Adjust fill color
+// BAR
+$bplot = new BarPlot($img_build->data);
 $bplot->SetFillColor('orange');
 $graph->Add($bplot);
-
-
 
 // Setup the titles
 $graph->xaxis->title->Set('X-title');
 $graph->yaxis->title->Set('Y-title');
-
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
-
-
-
-
-
 
 
 // Display the graph
