@@ -144,7 +144,7 @@ class chart_img_builder
         $this->graph->title->Set($this->getTitle());
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
 
-        // choiceBarPlot
+        $this->choiceBarPlot();
 
     }
 
