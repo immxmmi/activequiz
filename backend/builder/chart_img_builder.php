@@ -12,10 +12,12 @@ class chart_img_builder
     private $xlabel = "-";
     private $data = array();
     private $scale = "textint";
+    public $graph;
 
 
     public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
     {
+        $this->graph =
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
@@ -32,6 +34,7 @@ class chart_img_builder
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
+        $this->createGraph();
     }
 
 
@@ -129,5 +132,10 @@ class chart_img_builder
         return $this->xlabel;
     }
 
+    private function createGraph(){
+       $this->graph =  new Graph($this->getWeight(),$this->getHeight(),'auto');
+       $this->graph->SetMargin(60,30,50,50);
+
+    }
 
 }
