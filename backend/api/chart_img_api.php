@@ -20,9 +20,7 @@ $type = optional_param('type', false, PARAM_TEXT);
 
 
 // IMG
-$img_build = new chart_img_builder($height,$weight,$label);
-//$img_build->setData();
-
+$img_build = new chart_img_builder($height,$weight,$label,$labels);
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
