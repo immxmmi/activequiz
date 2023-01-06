@@ -24,25 +24,8 @@ $img_build = new chart_img_builder($height,$weight,$type,$title,$xlabel,$ylabel,
 $graph = $img_build->graph;
 
 
-// SETTINGS
-$graph->SetScale($img_build->getScale());
-$graph->SetShadow();
-$graph->SetFrame(false);
 
 
-// TITLE
-$graph->title->Set($img_build->getTitle());
-$graph->title->SetFont(FF_FONT1,FS_BOLD);
-
-// Y
-$graph->yaxis->scale->SetGrace(10);
-$graph->yaxis->title->Set($img_build->getYlabel());
-$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
-
-// LABELS X
-$graph->xaxis->title->Set($img_build->getXlabel());
-$graph->xaxis->SetTickLabels($img_build->getLabels());
-$graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
 
 // BAR
 $bplot = new BarPlot($img_build->getData());

@@ -132,9 +132,30 @@ class chart_img_builder
         return $this->xlabel;
     }
 
-    private function createGraph(){
-       $this->graph =  new Graph($this->getWeight(),$this->getHeight(),'auto');
-       $this->graph->SetMargin(60,30,50,50);
+    private function createGraph()
+    {
+        $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
+        $this->graph->SetMargin(60, 30, 50, 50);
+        // SETTINGS
+        $this->graph->SetScale($this->getScale());
+        $this->graph->SetShadow();
+        $this->graph->SetFrame(false);
+        // TITLE
+        $this->graph->title->Set($this->getTitle());
+        $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
+    }
+
+    private function setYaxisGraph(){
+        $this->graph->yaxis->title->Set($this->getYlabel());
+        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
+        $this->graph->yaxis->scale->SetGrace(10);
+    }
+
+    private function setXaxisGraph(){
+        $this->graph->xaxis->title->Set($this->getXlabel());
+        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
+        //LABELS
+        $this->graph->xaxis->SetTickLabels($this->getLabels());
 
     }
 
