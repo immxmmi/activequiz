@@ -90,21 +90,9 @@ class chart_img_builder
         return $this->weight;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
 
-    /**
-     * @return string
-     */
-    public function getScale(): string
-    {
-        return $this->scale;
-    }
+
+
 
     /**
      * @return string
@@ -115,30 +103,20 @@ class chart_img_builder
     }
 
 
-    /**
-     * @return string
-     */
-    public function getXlabel(): string
-    {
-        return $this->xlabel;
-    }
 
     private function createGraph()
     {
         $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
         $this->graph->SetMargin(60, 30, 50, 50);
         // SETTINGS
-        $this->graph->SetScale($this->getScale());
+        $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
         $this->graph->SetFrame(false);
         // TITLE
-        $this->graph->title->Set($this->getTitle());
+        $this->graph->title->Set($this->title);
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
-
         $this->choiceBarPlot();
-
     }
-
 
 
 
@@ -148,11 +126,10 @@ class chart_img_builder
         $this->graph->yaxis->scale->SetGrace(10);
     }
     private function setXaxisGraph(){
-        $this->graph->xaxis->title->Set($this->getXlabel());
+        $this->graph->xaxis->title->Set($this->xlabel);
         $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
         //LABELS
         $this->graph->xaxis->SetTickLabels($this->getLabels());
-
     }
 
     private function choiceBarPlot(){
