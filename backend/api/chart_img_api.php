@@ -23,7 +23,7 @@ $img_build = new chart_img_builder($height,$weight,$label,$data, $labels);
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
-$graph->SetScale('intlin');
+$graph->SetScale($img_build->getScale());
 
 // Add a drop shadow
 $graph->SetShadow();
