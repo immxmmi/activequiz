@@ -17,11 +17,9 @@ class chart_img_builder
 
     public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
     {
-        $this->graph =
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
-
         $this->height = $height;
         if (!$this->height) {
             $this->height = 300;
@@ -147,8 +145,12 @@ class chart_img_builder
         $this->choiceBarPlot();
 
     }
+
+
+
+
     private function setYaxisGraph(){
-        $this->graph->yaxis->title->Set($this->getYlabel());
+        $this->graph->yaxis->title->Set($this->ylabel);
         $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
         $this->graph->yaxis->scale->SetGrace(10);
     }
