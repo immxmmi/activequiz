@@ -11,7 +11,7 @@ class chart_img_builder
     private $data = array();
 
 
-    public function __construct($height,$weight,$label,$row_data, $row_labels)
+    public function __construct($height,$weight,$label, $row_labels)
     {
         $this->height = $height;
         if(!$this->height){$this->height = 250;}
@@ -23,7 +23,6 @@ class chart_img_builder
 
         //$this->setLabels($row_labels);
 
-        //$this->setData($row_data);
     }
 
 

@@ -17,17 +17,18 @@ $type = optional_param('type', false, PARAM_TEXT);
 
 
 
+
+
 // IMG
-$img_build = new chart_img_builder($height,$weight,$label,$data, $labels);
+$img_build = new chart_img_builder($height,$weight,$label);
+$img_build->setData($data);
 
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
+// SETTINGS
 $graph->SetScale($img_build->getScale());
-
-// Add a drop shadow
 $graph->SetShadow();
-
 
 
 // Adjust the margin a bit to make more room for titles
@@ -39,6 +40,7 @@ $graph->SetMargin(40,30,20,40);
 //$bplot = new BarPlot($img_build->getData());
 
 $datay=array(12,8,19,3,10,5);
+
 // Create a bar pot
 $bplot = new BarPlot($datay);
 $bplot->SetFillColor('orange');
@@ -59,6 +61,11 @@ $graph->yaxis->title->Set('Y-title');
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
+
+
+
+
+
 
 
 // Display the graph
