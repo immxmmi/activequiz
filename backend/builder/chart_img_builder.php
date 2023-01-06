@@ -93,7 +93,6 @@ class chart_img_builder
 
 
 
-
     /**
      * @return string
      */
@@ -106,7 +105,7 @@ class chart_img_builder
 
     private function createGraph()
     {
-        $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
+        $this->graph = new Graph($this->weight, $this->height, 'auto');
         $this->graph->SetMargin(60, 30, 50, 50);
         // SETTINGS
         $this->graph->SetScale($this->scale);
