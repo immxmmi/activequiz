@@ -58,6 +58,25 @@ $bplot->value->SetFormatCallback('separator1000_usd');
 $bplot->value->SetColor('black','darkred');
 $graph->Add($bplot);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Finally stroke the graph
 $graph->Stroke();
 ?>

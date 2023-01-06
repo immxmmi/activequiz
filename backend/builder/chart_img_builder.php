@@ -5,14 +5,16 @@ class chart_img_builder
 
     public $height = 250;
     public $weight = 350;
+    public $type = "bar";
     private $title = "label";
-    private $scale = "intlin";
     private $labels = array();
     private $data = array();
+    private $scale = "intlin";
 
 
-    public function __construct($height,$weight,$label,$row_data,$row_labels)
+    public function __construct($height,$weight,$type,$label,$row_labels,$row_data)
     {
+        $this->type = $type;
         $this->height = $height;
         if (!$this->height) {
             $this->height = 250;
