@@ -35,6 +35,18 @@ class chart_img_builder
         $this->createGraph();
     }
 
+
+    /**
+     * @return array
+     */
+    public function getLabels(): array
+    {
+        return $this->labels;
+    }
+
+    /**
+     * @param array $labels
+     */
     public function setLabels($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
@@ -42,6 +54,18 @@ class chart_img_builder
             array_push($this->labels, trim($val, '\''));
         }
     }
+
+    /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param array $data
+     */
     public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
@@ -49,6 +73,35 @@ class chart_img_builder
             array_push($this->data, (int)$val);
         }
     }
+
+    /**
+     * @return int
+     */
+    public function getHeight(): int
+    {
+        return $this->height;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeight(): int
+    {
+        return $this->weight;
+    }
+
+
+
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+
 
     private function createGraph()
     {
@@ -64,6 +117,8 @@ class chart_img_builder
         $this->choiceBarPlot();
     }
 
+
+
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
         $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
@@ -73,7 +128,7 @@ class chart_img_builder
         $this->graph->xaxis->title->Set($this->xlabel);
         $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
         //LABELS
-        $this->graph->xaxis->SetTickLabels($this->labels);
+        $this->graph->xaxis->SetTickLabels($this->getLabels());
     }
 
     private function choiceBarPlot(){
