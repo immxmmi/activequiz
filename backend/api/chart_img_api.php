@@ -84,22 +84,14 @@ $bplot->value->Show();
 // Must use TTF fonts if we want text at an arbitrary angle
 $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
 $bplot->value->SetAngle(45);
-$bplot->value->SetFormatCallback('separator1000_usd');
+//$bplot->value->SetFormatCallback('separator1000_usd');
+
+
 
 
 // Black color for positive values and darkred for negative values
 $bplot->value->SetColor('black','darkred');
 $graph->Add($bplot);
-
-
-
-
-
-
-
-
-
-
 
 
 // Display the graph
