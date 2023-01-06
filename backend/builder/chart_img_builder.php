@@ -147,7 +147,18 @@ class chart_img_builder
         $this->choiceBarPlot();
 
     }
+    private function setYaxisGraph(){
+        $this->graph->yaxis->title->Set($this->getYlabel());
+        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
+        $this->graph->yaxis->scale->SetGrace(10);
+    }
+    private function setXaxisGraph(){
+        $this->graph->xaxis->title->Set($this->getXlabel());
+        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
+        //LABELS
+        $this->graph->xaxis->SetTickLabels($this->getLabels());
 
+    }
 
     private function choiceBarPlot(){
         $this->setYaxisGraph();
@@ -166,17 +177,6 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-    private function setYaxisGraph(){
-        $this->graph->yaxis->title->Set($this->getYlabel());
-        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
-        $this->graph->yaxis->scale->SetGrace(10);
-    }
-    private function setXaxisGraph(){
-        $this->graph->xaxis->title->Set($this->getXlabel());
-        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
-        //LABELS
-        $this->graph->xaxis->SetTickLabels($this->getLabels());
 
-    }
 
 }
