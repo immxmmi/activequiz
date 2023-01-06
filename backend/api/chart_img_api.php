@@ -38,6 +38,7 @@ $graph->yaxis->title->Set('Y-title');
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
 // LABELS
+$graph->xaxis->title->Set('X-title');
 $graph->xaxis->SetTickLabels($img_build->getLabels());
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
 
