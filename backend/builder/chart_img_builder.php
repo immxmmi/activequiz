@@ -36,17 +36,7 @@ class chart_img_builder
     }
 
 
-    /**
-     * @return array
-     */
-    public function getLabels(): array
-    {
-        return $this->labels;
-    }
 
-    /**
-     * @param array $labels
-     */
     public function setLabels($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
@@ -55,17 +45,6 @@ class chart_img_builder
         }
     }
 
-    /**
-     * @return array
-     */
-    public function getData(): array
-    {
-        return $this->data;
-    }
-
-    /**
-     * @param array $data
-     */
     public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
