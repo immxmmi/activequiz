@@ -20,12 +20,10 @@ class chart_img_builder
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
-
         $this->height = $height;
         if (!$this->height) {
             $this->height = 300;
         }
-
         $this->weight = $weight;
         if (!$this->weight) {
             $this->weight = 600;
@@ -54,43 +52,28 @@ class chart_img_builder
         }
     }
 
+
+
     private function createGraph()
     {
-        $this->graph = new Graph($this->weight, $this->height, 'auto');
+        $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
         $this->graph->SetMargin(60, 30, 50, 50);
 
         // SETTINGS
-        $this->graph->SetScale($this->scale);
+        $this->graph->SetScale($this->getScale());
         $this->graph->SetShadow();
         $this->graph->SetFrame(false);
 
         // TITLE
-        $this->graph->title->Set($this->title);
+        $this->graph->title->Set($this->getTitle());
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
 
         $this->choiceBarPlot();
+
     }
 
-    // Bar
-    private function choiceBarPlot(){
 
-        $this->setYaxisGraph();
-        $this->setXaxisGraph();
 
-        // BAR
-        $bplot = new BarPlot($this->data());
-        $bplot->SetFillColor('orange');
-        $bplot->SetWidth(0.8);
-        $bplot->SetShadow();
-
-        // VALUE
-        $bplot->value->Show();
-        $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
-        $bplot->value->SetAngle(45);
-        $bplot->value->SetColor('green','darkred');
-
-        $this->graph->Add($bplot);
-    }
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
         $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
@@ -102,5 +85,26 @@ class chart_img_builder
         //LABELS
         $this->graph->xaxis->SetTickLabels($this->labels);
     }
+
+    private function choiceBarPlot(){
+
+        $this->setYaxisGraph();
+        $this->setXaxisGraph();
+
+        // BAR
+        $bplot = new BarPlot($this->getData());
+        $bplot->SetFillColor('orange');
+        $bplot->SetWidth(0.8);
+        $bplot->SetShadow();
+
+         // VALUE
+        $bplot->value->Show();
+        $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
+        $bplot->value->SetAngle(45);
+        $bplot->value->SetColor('green','darkred');
+
+        $this->graph->Add($bplot);
+    }
+
 
 }
