@@ -20,12 +20,12 @@ $img_build = new chart_img_builder($height,$weight,$type,$label,$labels,$data);
 
 // Create the graph
 $graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
-// Adjust the margin a bit to make more room for titles
 $graph->SetMargin(80,50,50,50);
+
 // SETTINGS
 $graph->SetScale($img_build->getScale());
-$graph->SetFrame(false);
 $graph->SetShadow();
+$graph->SetFrame(false);
 
 
 // TITLE
@@ -33,7 +33,7 @@ $graph->title->Set($img_build->getTitle());
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 // Y
-$graph->yaxis->scale->SetGrace(50);
+$graph->yaxis->scale->SetGrace(30);
 $graph->yaxis->title->Set('Y-title');
 $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
@@ -41,7 +41,6 @@ $graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 $graph->xaxis->title->Set('X-title');
 $graph->xaxis->SetTickLabels($img_build->getLabels());
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
-
 
 // BAR
 $bplot = new BarPlot($img_build->getData());
