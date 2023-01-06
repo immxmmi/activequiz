@@ -21,8 +21,13 @@ $data = optional_param('data', false, PARAM_TEXT);
 $img_build = new chart_img_builder($height,$weight,$type,$title,$xlabel,$ylabel,$labels,$data);
 
 // Create the graph
-$graph = $img_build->graph;//new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
+$graph = new Graph($img_build->getWeight(),$img_build->getHeight(),'auto');
+$graph->SetMargin(60,30,50,50);
 
+// SETTINGS
+$graph->SetScale($img_build->getScale());
+$graph->SetShadow();
+$graph->SetFrame(false);
 
 
 // TITLE
