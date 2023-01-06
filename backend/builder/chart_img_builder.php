@@ -22,19 +22,28 @@ class chart_img_builder
         $this->ylabel = $ylabel;
 
         $this->height = $height;
-        if (!$this->height) {
-            $this->height = 300;
-        }
-
         $this->weight = $weight;
-        if (!$this->weight) {
-            $this->weight = 600;
-        }
 
         $this->title = $label;
         $this->setLabels($row_labels);
         $this->setData($row_data);
         $this->createGraph();
+    }
+
+
+    public function getHeight(): int
+    {
+        if (!$this->height) {
+            $this->height = 300;
+        }
+        return $this->height;
+    }
+    public function getWeight(): int
+    {
+        if (!$this->weight) {
+            $this->weight = 600;
+        }
+        return $this->weight;
     }
 
     public function setLabels($row_labels)
