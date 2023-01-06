@@ -31,26 +31,26 @@ $graph->SetFrame(false); // No border around the graph
 
 
 
-// Setup the titles
-//$graph->title->Set($img_build->getTitle());
+
+
 $graph->yaxis->scale->SetGrace(50);
+$graph->yaxis->title->Set('Y-title');
+$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 
 // LABELS
 $graph->xaxis->SetTickLabels($img_build->getLabels());
-$graph->xaxis->SetFont(FF_FONT2);
-
-// Setup graph title ands fonts
-$graph->title->Set('Example of Y-scale callback formatting');
-$graph->title->SetFont(FF_FONT2,FS_BOLD);
-$graph->xaxis->title->Set('Year 2002');
 $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
 
-
-
-
-$graph->yaxis->title->Set('Y-title');
+// Setup the titles
+$graph->title->Set($img_build->getTitle());
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
-$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
+
+
+
+
+
+
+
 
 
 
