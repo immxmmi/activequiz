@@ -114,13 +114,6 @@ class chart_img_builder
         return $this->type;
     }
 
-    /**
-     * @return string
-     */
-    public function getYlabel(): string
-    {
-        return $this->ylabel;
-    }
 
     /**
      * @return string
@@ -150,7 +143,7 @@ class chart_img_builder
 
 
     private function setYaxisGraph(){
-        $this->graph->yaxis->title->Set($this->getYlabel());
+        $this->graph->yaxis->title->Set($this->ylabel);
         $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
         $this->graph->yaxis->scale->SetGrace(10);
     }
