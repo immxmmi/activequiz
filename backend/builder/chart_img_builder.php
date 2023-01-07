@@ -110,7 +110,7 @@ class chart_img_builder
 
     private function choicePiePlot(){
         // Create the Pie Graph.
-        $this->graph = new PieGraph($this->height,$this->weight);
+        $this->graph = new PieGraph($this->weight,$this->height);
         $this->graph->SetBox(true);
 
 
