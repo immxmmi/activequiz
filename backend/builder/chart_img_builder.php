@@ -98,7 +98,7 @@ class chart_img_builder
         $this->graph->Add($bplot);
     }
 
-    private function showImage(){
+    public function showImage(){
         $this->graph->Stroke();
     }
 }
