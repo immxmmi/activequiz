@@ -40,6 +40,16 @@ class chart_img_builder
             array_push($this->labels, trim($val, '\''));
         }
     }
+
+    public function setLabelsForPie($row_labels)
+    {
+        $row_labels = explode("',' ", $row_labels);
+        foreach ($row_labels as $val) {
+            trim($val, '\'');
+            array_push($this->labels, $val.="test");
+        }
+    }
+
     public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
