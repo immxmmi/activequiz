@@ -31,7 +31,7 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
     return encodeURI(url);
 }
 
-async function buildPdf(chartType, label, labels, data, rightAnswer, question, answers) {
+async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers) {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -42,7 +42,7 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const chartUrl = createChartLink(chartType, label, labels, data, question,"Antorten","Auswertung");
+    const chartUrl = createChartLink(chartType, sessionName, labels, data, question,"Antorten","Auswertung");
     console.log(chartUrl);
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
@@ -146,7 +146,7 @@ async function buildPdf(chartType, label, labels, data, rightAnswer, question, a
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
 }
 
-async function createPdf(sessionID) {
+async function createPdf(sessionID, sessionName) {
     if (sessionID == null) {
         return;
     }
@@ -165,7 +165,7 @@ async function createPdf(sessionID) {
             const question = quizData.data.data.question;
             const answers = labels;
 
-            buildPdf(chartType, label, labels, data, rightAnswer, question, answers);
+            buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers);
 
         });
 
