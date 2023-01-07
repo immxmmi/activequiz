@@ -57,10 +57,10 @@ class chart_img_builder
     {
         $this->choicePiePlot();
         $this->setGraphTitle();
+        $this->graph->SetMargin(60, 30, 50, 50);
 
         /*
         $this->graph = new Graph($this->weight, $this->height, 'auto');
-        $this->graph->SetMargin(60, 30, 50, 50);
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
