@@ -118,7 +118,7 @@ class chart_img_builder
         $p1 = new PiePlot($this->data);
         $this->graph->Add($p1);
 
-        $p1->ShowBorder();
+        ///$p1->ShowBorder();
         $p1->SetColor('black');
         // COLORS
         //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
