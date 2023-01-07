@@ -22,12 +22,12 @@ async function getChartDataBySessionID(sessionID) {
     // }
 }
 
-function createChartLink(chartType, label, labels, data, question) {
+function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     const height = 250;
     const weight = 350;
    // const url = `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`;
-    var url = `./backend/api/chart_img_api.php?type=bar&height=${height}&weight=${weight}&label=${label}&labels=${labelsStr}&data=${data}`;
+    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&weight=${weight}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
     return encodeURI(url);
 }
 
