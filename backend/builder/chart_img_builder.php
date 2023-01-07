@@ -46,7 +46,7 @@ class chart_img_builder
         $row_labels = explode("',' ", $row_labels);
         foreach ($row_labels as $val) {
             trim($val, '\'');
-            array_push($this->labels, $val . "(%d)");
+            array_push($this->labels, $val);
         }
     }
 
@@ -65,24 +65,18 @@ class chart_img_builder
 
     private function createGraph()
     {
-        $this->graph = new Graph($this->weight, $this->height, 'auto');
-        $this->choiceBarPlot();
-
-
-
-
-
-        /*switch ($this->type){
-            case "bar": $this->choiceBarPlot(); break;
-            case "pie": $this->choicePiePlot(); break;
-            default: $this->choiceBarPlot();
-        }
-        */
-
+        $this->choicePiePlot();
         $this->setGraphTitle();
         $this->graph->SetMargin(60, 90, 50, 50);
 
-
+        /*
+        $this->graph = new Graph($this->weight, $this->height, 'auto');
+        // SETTINGS
+        $this->graph->SetScale($this->scale);
+        $this->graph->SetShadow();
+        $this->graph->SetFrame(false);
+        $this->choiceBarPlot();
+        */
     }
 
     private function setGraphTitle(){
@@ -106,14 +100,6 @@ class chart_img_builder
     }
 
     private function choiceBarPlot(){
-
-
-        // SETTINGS
-        $this->graph->SetScale($this->scale);
-        $this->graph->SetShadow();
-        $this->graph->SetFrame(false);
-        $this->choiceBarPlot();
-
         $this->setYaxisGraph();
         $this->setXaxisGraph();
 
