@@ -153,6 +153,31 @@ class chart_img_builder
 
     }
 
+    private function choice3dPiePlot(){
+        // Create the Pie Graph.
+        $this->graph = new PieGraph($this->weight,$this->height);
+
+        $theme_class= new VividTheme;
+        $this->graph->SetTheme($theme_class);
+
+
+
+        $p1 = new PiePlot3D($this->data);
+        $this->graph->Add($p1);
+
+        $p1->ShowBorder();
+        $p1->SetColor('black');
+        $p1->ExplodeSlice(1);
+
+        // COLORS
+        //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
+
+
+        $legends = $this->labels;//array('April (%d)','May (%d)','June (%d)');
+        $p1->SetLegends($legends);
+
+    }
+
     public function showImage(){
         $this->graph->Stroke();
     }
