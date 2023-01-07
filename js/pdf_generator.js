@@ -146,7 +146,8 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
     download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
 }
 
-async function createPdf(sessionID, sessionName) {
+async function createPdf(sessionID) {
+    var sessionName = "test";
     if (sessionID == null) {
         return;
     }
