@@ -59,7 +59,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
 
     const firstPage = pages[0];
     const {width, height} = firstPage.getSize();
-    firstPage.drawText('Lektor: Testikus Testor', {
+    firstPage.drawText('Test: '+sessionName, {
         x: 50,
         y: height / 2,
         size: 34,
