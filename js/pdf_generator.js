@@ -147,7 +147,6 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
 }
 
 async function createPdf(sessionID, sessionName) {
-    var sessionName = "TITLE";
     if (sessionID == null) {
         return;
     }

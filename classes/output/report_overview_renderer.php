@@ -80,7 +80,7 @@ class report_overview_renderer extends \plugin_renderer_base
 
         //PDF PRINTER
         $sessionName = $session->get_session()->name;
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.', "title")'));
+        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.', "dance")'));
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
