@@ -2,7 +2,7 @@
 
 class chart_img_builder
 {
-    public $type = "bar";
+    private $type = "bar";
     private $height = 300;
     private $weight = 600;
     private $title = "label";
@@ -11,7 +11,7 @@ class chart_img_builder
     private $xlabel = "-";
     private $data = array();
     private $scale = "textint";
-    public $graph;
+    private $graph;
 
     public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
     {
