@@ -66,11 +66,12 @@ class chart_img_builder
     private function createGraph()
     {
         $this->choicePiePlot();
-        switch ($this->type){
+        /*switch ($this->type){
             case "bar": $this->choiceBarPlot(); break;
             case "pie": $this->choicePiePlot(); break;
             default: $this->choiceBarPlot();
         }
+        */
 
         $this->setGraphTitle();
         $this->graph->SetMargin(60, 90, 50, 50);
