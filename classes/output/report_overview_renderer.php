@@ -79,7 +79,7 @@ class report_overview_renderer extends \plugin_renderer_base
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
 
         //PDF PRINTER
-        $sessionName = "TTITTLLL"; // $session->get_session()->name;
+        $sessionName = $session->get_session()->name;
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.'; '.$sessionName.')'));
         $output .= $selectsession;
 
