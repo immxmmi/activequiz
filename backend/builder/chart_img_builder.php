@@ -2,7 +2,6 @@
 
 class chart_img_builder
 {
-
     public $type = "bar";
     private $height = 300;
     private $weight = 600;
@@ -13,7 +12,6 @@ class chart_img_builder
     private $data = array();
     private $scale = "textint";
     public $graph;
-
 
     public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
     {
@@ -35,8 +33,6 @@ class chart_img_builder
         $this->createGraph();
     }
 
-
-
     public function setLabels($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
@@ -44,7 +40,6 @@ class chart_img_builder
             array_push($this->labels, trim($val, '\''));
         }
     }
-
     public function setData($row_data)
     {
         $row_data = explode(",", $row_data);
@@ -53,16 +48,10 @@ class chart_img_builder
         }
     }
 
-
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
-
-
 
     private function createGraph()
     {
@@ -77,8 +66,6 @@ class chart_img_builder
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
         $this->choiceBarPlot();
     }
-
-
 
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
@@ -95,6 +82,7 @@ class chart_img_builder
     private function choiceBarPlot(){
         $this->setYaxisGraph();
         $this->setXaxisGraph();
+
         // BAR
         $bplot = new BarPlot($this->data);
         $bplot->SetFillColor('orange');
@@ -109,6 +97,5 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-
 
 }

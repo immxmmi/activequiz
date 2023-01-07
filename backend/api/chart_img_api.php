@@ -20,14 +20,4 @@ $data = optional_param('data', false, PARAM_TEXT);
 // IMG
 $img_build = new chart_img_builder($height,$weight,$type,$title,$xlabel,$ylabel,$labels,$data);
 
-// Create the graph
-$graph = $img_build->graph;
-
-
-
-
-
-
-
-// Display the graph
-$graph->Stroke();
+$img_build->graph->Stroke();
