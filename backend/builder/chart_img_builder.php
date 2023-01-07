@@ -73,6 +73,7 @@ class chart_img_builder
 
         switch ($this->type){
             case "pie" : $this->choicePiePlot();break;
+            case "pie3d" : $this->choice3dPiePlot();break;
             default : $this->choiceBarPlot();break;
         }
 
