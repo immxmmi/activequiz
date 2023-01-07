@@ -18,6 +18,15 @@ $labels = optional_param('labels', false, PARAM_TEXT);
 $data = optional_param('data', false, PARAM_TEXT);
 
 // IMG
-$img_build = new chart_img_builder($height,$weight,$type,$title,$xlabel,$ylabel,$labels,$data);
+$img_build = new chart_img_builder(
+    $height,
+    $weight,
+    $type,
+    $title,
+    $xlabel,
+    $ylabel,
+    $labels,
+    $data
+);
 
-$img_build->graph->Stroke();
+$img_build->showImage();
