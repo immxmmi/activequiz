@@ -65,7 +65,7 @@ class chart_img_builder
 
     private function createGraph()
     {
-        $this->choicePiePlot();
+        $this->choiceBarPlot();
         /*switch ($this->type){
             case "bar": $this->choiceBarPlot(); break;
             case "pie": $this->choicePiePlot(); break;
