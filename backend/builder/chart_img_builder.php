@@ -55,17 +55,27 @@ class chart_img_builder
 
     private function createGraph()
     {
+        $this->choicePiePlot();
+        $this->setGraphTitle();
+
+        /*
         $this->graph = new Graph($this->weight, $this->height, 'auto');
         $this->graph->SetMargin(60, 30, 50, 50);
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
         $this->graph->SetFrame(false);
-        // TITLE
+        $this->choiceBarPlot();
+        */
+    }
+
+    private function setGraphTitle(){
+            // TITLE
         $this->graph->title->Set($this->title);
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
-        $this->choiceBarPlot();
     }
+
+
 
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
@@ -96,6 +106,24 @@ class chart_img_builder
         $bplot->value->SetColor('green','darkred');
 
         $this->graph->Add($bplot);
+    }
+
+    private function choicePiePlot(){
+        // Create the Pie Graph.
+        $graph = new PieGraph(350,250);
+        $this->graph->SetBox(true);
+
+
+
+        $p1 = new PiePlot($this->data);
+        $this->graph->Add($p1);
+
+        $p1->ShowBorder();
+        $p1->SetColor('black');
+        $p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
+        $legends = array('April (%d)','May (%d)','June (%d)');
+        $p1->SetLegends($legends);
+
     }
 
     public function showImage(){
