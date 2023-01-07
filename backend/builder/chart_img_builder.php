@@ -28,7 +28,7 @@ class chart_img_builder
         }
 
         $this->title = $label;
-        $this->setLabels($row_labels);
+        $this->setLabelsForPie($row_labels);
         $this->setData($row_data);
         $this->createGraph();
     }
@@ -46,7 +46,7 @@ class chart_img_builder
         $row_labels = explode("',' ", $row_labels);
         foreach ($row_labels as $val) {
             trim($val, '\'');
-            array_push($this->labels, "test");
+            array_push($this->labels, $val.="test");
         }
     }
 
