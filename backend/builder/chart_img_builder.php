@@ -72,10 +72,9 @@ class chart_img_builder
 
 
 
-
         $this->choiceBarPlot();
         $this->setGraphTitle();
-        $this->graph->SetMargin(60, 90, 50, 50);
+        $this->graph->SetMargin(60, 70, 50, 50);
 
     }
 
