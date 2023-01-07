@@ -82,9 +82,9 @@ class chart_img_builder
     private function createGraph($type)
     {
         switch ($type){
-            case "pie" : $this->choicePiePlot();break;
-            case "pie3d" : $this->choice3dPiePlot();break;
-            default : $this->choiceBarPlot();break;
+            case "pie" : $this->createPiePlot();break;
+            case "pie3d" : $this->create3dPiePlot();break;
+            default : $this->createBarPlot();break;
         }
 
         $this->setGraphTitle($this->title);
@@ -96,8 +96,6 @@ class chart_img_builder
         $this->graph->title->Set($title);
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
     }
-
-
 
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
@@ -111,7 +109,7 @@ class chart_img_builder
         $this->graph->xaxis->SetTickLabels($this->labels);
     }
 
-    private function choiceBarPlot(){
+    private function createBarPlot(){
         $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
         // SETTINGS
         $this->graph->SetScale($this->scale);
@@ -137,7 +135,7 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-    private function choicePiePlot(){
+    private function createPiePlot(){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
         $this->graph->SetBox(true);
@@ -159,7 +157,7 @@ class chart_img_builder
         $p1->SetLegends($legends);
 
     }
-    private function choice3dPiePlot(){
+    private function create3dPiePlot(){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
 
@@ -185,19 +183,7 @@ class chart_img_builder
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Display Chart
     public function showImage(){
         $this->graph->Stroke();
     }
