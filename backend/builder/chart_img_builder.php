@@ -72,12 +72,10 @@ class chart_img_builder
 
 
         $this->graph = new Graph($this->weight, $this->height, 'auto');
+
         $this->setGraphTitle();
         $this->graph->SetMargin(60, 90, 50, 50);
-        // SETTINGS
-        $this->graph->SetScale($this->scale);
-        $this->graph->SetShadow();
-        $this->graph->SetFrame(false);
+
         $this->choiceBarPlot();
     }
 
@@ -102,6 +100,13 @@ class chart_img_builder
     }
 
     private function choiceBarPlot(){
+        // SETTINGS
+        $this->graph->SetScale($this->scale);
+        $this->graph->SetShadow();
+        $this->graph->SetFrame(false);
+
+
+
         $this->setYaxisGraph();
         $this->setXaxisGraph();
 
