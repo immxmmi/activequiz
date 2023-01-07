@@ -2,7 +2,7 @@
 
 class chart_img_builder
 {
-    private $type = "bar";
+    private $type;
     private $height = 300;
     private $weight = 600;
     private $title = "label";
@@ -13,25 +13,32 @@ class chart_img_builder
     private $scale = "textint";
     private $graph;
 
-    public function __construct($height, $weight, $type, $label, $xlabel, $ylabel, $row_labels, $row_data)
+    public function __construct($height, $weight, $type, $title, $xlabel, $ylabel, $row_labels, $row_data)
     {
-        $this->type = $type;
-        $this->xlabel = $xlabel;
-        $this->ylabel = $ylabel;
         // SIZE
         $this->height = $height;
         $this->weight = $weight;
 
-        $this->title = $label;
-       // $this->setLabelsForPie($row_labels);
+        // CHART TYPE
+        $this->type = $type;
+
+        // LABEL FOR AXIS
+        $this->xlabel = $xlabel;
+        $this->ylabel = $ylabel;
+
+        // CHART TITLE
+        $this->title = $title;
+
+        // LABELS
         $this->setLabels($row_labels);
+
+        // DATA
         $this->setData($row_data);
-        $this->createGraph();
+
+        $this->createGraph($this->type);
     }
 
-    /**
-     * @return int
-     */
+
     public function getHeight(): int
     {
         if (!$this->height) {
@@ -39,10 +46,6 @@ class chart_img_builder
         }
         return $this->height;
     }
-
-    /**
-     * @return int
-     */
     public function getWeight(): int
     {
         if (!$this->weight) {
@@ -59,7 +62,6 @@ class chart_img_builder
             array_push($this->labels, trim($val, '\''));
         }
     }
-
     public function setLabelsForPie($row_labels)
     {
         $row_labels = explode("',' ", $row_labels);
@@ -77,34 +79,21 @@ class chart_img_builder
         }
     }
 
-    public function getType(): string
+    private function createGraph($type)
     {
-        return $this->type;
-    }
-
-    private function createGraph()
-    {
-        /*
-        $this->choicePiePlot();
-        */
-        //$this->choiceBarPlot();
-
-        switch ($this->type){
+        switch ($type){
             case "pie" : $this->choicePiePlot();break;
             case "pie3d" : $this->choice3dPiePlot();break;
             default : $this->choiceBarPlot();break;
         }
 
-
-
-        $this->setGraphTitle();
+        $this->setGraphTitle($this->title);
         $this->graph->SetMargin(60, 70, 50, 50);
-
     }
 
-    private function setGraphTitle(){
+    private function setGraphTitle($title){
             // TITLE
-        $this->graph->title->Set($this->title);
+        $this->graph->title->Set($title);
         $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
     }
 
@@ -194,6 +183,20 @@ class chart_img_builder
         $p1->SetLegends($legends);
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function showImage(){
         $this->graph->Stroke();
