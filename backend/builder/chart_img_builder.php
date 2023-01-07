@@ -72,7 +72,8 @@ class chart_img_builder
         //$this->choiceBarPlot();
 
         switch ($this->type){
-            case "pie" : $this->choiceBarPlot();break;
+            case "pie" : $this->choicePiePlot();break;
+            default : $this->choiceBarPlot();break;
         }
 
 
