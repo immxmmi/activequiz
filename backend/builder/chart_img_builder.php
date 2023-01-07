@@ -46,8 +46,7 @@ class chart_img_builder
         $row_labels = explode("',' ", $row_labels);
         foreach ($row_labels as $val) {
             trim($val, '\'');
-            $val .= "test";
-            array_push($this->labels, $val);
+            array_push($this->labels, $val .= "test");
         }
     }
 
