@@ -71,12 +71,12 @@ class chart_img_builder
         */
 
 
-        $this->graph = new Graph($this->weight, $this->height, 'auto');
 
+
+        $this->choiceBarPlot();
         $this->setGraphTitle();
         $this->graph->SetMargin(60, 90, 50, 50);
 
-        $this->choiceBarPlot();
     }
 
     private function setGraphTitle(){
@@ -100,6 +100,7 @@ class chart_img_builder
     }
 
     private function choiceBarPlot(){
+        $this->graph = new Graph($this->weight, $this->height, 'auto');
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
