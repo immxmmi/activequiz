@@ -18,14 +18,9 @@ class chart_img_builder
         $this->type = $type;
         $this->xlabel = $xlabel;
         $this->ylabel = $ylabel;
+        // SIZE
         $this->height = $height;
-        if (!$this->height) {
-            $this->height = 300;
-        }
         $this->weight = $weight;
-        if (!$this->weight) {
-            $this->weight = 600;
-        }
 
         $this->title = $label;
        // $this->setLabelsForPie($row_labels);
@@ -33,6 +28,29 @@ class chart_img_builder
         $this->setData($row_data);
         $this->createGraph();
     }
+
+    /**
+     * @return int
+     */
+    public function getHeight(): int
+    {
+        if (!$this->height) {
+            $this->height = 300;
+        }
+        return $this->height;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeight(): int
+    {
+        if (!$this->weight) {
+            $this->weight = 600;
+        }
+        return $this->weight;
+    }
+
 
     public function setLabels($row_labels)
     {
@@ -105,7 +123,7 @@ class chart_img_builder
     }
 
     private function choiceBarPlot(){
-        $this->graph = new Graph($this->weight, $this->height, 'auto');
+        $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
@@ -130,10 +148,9 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-
     private function choicePiePlot(){
         // Create the Pie Graph.
-        $this->graph = new PieGraph($this->weight,$this->height);
+        $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
         $this->graph->SetBox(true);
 
 
@@ -153,10 +170,9 @@ class chart_img_builder
         $p1->SetLegends($legends);
 
     }
-
     private function choice3dPiePlot(){
         // Create the Pie Graph.
-        $this->graph = new PieGraph($this->weight,$this->height);
+        $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
 
         $theme_class= new VividTheme;
         $this->graph->SetTheme($theme_class);
