@@ -120,14 +120,15 @@ class chart_img_builder
 
         $p1->ShowBorder();
         $p1->SetColor('black');
+
+
         // COLORS
         //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
 
-        /*
+
         $legends = array('April (%d)','May (%d)','June (%d)');
         $p1->SetLegends($legends);
 
-        */
     }
 
     public function showImage(){
