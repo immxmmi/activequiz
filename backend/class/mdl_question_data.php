@@ -20,7 +20,7 @@ class question_data
             print_r($result[2]);
             echo "</pre>";
 
-            $this->summary = $result[$questionusageid]->questionsummary;
+            $this->summary = $result[0]->questionsummary;
 /*
             $text = explode(':', $this->summary);
             $this->question = $text[0];
