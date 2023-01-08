@@ -27,15 +27,8 @@ async function getQuizDataBySession(sessionid, slot) {
     return fetch(url).then((response) => response.json());
 }
 
-
-// TODO - Slots
 async function getChartDataBySessionID(sessionID, slot) {
-
-    // for (let slot = 1; slot < slots; slot++) {
     return generateChartBySessionAndSlot(sessionID, 'bar', slot);
-    //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
-    //   generateChartBySessionAndSlot(sessionID, 'pie3d', slot);
-    // }
 }
 
 // create image -->
@@ -48,7 +41,6 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 }
 
 
-// TODO
 //async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
 
