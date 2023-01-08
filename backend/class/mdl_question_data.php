@@ -15,6 +15,8 @@ class question_data
             $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
             $params = array('questionusageid' => $questionusageid);
             $result = $DB->get_records_sql($sql, $params);
+
+
             $this->summary = $result[$questionusageid]->questionsummary;
             $text = explode(':', $this->summary);
             $this->question = $text[0];

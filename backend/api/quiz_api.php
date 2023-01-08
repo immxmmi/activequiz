@@ -46,11 +46,11 @@ foreach ($quizdata as $qd) {
 
 // build JSON-DATA with Builder
 $data = $quiz_build->build_quiz_data($qu, $aw, $right, $slots);
-
+/*
 echo "<pre>";
-print_r(new question_data(1));
+new question_data(1);
 echo "</pre>";
-
+*
 
 /*
 http_response_code($quiz_build->getResponseCode());
