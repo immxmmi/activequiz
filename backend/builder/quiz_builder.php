@@ -17,8 +17,15 @@ class quiz_builder
     {
         if ($question === null || $current_slot > $slots) {
             $this->info = "no Question - Failed";
+            $this->data = array(
+                'question' => '-',
+                'answers' => '-',
+                'right_answer' => '-',
+                'current_slot' => $current_slot,
+                'max_slots' => $slots
+            );
         } else {
-            $this->info = $slots;
+            $this->info = $this->info;
             $this->data = array(
                 'question' => $question,
                 'answers' => $answer,
