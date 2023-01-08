@@ -7,6 +7,7 @@ class question_data
     private $question;
     private $answers;
     private $rightanswer;
+    private $result_array = array();
 
     public function __construct($questionusageid, $slot)
     {
@@ -16,19 +17,19 @@ class question_data
             $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
 
+            foreach ($result as $res) {
+                array_push($result_array, $res);
+            }
             echo "<pre>";
-            foreach ($result as $res){
-                print_r($res);
+            print_r($result_array);
+            echo "</pre>";
 
-
-            $this->summary = $res[$res->id]->questionsummary;
+            $this->summary = $result[$result->id]->questionsummary;
 
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
-            $this->rightanswer = $res[$res->id]->rightanswer;
-            }
-
+            $this->rightanswer = $result[$slot]->rightanswer;
         }
 
     }
