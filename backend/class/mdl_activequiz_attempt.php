@@ -93,4 +93,13 @@ class activequiz_attempt
     {
         return $this->all_questionengids;
     }
+
+    /**
+     * @return array
+     */
+    public function getActiveAttemps(): array
+    {
+        return $this->active_attemps;
+    }
+
 }
