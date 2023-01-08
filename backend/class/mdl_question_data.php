@@ -18,10 +18,10 @@ class question_data
             $result = $DB->get_records_sql($sql, $params);
 
             foreach ($result as $res) {
-                array_push($result_array, $res);
+                array_push($this->result_array, $res);
             }
             echo "<pre>";
-            print_r($result_array);
+            print_r($this->result_array);
             echo "</pre>";
 
             $this->summary = $result[$result->id]->questionsummary;
