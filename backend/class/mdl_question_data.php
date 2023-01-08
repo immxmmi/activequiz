@@ -20,6 +20,11 @@ class question_data
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
             $this->rightanswer = $result[$questionusageid]->rightanswer;
+
+            echo "<pre>";
+            print_r($sql);
+            echo "</pre>";
+
         }
 
     }
