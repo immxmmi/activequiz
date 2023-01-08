@@ -25,8 +25,9 @@ $quiz_build = new quiz_builder();
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
-
+echo '<pre>';
 print_r($activequiz_attempt);
+echo '</pre>';
 
 
 
