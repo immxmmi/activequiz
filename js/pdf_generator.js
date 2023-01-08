@@ -197,7 +197,7 @@ async function createPdf(sessionID, sessionName) {
         return;
     }
 
-    let listOfQuestion;
+    let listOfQuestion = new Array();
 
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
