@@ -27,13 +27,11 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
-print_r($allquestionengids);
-
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
 $curretnQuiz = new question_data($allquestionengids[0], $slot);
 #######################################################
 
-/*
+
 // build JSON-DATA with Builder
 $data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
 
@@ -42,7 +40,7 @@ header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
-*/
+
 
 
 

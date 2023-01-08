@@ -22,17 +22,11 @@ class question_data
             }
 
             $result = $this->result_array[0];
-
             $this->summary = $result->questionsummary;
-
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
             $this->rightanswer = $result->rightanswer;
-            echo "<pre>";
-            print_r($result);
-            echo "</pre>";
-
         }
 
     }
