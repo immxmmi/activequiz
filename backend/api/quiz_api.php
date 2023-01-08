@@ -41,6 +41,8 @@ if ($allquestionengids != null) {
 $curretnQuiz = new question_data($allquestionengids[0], $slot);
 
 echo "<pre>";
+var_dump($curretnQuiz->getAnswers());
+var_dump($curretnQuiz->getRightanswer());
 var_dump($curretnQuiz->getQuestion());
 echo "</pre>";
 
