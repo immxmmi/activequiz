@@ -26,7 +26,6 @@ $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 echo '<pre>';
-echo 'TESSSSSSSSSSSSSSST';
 print_r($activequiz_attempt->getActiveAttemps()[0]->getQubalayout());
 echo '</pre>';
 
