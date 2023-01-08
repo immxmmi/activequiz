@@ -197,7 +197,7 @@ async function createPdf(sessionID, sessionName) {
                 let answers;
 
                 // CHART API
-                getChartDataBySessionID(sessionID, 1).then((chartData) => {
+                getChartDataBySessionID(sessionID, currentSlot).then((chartData) => {
                     // Chart data
 
                     const chartType = chartData.data.charttype;
