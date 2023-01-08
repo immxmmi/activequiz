@@ -11,6 +11,8 @@ global $DB;
 $sessionid = optional_param('sessionid', false, PARAM_TEXT);
 $slot = optional_param('slot', false, PARAM_TEXT);
 
+var_dump($slot);
+
 // ARRAY OF ALL QUIZDATA
 $quizdata = array();
 // ARRAY OF QUESTIONS
