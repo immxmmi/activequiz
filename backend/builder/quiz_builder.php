@@ -15,7 +15,6 @@ class quiz_builder
 
     public function build_quiz_data($question, $answer, $right_answer, $slots)
     {
-
         if ($question === null) {
             $this->info = "no Question - Failed";
         } else {
