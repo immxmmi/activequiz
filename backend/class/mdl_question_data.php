@@ -19,12 +19,13 @@ class question_data
             echo "<pre>";
             print_r($result);
             echo "</pre>";
-
+/*
             $this->summary = $result[$questionusageid]->questionsummary;
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
             $this->rightanswer = $result[$questionusageid]->rightanswer;
+  */
         }
 
     }
