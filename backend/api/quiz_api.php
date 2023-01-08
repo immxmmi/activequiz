@@ -37,13 +37,12 @@ if ($allquestionengids != null) {
 }
 #######################################################
 
-
+/*
 echo "<pre>";
 echo $max_slots;
 //$quizdata;
 echo "</pre>";
-
-/*
+*/
 
 // split quizdata in question array and answer array
 foreach ($quizdata as $qd) {
@@ -59,7 +58,7 @@ header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
-*/
+
 
 
 
