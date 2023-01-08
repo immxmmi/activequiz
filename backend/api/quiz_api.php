@@ -9,6 +9,7 @@ global $DB;
 
 // PARAMETER
 $sessionid = optional_param('sessionid', false, PARAM_TEXT);
+$slot = optional_param('slot', false, PARAM_TEXT);
 
 // ARRAY OF ALL QUIZDATA
 $quizdata = array();
