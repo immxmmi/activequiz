@@ -17,7 +17,7 @@ class question_data
             $result = $DB->get_records_sql($sql, $params);
 
             echo "<pre>";
-            print_r($result);
+            print_r($result[2]);
             echo "</pre>";
 
             $this->summary = $result[$questionusageid]->questionsummary;
