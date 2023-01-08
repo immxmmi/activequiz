@@ -40,19 +40,9 @@ if ($allquestionengids != null) {
 #######################################################
 $curretnQuiz = new question_data($allquestionengids[0], $slot);
 
-echo "<pre>";
-var_dump($curretnQuiz->getAnswers());
-var_dump($curretnQuiz->getRightanswer());
-var_dump($curretnQuiz->getQuestion());
-echo "</pre>";
 
 
 
-
-
-/*
-build_quiz_data($question, $answer, $right_answer, $slots)
-*/
 
 
 /*
@@ -62,15 +52,16 @@ foreach ($quizdata as $qd) {
     array_push($aw, $qd->getAnswers());
     array_push($right, $qd->getRightanswer());
 }
+*/
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($qu, $aw, $right, $max_slots);
+$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
-*/
+
 
 
 
