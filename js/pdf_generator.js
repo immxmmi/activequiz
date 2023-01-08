@@ -54,8 +54,15 @@ async function buildPdf(currentQuizList) {
 
     console.log(currentQuizList);
 
+    var sessionName = currentQuizList.sessionName;
+    var chartType = currentQuizList.chartType;
+    var label = currentQuizList.label;
+    var labels = currentQuizList.labels;
+    var data = currentQuizList.data;
+    var rightAnswer = currentQuizList.rightAnswer;
+    var question = currentQuizList.question;
+    var answers = currentQuizList.answers;
 
-    /*
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -68,6 +75,8 @@ async function buildPdf(currentQuizList) {
     // Chart
     const chartUrl = createChartLink(chartType, sessionName, labels, data, question, "Antworten", "Auswertung");
     console.log(chartUrl);
+
+
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
 
@@ -163,83 +172,82 @@ async function buildPdf(currentQuizList) {
             color: rgb(0, 0.1, 0.156),
             maxWidth: width - 80
         });*/
-/*
-        page = pdfDoc.addPage();
-        page.drawImage(pngImage, {
-            x: 10,
-            y: height - 126,
-            width: 180,
-            height: 113
-        });
-        page.drawText(questionArray[i] + " - Chart", {
-            x: 40,
-            y: height - 126 - 30,
-            size: 28,
-            font: arialFont,
-            color: rgb(0, 0.1, 0.156),
-            maxWidth: width - 80
-        });
-        page.drawImage(chartImage, {
-            x: 30,
-            y: height - 126 - 30 - 60 - 300,
-            width: 500,
-            height: 300,
-        });
+        /*
+                page = pdfDoc.addPage();
+                page.drawImage(pngImage, {
+                    x: 10,
+                    y: height - 126,
+                    width: 180,
+                    height: 113
+                });
+                page.drawText(questionArray[i] + " - Chart", {
+                    x: 40,
+                    y: height - 126 - 30,
+                    size: 28,
+                    font: arialFont,
+                    color: rgb(0, 0.1, 0.156),
+                    maxWidth: width - 80
+                });
+                page.drawImage(chartImage, {
+                    x: 30,
+                    y: height - 126 - 30 - 60 - 300,
+                    width: 500,
+                    height: 300,
+                });
 
-        form.flatten();
-    }
-    const pdfBytes = await pdfDoc.save();
-    // Time and Date
-    const d = new Date();
-    const time = d.getTime();
-    // Download
-    download(pdfBytes, sessionName + time.toString(), "application/pdf");
-    */
-}
-
-async function createPdf(sessionID, sessionName) {
-
-
-    if (sessionID == null || sessionName == null) {
-        return;
+                form.flatten();
+            }
+            const pdfBytes = await pdfDoc.save();
+            // Time and Date
+            const d = new Date();
+            const time = d.getTime();
+            // Download
+            download(pdfBytes, sessionName + time.toString(), "application/pdf");
+            */
     }
 
-    let listOfQuestion = new Array();
+    async function createPdf(sessionID, sessionName) {
 
-    // QUIZ API
-    getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
-        $slotMax = quizSlots.data.data.max_slots;
-        for (let currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
+        if (sessionID == null || sessionName == null) {
+            return;
+        }
 
-            console.log(currentSlot);
-            getQuizDataBySession(sessionID, currentSlot).then(async (quizData) => {
-                let answers;
+        let listOfQuestion = new Array();
 
-                // CHART API
-                getChartDataBySessionID(sessionID, currentSlot).then((chartData) => {
-                    // Chart data
+        // QUIZ API
+        getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
-                    const chartType = chartData.data.charttype;
-                    let label = chartData.data.chartdata.datasets.at(0).label;
-                    label = 'Answers';
+            $slotMax = quizSlots.data.data.max_slots;
+            for (let currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
+
+                getQuizDataBySession(sessionID, currentSlot).then(async (quizData) => {
+                    let answers;
 
                     // CHART API
-                    const labels = chartData.data.chartdata.labels;
-                    const data = chartData.data.chartdata.datasets.at(0).data;
-                    // Quiz Data
-                    const rightAnswer = quizData.data.data.right_answer;
-                    const question = quizData.data.data.question;
-                    const answers = labels;
+                    getChartDataBySessionID(sessionID, currentSlot).then((chartData) => {
+                        // Chart data
 
-                    let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
-                    listOfQuestion.push(currentQuizData);
-                    buildPdf(currentQuizData);
+                        const chartType = chartData.data.charttype;
+                        let label = chartData.data.chartdata.datasets.at(0).label;
+                        label = 'Answers';
+
+                        // CHART API
+                        const labels = chartData.data.chartdata.labels;
+                        const data = chartData.data.chartdata.datasets.at(0).data;
+                        // Quiz Data
+                        const rightAnswer = quizData.data.data.right_answer;
+                        const question = quizData.data.data.question;
+                        const answers = labels;
+
+                        let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
+                        listOfQuestion.push(currentQuizData);
+                        buildPdf(currentQuizData);
+                    });
                 });
-            });
-        }
-        ;
-    })
+            }
+            ;
+        })
 
-}
+    }
 
