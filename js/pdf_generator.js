@@ -16,7 +16,7 @@ class QuizData {
 
 
 // Generate Chart By Parameter --> Answers
-function generateChartBySessionAndSlot(sessionid, type, slot) {
+async function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
     return fetch(url).then((response) => response.json());
 }
