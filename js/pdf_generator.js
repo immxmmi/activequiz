@@ -8,8 +8,8 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 }
 
 // Generate Chart By Parameter
-async function getQuizDataBySession(sessionid) {
-    var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
+async function getQuizDataBySession(sessionid, slot) {
+    var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid + '&slot=' + slot;
     return fetch(url).then((response) => response.json());
 }
 
@@ -179,7 +179,7 @@ async function createPdf(sessionID, sessionName) {
         return;
     }
 
-    getQuizDataBySession(sessionID).then(async (quizData) => {
+    getQuizDataBySession(sessionID, 1).then(async (quizData) => {
         let answers;
         getChartDataBySessionID(sessionID).then((chartData) => {
             // Chart data
