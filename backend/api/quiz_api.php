@@ -26,24 +26,20 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
-echo "<pre>";
-print_r($max_slots);
-print_r(new question_data(2, 1));
-echo "</pre>";
 
 
+# # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
+if ($allquestionengids != null) {
+    foreach ($allquestionengids as $id) {
+        array_push($quizdata, new question_data($id, 1));
+    }
+}
+#######################################################
 
 
 
 
 /*
-# # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
-if ($allquestionengids != null) {
-    foreach ($allquestionengids as $id) {
-        array_push($quizdata, new question_data($id));
-    }
-}
-#######################################################
 
 // split quizdata in question array and answer array
 foreach ($quizdata as $qd) {
