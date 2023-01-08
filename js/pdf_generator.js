@@ -244,12 +244,12 @@ async function buildPdf(currentQuizList) {
 
                         let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
                         listOfQuestion.push(currentQuizData);
-                        buildPdf(currentQuizData);
                     });
                 });
             }
             ;
         })
 
+                        buildPdf(currentQuizData);
     }
 
