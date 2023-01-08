@@ -61,14 +61,8 @@ async function buildPdf(currentQuizList) {
     var question = currentQuizList.at(0).question;
     var answers = currentQuizList.at(0).answers;
 
-    console.log(sessionName);
-    console.log(chartType);
-    console.log(data);
-    console.log(rightAnswer);
-    console.log(answers);
 
 
-    /*
         // Deckblatt
         const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
         const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
@@ -177,7 +171,7 @@ async function buildPdf(currentQuizList) {
                 color: rgb(0, 0.1, 0.156),
                 maxWidth: width - 80
             });*/
-    /*
+
             page = pdfDoc.addPage();
             page.drawImage(pngImage, {
                 x: 10,
@@ -208,7 +202,7 @@ async function buildPdf(currentQuizList) {
         const time = d.getTime();
         // Download
         download(pdfBytes, sessionName + time.toString(), "application/pdf");
-        */
+
 }
 
 async function createPdf(sessionID, sessionName) {
