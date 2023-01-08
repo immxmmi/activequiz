@@ -63,7 +63,9 @@ async function buildPdf(currentQuizList) {
     var question = currentQuizList[0].question;
     var answers = currentQuizList[0].answers;
 
+    console.log(answers);
 
+/*
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
     const existingPdfBytes = await fetch(reportUrl).then(res => res.arrayBuffer());
