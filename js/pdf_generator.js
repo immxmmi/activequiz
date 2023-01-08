@@ -247,7 +247,7 @@ async function buildPdf(currentQuizList) {
                     });
                 });
             };
-                        buildPdf(currentQuizData);
+                        buildPdf(listOfQuestion);
         })
 
     }
