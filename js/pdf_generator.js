@@ -54,7 +54,7 @@ async function buildPdf(currentQuizList) {
 
     console.log(currentQuizList);
 
-    var sessionName = currentQuizList.sessionName;
+    var sessionName = currentQuizList.at(0).sessionName;
     console.log(sessionName);
    // var chartType = currentQuizList.at(0).chartType;
    // var label = currentQuizList.at(0).label;
