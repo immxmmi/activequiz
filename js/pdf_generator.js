@@ -245,12 +245,10 @@ async function createPdf(sessionID, sessionName) {
 
                     let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
                     listOfQuestion.push(currentQuizData);
-                    listOfQuestion.forEach(element => console.log(element));
+                    buildPdf(listOfQuestion);
                 });
             });
-        }
-        ;
-        buildPdf(listOfQuestion);
+        };
     });
 
 }
