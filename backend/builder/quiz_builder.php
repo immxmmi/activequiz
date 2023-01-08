@@ -7,18 +7,19 @@ class quiz_builder
     private $msg = 'Quizdata successfully fetched';
     private $data = array();
     private $info = '3';
+    private $slots = 1;
 
     public function __construct()
     {
     }
 
-    public function build_quiz_data($question, $answer, $right_answer)
+    public function build_quiz_data($question, $answer, $right_answer, $slots)
     {
 
         if ($question === null) {
             $this->info = "no Question - Failed";
         } else {
-            $this->info = "Loading - Success";
+            $this->info = $slots;
             $this->data = array(
                 'question' => $question[0],
                 'answers' => $answer[0],

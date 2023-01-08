@@ -25,13 +25,9 @@ $quiz_build = new quiz_builder();
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
-$quablayout = $activequiz_attempt->getActiveAttemps()[0]->getQubalayout();
-echo '<pre>';
-print_r(sizeof(explode(",", $quablayout)));
-echo '</pre>';
+$slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
 
-/*
 
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
 if ($allquestionengids != null) {
@@ -49,16 +45,15 @@ foreach ($quizdata as $qd) {
 }
 
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($qu, $aw, $right);
-
+$data = $quiz_build->build_quiz_data($qu, $aw, $right, $slots);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
-/*
+
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
 
-*/
+
 
 
 
