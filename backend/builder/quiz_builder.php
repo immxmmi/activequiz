@@ -18,6 +18,8 @@ class quiz_builder
         if ($question === null || $current_slot > $slots || $right_answer == null || $answer == null) {
             $this->info = "no Question - Failed";
             $this->msg = "SLOT ERROR";
+            $this->status = "not found";
+            $this->response_code = 404;
             $this->data = array(
                 'question' => '-',
                 'answers' => '-',
