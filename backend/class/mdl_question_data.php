@@ -22,7 +22,7 @@ class question_data
             $this->rightanswer = $result[$questionusageid]->rightanswer;
 
             echo "<pre>";
-            print_r($sql);
+            print_r($resul);
             echo "</pre>";
 
         }
