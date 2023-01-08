@@ -65,7 +65,7 @@ async function buildPdf(currentQuizList) {
 //
    // );
    //
-    const sessionName = currentQuizList.at(0).sessionName;
+    var sessionName = currentQuizList.at(0).sessionName;
 
     console.log(sessionName);
 
