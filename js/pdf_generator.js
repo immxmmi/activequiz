@@ -10,6 +10,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 // Generate Chart By Parameter
 async function getQuizDataBySession(sessionid, slot) {
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid + '&slot=' + slot;
+    console.log(url);
     return fetch(url).then((response) => response.json());
 }
 
