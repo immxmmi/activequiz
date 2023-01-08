@@ -26,7 +26,7 @@ $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 echo '<pre>';
-print_r($activequiz_attempt);
+print_r($activequiz_attempt->getActiveAttemps());
 echo '</pre>';
 
 
