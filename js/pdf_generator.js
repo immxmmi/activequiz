@@ -1,7 +1,7 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-class Car {
+class QuizData {
     constructor(sessionName,chartType,label,labels,data,rightAnswer,answers, question) {
         this.sessionName = sessionName;
         this.chartType = chartType;
@@ -226,7 +226,7 @@ async function createPdf(sessionID, sessionName) {
                     const question = quizData.data.data.question;
                     const answers = labels;
 
-                    let myCar1 = new Car(sessionName,chartType,label,labels,data,rightAnswer,answers, question);
+                    let currentQuizData = new QuizData(sessionName,chartType,label,labels,data,rightAnswer,answers, question);
                     console.log("SessionName: " + sessionName);
                     console.log("chartType: " + chartType);
                     console.log("label: " + label);
@@ -236,7 +236,7 @@ async function createPdf(sessionID, sessionName) {
                     console.log("question: " + question);
                     console.log("answers: " + answers);
 
-                    console.log(myCar1);
+                    console.log(currentQuizData);
 
                     // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
