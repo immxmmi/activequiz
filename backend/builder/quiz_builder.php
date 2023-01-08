@@ -45,6 +45,16 @@ class quiz_builder
     }
 
     /**
+     * @param string $info
+     */
+    public function setInfo(string $info)
+    {
+        $this->info = $info;
+    }
+
+
+
+    /**
      * @return int
      */
     public function getResponseCode(): int

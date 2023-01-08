@@ -24,6 +24,7 @@ $quiz_build = new quiz_builder();
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
+$quiz_build.setInfo("3");
 #######################################################
 
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
@@ -44,12 +45,12 @@ foreach ($quizdata as $qd) {
 // build JSON-DATA with Builder
 $data = $quiz_build->build_quiz_data($qu, $aw, $right);
 
+
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
-
 
 
 
