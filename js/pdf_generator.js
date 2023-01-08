@@ -190,7 +190,7 @@ async function createPdf(sessionID, sessionName) {
         $slotMax = quizSlots.data.data.max_slots;
 
 
-       // for ($currentSlot = 1; $currentSlot < $slotMax; $currentSlot++){
+        //for ($currentSlot = 1; $currentSlot < $slotMax; $currentSlot++){
 
         getQuizDataBySession(sessionID, 1).then(async (quizData) => {
             console.log(quizData.data.data.max_slots);
