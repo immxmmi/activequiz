@@ -21,9 +21,9 @@ class quiz_builder
             $this->status = "not found";
             $this->response_code = 404;
             $this->data = array(
-                'question' => '-',
-                'answers' => '-',
-                'right_answer' => '-',
+                'question' => 'NULL',
+                'answers' => null,
+                'right_answer' => 'NULL',
                 'current_slot' => $current_slot,
                 'max_slots' => $slots
             );
