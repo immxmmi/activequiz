@@ -53,6 +53,7 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 async function buildPdf(currentQuizList) {
 
     var sessionName = currentQuizList.at(1).sessionName;
+    console.log(currentQuizList.at(1));
     var chartType = currentQuizList.at(1).chartType;
     var label = currentQuizList.at(1).label;
     var labels = currentQuizList.at(1).labels;
