@@ -54,7 +54,7 @@ foreach ($quizdata as $qd) {
 }
 */
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots);
+$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');

@@ -13,17 +13,18 @@ class quiz_builder
     {
     }
 
-    public function build_quiz_data($question, $answer, $right_answer, $slots)
+    public function build_quiz_data($question, $answer, $right_answer, $slots,$current_slot)
     {
         if ($question === null) {
             $this->info = "no Question - Failed";
         } else {
             $this->info = $slots;
             $this->data = array(
-                'question' => $question[0],
-                'answers' => $answer[0],
-                'right_answer' => $right_answer[0],
-                'slots' => $slots
+                'question' => $question,
+                'answers' => $answer,
+                'right_answer' => $right_answer,
+                'current_slot' => $current_slot,
+                'max_slots' => $slots
             );
         }
         return $this->convert_quiz_to_json();
