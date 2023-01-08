@@ -27,7 +27,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
-if($slot > 0 && $slot < $max_slots){
+if($slot > 0 && $slot <= $max_slots){
 
     # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
     $curretnQuiz = new question_data($allquestionengids[0], $slot);
