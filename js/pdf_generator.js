@@ -52,7 +52,8 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 //async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
 
-    console.log(currentQuizList);
+    currentQuizList.forEach(element => console.log(element));
+
 
     // var sessionName = currentQuizList[0];
     //console.log(sessionName);
@@ -221,8 +222,8 @@ async function createPdf(sessionID, sessionName) {
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
-        $slotMax = quizSlots.data.data.max_slots;
-        for (let currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
+        const slotMax = quizSlots.data.data.max_slots;
+        for (let currentSlot = 1; currentSlot <= slotMax; currentSlot++) {
 
             getQuizDataBySession(sessionID, currentSlot).then(async (quizData) => {
                 let answers;
@@ -245,7 +246,9 @@ async function createPdf(sessionID, sessionName) {
 
                     let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
                     listOfQuestion.push(currentQuizData);
-                    buildPdf(listOfQuestion);
+                    if(currentSlot == slotMax){
+                        buildPdf(listOfQuestion);
+                    }
                 });
             });
         };
