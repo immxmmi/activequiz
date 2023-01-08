@@ -190,43 +190,47 @@ async function createPdf(sessionID, sessionName) {
         $slotMax = quizSlots.data.data.max_slots;
 
 
-        getQuizDataBySession(sessionID, 1).then(async (quizData) => {
-            console.log(quizData.data.data.max_slots);
-            let answers;
+        for ($currentSlot = 1; $currentSlot < $slotMax; $currentSlot++) {
 
-            // CHART API
-            getChartDataBySessionID(sessionID,2).then((chartData) => {
-                // Chart data
-
-                const chartType = chartData.data.charttype;
-                let label = chartData.data.chartdata.datasets.at(0).label;
-                label = 'Answers';
+            getQuizDataBySession(sessionID, 1).then(async (quizData) => {
+                console.log(quizData.data.data.max_slots);
+                let answers;
 
                 // CHART API
-                const labels = chartData.data.chartdata.labels;
-                const data = chartData.data.chartdata.datasets.at(0).data;
-                // Quiz Data
-                const rightAnswer = quizData.data.data.right_answer;
-                const question = quizData.data.data.question;
-                const answers = labels;
+                getChartDataBySessionID(sessionID, 2).then((chartData) => {
+                    // Chart data
+
+                    const chartType = chartData.data.charttype;
+                    let label = chartData.data.chartdata.datasets.at(0).label;
+                    label = 'Answers';
+
+                    // CHART API
+                    const labels = chartData.data.chartdata.labels;
+                    const data = chartData.data.chartdata.datasets.at(0).data;
+                    // Quiz Data
+                    const rightAnswer = quizData.data.data.right_answer;
+                    const question = quizData.data.data.question;
+                    const answers = labels;
 
 
+                    console.log("SessionName: " + sessionName);
+                    console.log("chartType: " + chartType);
+                    console.log("label: " + label);
+                    console.log("labels: " + labels);
+                    console.log("data: " + data);
+                    console.log("rightAnswer: " + rightAnswer);
+                    console.log("question: " + question);
+                    console.log("answers: " + answers);
 
-                console.log("SessionName: " + sessionName);
-                console.log("chartType: " + chartType);
-                console.log("label: " + label);
-                console.log("labels: " + labels);
-                console.log("data: " + data);
-                console.log("rightAnswer: " + rightAnswer);
-                console.log("question: " + question);
-                console.log("answers: " + answers);
 
-
-                // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
+                    // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
+                }
 
             });
 
-        });
+        }
+    )
+        ;
     })
 
 }
