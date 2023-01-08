@@ -190,14 +190,15 @@ async function createPdf(sessionID, sessionName) {
         $slotMax = quizSlots.data.data.max_slots;
 
 
-        for (var currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
+        for (let currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
 
-            getQuizDataBySession(sessionID, currentSlot).then(async (quizData) => {
+            console.log(currentSlot);
+            getQuizDataBySession(sessionID, 1).then(async (quizData) => {
                 console.log(quizData.data.data.max_slots);
                 let answers;
 
                 // CHART API
-                getChartDataBySessionID(sessionID, currentSlot).then((chartData) => {
+                getChartDataBySessionID(sessionID, 1).then((chartData) => {
                     // Chart data
 
                     const chartType = chartData.data.charttype;
