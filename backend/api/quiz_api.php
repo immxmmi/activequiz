@@ -38,7 +38,7 @@ if ($allquestionengids != null) {
 #######################################################
 
 echo "<pre>";
-print_r($quizdata);
+print_r(new question_data($allquestionengids[0], $slot));
 echo "</pre>";
 
 
