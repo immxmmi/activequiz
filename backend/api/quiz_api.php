@@ -25,8 +25,9 @@ $quiz_build = new quiz_builder();
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
+$quablayout = $activequiz_attempt->getActiveAttemps()[0]->getQubalayout();
 echo '<pre>';
-print_r($activequiz_attempt->getActiveAttemps()[0]->getQubalayout());
+print_r($pieces = explode(",", $quablayout));
 echo '</pre>';
 
 
