@@ -20,16 +20,19 @@ class question_data
             foreach ($result as $res) {
                 array_push($this->result_array, $res);
             }
-            echo "<pre>";
-            print_r($this->result_array);
-            echo "</pre>";
 
-            $this->summary = $result[$result->id]->questionsummary;
+            $result = $this->result_array[0];
+
+            $this->summary = $result->questionsummary;
 
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
-            $this->rightanswer = $result[$slot]->rightanswer;
+            $this->rightanswer = $result->rightanswer;
+            echo "<pre>";
+            print_r($result);
+            echo "</pre>";
+
         }
 
     }
