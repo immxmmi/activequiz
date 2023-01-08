@@ -1,18 +1,18 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
-// Generate Chart By Parameter
+// Generate Chart By Parameter --> Answers
 function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
     return fetch(url).then((response) => response.json());
 }
 
-// Generate Chart By Parameter
+// Generate Chart By Parameter -->
 async function getQuizDataBySession(sessionid, slot) {
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid + '&slot=' + slot;
-    console.log(url);
     return fetch(url).then((response) => response.json());
 }
+
 
 // TODO - Slots
 async function getChartDataBySessionID(sessionID) {
@@ -24,14 +24,16 @@ async function getChartDataBySessionID(sessionID) {
     // }
 }
 
+// create image -->
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     const height = 250;
     const weight = 350;
-    // const url = `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`;
     var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&weight=${weight}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
     return encodeURI(url);
 }
+
+
 
 // TODO
 async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
@@ -176,23 +178,37 @@ async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer
 }
 
 async function createPdf(sessionID, sessionName) {
-    if (sessionID == null) {
-        return;
-    }
 
+
+    if (sessionID == null || sessionName == null) {return;}
+
+    // Anfrage an quizapi --> get
+    $slotMax = 2;
+
+
+
+    // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizData) => {
+
         let answers;
+
+        // CHART API
         getChartDataBySessionID(sessionID).then((chartData) => {
             // Chart data
             const chartType = chartData.data.charttype;
             let label = chartData.data.chartdata.datasets.at(0).label;
             label = 'Answers';
+
+            // CHART API
             const labels = chartData.data.chartdata.labels;
             const data = chartData.data.chartdata.datasets.at(0).data;
             // Quiz Data
             const rightAnswer = quizData.data.data.right_answer;
             const question = quizData.data.data.question;
             const answers = labels;
+
+
+
 
             buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
