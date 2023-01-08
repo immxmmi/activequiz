@@ -1,10 +1,38 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
-import { generateChartBySessionAndSlot, getQuizDataBySession, getChartDataBySessionID, createChartLink } from './chart_img_generator';
 
+// Generate Chart By Parameter
+function generateChartBySessionAndSlot(sessionid, type, slot) {
+    var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
+    return fetch(url).then((response) => response.json());
+}
+
+// Generate Chart By Parameter
+async function getQuizDataBySession(sessionid) {
+    var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
+    return fetch(url).then((response) => response.json());
+}
+
+// TODO - Slots
+async function getChartDataBySessionID(sessionID) {
+    // for (let slot = 1; slot < slots; slot++) {
+    return generateChartBySessionAndSlot(sessionID, 'bar', 1);
+    //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
+    //   generateChartBySessionAndSlot(sessionID, 'pie3d', slot);
+    // }
+}
+
+function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
+    let labelsStr = labels.map(x => "'" + x + "'").toString();
+    const height = 250;
+    const weight = 350;
+    // const url = `https://quickchart.io/chart?width=500&height=300&c={type:'${chartType}',data:{labels:[${labelsStr}], datasets:[{label:'${label}',data:[${data}]}]}}`;
+    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&weight=${weight}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
+    return encodeURI(url);
+}
 
 // TODO
-async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers) {
+async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -15,7 +43,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const chartUrl = createChartLink(chartType, sessionName, labels, data, question,"Antworten","Auswertung");
+    const chartUrl = createChartLink(chartType, sessionName, labels, data, question, "Antworten", "Auswertung");
     console.log(chartUrl);
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
@@ -46,7 +74,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
         color: rgb(0.0, 0.392, 0.612), //blau
     });
 
-    for (let i = 0; i < questionArray.length; i++){
+    for (let i = 0; i < questionArray.length; i++) {
         let page = pdfDoc.addPage();
         page.drawImage(pngImage, {
             x: 10,
@@ -85,7 +113,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
                     y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine)
                 });
                 radioGroup.select(answersArray[i][j]);
-            }  else {
+            } else {
                 page.drawText(answersArray[i][j], {
                     x: 70,
                     y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
@@ -130,7 +158,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
         });
         page.drawImage(chartImage, {
             x: 30,
-            y: height - 126 - 30 - 60 - 300 ,
+            y: height - 126 - 30 - 60 - 300,
             width: 500,
             height: 300,
         });
@@ -164,7 +192,7 @@ async function createPdf(sessionID, sessionName) {
             const question = quizData.data.data.question;
             const answers = labels;
 
-            buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers);
+            buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
         });
 
