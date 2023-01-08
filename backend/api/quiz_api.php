@@ -39,7 +39,10 @@ if ($allquestionengids != null) {
 */
 #######################################################
 
-new question_data($allquestionengids[0], $slot);
+echo "<pre>";
+print_r(new question_data($allquestionengids[0], $slot));
+echo "</pre>";
+
 
 
 
