@@ -32,11 +32,13 @@ if($slot > 0 ){
     # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
     $curretnQuiz = new question_data($allquestionengids[0], $slot);
     #######################################################
+// build JSON-DATA with Builder
+$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
+}else{
+    $data = $quiz_build->build_quiz_data(null, null, null, $max_slots, $slot);
 }
 
 
-// build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
