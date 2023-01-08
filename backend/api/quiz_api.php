@@ -44,7 +44,7 @@ echo "</pre>";
 
 
 
-
+/*
 // split quizdata in question array and answer array
 foreach ($quizdata as $qd) {
     array_push($qu, $qd->getQuestion());
