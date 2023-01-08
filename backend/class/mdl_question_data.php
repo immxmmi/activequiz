@@ -17,12 +17,11 @@ class question_data
             $result = $DB->get_records_sql($sql, $params);
 
             $this->summary = $result[$slot]->questionsummary;
-/*
+
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
-            $this->rightanswer = $result[$questionusageid]->rightanswer;
-  */
+            $this->rightanswer = $result[$slot]->rightanswer;
         }
 
     }
