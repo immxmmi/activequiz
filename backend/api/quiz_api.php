@@ -27,7 +27,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $quablayout = $activequiz_attempt->getActiveAttemps()[0]->getQubalayout();
 echo '<pre>';
-print_r($pieces = explode(",", $quablayout));
+print_r(sizeof(explode(",", $quablayout)));
 echo '</pre>';
 
 
