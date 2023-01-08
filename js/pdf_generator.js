@@ -2,7 +2,7 @@
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 class QuizData {
-    constructor(sessionName,chartType,label,labels,data,rightAnswer,answers, question) {
+    constructor(sessionName, chartType, label, labels, data, rightAnswer, answers, question) {
         this.sessionName = sessionName;
         this.chartType = chartType;
         this.label = label;
@@ -49,7 +49,13 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 
 
 // TODO
-async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
+//async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
+async function buildPdf(currentQuizList) {
+
+    console.log(currentQuizList);
+
+
+    /*
 
     // Deckblatt
     const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -157,7 +163,7 @@ async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer
             color: rgb(0, 0.1, 0.156),
             maxWidth: width - 80
         });*/
-
+/*
         page = pdfDoc.addPage();
         page.drawImage(pngImage, {
             x: 10,
@@ -188,6 +194,7 @@ async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer
     const time = d.getTime();
     // Download
     download(pdfBytes, sessionName + time.toString(), "application/pdf");
+    */
 }
 
 async function createPdf(sessionID, sessionName) {
@@ -225,16 +232,13 @@ async function createPdf(sessionID, sessionName) {
                     const question = quizData.data.data.question;
                     const answers = labels;
 
-                    let currentQuizData = new QuizData(sessionName,chartType,label,labels,data,rightAnswer,answers, question);
-
+                    let currentQuizData = new QuizData(sessionName, chartType, label, labels, data, rightAnswer, answers, question);
                     listOfQuestion.push(currentQuizData);
-                    console.log(listOfQuestion);
-
-                    // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
-
+                    buildPdf(currentQuizData);
                 });
             });
-        };
+        }
+        ;
     })
 
 }
