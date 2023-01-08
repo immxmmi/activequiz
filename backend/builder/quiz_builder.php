@@ -6,7 +6,7 @@ class quiz_builder
     private $status = 'success';
     private $msg = 'Quizdata successfully fetched';
     private $data = array();
-    private $info = '-';
+    private $info = '3';
 
     public function __construct()
     {
