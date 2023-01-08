@@ -9,11 +9,11 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 
 // Generate Chart By Parameter
 async function getQuizDataBySession(sessionid) {
-
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
     return fetch(url).then((response) => response.json());
 }
 
+// TODO
 async function getChartDataBySessionID(sessionID) {
     // for (let slot = 1; slot < slots; slot++) {
     return generateChartBySessionAndSlot(sessionID, 'bar', 1);
@@ -21,6 +21,9 @@ async function getChartDataBySessionID(sessionID) {
     //   generateChartBySessionAndSlot(sessionID, 'doughnut', slot);
     // }
 }
+
+
+
 
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
@@ -31,6 +34,9 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
     return encodeURI(url);
 }
 
+
+
+// TODO
 async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers) {
 
     // Deckblatt
@@ -42,7 +48,7 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
     const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
     // Chart
-    const chartUrl = createChartLink(chartType, sessionName, labels, data, question,"Antorten","Auswertung");
+    const chartUrl = createChartLink(chartType, sessionName, labels, data, question,"Antworten","Auswertung");
     console.log(chartUrl);
     const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
 
@@ -53,13 +59,19 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
 
 
     const pages = pdfDoc.getPages();
+    const questionArray = [];
+    questionArray[0] = question;
+    const answersArray = [];
+    answersArray[0] = answers;
+    const rightAnswerArray = [];
+    rightAnswerArray[0] = rightAnswer;
 
     //const pdfDoc = await PDFLib.PDFDocument.create();
     const arialFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
+    console.log(data);
     const firstPage = pages[0];
     const {width, height} = firstPage.getSize();
-    firstPage.drawText('Test: '+sessionName, {
+    firstPage.drawText(sessionName, {
         x: 50,
         y: height / 2,
         size: 34,
@@ -67,84 +79,105 @@ async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer,
         color: rgb(0.0, 0.392, 0.612), //blau
     });
 
-    //for (let i = 0; i < question.length; i++) {
-    //    let j;
-    const page = pdfDoc.addPage();
-    //    page.drawImage(pngImage, {
-    //        x: 10,
-    //        y: height - 126,
-    //        width: 180,
-    //        height: 113
-    //    });
-    //    page.drawText(question[i], {
-    //        x: 40,
-    //        y: height - 126 - 30,
-    //        size: 28,
-    //        font: arialFont,
-    //        color: rgb(0, 0.1, 0.156),
-    //        maxWidth: width - 80
-    //    });
-    //    const form = pdfDoc.getForm();
-    //    const radioGroup = form.createRadioGroup(question[i]);
+    for (let i = 0; i < questionArray.length; i++){
+        let page = pdfDoc.addPage();
+        page.drawImage(pngImage, {
+            x: 10,
+            y: height - 126,
+            width: 180,
+            height: 113
+        });
+        page.drawText(questionArray[i], {
+            x: 40,
+            y: height - 126 - 30,
+            size: 28,
+            font: arialFont,
+            color: rgb(0, 0.1, 0.156),
+            maxWidth: width - 80
+        });
+        const form = pdfDoc.getForm();
+        const radioGroup = form.createRadioGroup(questionArray[i]);
 
+        let j;
+        let newLine = 15;
+        let lines = 0;
+        for (j = 0; j < answersArray[i].length; j++) {
+            if (answersArray[i][j].replace(/^\s+/g, "") == rightAnswerArray[i].replace(/\s+/g, "")) {
+                page.drawText(answersArray[i][j], {
+                    x: 70,
+                    y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
+                    size: 18,
+                    font: arialFont,
+                    color: rgb(0.537, 0.702, 0.114),
+                    maxWidth: width - 80
+                });
+                radioGroup.addOptionToPage(answersArray[i][j], page, {
+                    height: 15,
+                    width: 15,
+                    x: 43,
+                    y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine)
+                });
+                radioGroup.select(answersArray[i][j]);
+            }  else {
+                page.drawText(answersArray[i][j], {
+                    x: 70,
+                    y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
+                    size: 18,
+                    font: arialFont,
+                    color: rgb(0, 0.1, 0.156),
+                    maxWidth: width - 80
+                });
+                radioGroup.addOptionToPage(answersArray[i][j], page, {
+                    height: 15,
+                    width: 15,
+                    x: 43,
+                    y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine)
+                });
+            }
+            lines = lines + answersArray[i][j].length / 50;
+        }
+        /*
+        page.drawText(test, {
+            x: 40,
+            y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
+            size: 28,
+            font: arialFont,
+            color: rgb(0, 0.1, 0.156),
+            maxWidth: width - 80
+        });*/
 
-    // //  //  for (j = 0; j < answers[i].length; j++) {
-    // //  for (j = 0; j < 1; j++) {
-    //      if (answers[i][j] == rightAnswer[i]) {
-    //          page.drawText(answers[i][j], {
-    //              x: 70,
-    //              y: height - 126 - 30 - 40 - (40 * j),
-    //              size: 18,
-    //              font: arialFont,
-    //              color: rgb(0.537, 0.702, 0.114),
-    //          });
-    //          radioGroup.addOptionToPage(answers[i][j], page, {
-    //              height: 15,
-    //              width: 15,
-    //              x: 43,
-    //              y: height - 126 - 30 - 40 - (40 * j)
-    //          });
-    //          radioGroup.select(answers[i][j]);
-    //      } else {
-    //          page.drawText(answers[i][j], {
-    //              x: 70,
-    //              y: height - 126 - 30 - 40 - (40 * j),
-    //              size: 18,
-    //              font: arialFont,
-    //              color: rgb(0, 0.1, 0.156),
-    //          });
-    //          radioGroup.addOptionToPage(answers[i][j], page, {
-    //              height: 15,
-    //              width: 15,
-    //              x: 43,
-    //              y: height - 126 - 30 - 40 - (40 * j)
-    //          });
-    //      }
-    //  }
-    //    page.drawImage(chartImage, {
-    //        x: 30,
-    //        y: height - 126 - 30 - 40 - (40 * j) - 300,
-    //        width: 500,
-    //        height: 300,
-    //    });
-    //    form.flatten();
-    //}
+        page = pdfDoc.addPage();
+        page.drawImage(pngImage, {
+            x: 10,
+            y: height - 126,
+            width: 180,
+            height: 113
+        });
+        page.drawText(questionArray[i] + " - Chart", {
+            x: 40,
+            y: height - 126 - 30,
+            size: 28,
+            font: arialFont,
+            color: rgb(0, 0.1, 0.156),
+            maxWidth: width - 80
+        });
+        page.drawImage(chartImage, {
+            x: 30,
+            y: height - 126 - 30 - 60 - 300 ,
+            width: 500,
+            height: 300,
+        });
 
-
-    page.drawImage(chartImage, {
-        x: 30,
-        y: 30,
-        width: 500,
-        height: 300,
-    });
-
+        form.flatten();
+    }
     const pdfBytes = await pdfDoc.save();
     // Time and Date
     const d = new Date();
     const time = d.getTime();
     // Download
-    download(pdfBytes, "QUIZ PDF" + time.toString(), "application/pdf");
+    download(pdfBytes, sessionName + time.toString(), "application/pdf");
 }
+
 
 async function createPdf(sessionID, sessionName) {
     if (sessionID == null) {
