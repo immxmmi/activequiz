@@ -15,7 +15,7 @@ class quiz_builder
 
     public function build_quiz_data($question, $answer, $right_answer, $slots,$current_slot)
     {
-        if ($question === null || $current_slot > $slots) {
+        if ($question === null || $current_slot > $slots || $right_answer == null || $answer == null) {
             $this->info = "no Question - Failed";
             $this->data = array(
                 'question' => '-',
