@@ -48,7 +48,7 @@ foreach ($quizdata as $qd) {
 $data = $quiz_build->build_quiz_data($qu, $aw, $right, $slots);
 
 echo "<pre>";
-print_r(new question_data(1));
+print_r(new question_data(2));
 echo "</pre>";
 
 
