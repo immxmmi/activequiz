@@ -186,15 +186,19 @@ async function createPdf(sessionID, sessionName) {
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
+        console.log(quizSlots);
         /*
         $slotMax = quizSlots;
-        console.log(quizSlots);
 */
         let answers;
 
         // CHART API
         getChartDataBySessionID(sessionID).then((chartData) => {
             // Chart data
+
+
+
+            /*
             const chartType = chartData.data.charttype;
             let label = chartData.data.chartdata.datasets.at(0).label;
             label = 'Answers';
@@ -206,11 +210,11 @@ async function createPdf(sessionID, sessionName) {
             const rightAnswer = quizData.data.data.right_answer;
             const question = quizData.data.data.question;
             const answers = labels;
+*/
 
 
 
-
-            buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
+           // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
         });
 
