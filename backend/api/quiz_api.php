@@ -27,12 +27,12 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
-if($slot < $max_slots && $slot > 1 ){
+//if($slot < $max_slots && $slot > 1 ){
 
     # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
     $curretnQuiz = new question_data($allquestionengids[0], $slot);
     #######################################################
-}
+//}
 
 
 // build JSON-DATA with Builder
