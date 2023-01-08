@@ -30,11 +30,13 @@ $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->get
 
 
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
+/*
 if ($allquestionengids != null) {
     foreach ($allquestionengids as $id) {
         array_push($quizdata, new question_data($id, $slot));
     }
 }
+*/
 #######################################################
 
 new question_data($allquestionengids[0], $slot);
