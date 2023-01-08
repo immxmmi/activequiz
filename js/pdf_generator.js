@@ -34,7 +34,6 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 }
 
 
-
 // TODO
 async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 
@@ -180,44 +179,46 @@ async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer
 async function createPdf(sessionID, sessionName) {
 
 
-    if (sessionID == null || sessionName == null) {return;}
+    if (sessionID == null || sessionName == null) {
+        return;
+    }
 
 
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
-        console.log(quizSlots.data.data.max_slots);
-        /*
-        $slotMax = quizSlots;
-*/
-        let answers;
-
-        // CHART API
-        getChartDataBySessionID(sessionID).then((chartData) => {
-            // Chart data
+        $slotMax = quizSlots.data.data.max_slots;
 
 
-
-            /*
-            const chartType = chartData.data.charttype;
-            let label = chartData.data.chartdata.datasets.at(0).label;
-            label = 'Answers';
+        getQuizDataBySession(sessionID, $slotMax).then(async (quizSlots) => {
+            console.log(quizSlots.data.data.max_slots);
+            let answers;
 
             // CHART API
-            const labels = chartData.data.chartdata.labels;
-            const data = chartData.data.chartdata.datasets.at(0).data;
-            // Quiz Data
-            const rightAnswer = quizData.data.data.right_answer;
-            const question = quizData.data.data.question;
-            const answers = labels;
-*/
+            getChartDataBySessionID(sessionID).then((chartData) => {
+                // Chart data
 
 
+                /*
+                const chartType = chartData.data.charttype;
+                let label = chartData.data.chartdata.datasets.at(0).label;
+                label = 'Answers';
 
-           // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
+                // CHART API
+                const labels = chartData.data.chartdata.labels;
+                const data = chartData.data.chartdata.datasets.at(0).data;
+                // Quiz Data
+                const rightAnswer = quizData.data.data.right_answer;
+                const question = quizData.data.data.question;
+                const answers = labels;
+    */
+
+
+                // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
+
+            });
 
         });
-
     })
 
 }
