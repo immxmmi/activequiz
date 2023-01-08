@@ -15,10 +15,10 @@ async function getQuizDataBySession(sessionid, slot) {
 
 
 // TODO - Slots
-async function getChartDataBySessionID(sessionID) {
+async function getChartDataBySessionID(sessionID, slot) {
 
     // for (let slot = 1; slot < slots; slot++) {
-    return generateChartBySessionAndSlot(sessionID, 'bar', 1);
+    return generateChartBySessionAndSlot(sessionID, 'bar', slot);
     //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
     //   generateChartBySessionAndSlot(sessionID, 'pie3d', slot);
     // }
