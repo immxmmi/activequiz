@@ -211,6 +211,17 @@ async function createPdf(sessionID, sessionName) {
                 const answers = labels;
 
 
+
+                console.log("SessionName: " + sessionName);
+                console.log("chartType: " + chartType);
+                console.log("label: " + label);
+                console.log("labels: " + labels);
+                console.log("data: " + data);
+                console.log("rightAnswer: " + rightAnswer);
+                console.log("question: " + question);
+                console.log("answers: " + answers);
+
+
                 // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
             });
