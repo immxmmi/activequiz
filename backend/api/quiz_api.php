@@ -38,14 +38,19 @@ if ($allquestionengids != null) {
 }
 */
 #######################################################
+$curretnQuiz = new question_data($allquestionengids[0], $slot);
 
 echo "<pre>";
-print_r(new question_data($allquestionengids[0], $slot));
+var_dump($curretnQuiz->getQuestion());
 echo "</pre>";
 
 
 
 
+
+/*
+build_quiz_data($question, $answer, $right_answer, $slots)
+*/
 
 
 /*
