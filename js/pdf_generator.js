@@ -197,13 +197,12 @@ async function createPdf(sessionID, sessionName) {
         return;
     }
 
+    let listOfQuestion;
 
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
         $slotMax = quizSlots.data.data.max_slots;
-
-
         for (let currentSlot = 1; currentSlot <= $slotMax; currentSlot++) {
 
             console.log(currentSlot);
@@ -227,16 +226,9 @@ async function createPdf(sessionID, sessionName) {
                     const answers = labels;
 
                     let currentQuizData = new QuizData(sessionName,chartType,label,labels,data,rightAnswer,answers, question);
-                    console.log("SessionName: " + sessionName);
-                    console.log("chartType: " + chartType);
-                    console.log("label: " + label);
-                    console.log("labels: " + labels);
-                    console.log("data: " + data);
-                    console.log("rightAnswer: " + rightAnswer);
-                    console.log("question: " + question);
-                    console.log("answers: " + answers);
 
-                    console.log(currentQuizData);
+                    listOfQuestion.push(currentQuizData);
+                    console.log(listOfQuestion);
 
                     // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
