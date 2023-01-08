@@ -246,10 +246,9 @@ async function buildPdf(currentQuizList) {
                         listOfQuestion.push(currentQuizData);
                     });
                 });
-            }
-            ;
+            };
+                        buildPdf(currentQuizData);
         })
 
-                        buildPdf(currentQuizData);
     }
 
