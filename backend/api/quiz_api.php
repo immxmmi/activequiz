@@ -27,7 +27,7 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 echo '<pre>';
 echo 'TESSSSSSSSSSSSSSST';
-print_r($activequiz_attempt->getActiveAttemps());
+print_r($activequiz_attempt->getActiveAttemps()[0]);
 echo '</pre>';
 
 
