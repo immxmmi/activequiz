@@ -37,7 +37,9 @@ if ($allquestionengids != null) {
 #######################################################
 
 
-
+echo "<pre>";
+print_r($quizdata);
+echo "</pre>";
 
 /*
 
