@@ -16,11 +16,7 @@ class question_data
             $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
 
-            echo "<pre>";
-            print_r($result[2]);
-            echo "</pre>";
-
-            $this->summary = $result[2]->questionsummary;
+            $this->summary = $result[$slot]->questionsummary;
 /*
             $text = explode(':', $this->summary);
             $this->question = $text[0];
