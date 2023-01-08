@@ -12,7 +12,7 @@ class question_data
     {
         global $DB;
         if ($questionusageid !== null) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot = 1';
             $params = array('questionusageid' => $questionusageid);
             $result = $DB->get_records_sql($sql, $params);
 
