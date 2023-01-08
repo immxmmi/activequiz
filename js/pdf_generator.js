@@ -188,8 +188,12 @@ async function createPdf(sessionID, sessionName) {
 
 
     // QUIZ API
-    getQuizDataBySession(sessionID, 1).then(async (quizData) => {
+    getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
+        $slotMax = quizSlots;
+        console.log(quizSlots);
+
+    getQuizDataBySession(sessionID, 1).then(async (quizData) => {
         let answers;
 
         // CHART API
