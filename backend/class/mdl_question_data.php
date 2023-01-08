@@ -16,11 +16,13 @@ class question_data
             $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
 
-            echo "<pre>";
-            print_r($result);
-            echo "</pre>";
+
 
             $this->summary = $result[$slot]->questionsummary;
+
+            echo "<pre>";
+            print_r($this->summary);
+            echo "</pre>";
 
             $text = explode(':', $this->summary);
             $this->question = $text[0];
