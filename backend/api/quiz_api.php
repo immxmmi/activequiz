@@ -26,9 +26,11 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
+echo "<pre>";
+print_r($max_slots);
+echo "</pre>";
 
-
-
+/*
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
 if ($allquestionengids != null) {
     foreach ($allquestionengids as $id) {
@@ -43,7 +45,6 @@ foreach ($quizdata as $qd) {
     array_push($aw, $qd->getAnswers());
     array_push($right, $qd->getRightanswer());
 }
-
 // build JSON-DATA with Builder
 $data = $quiz_build->build_quiz_data($qu, $aw, $right, $max_slots);
 
@@ -52,6 +53,7 @@ header('Content-Type: application/json');
 
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
+*/
 
 
 

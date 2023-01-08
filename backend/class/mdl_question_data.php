@@ -8,11 +8,11 @@ class question_data
     private $answers;
     private $rightanswer;
 
-    public function __construct($questionusageid)
+    public function __construct($questionusageid, $slot)
     {
         global $DB;
         if ($questionusageid !== null) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot = 2';
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot = 1';
             $params = array('questionusageid' => $questionusageid);
             $result = $DB->get_records_sql($sql, $params);
 
@@ -22,9 +22,6 @@ class question_data
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
             $this->rightanswer = $result[$questionusageid]->rightanswer;
-
-
-
         }
 
     }
