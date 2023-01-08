@@ -1,6 +1,7 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
-import "./chart_img_generator";
+import { generateChartBySessionAndSlot, getQuizDataBySession, getChartDataBySessionID, createChartLink } from './chart_img_generator';
+
 
 // TODO
 async function buildPdf(sessionName,chartType, label, labels, data, rightAnswer, question, answers) {

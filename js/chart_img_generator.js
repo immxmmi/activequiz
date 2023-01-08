@@ -1,17 +1,17 @@
 // Generate Chart By Parameter
-function generateChartBySessionAndSlot(sessionid, type, slot) {
+export function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
     return fetch(url).then((response) => response.json());
 }
 
 // Generate Chart By Parameter
-async function getQuizDataBySession(sessionid) {
+export async function getQuizDataBySession(sessionid) {
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid;
     return fetch(url).then((response) => response.json());
 }
 
 // TODO - Slots
-async function getChartDataBySessionID(sessionID) {
+export async function getChartDataBySessionID(sessionID) {
     // for (let slot = 1; slot < slots; slot++) {
     return generateChartBySessionAndSlot(sessionID, 'bar', 1);
     //  generateChartBySessionAndSlot(sessionID, 'pie', slot);
@@ -19,7 +19,7 @@ async function getChartDataBySessionID(sessionID) {
     // }
 }
 
-function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
+export function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     const height = 250;
     const weight = 350;
