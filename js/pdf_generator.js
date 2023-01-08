@@ -51,17 +51,23 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 // TODO
 //async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
-
-    var sessionName = currentQuizList.at(0).sessionName);
-    //var chartType = currentQuizList.at(0).chartType;
-    //var label = currentQuizList.at(0).label;
-    //var labels = currentQuizList.at(0).labels;
-    //var data = currentQuizList.at(0).data;
-    //var rightAnswer = currentQuizList.at(0).rightAnswer;
-    //var question = currentQuizList.at(0).question;
-    //var answers = currentQuizList.at(0).answers;
+var sessionName;
+   // currentQuizList.forEach(
+   //     element =>
+   //         sessionName = "element.sessionName";
+   //     //var chartType = currentQuizList.at(0).chartType;
+   //     //var label = currentQuizList.at(0).label;
+   //     //var labels = currentQuizList.at(0).labels;
+   //     //var data = currentQuizList.at(0).data;
+   //     //var rightAnswer = currentQuizList.at(0).rightAnswer;
+   //     //var question = currentQuizList.at(0).question;
+   //     //var answers = currentQuizList.at(0).answers;
+   // //
 //
-    console.log(sessionName);
+   // );
+
+    console.log(currentQuizList.at(0).sessionName);
+
 
     /*
         // Deckblatt
