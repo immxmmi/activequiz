@@ -1,6 +1,20 @@
 // QUIZ DATA
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
+class Car {
+    constructor(sessionName,chartType,label,labels,data,rightAnswer,answers, question) {
+        this.sessionName = sessionName;
+        this.chartType = chartType;
+        this.label = label;
+        this.labels = labels;
+        this.data = data;
+        this.rightAnswer = rightAnswer;
+        this.answers = answers;
+        this.question = question;
+    }
+}
+
+
 // Generate Chart By Parameter --> Answers
 function generateChartBySessionAndSlot(sessionid, type, slot) {
     var url = '/mod/activequiz/backend/api/chart_api.php?sessionid=' + sessionid + '&type=' + type + '&slot=' + slot;
@@ -212,7 +226,7 @@ async function createPdf(sessionID, sessionName) {
                     const question = quizData.data.data.question;
                     const answers = labels;
 
-
+                    let myCar1 = new Car(sessionName,chartType,label,labels,data,rightAnswer,answers, question);
                     console.log("SessionName: " + sessionName);
                     console.log("chartType: " + chartType);
                     console.log("label: " + label);
@@ -222,6 +236,7 @@ async function createPdf(sessionID, sessionName) {
                     console.log("question: " + question);
                     console.log("answers: " + answers);
 
+                    console.log(myCar1);
 
                     // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
 
