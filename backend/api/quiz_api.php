@@ -11,8 +11,6 @@ global $DB;
 $sessionid = optional_param('sessionid', false, PARAM_TEXT);
 $slot = optional_param('slot', false, PARAM_TEXT);
 
-var_dump($slot);
-
 // ARRAY OF ALL QUIZDATA
 $quizdata = array();
 // ARRAY OF QUESTIONS
@@ -34,7 +32,7 @@ $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->get
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
 if ($allquestionengids != null) {
     foreach ($allquestionengids as $id) {
-        array_push($quizdata, new question_data($id, 2));
+        array_push($quizdata, new question_data($id, $slot));
     }
 }
 #######################################################
