@@ -54,14 +54,14 @@ async function buildPdf(currentQuizList) {
 
     console.log(currentQuizList);
 
-    var sessionName = currentQuizList.sessionName;
-    var chartType = currentQuizList.chartType;
-    var label = currentQuizList.label;
-    var labels = currentQuizList.labels;
-    var data = currentQuizList.data;
-    var rightAnswer = currentQuizList.rightAnswer;
-    var question = currentQuizList.question;
-    var answers = currentQuizList.answers;
+    var sessionName = currentQuizList[0].sessionName;
+    var chartType = currentQuizList[0].chartType;
+    var label = currentQuizList[0].label;
+    var labels = currentQuizList[0].labels;
+    var data = currentQuizList[0].data;
+    var rightAnswer = currentQuizList[0].rightAnswer;
+    var question = currentQuizList[0].question;
+    var answers = currentQuizList[0].answers;
 
 
     // Deckblatt
