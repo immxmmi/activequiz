@@ -15,7 +15,7 @@ class question_data
             $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
             $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
-
+            echo $sql;
             $this->summary = $result[$slot]->questionsummary;
 
             $text = explode(':', $this->summary);
