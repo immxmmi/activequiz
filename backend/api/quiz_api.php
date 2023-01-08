@@ -28,7 +28,13 @@ $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->get
 
 echo "<pre>";
 print_r($max_slots);
+print_r(new question_data(1, 1));
 echo "</pre>";
+
+
+
+
+
 
 /*
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
