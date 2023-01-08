@@ -186,7 +186,7 @@ async function createPdf(sessionID, sessionName) {
     // QUIZ API
     getQuizDataBySession(sessionID, 1).then(async (quizSlots) => {
 
-        console.log(quizSlots);
+        console.log(quizSlots.data.data.max_slots);
         /*
         $slotMax = quizSlots;
 */
