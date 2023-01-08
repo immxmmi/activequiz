@@ -39,8 +39,8 @@ if ($allquestionengids != null) {
 
 
 echo "<pre>";
-print_r($max_slots);
-$quizdata;
+echo $max_slots;
+//$quizdata;
 echo "</pre>";
 
 /*
