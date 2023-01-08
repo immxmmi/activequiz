@@ -76,6 +76,15 @@ class activequiz_attempt
         return $qid;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getQubalayout()
+    {
+        return $this->qubalayout;
+    }
+
+
 
     /**
      * @return array return all questionengids of a session

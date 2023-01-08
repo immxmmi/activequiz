@@ -26,6 +26,11 @@ $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
+print_r($activequiz_attempt);
+
+
+
+
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
 if ($allquestionengids != null) {
     foreach ($allquestionengids as $id) {
@@ -47,11 +52,11 @@ $data = $quiz_build->build_quiz_data($qu, $aw, $right);
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');
-
+/*
 echo json_encode($data, JSON_PRETTY_PRINT);
 exit;
 
-
+*/
 
 
 
