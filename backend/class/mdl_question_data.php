@@ -18,7 +18,7 @@ class question_data
 
             echo "<pre>";
             foreach ($result as $res){
-                var_dump($res);
+                print_r($res);
             }
             echo "</pre>";
 
