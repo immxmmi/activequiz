@@ -8,12 +8,12 @@ class question_data
     private $answers;
     private $rightanswer;
 
-    public function __construct($questionusageid)
+    public function __construct($questionusageid, $slot)
     {
         global $DB;
         if ($questionusageid !== null) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
-            $params = array('questionusageid' => $questionusageid);
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot = :slot';
+            $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
 
 
