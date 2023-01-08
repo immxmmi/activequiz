@@ -24,7 +24,6 @@ $quiz_build = new quiz_builder();
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
-$quiz_build.setInfo("3");
 #######################################################
 
 # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #

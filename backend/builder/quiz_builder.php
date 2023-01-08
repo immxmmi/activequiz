@@ -44,15 +44,6 @@ class quiz_builder
         return $response;
     }
 
-    /**
-     * @param string $info
-     */
-    public function setInfo(string $info)
-    {
-        $this->info = $info;
-    }
-
-
 
     /**
      * @return int
