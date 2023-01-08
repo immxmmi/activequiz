@@ -179,7 +179,7 @@ async function createPdf(sessionID, sessionName) {
         return;
     }
 
-    getQuizDataBySession(sessionID, 1).then(async (quizData) => {
+    getQuizDataBySession(sessionID, 2).then(async (quizData) => {
         let answers;
         getChartDataBySessionID(sessionID).then((chartData) => {
             // Chart data
