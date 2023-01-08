@@ -199,7 +199,6 @@ async function createPdf(sessionID, sessionName) {
                 // Chart data
 
                 const chartType = chartData.data.charttype;
-                /*
                 let label = chartData.data.chartdata.datasets.at(0).label;
                 label = 'Answers';
 
@@ -210,7 +209,6 @@ async function createPdf(sessionID, sessionName) {
                 const rightAnswer = quizData.data.data.right_answer;
                 const question = quizData.data.data.question;
                 const answers = labels;
-    */
 
 
                 // buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers);
