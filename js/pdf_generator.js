@@ -62,6 +62,7 @@ var sessionName;
     var question = currentQuizList.at(0).question;
     var answers = currentQuizList.at(0).answers;
 
+    console.log(answers);
 
     /*
         // Deckblatt
