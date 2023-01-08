@@ -23,7 +23,8 @@ class quiz_builder
             $this->data = array(
                 'question' => $question[0],
                 'answers' => $answer[0],
-                'right_answer' => $right_answer[0]
+                'right_answer' => $right_answer[0],
+                'slots' => $slots
             );
         }
         return $this->convert_quiz_to_json();
