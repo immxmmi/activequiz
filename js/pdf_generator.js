@@ -52,30 +52,20 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 //async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
 
-   // currentQuizList.forEach(
-   //     element =>
-   //     //var chartType = currentQuizList.at(0).chartType;
-   //     //var label = currentQuizList.at(0).label;
-   //     //var labels = currentQuizList.at(0).labels;
-   //     //var data = currentQuizList.at(0).data;
-   //     //var rightAnswer = currentQuizList.at(0).rightAnswer;
-   //     //var question = currentQuizList.at(0).question;
-   //     //var answers = currentQuizList.at(0).answers;
-   // //
-//
-   // );
-   //
     var sessionName = currentQuizList.at(0).sessionName;
     var chartType = currentQuizList.at(0).chartType;
     var label = currentQuizList.at(0).label;
     var labels = currentQuizList.at(0).labels;
     var data = currentQuizList.at(0).data;
     var rightAnswer = currentQuizList.at(0).rightAnswer;
+    var question = currentQuizList.at(0).question;
+    var answers = currentQuizList.at(0).answers;
 
     console.log(sessionName);
     console.log(chartType);
     console.log(data);
     console.log(rightAnswer);
+    console.log(answers);
 
 
     /*
