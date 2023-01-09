@@ -45,8 +45,7 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 async function buildPdf(currentQuizList) {
 
     var sessionName = currentQuizList.at(0).sessionName;
-    currentQuizList.at(0).answers[0] = "m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m mm m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m m"
-    const questionSize = 17
+    const questionFontSize = 17
     const answerFontSize = 13;
     const logoYShift = 126;
     const answerYShift = 30;
@@ -75,7 +74,6 @@ async function buildPdf(currentQuizList) {
             font: arialFont,
             color: rgb(0.0, 0.392, 0.612), //blau
         });
-
         for (let i = 0; i < currentQuizList.length; i++) {
             let page = pdfDoc.addPage();
             page.drawImage(pngImage, {
@@ -87,7 +85,7 @@ async function buildPdf(currentQuizList) {
             page.drawText(currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
-                size: questionSize,
+                size: questionFontSize,
                 font: arialFont,
                 color: rgb(0, 0.1, 0.156),
                 maxWidth: width - 80
@@ -96,11 +94,14 @@ async function buildPdf(currentQuizList) {
             const radioGroup = form.createRadioGroup(currentQuizList.at(i).question);
 
             let j;
+            let questionLines = currentQuizList.at(i).question.length / 52;
+            let newQuestionLine = 30;
             let newLine = 22;
             let lines = 0;
+            
             let answerShiftCount = 0;
             for (j = 0; j < currentQuizList.at(i).answers.length; j++) {
-                if((logoYShift + 30 + 31 + (answerYShift * j) + (lines * newLine)) > height){
+                if((logoYShift + (newQuestionLine * questionLines) + 31 + (answerYShift * j) + (lines * newLine)) > height){
                     lines = 0;
                     answerShiftCount = 0;
                     page = pdfDoc.addPage();
@@ -113,7 +114,7 @@ async function buildPdf(currentQuizList) {
                     page.drawText(currentQuizList.at(i).question, {
                         x: 40,
                         y: height - logoYShift - 30,
-                        size: questionSize,
+                        size: questionFontSize,
                         font: arialFont,
                         color: rgb(0, 0.1, 0.156),
                         maxWidth: width - 80
@@ -122,7 +123,7 @@ async function buildPdf(currentQuizList) {
                 if (currentQuizList.at(i).answers[j].replace(/^\s+/g, "") == currentQuizList.at(i).rightAnswer.replace(/\s+/g, "")) {
                     page.drawText(currentQuizList.at(i).answers[j], {
                         x: 70,
-                        y: height - logoYShift - 30 - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
+                        y: height - logoYShift - (newQuestionLine * questionLines) - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
                         size: answerFontSize,
                         font: arialFont,
                         color: rgb(0.537, 0.702, 0.114),
@@ -132,13 +133,13 @@ async function buildPdf(currentQuizList) {
                         height: 13,
                         width: 13,
                         x: 43,
-                        y: height - logoYShift - 30 - 31 - (answerYShift * answerShiftCount) - (lines * newLine)
+                        y: height - logoYShift - (newQuestionLine * questionLines) - 31 - (answerYShift * answerShiftCount) - (lines * newLine)
                     });
                     radioGroup.select(currentQuizList.at(i).answers[j]);
                 } else {
                     page.drawText(currentQuizList.at(i).answers[j], {
                         x: 70,
-                        y: height - logoYShift - 30 - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
+                        y: height - logoYShift - (newQuestionLine * questionLines) - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
                         size: answerFontSize,
                         font: arialFont,
                         color: rgb(0, 0.1, 0.156),
@@ -148,7 +149,7 @@ async function buildPdf(currentQuizList) {
                         height: 13,
                         width: 13,
                         x: 43,
-                        y: height - logoYShift - 30 - 31 - (answerYShift * answerShiftCount) - (lines * newLine)
+                        y: height - logoYShift - (newQuestionLine * questionLines) - 31 - (answerYShift * answerShiftCount) - (lines * newLine)
                     });
                 }
                 lines = lines + (currentQuizList.at(i).answers[j].length / 68);    
@@ -174,7 +175,7 @@ async function buildPdf(currentQuizList) {
             page.drawText(currentQuizList.at(i).question + " - Chart", {
                 x: 40,
                 y: height - logoYShift - 30,
-                size: questionSize,
+                size: questionFontSize,
                 font: arialFont,
                 color: rgb(0, 0.1, 0.156),
                 maxWidth: width - 80
@@ -186,7 +187,7 @@ async function buildPdf(currentQuizList) {
             const chartImage = await pdfDoc.embedPng(chartImageBytes);
             page.drawImage(chartImage, {
                 x: 30,
-                y: height - logoYShift - 30 - 60 - 300,
+                y: height - logoYShift - (newQuestionLine * questionLines) - 60 - 300,
                 width: 500,
                 height: 300,
             });
