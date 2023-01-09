@@ -44,17 +44,15 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 //async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
 
-    var sessionName = currentQuizList.at(1).sessionName;
-    console.log(currentQuizList.at(1));
-    var chartType = currentQuizList.at(1).chartType;
-    var label = currentQuizList.at(1).label;
-    var labels = currentQuizList.at(1).labels;
-    var data = currentQuizList.at(1).data;
-    var rightAnswer = currentQuizList.at(1).rightAnswer;
-    var question = currentQuizList.at(1).question;
-    var answers = currentQuizList.at(1).answers;
-
-
+    var sessionName = currentQuizList.at(0).sessionName;
+    var chartType = currentQuizList.at(0).chartType;
+    var label = currentQuizList.at(0).label;
+    var labels = currentQuizList.at(0).labels;
+    var data = currentQuizList.at(0).data;
+    var rightAnswer = currentQuizList.at(0).rightAnswer;
+    var question = currentQuizList.at(0).question;
+    var answers = currentQuizList.at(0).answers;
+    console.log(currentQuizList);
 
         // Deckblatt
         const reportUrl = '/mod/activequiz/backend/assets/ActiveQuiz_Report_Deckblatt.pdf';
@@ -64,20 +62,14 @@ async function buildPdf(currentQuizList) {
         const pngUrl = '/mod/activequiz/backend/assets/fh_logo.png';
         const pngImageBytes = await fetch(pngUrl).then((res) => res.arrayBuffer());
 
-        // Chart
-        const chartUrl = createChartLink(chartType, sessionName, labels, data, question, "Antworten", "Auswertung");
-        console.log(chartUrl);
-
-
-        const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
+       
 
 
         const pdfDoc = await PDFDocument.load(existingPdfBytes);
         const pngImage = await pdfDoc.embedPng(pngImageBytes);
-        const chartImage = await pdfDoc.embedPng(chartImageBytes);
-
-
+       
         const pages = pdfDoc.getPages();
+
         const questionArray = [];
         questionArray[0] = question;
         const answersArray = [];
@@ -87,7 +79,7 @@ async function buildPdf(currentQuizList) {
 
         //const pdfDoc = await PDFLib.PDFDocument.create();
         const arialFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-        console.log(data);
+
         const firstPage = pages[0];
         const {width, height} = firstPage.getSize();
         firstPage.drawText(sessionName, {
@@ -98,7 +90,7 @@ async function buildPdf(currentQuizList) {
             color: rgb(0.0, 0.392, 0.612), //blau
         });
 
-        for (let i = 0; i < questionArray.length; i++) {
+        for (let i = 0; i < currentQuizList.length; i++) {
             let page = pdfDoc.addPage();
             page.drawImage(pngImage, {
                 x: 10,
@@ -106,7 +98,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText(questionArray[i], {
+            page.drawText(currentQuizList.at(i).question, {
                 x: 40,
                 y: height - 126 - 30,
                 size: 28,
@@ -115,14 +107,14 @@ async function buildPdf(currentQuizList) {
                 maxWidth: width - 80
             });
             const form = pdfDoc.getForm();
-            const radioGroup = form.createRadioGroup(questionArray[i]);
+            const radioGroup = form.createRadioGroup(currentQuizList.at(i).question);
 
             let j;
             let newLine = 15;
             let lines = 0;
-            for (j = 0; j < answersArray[i].length; j++) {
-                if (answersArray[i][j].replace(/^\s+/g, "") == rightAnswerArray[i].replace(/\s+/g, "")) {
-                    page.drawText(answersArray[i][j], {
+            for (j = 0; j < currentQuizList.at(i).answers.length; j++) {
+                if (currentQuizList.at(i).answers[j].replace(/^\s+/g, "") == currentQuizList.at(i).rightAnswer.replace(/\s+/g, "")) {
+                    page.drawText(currentQuizList.at(i).answers[j], {
                         x: 70,
                         y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
                         size: 18,
@@ -130,15 +122,15 @@ async function buildPdf(currentQuizList) {
                         color: rgb(0.537, 0.702, 0.114),
                         maxWidth: width - 80
                     });
-                    radioGroup.addOptionToPage(answersArray[i][j], page, {
+                    radioGroup.addOptionToPage(currentQuizList.at(i).answers[j], page, {
                         height: 15,
                         width: 15,
                         x: 43,
                         y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine)
                     });
-                    radioGroup.select(answersArray[i][j]);
+                    radioGroup.select(currentQuizList.at(i).answers[j]);
                 } else {
-                    page.drawText(answersArray[i][j], {
+                    page.drawText(currentQuizList.at(i).answers[j], {
                         x: 70,
                         y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
                         size: 18,
@@ -146,14 +138,14 @@ async function buildPdf(currentQuizList) {
                         color: rgb(0, 0.1, 0.156),
                         maxWidth: width - 80
                     });
-                    radioGroup.addOptionToPage(answersArray[i][j], page, {
+                    radioGroup.addOptionToPage(currentQuizList.at(i).answers[j], page, {
                         height: 15,
                         width: 15,
                         x: 43,
                         y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine)
                     });
                 }
-                lines = lines + answersArray[i][j].length / 50;
+                lines = lines + currentQuizList.at(i).answers[j].length / 50;
             }
             /*
             page.drawText(test, {
@@ -172,7 +164,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText(questionArray[i] + " - Chart", {
+            page.drawText(currentQuizList.at(i).question + " - Chart", {
                 x: 40,
                 y: height - 126 - 30,
                 size: 28,
@@ -180,6 +172,13 @@ async function buildPdf(currentQuizList) {
                 color: rgb(0, 0.1, 0.156),
                 maxWidth: width - 80
             });
+            // Chart
+            const chartUrl = createChartLink(currentQuizList.at(i).chartType, sessionName, currentQuizList.at(i).labels, currentQuizList.at(i).data, currentQuizList.at(i).question, "Antworten", "Auswertung");
+            console.log(chartUrl);
+    
+    
+            const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
+            const chartImage = await pdfDoc.embedPng(chartImageBytes);
             page.drawImage(chartImage, {
                 x: 30,
                 y: height - 126 - 30 - 60 - 300,
