@@ -15,7 +15,7 @@ class QuizData {
 }
 
 const chartWidth = 550;
-const chartHeight = 250;
+const chartHeight = 400;
 
 // Generate Chart By Parameter --> Answers
 function generateChartBySessionAndSlot(sessionid, type, slot) {
