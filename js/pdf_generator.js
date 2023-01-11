@@ -59,7 +59,7 @@ async function buildPdf(currentQuizList) {
 
         const pdfDoc = await PDFDocument.load(existingPdfBytes);
         const pngImage = await pdfDoc.embedPng(pngImageBytes);
-       
+
         const pages = pdfDoc.getPages();
 
         //const pdfDoc = await PDFLib.PDFDocument.create();
@@ -98,7 +98,7 @@ async function buildPdf(currentQuizList) {
             let newQuestionLine = 30;
             let newLine = 22;
             let lines = 0;
-            
+
             let answerShiftCount = 0;
             for (j = 0; j < currentQuizList.at(i).answers.length; j++) {
                 if((logoYShift + (newQuestionLine * questionLines) + 31 + (answerYShift * j) + (lines * newLine)) > height){
@@ -152,8 +152,8 @@ async function buildPdf(currentQuizList) {
                         y: height - logoYShift - (newQuestionLine * questionLines) - 31 - (answerYShift * answerShiftCount) - (lines * newLine)
                     });
                 }
-                lines = lines + (currentQuizList.at(i).answers[j].length / 68);    
-                answerShiftCount++; 
+                lines = lines + (currentQuizList.at(i).answers[j].length / 68);
+                answerShiftCount++;
             }
             /*
             page.drawText(test, {
@@ -172,7 +172,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText(currentQuizList.at(i).question + " - Chart", {
+            page.drawText(currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
                 size: questionFontSize,
