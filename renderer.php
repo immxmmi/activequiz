@@ -520,37 +520,38 @@ class mod_activequiz_renderer extends plugin_renderer_base
             )
         );
 
-        // BUTTON OUTPUT
-
-            $output .= html_writer::start_tag('div', array('class' => 'dropdown'));
-
-            $output .= html_writer::tag('button', "Show Chart",
-                array(
-                    'class' => 'btn'
-                ));
-
-            $output .= html_writer::start_tag('div', array('class' => 'dropdown-content'));
-            $output .= html_writer::tag('button', "show", array('class' => 'btn',
-                'id' => 'show_chart_hide',
-                'onclick' => 'activequiz.show_chart_hide();'));
-
-            $output .= html_writer::tag('button', "Pie Chart", array('class' => 'btn',
-                'id' => 'show_chart_pie',
-                'onclick' => 'activequiz.show_chart_pie();'));
-            $output .= html_writer::tag('button', "Bar Chart", array('class' => 'btn',
-                'id' => 'show_chart_bar()',
-                'onclick' => 'activequiz.show_chart_bar();'));
-            $output .= html_writer::tag('button', "Doughnut Chart", array('class' => 'btn',
-                'id' => 'activequiz.show_chart_doughnut()',
-                'onclick' => 'activequiz.show_chart_doughnut();'));
-            $output .= html_writer::end_tag('div');
-
-
-            $output .= html_writer::end_tag('div');
 
        // BUTTON OUTPUT
 
         $output .= html_writer::div($inqcontrol, 'btn-hide rtq_inquiz', array('id' => 'inquizcontrols'));
+
+        // BUTTON OUTPUT
+
+        $output .= html_writer::start_tag('div', array('class' => 'dropdown'));
+
+        $output .= html_writer::tag('button', "Show Chart",
+            array(
+                'class' => 'btn'
+            ));
+
+        $output .= html_writer::start_tag('div', array('class' => 'dropdown-content'));
+        $output .= html_writer::tag('button', "show", array('class' => 'btn',
+            'id' => 'show_chart_hide',
+            'onclick' => 'activequiz.show_chart_hide();'));
+
+        $output .= html_writer::tag('button', "Pie Chart", array('class' => 'btn',
+            'id' => 'show_chart_pie',
+            'onclick' => 'activequiz.show_chart_pie();'));
+        $output .= html_writer::tag('button', "Bar Chart", array('class' => 'btn',
+            'id' => 'show_chart_bar()',
+            'onclick' => 'activequiz.show_chart_bar();'));
+        $output .= html_writer::tag('button', "Doughnut Chart", array('class' => 'btn',
+            'id' => 'activequiz.show_chart_doughnut()',
+            'onclick' => 'activequiz.show_chart_doughnut();'));
+        $output .= html_writer::end_tag('div');
+
+
+        $output .= html_writer::end_tag('div');
 
         return $output;
     }
