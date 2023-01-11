@@ -14,6 +14,8 @@ class QuizData {
     }
 }
 
+const chartWidth = 850;
+const chartHeight = 550;
 
 // Generate Chart By Parameter --> Answers
 function generateChartBySessionAndSlot(sessionid, type, slot) {
@@ -34,9 +36,7 @@ async function getChartDataBySessionID(sessionID, slot) {
 // create image -->
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    const height = 650;
-    const width = 750;
-    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&width=${width}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
+    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${chartHeight}&width=${chartWidth}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
     return encodeURI(url);
 }
 
@@ -178,8 +178,8 @@ async function buildPdf(currentQuizList) {
             page.drawImage(chartImage, {
                 x: 30,
                 y: height - logoYShift - (newQuestionLine * questionLines) - 60 - 300,
-                width: 500,
-                height: 300,
+                width: chartWidth,
+                height: chartHeight,
             });
 
             form.flatten();
