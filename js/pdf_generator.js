@@ -95,7 +95,7 @@ async function buildPdf(currentQuizList) {
 
             let j;
             let questionLines = currentQuizList.at(i).question.length / 52;
-            if(questionLines == 0){
+            if(questionLines < 0){
                 questionLines = 1;
             }
             let newQuestionLine = 30;
