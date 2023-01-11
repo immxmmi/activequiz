@@ -11,7 +11,7 @@ global $DB;
 
 // PARAMETER
 $height = (int)optional_param('height', false, PARAM_TEXT);
-$weight = (int)optional_param('weight', false, PARAM_TEXT);
+$width = (int)optional_param('width', false, PARAM_TEXT);
 $xlabel = optional_param('xlabel', false, PARAM_TEXT);
 $ylabel = optional_param('ylabel', false, PARAM_TEXT);
 $type = optional_param('type', false, PARAM_TEXT);
@@ -22,7 +22,7 @@ $data = optional_param('data', false, PARAM_TEXT);
 // IMG
 $img_build = new chart_img_builder(
     $height,
-    $weight,
+    $width,
     $type,
     $title,
     $xlabel,

@@ -34,9 +34,9 @@ async function getChartDataBySessionID(sessionID, slot) {
 // create image -->
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
-    const height = 250;
-    const weight = 350;
-    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&weight=${weight}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
+    const height = 300;
+    const width = 600;
+    var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${height}&width=${width}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
     return encodeURI(url);
 }
 

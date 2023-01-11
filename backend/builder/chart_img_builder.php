@@ -4,7 +4,7 @@ class chart_img_builder
 {
     private $type;
     private $height = 300;
-    private $weight = 600;
+    private $width = 600;
     private $title = "label";
     private $labels = array();
     private $ylabel = "-";
@@ -13,11 +13,11 @@ class chart_img_builder
     private $scale = "textint";
     private $graph;
 
-    public function __construct($height, $weight, $type, $title, $xlabel, $ylabel, $row_labels, $row_data)
+    public function __construct($height, $width, $type, $title, $xlabel, $ylabel, $row_labels, $row_data)
     {
         // SIZE
         $this->height = $height;
-        $this->weight = $weight;
+        $this->width = $width;
 
         // CHART TYPE
         $this->type = $type;
@@ -46,12 +46,12 @@ class chart_img_builder
         }
         return $this->height;
     }
-    public function getWeight(): int
+    public function getWidth(): int
     {
-        if (!$this->weight) {
-            $this->weight = 600;
+        if (!$this->width) {
+            $this->width = 600;
         }
-        return $this->weight;
+        return $this->width;
     }
 
 
@@ -110,7 +110,7 @@ class chart_img_builder
     }
 
     private function createBarPlot(){
-        $this->graph = new Graph($this->getWeight(), $this->getHeight(), 'auto');
+        $this->graph = new Graph($this->getWidth(), $this->getHeight(), 'auto');
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
@@ -137,7 +137,7 @@ class chart_img_builder
     }
     private function createPiePlot(){
         // Create the Pie Graph.
-        $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
+        $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
         $this->graph->SetBox(true);
 
 
@@ -159,7 +159,7 @@ class chart_img_builder
     }
     private function create3dPiePlot(){
         // Create the Pie Graph.
-        $this->graph = new PieGraph($this->getWeight(),$this->getHeight());
+        $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
 
         $theme_class= new VividTheme;
         $this->graph->SetTheme($theme_class);
