@@ -82,7 +82,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText(currentQuizList.at(i).question, {
+            page.drawText("Frage: " + currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
                 size: questionFontSize,
@@ -94,7 +94,7 @@ async function buildPdf(currentQuizList) {
             const radioGroup = form.createRadioGroup(i + "");
 
             let j;
-            let questionLines = (currentQuizList.at(i).question.length / 52) + 1;
+            let questionLines = (currentQuizList.at(i).question.length / 45) + 1;
             let newQuestionLine = 30;
             let newLine = 22;
             let lines = 0;
@@ -111,7 +111,7 @@ async function buildPdf(currentQuizList) {
                         width: 180,
                         height: 113
                     });
-                    page.drawText(currentQuizList.at(i).question, {
+                    page.drawText("Frage: " + currentQuizList.at(i).question, {
                         x: 40,
                         y: height - logoYShift - 30,
                         size: questionFontSize,
@@ -162,7 +162,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText(currentQuizList.at(i).question, {
+            page.drawText("Frage: " + currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
                 size: questionFontSize,
