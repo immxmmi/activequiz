@@ -91,11 +91,10 @@ async function buildPdf(currentQuizList) {
                 maxWidth: width - 80
             });
             const form = pdfDoc.getForm();
-            const radioGroup = form.createRadioGroup(currentQuizList.at(i).question);
+            const radioGroup = form.createRadioGroup(i + "");
 
             let j;
             let questionLines = currentQuizList.at(i).question.length / 52;
-            console.log(questionLines);
             if(questionLines < 1){
                 questionLines = 1;
             }
