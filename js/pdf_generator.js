@@ -171,7 +171,7 @@ async function buildPdf(currentQuizList) {
                 maxWidth: width - 80
             });
             // Chart
-            const chartUrl = createChartLink(currentQuizList.at(i).chartType, sessionName, currentQuizList.at(i).labels, currentQuizList.at(i).data, currentQuizList.at(i).question, "Antworten", "Auswertung");
+            const chartUrl = createChartLink(currentQuizList.at(i).chartType, currentQuizList.at(i).question, currentQuizList.at(i).labels, currentQuizList.at(i).data, currentQuizList.at(i).question, "Antworten", "Auswertung");
 
             const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
             const chartImage = await pdfDoc.embedPng(chartImageBytes);
