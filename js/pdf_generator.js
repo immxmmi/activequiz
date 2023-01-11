@@ -155,16 +155,6 @@ async function buildPdf(currentQuizList) {
                 lines = lines + (currentQuizList.at(i).answers[j].length / 68);
                 answerShiftCount++;
             }
-            /*
-            page.drawText(test, {
-                x: 40,
-                y: height - 126 - 30 - 40 - (40 * j) - (lines * newLine),
-                size: 28,
-                font: arialFont,
-                color: rgb(0, 0.1, 0.156),
-                maxWidth: width - 80
-            });*/
-
             page = pdfDoc.addPage();
             page.drawImage(pngImage, {
                 x: 10,
