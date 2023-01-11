@@ -14,7 +14,7 @@ class QuizData {
     }
 }
 
-const chartWidth = 450;
+const chartWidth = 550;
 const chartHeight = 550;
 
 // Generate Chart By Parameter --> Answers
@@ -177,7 +177,7 @@ async function buildPdf(currentQuizList) {
             const chartImage = await pdfDoc.embedPng(chartImageBytes);
             page.drawImage(chartImage, {
                 x: 30,
-                y: height - logoYShift - (newQuestionLine * questionLines) - 60 - 300,
+                y: height - logoYShift - (newQuestionLine * questionLines) - 60 - chartHeight,
                 width: chartWidth,
                 height: chartHeight,
             });
