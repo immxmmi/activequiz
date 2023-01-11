@@ -14,7 +14,7 @@ class QuizData {
     }
 }
 
-const chartWidth = 850;
+const chartWidth = 450;
 const chartHeight = 550;
 
 // Generate Chart By Parameter --> Answers
