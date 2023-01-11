@@ -44,8 +44,6 @@ $steps = $steps->getAttemptstepids();
 
 $steps_data = new attempt_step_data($steps);
 $steps_data = $steps_data->getStepDataList();
-
-
 $questionType = "singel";
 $single = new single_choice();
 $trueFalse = new true_false_choice();
