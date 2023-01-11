@@ -94,10 +94,7 @@ async function buildPdf(currentQuizList) {
             const radioGroup = form.createRadioGroup(i + "");
 
             let j;
-            let questionLines = currentQuizList.at(i).question.length / 52;
-            if(questionLines < 1){
-                questionLines = 1;
-            }
+            let questionLines = (currentQuizList.at(i).question.length / 52) + 1;
             let newQuestionLine = 30;
             let newLine = 22;
             let lines = 0;
