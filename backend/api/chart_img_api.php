@@ -6,7 +6,6 @@ require_once ("../lib/jpgraph-4.4.1/src/jpgraph_line.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_bar.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_pie.php");
 require_once ("../lib/jpgraph-4.4.1/src/jpgraph_pie3d.php");
-
 global $DB;
 
 // PARAMETER
