@@ -12,7 +12,7 @@ class chart_img_builder
     private $data = array();
     private $scale = "textint";
     private $graph;
-    private $font = FF_FONT1;
+    private $font = FF_ARIAL;
 
     public function __construct($height, $width, $type, $title, $xlabel, $ylabel, $row_labels, $row_data)
     {
@@ -95,17 +95,17 @@ class chart_img_builder
     private function setGraphTitle($title){
             // TITLE
         $this->graph->title->Set($title);
-        $this->graph->title->SetFont($font,FS_BOLD);
+        $this->graph->title->SetFont($this->font,FS_BOLD);
     }
 
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
-        $this->graph->yaxis->title->SetFont($font,FS_BOLD);
+        $this->graph->yaxis->title->SetFont($this->font,FS_BOLD);
         $this->graph->yaxis->scale->SetGrace(10);
     }
     private function setXaxisGraph(){
         $this->graph->xaxis->title->Set($this->xlabel);
-        $this->graph->xaxis->title->SetFont($font,FS_BOLD);
+        $this->graph->xaxis->title->SetFont($this->font,FS_BOLD);
         //LABELS
         $this->graph->xaxis->SetTickLabels($this->labels);
     }
@@ -130,7 +130,7 @@ class chart_img_builder
 
          // VALUE
         $bplot->value->Show();
-        $bplot->value->SetFont(FF_ARIAL,FS_BOLD);
+        $bplot->value->SetFont($this->font,FS_BOLD);
         $bplot->value->SetAngle(45);
         $bplot->value->SetColor('green','darkred');
 
