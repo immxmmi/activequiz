@@ -12,6 +12,7 @@ class chart_img_builder
     private $data = array();
     private $scale = "textint";
     private $graph;
+    private $font = FF_FONT1;
 
     public function __construct($height, $width, $type, $title, $xlabel, $ylabel, $row_labels, $row_data)
     {
@@ -94,17 +95,17 @@ class chart_img_builder
     private function setGraphTitle($title){
             // TITLE
         $this->graph->title->Set($title);
-        $this->graph->title->SetFont(FF_FONT1,FS_BOLD);
+        $this->graph->title->SetFont($font,FS_BOLD);
     }
 
     private function setYaxisGraph(){
         $this->graph->yaxis->title->Set($this->ylabel);
-        $this->graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
+        $this->graph->yaxis->title->SetFont($font,FS_BOLD);
         $this->graph->yaxis->scale->SetGrace(10);
     }
     private function setXaxisGraph(){
         $this->graph->xaxis->title->Set($this->xlabel);
-        $this->graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD);
+        $this->graph->xaxis->title->SetFont($font,FS_BOLD);
         //LABELS
         $this->graph->xaxis->SetTickLabels($this->labels);
     }
