@@ -24,9 +24,7 @@ class attempt_steps
                 $sql = 'SELECT * FROM "public"."mdl_question_attempt_steps" WHERE questionattemptid = :questionattemptid AND sequencenumber != :sequencenumber';
                 $params = array('questionattemptid' => $questionattemptid[0]->getid(), 'sequencenumber' => 0);
                 $result = $DB->get_records_sql($sql, $params);
-
                 foreach ($result as $answer) {
-
                     $currentstep = $this->builder(
                         $answer->id,
                         $answer->questionattemptid,
