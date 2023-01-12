@@ -85,6 +85,8 @@ class report_overview_renderer extends \plugin_renderer_base
                                 <option value="bar">Bar</option>
                                 <option value="pie">Pie</option>
                               </select>';
+
+        $selectsession .= ''+ selectElement.options[selectElement.selectedIndex].value;
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
