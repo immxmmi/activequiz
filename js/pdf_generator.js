@@ -2,8 +2,8 @@
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 var e = document.getElementById("chart_typ");
-var value = e.value;
-var text = e.options[e.selectedIndex].text;
+//var value = e.value;
+//var text = e.options[e.selectedIndex].text;
 
 class QuizData {
     constructor(sessionName, chartType, label, labels, data, rightAnswer, answers, question) {
@@ -41,7 +41,7 @@ async function getChartDataBySessionID(sessionID, slot) {
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${chartHeight}&width=${chartWidth}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
-    console.log(text);
+    console.log(e);
     return encodeURI(url);
 }
 
