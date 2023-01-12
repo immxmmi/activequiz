@@ -37,7 +37,6 @@ async function getChartDataBySessionID(sessionID, slot) {
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${chartHeight}&width=${chartWidth}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
-    console.log(url);
     return encodeURI(url);
 }
 
