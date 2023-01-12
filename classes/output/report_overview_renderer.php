@@ -79,13 +79,11 @@ class report_overview_renderer extends \plugin_renderer_base
 
         //PDF PRINTER
         $sessionName = $sessionoptions[$selectedid];
-        $selectsession .= ' <select name="cars" id="cars">
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="opel">Opel</option>
-    <option value="audi">Audi</option>
-  </select>';
         $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '")'));
+        $selectsession .= ' <select name="charts" id="chart_typ">
+    <option value="bar">Bar</option>
+    <option value="pie">Pie</option>
+  </select>';
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
