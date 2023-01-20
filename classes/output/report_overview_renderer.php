@@ -36,12 +36,6 @@ class report_overview_renderer extends \plugin_renderer_base
     use renderer_base;
 
 
-    public function test()
-    {
-        alert("Hello! I am an alert box!!");
-    }
-
-
     /**
      * renders and echos the home page fore the responses section
      *
@@ -79,8 +73,9 @@ class report_overview_renderer extends \plugin_renderer_base
 
         //PDF PRINTER
         $sessionName = $sessionoptions[$selectedid];
-        $selectsession .= \html_writer::tag('button', 'Download Bar PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
-        $selectsession .= \html_writer::tag('button', 'Download Pie PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
+        $selectsession .= \html_writer::tag('h2', "DOWNLOAD PDF: ", array('class' => 'inline-block'));
+        $selectsession .= \html_writer::tag('button', 'BAR CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
+        $selectsession .= \html_writer::tag('button', 'PIE CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
       //  $selectsession .= '<label for="charts">Chart Type:</label>
       //                       <select name="charts" id="chart_typ">
       //                          <option value="bar">Bar</option>
