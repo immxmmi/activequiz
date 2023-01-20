@@ -90,7 +90,10 @@ class chart_img_builder
 
     private function createGraph($type, $data)
     {
-        $this->checkData($data);
+        if($this->checkData($data)){
+         $type = "bar";
+        }
+
         switch ($type){
             case "pie" : $this->createPiePlot($data);break;
             case "pie3d" : $this->create3dPiePlot($data);break;
