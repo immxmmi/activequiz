@@ -73,7 +73,7 @@ class report_overview_renderer extends \plugin_renderer_base
 
         //PDF PRINTER
         $sessionName = $sessionoptions[$selectedid];
-        $selectsession .= \html_writer::tag('h2', "DOWNLOAD PDF: ", array('class' => 'inline-block'));
+        $selectsession .= \html_writer::tag('h5', "Download PDF: ", array('class' => 'inline-block'));
         $selectsession .= \html_writer::tag('button', 'BAR CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
         $selectsession .= \html_writer::tag('button', 'PIE CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
       //  $selectsession .= '<label for="charts">Chart Type:</label>
