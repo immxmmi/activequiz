@@ -79,8 +79,8 @@ class report_overview_renderer extends \plugin_renderer_base
 
         //PDF PRINTER
         $sessionName = $sessionoptions[$selectedid];
-        $selectsession .= \html_writer::tag('button', 'Download Bar PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
-        $selectsession .= \html_writer::tag('button', 'Download Pie PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '")'));
+        $selectsession .= \html_writer::tag('button', 'Download Bar PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
+        $selectsession .= \html_writer::tag('button', 'Download Pie PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
       //  $selectsession .= '<label for="charts">Chart Type:</label>
       //                       <select name="charts" id="chart_typ">
       //                          <option value="bar">Bar</option>
