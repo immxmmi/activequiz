@@ -36,9 +36,17 @@ class chart_img_builder
         // DATA
         $this->setData($row_data);
 
-        $this->createGraph($this->type);
+        $this->createGraph($this->type, $this->data);
     }
 
+    private function checkData($chartData){
+        foreach ($chartData as $data) {
+            if($data > 0){
+                return false;
+            }
+        }
+        return true;
+    }
 
     public function getHeight(): int
     {
@@ -80,12 +88,13 @@ class chart_img_builder
         }
     }
 
-    private function createGraph($type)
+    private function createGraph($type, $data)
     {
+        $this->checkData($data);
         switch ($type){
-            case "pie" : $this->createPiePlot();break;
-            case "pie3d" : $this->create3dPiePlot();break;
-            default : $this->createBarPlot();break;
+            case "pie" : $this->createPiePlot($data);break;
+            case "pie3d" : $this->create3dPiePlot($data);break;
+            default : $this->createBarPlot($data);break;
         }
 
         $this->setGraphTitle($this->title);
@@ -110,7 +119,7 @@ class chart_img_builder
         $this->graph->xaxis->SetTickLabels($this->labels);
     }
 
-    private function createBarPlot(){
+    private function createBarPlot($data){
         $this->graph = new Graph($this->getWidth(), $this->getHeight(), 'auto');
         // SETTINGS
         $this->graph->SetScale($this->scale);
@@ -123,7 +132,7 @@ class chart_img_builder
         $this->setXaxisGraph();
 
         // BAR
-        $bplot = new BarPlot($this->data);
+        $bplot = new BarPlot($data);
         $bplot->SetFillColor('orange');
         $bplot->SetWidth(0.8);
         $bplot->SetShadow();
@@ -136,14 +145,14 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
-    private function createPiePlot(){
+    private function createPiePlot($data){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
         $this->graph->SetBox(true);
 
 
 
-        $p1 = new PiePlot($this->data);
+        $p1 = new PiePlot($data);
         $this->graph->Add($p1);
 
         $p1->ShowBorder();
@@ -158,7 +167,7 @@ class chart_img_builder
         $p1->SetLegends($legends);
 
     }
-    private function create3dPiePlot(){
+    private function create3dPiePlot($data){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
 
@@ -167,7 +176,7 @@ class chart_img_builder
 
 
 
-        $p1 = new PiePlot3D($this->data);
+        $p1 = new PiePlot3D($data);
         $this->graph->Add($p1);
 
         $p1->ShowBorder();
