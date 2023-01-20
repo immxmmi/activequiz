@@ -199,7 +199,7 @@ async function buildPdf(currentQuizList) {
 
 }
 
-async function createPdf(sessionID, sessionName) {
+async function createPdf(sessionID, sessionName, chartType) {
 
 
     if (sessionID == null || sessionName == null) {
@@ -220,8 +220,6 @@ async function createPdf(sessionID, sessionName) {
                 // CHART API
                 getChartDataBySessionID(sessionID, currentSlot).then((chartData) => {
                     // Chart data
-
-                    const chartType = chartData.data.charttype;
                     let label = chartData.data.chartdata.datasets.at(0).label;
                     label = 'Answers';
 

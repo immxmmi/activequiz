@@ -73,18 +73,19 @@ class report_overview_renderer extends \plugin_renderer_base
         // LIB
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/pdf-lib'));
       //  $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/dist/pdf-lib.js'));
-      //  $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
+        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
 
         //PDF PRINTER
         $sessionName = $sessionoptions[$selectedid];
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '")'));
-        $selectsession .= '<label for="charts">Chart Type:</label>
-                             <select name="charts" id="chart_typ">
-                                <option value="bar">Bar</option>
-                                <option value="pie">Pie</option>
-                              </select>';
+        $selectsession .= \html_writer::tag('button', 'Download Bar PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
+        $selectsession .= \html_writer::tag('button', 'Download Pie PDF', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '")'));
+      //  $selectsession .= '<label for="charts">Chart Type:</label>
+      //                       <select name="charts" id="chart_typ">
+      //                          <option value="bar">Bar</option>
+      //                          <option value="pie">Pie</option>
+      //                        </select>';
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
