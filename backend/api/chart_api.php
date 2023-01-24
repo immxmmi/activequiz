@@ -7,13 +7,13 @@ require_once("../class/mdl_question_attempts.php");
 require_once("../class/mdl_question_attempt_steps.php");
 require_once("../class/mdl_question_attempt_step_data.php");
 require_once("../class/single_choice.php");
-require_once("../class/truefalsechoice.php");
+require_once("../class/true_false_choice.php");
 global $DB;
 
 // Parameter
-$charttype = optional_param('type', false, PARAM_TEXT); //
-$sessionid = optional_param('sessionid', false, PARAM_TEXT); //$sessionID = 46;
-//$slot_test = optional_param('slot', false, PARAM_TEXT); //$sessionID = 46;
+$charttype = optional_param('type', false, PARAM_TEXT);
+$sessionid = optional_param('sessionid', false, PARAM_TEXT);
+$slot = optional_param('slot', false, PARAM_TEXT);
 $chart = new chart_builder();
 
 # # # # # # # # -SESSION- # # # # # # # #
@@ -26,10 +26,6 @@ $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
 
 # # # # # # # #  -QUESTION ATTEMPTS- # # # # # # # #
-
-$slot = optional_param('slot', false, PARAM_TEXT); //; // SLOT
-
-
 if (!is_numeric($slot)) {
     $slot = $session->getCurrentquestion(); // SLOT
 }
