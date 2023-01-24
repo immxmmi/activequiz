@@ -1,6 +1,4 @@
 <?php
-/*** TODO PIE ***/
-
 class chart_img_builder
 {
     private $type;
@@ -148,6 +146,7 @@ class chart_img_builder
 
         $this->graph->Add($bplot);
     }
+    /*** TODO PIE ***/
     private function createPiePlot($data){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
