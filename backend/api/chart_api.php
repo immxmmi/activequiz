@@ -38,7 +38,6 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
 
 $answers = $question_attemp->getListOfAnswers();
-
 $steps = new attempt_steps($answers);
 $steps = $steps->getAttemptstepids();
 
