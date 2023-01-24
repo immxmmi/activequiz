@@ -76,11 +76,6 @@ class report_overview_renderer extends \plugin_renderer_base
         $selectsession .= \html_writer::tag('h5', "Download PDF : ", array('class' => 'inline-block'));
         $selectsession .= \html_writer::tag('button', 'BAR CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
         $selectsession .= \html_writer::tag('button', 'PIE CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
-      //  $selectsession .= '<label for="charts">Chart Type:</label>
-      //                       <select name="charts" id="chart_typ">
-      //                          <option value="bar">Bar</option>
-      //                          <option value="pie">Pie</option>
-      //                        </select>';
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
@@ -103,7 +98,6 @@ class report_overview_renderer extends \plugin_renderer_base
     public function home()
     {
 
-
         $gradestable = new \mod_activequiz\tableviews\overallgradesview('gradestable', $this->activequiz, $this->pageurl);
 
         echo \html_writer::start_div('activequizbox');
@@ -125,13 +119,10 @@ class report_overview_renderer extends \plugin_renderer_base
      */
     public function view_session_attempts(\mod_activequiz\tableviews\sessionattempts $sessionattempts)
     {
-
-
         $sessionattempts->setup();
         $sessionattempts->show_download_buttons_at(array(TABLE_P_BOTTOM));
         $sessionattempts->set_data();
         $sessionattempts->finish_output();
-
     }
 
 

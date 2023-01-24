@@ -91,7 +91,7 @@ class chart_img_builder
     private function createGraph($type, $data)
     {
         if($this->checkData($data)){
-         $type = "bar";
+            $type = "bar";
         }
 
         switch ($type){
@@ -165,8 +165,7 @@ class chart_img_builder
         // COLORS
         //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
 
-
-        $legends = $this->labels;//array('April (%d)','May (%d)','June (%d)');
+        $legends = $this->labels;
         $p1->SetLegends($legends);
 
     }
@@ -189,8 +188,7 @@ class chart_img_builder
         // COLORS
         //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
 
-
-        $legends = $this->labels;//array('April (%d)','May (%d)','June (%d)');
+        $legends = $this->labels;
         $p1->SetLegends($legends);
 
     }

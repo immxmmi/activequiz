@@ -151,6 +151,4 @@ class chart_builder
         $this->info = $info;
     }
 
-
-
 }
