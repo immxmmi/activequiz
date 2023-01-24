@@ -1,4 +1,5 @@
 <?php
+/*** TODO PIE ***/
 
 class chart_img_builder
 {
@@ -124,12 +125,11 @@ class chart_img_builder
 
     private function createBarPlot($data){
         $this->graph = new Graph($this->getWidth(), $this->getHeight(), 'auto');
+
         // SETTINGS
         $this->graph->SetScale($this->scale);
         $this->graph->SetShadow();
         $this->graph->SetFrame(false);
-
-
 
         $this->setYaxisGraph();
         $this->setXaxisGraph();

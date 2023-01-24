@@ -21,6 +21,7 @@ $aw = array();
 $right = array();
 //QUIZ BUILDER
 $quiz_build = new quiz_builder();
+
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
@@ -30,15 +31,14 @@ $max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->get
 if($slot > 0 && $slot <= $max_slots){
 
     # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
-    $curretnQuiz = new question_data($allquestionengids[0], $slot);
-    #######################################################
+    $currentQuiz = new question_data($allquestionengids[0], $slot);
+    ########################################################
+
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
+$data = $quiz_build->build_quiz_data($currentQuiz->getQuestion(), $currentQuiz->getAnswers(), $currentQuiz->getRightanswer(), $max_slots, $slot);
 }else{
     $data = $quiz_build->build_quiz_data(null, null, null, $max_slots, $slot);
 }
-
-
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');

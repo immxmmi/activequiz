@@ -2,8 +2,6 @@
 const {PDFDocument, StandardFonts, rgb} = PDFLib
 
 var e = document.getElementById("chart_typ");
-//var value = e.value;
-//var text = e.options[e.selectedIndex].text;
 
 class QuizData {
     constructor(sessionName, chartType, label, labels, data, rightAnswer, answers, question) {
@@ -45,7 +43,6 @@ function createChartLink(chartType, title, labels, data, question, xlabel, ylabe
 }
 
 
-//async function buildPdf(sessionName, chartType, label, labels, data, rightAnswer, question, answers) {
 async function buildPdf(currentQuizList) {
 
     var sessionName = currentQuizList.at(0).sessionName;
@@ -198,7 +195,6 @@ async function buildPdf(currentQuizList) {
 }
 
 async function createPdf(sessionID, sessionName, chartType) {
-
 
     if (sessionID == null || sessionName == null) {
         return;
