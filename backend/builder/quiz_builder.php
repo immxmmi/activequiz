@@ -6,23 +6,35 @@ class quiz_builder
     private $status = 'success';
     private $msg = 'Quizdata successfully fetched';
     private $data = array();
-    private $info = '-';
+    private $info = '3';
+    private $slots = 1;
 
     public function __construct()
     {
     }
 
-    public function build_quiz_data($question, $answer, $right_answer)
+    public function build_quiz_data($question, $answer, $right_answer, $slots,$current_slot)
     {
-
-        if ($question === null) {
+        if ($question === null || $current_slot > $slots || $right_answer == null || $answer == null) {
             $this->info = "no Question - Failed";
-        } else {
-            $this->info = "Loading - Success";
+            $this->msg = "SLOT ERROR";
+            $this->status = "not found";
+            $this->response_code = 404;
             $this->data = array(
-                'question' => $question[0],
-                'answers' => $answer[0],
-                'right_answer' => $right_answer[0]
+                'question' => null,
+                'answers' => null,
+                'right_answer' => null,
+                'current_slot' => $current_slot,
+                'max_slots' => $slots
+            );
+        } else {
+            $this->info = $this->info;
+            $this->data = array(
+                'question' => $question,
+                'answers' => $answer,
+                'right_answer' => $right_answer,
+                'current_slot' => $current_slot,
+                'max_slots' => $slots
             );
         }
         return $this->convert_quiz_to_json();
@@ -43,6 +55,7 @@ class quiz_builder
         );
         return $response;
     }
+
 
     /**
      * @return int

@@ -36,12 +36,6 @@ class report_overview_renderer extends \plugin_renderer_base
     use renderer_base;
 
 
-    public function test()
-    {
-        alert("Hello! I am an alert box!!");
-    }
-
-
     /**
      * renders and echos the home page fore the responses section
      *
@@ -67,19 +61,21 @@ class report_overview_renderer extends \plugin_renderer_base
         $sessionselect = new \single_select($sessionselecturl, 'sessionid', $sessionoptions, $selectedid);
 
 
-
         $selectsession .= \html_writer::div($this->output->render($sessionselect), 'inline-block');
         $selectsession .= \html_writer::end_div();
 
         // LIB
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/pdf-lib'));
-        $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/dist/pdf-lib.js'));
+      //  $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/dist/pdf-lib.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
 
         //PDF PRINTER
-        $selectsession .= \html_writer::tag('button', 'PDF Download', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf('.$selectedid.')'));
+        $sessionName = $sessionoptions[$selectedid];
+        $selectsession .= \html_writer::tag('h5', "Download PDF : ", array('class' => 'inline-block'));
+        $selectsession .= \html_writer::tag('button', 'BAR CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
+        $selectsession .= \html_writer::tag('button', 'PIE CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));
         $output .= $selectsession;
 
         $regradeurl = clone($this->pageurl);
@@ -102,7 +98,6 @@ class report_overview_renderer extends \plugin_renderer_base
     public function home()
     {
 
-
         $gradestable = new \mod_activequiz\tableviews\overallgradesview('gradestable', $this->activequiz, $this->pageurl);
 
         echo \html_writer::start_div('activequizbox');
@@ -124,13 +119,10 @@ class report_overview_renderer extends \plugin_renderer_base
      */
     public function view_session_attempts(\mod_activequiz\tableviews\sessionattempts $sessionattempts)
     {
-
-
         $sessionattempts->setup();
         $sessionattempts->show_download_buttons_at(array(TABLE_P_BOTTOM));
         $sessionattempts->set_data();
         $sessionattempts->finish_output();
-
     }
 
 

@@ -21,8 +21,8 @@ class attempt_step_data
 
             foreach ($steps_attempts as $step) {
 
-                $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid';
-                $params = array('attemptstepid' => $step->getId());
+                $sql = 'SELECT * FROM "public"."mdl_question_attempt_step_data" WHERE attemptstepid = :attemptstepid AND name = :name';
+                $params = array('attemptstepid' => $step->getId(), 'name' => "answer");
                 $step_data = $DB->get_records_sql($sql, $params);
                 foreach ($step_data as $data) {
                     $current_data = $this->build($data->id,$data->attemptstepid,$data->name,$data->value,$step->getAnswerList());
@@ -40,7 +40,9 @@ class attempt_step_data
         $currentStep->name = $name;
         $currentStep->value = $value;
         $currentStep->answer_list = $answer_list;
-        $currentStep->answer = $answer_list[$currentStep->value];
+        if($currentStep->name == "answer"){
+            $currentStep->answer = $answer_list[$currentStep->value];
+        }
         return $currentStep;
     }
 

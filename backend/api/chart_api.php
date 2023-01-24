@@ -38,14 +38,11 @@ $question_attemp = new question_attempts($allquestionengids, $slot);
 #####################################################
 
 $answers = $question_attemp->getListOfAnswers();
-
 $steps = new attempt_steps($answers);
 $steps = $steps->getAttemptstepids();
 
 $steps_data = new attempt_step_data($steps);
 $steps_data = $steps_data->getStepDataList();
-
-
 $questionType = "singel";
 $single = new single_choice();
 $trueFalse = new true_false_choice();

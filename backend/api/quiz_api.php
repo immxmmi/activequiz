@@ -9,6 +9,7 @@ global $DB;
 
 // PARAMETER
 $sessionid = optional_param('sessionid', false, PARAM_TEXT);
+$slot = optional_param('slot', false, PARAM_TEXT);
 
 // ARRAY OF ALL QUIZDATA
 $quizdata = array();
@@ -20,29 +21,24 @@ $aw = array();
 $right = array();
 //QUIZ BUILDER
 $quiz_build = new quiz_builder();
-
 # # # # # # # #  -ACTIVE-QUIZ ATTEMPTS- # # # # # # # #
 $activequiz_attempt = new activequiz_attempt($sessionid);
 $allquestionengids = $activequiz_attempt->getAllQuestionengids();
 #######################################################
+$max_slots = sizeof(explode(",", $activequiz_attempt->getActiveAttemps()[0]->getQubalayout()));
 
-# # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
-if ($allquestionengids != null) {
-    foreach ($allquestionengids as $id) {
-        array_push($quizdata, new question_data($id));
-    }
-}
-#######################################################
+if($slot > 0 && $slot <= $max_slots){
 
-// split quizdata in question array and answer array
-foreach ($quizdata as $qd) {
-    array_push($qu, $qd->getQuestion());
-    array_push($aw, $qd->getAnswers());
-    array_push($right, $qd->getRightanswer());
-}
-
+    # # # # # # # # # #  -QUESTION DATA- # # # # # # # # # #
+    $curretnQuiz = new question_data($allquestionengids[0], $slot);
+    #######################################################
 // build JSON-DATA with Builder
-$data = $quiz_build->build_quiz_data($qu, $aw, $right);
+$data = $quiz_build->build_quiz_data($curretnQuiz->getQuestion(), $curretnQuiz->getAnswers(), $curretnQuiz->getRightanswer(), $max_slots, $slot);
+}else{
+    $data = $quiz_build->build_quiz_data(null, null, null, $max_slots, $slot);
+}
+
+
 
 http_response_code($quiz_build->getResponseCode());
 header('Content-Type: application/json');

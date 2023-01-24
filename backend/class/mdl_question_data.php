@@ -7,19 +7,26 @@ class question_data
     private $question;
     private $answers;
     private $rightanswer;
+    private $result_array = array();
 
-    public function __construct($questionusageid)
+    public function __construct($questionusageid, $slot)
     {
         global $DB;
         if ($questionusageid !== null) {
-            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid';
-            $params = array('questionusageid' => $questionusageid);
+            $sql = 'SELECT * FROM "public"."mdl_question_attempts" WHERE  questionusageid = :questionusageid AND slot= :slot';
+            $params = array('questionusageid' => $questionusageid, 'slot' => $slot);
             $result = $DB->get_records_sql($sql, $params);
-            $this->summary = $result[$questionusageid]->questionsummary;
+
+            foreach ($result as $res) {
+                array_push($this->result_array, $res);
+            }
+
+            $result = $this->result_array[0];
+            $this->summary = $result->questionsummary;
             $text = explode(':', $this->summary);
             $this->question = $text[0];
             $this->answers = $text[1]; //explode(';', $text[1]);
-            $this->rightanswer = $result[$questionusageid]->rightanswer;
+            $this->rightanswer = $result->rightanswer;
         }
 
     }
