@@ -28,6 +28,7 @@ function generateChartBySessionAndSlot(sessionid, type, slot) {
 // Generate Chart By Parameter -->
 async function getQuizDataBySession(sessionid, slot) {
     var url = '/mod/activequiz/backend/api/quiz_api.php?sessionid=' + sessionid + '&slot=' + slot;
+    console.log(url);
     return fetch(url).then((response) => response.json());
 }
 
@@ -39,6 +40,7 @@ async function getChartDataBySessionID(sessionID, slot) {
 function createChartLink(chartType, title, labels, data, question, xlabel, ylabel) {
     let labelsStr = labels.map(x => "'" + x + "'").toString();
     var url = `./backend/api/chart_img_api.php?type=${chartType}&height=${chartHeight}&width=${chartWidth}&title=${title}&labels=${labelsStr}&data=${data}&xlabel=${xlabel}&ylabel=${ylabel}`;
+    console.log(url);
     return encodeURI(url);
 }
 
@@ -190,11 +192,8 @@ async function buildPdf(currentQuizList) {
             form.flatten();
         }
         const pdfBytes = await pdfDoc.save();
-        // Time and Date
-        const d = new Date();
-        const time = d.getTime();
         // Download
-        download(pdfBytes, sessionName + time.toString(), "application/pdf");
+        download(pdfBytes, sessionName, "application/pdf");
 }
 
 async function createPdf(sessionID, sessionName, chartType) {
