@@ -65,7 +65,7 @@ class chart_img_builder
 
     public function setLabels($row_labels)
     {
-        $row_labels = explode("',' ", $row_labels);
+        $row_labels = explode("','", $row_labels);
         foreach ($row_labels as $val) {
             array_push($this->labels, trim($val, '\''));
         }
@@ -155,17 +155,17 @@ class chart_img_builder
 
 
         $p1 = new PiePlot($data);
-        $this->graph->Add($p1);
-
         $p1->ShowBorder();
-        $p1->SetColor('black');
+        $p1->SetTheme('earth');
+        $p1->SetStartAngle(45);
+        $legends = $this->labels;
+        $p1->SetLegends($legends);
 
-
+        $this->graph->Add($p1);
         // COLORS
         //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
 
-        $legends = $this->labels;
-        $p1->SetLegends($legends);
+        
 
     }
     private function create3dPiePlot($data){
