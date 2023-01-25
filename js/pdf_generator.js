@@ -76,6 +76,8 @@ async function buildPdf(currentQuizList) {
             color: rgb(0.0, 0.392, 0.612), //blau
         });
         for (let i = 0; i < currentQuizList.length; i++) {
+            let newLabels = [];
+            let answerNumber = 'A'.charCodeAt();
             let page = pdfDoc.addPage();
             page.drawImage(pngImage, {
                 x: 10,
@@ -83,7 +85,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText("Frage:  " + currentQuizList.at(i).question, {
+            page.drawText("Frage: " + currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
                 size: questionFontSize,
@@ -101,6 +103,7 @@ async function buildPdf(currentQuizList) {
             let lines = 0;
 
             let answerShiftCount = 0;
+           
             for (j = 0; j < currentQuizList.at(i).answers.length; j++) {
                 if((logoYShift + (newQuestionLine * questionLines) + 31 + (answerYShift * j) + (lines * newLine)) > height){
                     lines = 0;
@@ -112,7 +115,7 @@ async function buildPdf(currentQuizList) {
                         width: 180,
                         height: 113
                     });
-                    page.drawText("Frage:  " + currentQuizList.at(i).question, {
+                    page.drawText("Frage: " + currentQuizList.at(i).question, {
                         x: 40,
                         y: height - logoYShift - 30,
                         size: questionFontSize,
@@ -121,8 +124,8 @@ async function buildPdf(currentQuizList) {
                         maxWidth: width - 80
                     });
                 }
-                if (currentQuizList.at(i).answers[j].replace(/^\s+/g, "") == currentQuizList.at(i).rightAnswer.replace(/\s+/g, "")) {
-                    page.drawText(currentQuizList.at(i).answers[j], {
+                if (currentQuizList.at(i).answers[j].replace(/\s+/g, "") == currentQuizList.at(i).rightAnswer.replace(/\s+/g, "")) {
+                    page.drawText(String.fromCharCode(answerNumber)  + ":" + currentQuizList.at(i).answers[j], {
                         x: 70,
                         y: height - logoYShift - (newQuestionLine * questionLines) - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
                         size: answerFontSize,
@@ -138,7 +141,7 @@ async function buildPdf(currentQuizList) {
                     });
                     radioGroup.select(currentQuizList.at(i).answers[j]);
                 } else {
-                    page.drawText(currentQuizList.at(i).answers[j], {
+                    page.drawText(String.fromCharCode(answerNumber) + ":" + currentQuizList.at(i).answers[j], {
                         x: 70,
                         y: height - logoYShift - (newQuestionLine * questionLines) - answerYShift - (answerYShift * answerShiftCount) - (lines * newLine),
                         size: answerFontSize,
@@ -155,6 +158,8 @@ async function buildPdf(currentQuizList) {
                 }
                 lines = lines + (currentQuizList.at(i).answers[j].length / 68);
                 answerShiftCount++;
+                newLabels.push(String.fromCharCode(answerNumber));
+                answerNumber++;
             }
             page = pdfDoc.addPage();
             page.drawImage(pngImage, {
@@ -172,8 +177,7 @@ async function buildPdf(currentQuizList) {
                 maxWidth: width - 80
             });
             // Chart
-            const chartUrl = createChartLink(currentQuizList.at(i).chartType, currentQuizList.at(i).question, currentQuizList.at(i).labels, currentQuizList.at(i).data, currentQuizList.at(i).question, "Antworten", "Auswertung");
-
+            const chartUrl = createChartLink(currentQuizList.at(i).chartType, currentQuizList.at(i).question, newLabels, currentQuizList.at(i).data, currentQuizList.at(i).question, "Antworten", "Auswertung");
             const chartImageBytes = await fetch(chartUrl).then((res) => res.arrayBuffer());
             const chartImage = await pdfDoc.embedPng(chartImageBytes);
             page.drawImage(chartImage, {
@@ -191,7 +195,6 @@ async function buildPdf(currentQuizList) {
         const time = d.getTime();
         // Download
         download(pdfBytes, sessionName + time.toString(), "application/pdf");
-
 }
 
 async function createPdf(sessionID, sessionName, chartType) {

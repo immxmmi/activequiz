@@ -39,13 +39,13 @@ $steps = $steps->getAttemptstepids();
 
 $steps_data = new attempt_step_data($steps);
 $steps_data = $steps_data->getStepDataList();
-$questionType = "singel";
+$questionType = "single";
 $single = new single_choice();
 $trueFalse = new true_false_choice();
 $data = null;
 
 switch ($questionType) {
-    case "singel":
+    case "single":
         $single->load_quiz_data($answers, $steps_data);
         $data = $chart->build_new_chart($charttype, $single->getLabels(), $single->getValues());
         break;
