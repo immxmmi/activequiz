@@ -114,6 +114,9 @@ activequiz.start_quiz = function () {
         'sesskey': activequiz.get('sesskey')
     };
 
+    var btn = document.getElementById('btn-show-chart');
+    btn.style.display="visible";
+
     this.ajax.create_request('/mod/activequiz/quizdata.php', params, function (status, response) {
 
         // if there's only 1 question this will return true
@@ -123,7 +126,6 @@ activequiz.start_quiz = function () {
             nextquestionbtn.disabled = true;
             activequiz.set('lastquestion', 'true');
         }
-
         activequiz.waitfor_question(response.questionid, response.questiontime, response.delay, response.nextstarttime);
     });
 
@@ -364,6 +366,12 @@ activequiz.next_question = function () {
         qformbox.classList.add('hidden');
     }
 
+    var chart = document.getElementById('chart');
+    var hide_btn = document.getElementById('show_chart_hide');
+
+    hide_btn.innerText = "Show";
+    chart.style.display = "none";
+
     var params = {
         'action': 'nextquestion',
         'rtqid': activequiz.get('rtqid'),
@@ -407,6 +415,12 @@ activequiz.end_question = function () {
         'sesskey': activequiz.get('sesskey')
     };
 
+    var chart = document.getElementById('chart');
+    var hide_btn = document.getElementById('show_chart_hide');
+
+    hide_btn.innerText = "Show";
+    chart.style.display = "none";
+
     activequiz.ajax.create_request('/mod/activequiz/quizdata.php', params, function (status, response) {
 
         if (status == 500) {
@@ -449,6 +463,12 @@ activequiz.close_session = function () {
         'attemptid': activequiz.get('attemptid'),
         'sesskey': activequiz.get('sesskey')
     };
+
+    var chart = document.getElementById('chart');
+    var hide_btn = document.getElementById('show_chart_hide');
+
+    hide_btn.innerText = "Show";
+    chart.style.display = "none";
 
     activequiz.ajax.create_request('/mod/activequiz/quizdata.php', params, function (status, response) {
 

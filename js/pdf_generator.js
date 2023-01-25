@@ -168,7 +168,7 @@ async function buildPdf(currentQuizList) {
                 width: 180,
                 height: 113
             });
-            page.drawText("Frage:  " + currentQuizList.at(i).question, {
+            page.drawText("Frage: " + currentQuizList.at(i).question, {
                 x: 40,
                 y: height - logoYShift - 30,
                 size: questionFontSize,
