@@ -729,10 +729,10 @@ activequiz.show_chart_hide = function () {
     var hide_btn = document.getElementById('show_chart_hide');
 
     if(chart.style.display == "none"){
-        hide_btn.innerText = "hide";
+        hide_btn.innerText = "Hide";
         chart.style.display = "";
     }else{
-        hide_btn.innerText = "show";
+        hide_btn.innerText = "Show";
         chart.style.display = "none";
     }
 };
