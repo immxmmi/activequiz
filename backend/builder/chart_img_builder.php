@@ -143,55 +143,34 @@ class chart_img_builder
         $bplot->value->SetFont($this->font,FS_BOLD);
         $bplot->value->SetAngle(45);
         $bplot->value->SetColor('green','darkred');
-
         $this->graph->Add($bplot);
     }
-    /*** TODO PIE ***/
     private function createPiePlot($data){
         // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
         $this->graph->SetBox(true);
-
-
-
         $p1 = new PiePlot($data);
         $p1->ShowBorder();
         $p1->SetTheme('earth');
         $p1->SetStartAngle(45);
         $legends = $this->labels;
         $p1->SetLegends($legends);
-       
         $this->graph->Add($p1);
-        // COLORS
-        //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
-
-        
 
     }
     private function create3dPiePlot($data){
-        // Create the Pie Graph.
         $this->graph = new PieGraph($this->getWidth(),$this->getHeight());
-
         $theme_class= new VividTheme;
         $this->graph->SetTheme($theme_class);
-
-
-
         $p1 = new PiePlot3D($data);
         $this->graph->Add($p1);
-        
         $p1->ShowBorder();
         $p1->SetColor('black');
         $p1->ExplodeSlice(1);
-
-        // COLORS
-        //$p1->SetSliceColors(array('#1E90FF','#2E8B57','#ADFF2F','#DC143C','#BA55D3'));
-
         $legends = $this->labels;
         $p1->SetLegends($legends);
 
     }
-
 
     // Display Chart
     public function showImage(){
