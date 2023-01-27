@@ -1,6 +1,6 @@
 <?php
-require_once("../../../config.php");
-
+require_once("../../../../config.php");
+// TEST PAGE - PDF DEMO
 //   Activequiz\classes\output\report_overview_renderer.php  --> Button for download
 ?>
 <html>

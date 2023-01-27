@@ -66,13 +66,16 @@ class report_overview_renderer extends \plugin_renderer_base
 
         // LIB
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/pdf-lib'));
-      //  $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/dist/pdf-lib.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://unpkg.com/downloadjs@1.4.7'));
         $selectsession .= \html_writer::tag('script', '', array('src' => './js/pdf_generator.js'));
         $selectsession .= \html_writer::tag('script', '', array('src' => 'https://cdn.jsdelivr.net/npm/chart.js@2.9.3'));
 
         //PDF PRINTER
-        $sessionName = $sessionoptions[$selectedid];
+        if($selectedid){
+            $sessionName = $sessionoptions[$selectedid];
+        } else {
+            $sessionName = "Not selected";
+        }
         $selectsession .= \html_writer::tag('h5', "Download PDF : ", array('class' => 'inline-block'));
         $selectsession .= \html_writer::tag('button', 'BAR CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-info', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "bar")'));
         $selectsession .= \html_writer::tag('button', 'PIE CHART', array('id' => 'printPfd', 'type' => 'submit', 'class' => 'btn btn-success', 'OnClick' => 'createPdf(' . $selectedid . ', "' . $sessionName . '", "pie")'));

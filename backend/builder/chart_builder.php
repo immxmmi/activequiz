@@ -91,7 +91,6 @@ class chart_builder
     private function convert_chart_to_json()
     {
         http_response_code($this->response_code);
-        //header('Content-Type: application/json');
         $response = array(
             'meta' => array(
                 'status' => $this->status,
